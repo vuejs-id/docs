@@ -1,18 +1,18 @@
 ---
-title: Join the Vue.js Community!
+title: Join Komunitas Vue.js!
 type: guide
 order: 802
 ---
 
-Vue's community is growing incredibly fast and if you're reading this, there's a good chance you're ready to join it. So... welcome!
+Komunitas Vuejs berkembang sangat pesat dan jika Anda membaca halaman ini, ada kesempatan bisa bergabung dengan komunitas Vue. Selamat datang !!
 
-Now we'll answer both what the community can do for you and what you can do for the community.
+Sekarang kami akan menjawab apa yang dapat dilakukan komunitas untuk Anda dan apa yang bisa Anda lakukan untuk komunitas.
 
-## Resources
+## Sumber Daya
 
-### Code of Conduct
+### Kode Etik
 
-Our [Code of Conduct](/coc) is a guide to make it easier to enrich all of us and the technical communities in which we participate.
+[Kode Etik](/coc) kami adalah sebuah panduan untuk mempermudah kita semua dalam belajar dan komunitas yang membahas segala hal tentang teknis di tempat kita berpartisipasi.
 
 ### Get Support
 
