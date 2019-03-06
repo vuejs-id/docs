@@ -19,11 +19,11 @@ Sekarang kami akan menjawab apa yang dapat dilakukan komunitas untuk Anda dan ap
 - [Forum](https://forum.Vuejs.org/): Tempat yang tepat untuk menanyakan beberapa pertanyaan dan mendapatkan jawaban tentang Vue dan ekosistem nya.
 - [Chat](https://chat.Vuejs.org/): Tempat Developer Vue untuk bertemu dan ngobrol secara *real time*.
 - [Meetups](https://www.Vuemeetups.org): Ingin mencari penggemar Vuejs di lokal area seperti Anda? Tertarik menjadi ketua komunitas? Kami disini bisa memberikan bantuan dan dukungan kepada Anda !
-- [GitHub](https://github.com/Vuejs): Jika Anda menemukan `bug` untuk di laporkan dan meminta sebuah fitur baru di Vuejs, komunikasikan dengan kami melalui Github Issues. Kami juga menerima Pull Request dari Anda!
+- [GitHub](https://github.com/Vuejs): Jika Anda menemukan `bug` untuk dilaporkan dan meminta sebuah fitur baru di Vuejs, komunikasikan dengan kami melalui Github Issues. Kami juga menerima Pull Request dari Anda!
 
 ### Jelajahi Ekosistem
 
-- [Halaman Awesome Vue](https://github.com/Vuejs/awesome-Vue): Temukan sumber daya / pustaka keren lainnya yang telah di publikasikan oleh orang orang keren.
+- [Halaman Awesome Vue](https://github.com/Vuejs/awesome-Vue): Temukan sumber daya/pustaka keren lainnya yang telah di publikasikan oleh orang orang keren.
 - [The "Show and Tell" Subforum](https://forum.Vuejs.org/c/show-and-tell): Tempat bagus lainnya untuk melihat apa yang telah dibuat oleh orang lain dan perkembangan Ekosistem Vuejs.
 
 ## Apa yang bisa Anda lakukan
