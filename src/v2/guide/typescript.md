@@ -4,7 +4,7 @@ type: guide
 order: 403
 ---
 
-> [Vue CLI](https://cli.vuejs.org) menyediakan dukungan perkakas TypeScript bawaan. Pada versi mayor Vue yang akan datang (3.x), kami juga berencana untuk meningkatkan dukungan TypeScript dengan *builtin class* berbasis komponen API dan dukungan TSX.
+> [Vue CLI](https://cli.vuejs.org) menyediakan dukungan perkakas TypeScript bawaan. Pada versi mayor Vue yang akan datang (3.x), kami juga berencana untuk meningkatkan dukungan TypeScript dengan *built-in class* berbasis komponen API dan dukungan TSX.
 
 ## Deklarasi Resmi dalam NPM Package
 
@@ -62,12 +62,12 @@ Agar TypeScript menyimpulkan tipe dengan tepat di dalam pilihan Vue *component*,
 import Vue from 'vue'
 
 const Component = Vue.extend({
-  // penyimpulan tipe diaktifkan
+  // penyimpulan tipe (type inference) diaktifkan
 })
 
 const Component = {
   // ini TIDAK akan memiliki penyimpulan tipe
-  // sebab TypeScript tidak dapat memberitahu pilihan ini untuk Vue componen.
+  // sebab TypeScript tidak dapat memberitahu pilihan ini untuk Vue component.
 }
 ```
 
@@ -155,7 +155,7 @@ var vm = new Vue({
 })
 ```
 
-## Menandai Tipe Kembalian
+## Menganotasi Tipe Kembalian
 
 Karena sifat *circular* dari *file* deklarasi Vue, TypeScript mungkin mengalami kesulitan menyimpulkan tipe *method* tertentu. Untuk alasan ini, Anda mungkin perlu membuat anotasi tipe kembalian pada beberapa *method* seperti `render` dan `computed`.
 
