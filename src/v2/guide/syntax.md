@@ -99,7 +99,7 @@ Ekspresi ini akan dievaluasi sebagai JavaScript dalam scope data dari Vue instan
 
 ## Direktif
 
-Direktif (arahan) adalah atribut khusus dengan awalan `v-`. Nilai atribut direktif diharapkan menjadi **sebuah ekspresi JavaScript tunggal** (dengan pengecualian `v-for`, yang akan dibahas nanti). Tugas direktif adalah menerapkan efek pada DOM secara reaktif ketika nilai ekspresinya berubah. Mari kita lihat pada contoh terdahulu:
+Direktif adalah atribut khusus dengan awalan `v-`. Nilai atribut direktif diharapkan menjadi **sebuah ekspresi JavaScript tunggal** (dengan pengecualian `v-for`, yang akan dibahas nanti). Tugas direktif adalah menerapkan efek pada DOM secara reaktif ketika nilai ekspresinya berubah. Mari kita lihat pada contoh terdahulu:
 
 ```html
 <p v-if="seen">Sekarang anda bisa melihatku</p>
@@ -107,106 +107,106 @@ Direktif (arahan) adalah atribut khusus dengan awalan `v-`. Nilai atribut direkt
 
 Di sini, direktif `v-if` akan menghapus / memasukkan elemen `<p>` berdasarkan kebenaran dari nilai ekspresi `seen`.
 
-### Arguments
+### Argumen
 
-Some directives can take an "argument", denoted by a colon after the directive name. For example, the `v-bind` directive is used to reactively update an HTML attribute:
+Beberapa direktif dapat mengambil sebuah "argumen", dilambangkan dengan tanda titik dua setelah nama direktif. Misalnya, direktif `v-bind` digunakan untuk memperbarui atribut HTML secara reaktif:
 
 ```html
 <a v-bind:href="url"> ... </a>
 ```
 
-Here `href` is the argument, which tells the `v-bind` directive to bind the element's `href` attribute to the value of the expression `url`.
+Di sini `href` adalah argumen, yang memberitahukan direktif `v-bind` untuk mengikat atribut `href` dengan nilai ekspresi `url`.
 
-Another example is the `v-on` directive, which listens to DOM events:
+Contoh lain adalah direktif `v-on`, sebagai listen event pada DOM:
 
 ```html
 <a v-on:click="doSomething"> ... </a>
 ```
 
-Here the argument is the event name to listen to. We will talk about event handling in more detail too.
+Di sini argumennya adalah nama event untuk di listen. Kami akan membicarakan event handling secara lebih rinci.
 
-### Dynamic Arguments
+### Argumen Dinamis
 
-> New in 2.6.0+
+> Terbaru di 2.6.0+
 
-Starting in version 2.6.0, it is also possible to use a JavaScript expression in a directive argument by wrapping it with square brackets:
+Mulai versi 2.6.0, juga dimungkinkan untuk menggunakan ekspresi JavaScript dalam argumen direktif dengan membungkusnya dengan tanda kurung:
 
 ```html
-<a v-bind:[attributeName]="url"> ... </a>
+<a v-bind:[namaAtribut]="url"> ... </a>
 ```
 
-Here `attributeName` will be dynamically evaluated as a JavaScript expression, and its evaluated value will be used as the final value for the argument. For example, if your Vue instance has a data property, `attributeName`, whose value is `"href"`, then this binding will be equivalent to `v-bind:href`.
+Di sini `namaAtribut` akan dievaluasi secara dinamis sebagai ekspresi JavaScript, dan nilainya yang dievaluasi akan digunakan sebagai nilai akhir untuk argumen. Misalnya, jika instance Vue Anda memiliki properti data, `namaAtribut`, yang nilainya `"href"`, maka binding ini setara dengan `v-bind:href`.
 
-Similarly, you can use dynamic arguments to bind a handler to a dynamic event name:
+Demikian pula, anda bisa menggunakan argumen dinamis untuk binding sebuah handler pada nama event yang dinamis:
 
 ```html
-<a v-on:[eventName]="doSomething"> ... </a>
+<a v-on:[namaEvent]="doSomething"> ... </a>
 ```
 
-Similarly, when `eventName`'s value is `"focus"`, for example, `v-on:[eventName]` will be equivalent to `v-on:focus`.
+Demikian pula, ketika nilai dari `namaEvent` adalah `"focus"`, misalnya, `v-on:[namaEvent]` akan setara dengan `v-on:focus`.
+ 
+#### Batasan Nilai Argumen Dinamis
 
-#### Dynamic Argument Value Constraints
+Argumen dinamis diharapkan untuk mengevaluasi ke string, dengan pengecualian `null`. Nilai khusus `null` dapat digunakan untuk menghapus binding secara eksplisit. Nilai non-string lainnya akan memicu sebuah peringatan.
 
-Dynamic arguments are expected to evaluate to a string, with the exception of `null`. The special value `null` can be used to explicitly remove the binding. Any other non-string value will trigger a warning.
+#### Batasan Ekspresi Argumen Dinamis
 
-#### Dynamic Argument Expression Constraints
+<p class="tip">Ekspresi argumen dinamis memiliki beberapa batasan sintaksis karena karakter tertentu tidak valid di dalam nama atribut HTML, seperti spasi dan kutipan. Anda juga harus menghindari huruf besar saat menggunakan templat di-DOM</p>
 
-<p class="tip">Dynamic argument expressions have some syntax constraints because certain characters are invalid inside HTML attribute names, such as spaces and quotes. You also need to avoid uppercase keys when using in-DOM templates.</p>
-
-For example, the following is invalid:
+Misalnya, berikut ini tidak valid:
 
 ```html
-<!-- This will trigger a compiler warning. -->
+<!-- Ini akan memicu peringatan kompiler. -->
 <a v-bind:['foo' + bar]="value"> ... </a>
 ```
 
-The workaround is to either use expressions without spaces or quotes, or replace the complex expression with a computed property.
+Solusinya adalah menggunakan ekspresi tanpa spasi atau tanda kutip, atau mengganti ekspresi kompleks dengan properti computed.
 
-In addition, if you are using in-DOM templates (templates directly written in an HTML file), you have to be aware that browsers will coerce attribute names into lowercase:
+Selain itu, jika anda menggunakan templat di-DOM (templat yang langsung ditulis dalam file HTML), anda harus menyadari bahwa browser akan memaksa nama atribut menjadi huruf kecil:
 
 ```html
-<!-- This will be converted to v-bind:[someattr] in in-DOM templates. -->
+<!-- Ini akan dikonversi menjadi v-bind: [someattr] di templat di-DOM. -->
 <a v-bind:[someAttr]="value"> ... </a>
 ```
 
-### Modifiers
+### Modifier
 
-Modifiers are special postfixes denoted by a dot, which indicate that a directive should be bound in some special way. For example, the `.prevent` modifier tells the `v-on` directive to call `event.preventDefault()` on the triggered event:
+Modifier (pengubah) adalah postfixes khusus yang dilambangkan dengan titik, yang menunjukkan bahwa direktif harus dibinding dengan cara tertentu. Misalnya, pengubah `.prevent` memberitahu direktif `v-on` untuk memanggil `event.preventDefault()` pada event yang dipicu:
 
 ```html
 <form v-on:submit.prevent="onSubmit">...</form>
 ```
 
-You'll see other examples of modifiers later, [for `v-on`](events.html#Event-Modifiers) and [for `v-model`](forms.html#Modifiers), when we explore those features.
+Anda akan melihat contoh modifier lain nanti, [untuk `v-on`](events.html#Event-Modifiers) dan [untuk `v-model`](forms.html#Modifiers), ketika kami menjelajahi fitur-fitur tersebut.
 
-## Shorthands
+## Singkatan
 
-The `v-` prefix serves as a visual cue for identifying Vue-specific attributes in your templates. This is useful when you are using Vue.js to apply dynamic behavior to some existing markup, but can feel verbose for some frequently used directives. At the same time, the need for the `v-` prefix becomes less important when you are building a [SPA](https://en.wikipedia.org/wiki/Single-page_application), where Vue manages every template. Therefore, Vue provides special shorthands for two of the most often used directives, `v-bind` and `v-on`:
+Awalan `v-` berfungsi sebagai isyarat visual untuk mengidentifikasi atribut spesifik Vue di templat anda. Ini sangat berguna ketika anda menggunakan Vue.js untuk menerapkan perilaku (behavior) yang dinamis pada beberapa markup yang ada, tetapi dapat terasa tepat untuk beberapa direktif yang sering digunakan. Pada saat yang sama, kebutuhan awalan `v-` menjadi kurang penting ketika anda membangun [SPA](https://en.wikipedia.org/wiki/Single-page_application), di mana Vue mengelola setiap templat. Oleh karena itu, Vue menyediakan singkatan khusus untuk dua direktif yang paling sering digunakan, `v-bind` dan` v-on`:
 
-### `v-bind` Shorthand
+### Singkatan `v-bind`
 
 ```html
 <!-- full syntax -->
 <a v-bind:href="url"> ... </a>
 
-<!-- shorthand -->
+<!-- singkatan -->
 <a :href="url"> ... </a>
 
-<!-- shorthand with dynamic argument (2.6.0+) -->
+<!-- singkatan dengan argumen dinamis (2.6.0+) -->
 <a :[key]="url"> ... </a>
 ```
 
-### `v-on` Shorthand
+### Singkatan `v-on`
 
 ```html
 <!-- full syntax -->
 <a v-on:click="doSomething"> ... </a>
 
-<!-- shorthand -->
+<!-- singkatan -->
 <a @click="doSomething"> ... </a>
 
-<!-- shorthand with dynamic argument (2.6.0+) -->
+<!-- singkatan argumen dinamis (2.6.0+) -->
 <a @[event]="doSomething"> ... </a>
 ```
 
-They may look a bit different from normal HTML, but `:` and `@` are valid characters for attribute names and all Vue-supported browsers can parse it correctly. In addition, they do not appear in the final rendered markup. The shorthand syntax is totally optional, but you will likely appreciate it when you learn more about its usage later.
+Mereka mungkin terlihat sedikit berbeda dari HTML normal, tetapi `:` dan `@` adalah karakter yang valid untuk nama atribut dan semua browser yang didukung Vue dapat menguraikannya dengan benar. Selain itu, mereka tidak muncul di hasil markup render. Sintaks singkatan benar-benar opsional, tetapi anda mungkin akan mengapresiasi ketika anda mempelajari lebih lanjut tentang penggunaannya nanti.
