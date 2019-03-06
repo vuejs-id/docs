@@ -1,5 +1,5 @@
 ---
-title: Template Syntax
+title: Sintaks Templat
 type: guide
 order: 4
 ---
