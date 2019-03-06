@@ -1,12 +1,12 @@
 <h1>Sponsor Vue.js Development</h1>
 
 <p>
-Vue,js adalah sebuah proyek kode sumber terbuka berlisensi MIT dan babas untuk digunakan. Bagaimanapun, upaya dibutuhkan untuk mengelola dan mengembangkan fitur baru untuk proyek tidak akan bertahan tanpa dukungan finansial yang layak. Kamu bisa mendukung pengembangan Vue.js dengan beberapa cara:
+Vue.js adalah sebuah proyek kode sumber terbuka berlisensi MIT dan bebas untuk digunakan. Bagaimanapun, upaya dibutuhkan untuk mengelola dan mengembangkan fitur baru untuk proyek tidak akan bertahan tanpa dukungan finansial yang layak. Kamu bisa mendukung pengembangan Vue.js dengan beberapa cara:
 </p>
 
 <h2 id="One-time-Donations">Donasi sekali waktu</h2>
 
-<p>Kami menerimah donasi melalui beberapa kanal:</p>
+<p>Kami menerima donasi melalui beberapa kanal:</p>
 
 <div id="one-time-donations">
   <a href="https://www.paypal.me/evanyou" target="_blank">
@@ -90,7 +90,17 @@ Donasi berkala datang dengan fasilitas eksklusif, misalnya namamu tercantum di r
 <%_ } _%>
 </p>
 
-<h3>Sponsor Spesial (China)</h3>
+<h3>OpenCollective Platinum</h3>
+
+<p class="open-collective-sponsors sponsor-section">
+<%_ for (let i = 0; i < 10; i++) {_%>
+  <a href="https://opencollective.com/vuejs/tiers/platinum-sponsors/<%- i %>/website" target="_blank">
+    <img src="https://opencollective.com/vuejs/tiers/platinum-sponsors/<%- i %>/avatar.svg">
+  </a>
+<%_ } _%>
+</p>
+
+<h3>Special Sponsors (China)</h3>
 
 <p class="platinum">
 <%_ for (const sponsor of theme.platinum_sponsors_china) {_%>
@@ -126,6 +136,16 @@ Donasi berkala datang dengan fasilitas eksklusif, misalnya namamu tercantum di r
 <%_ for (const sponsor of theme.silver_sponsors) {_%>
   <a href="<%- sponsor.url %>" target="_blank">
     <img src="<%- url_for(`/images/${sponsor.img}`) %>">
+  </a>
+<%_ } _%>
+</p>
+
+<h3>OpenCollective Silver</h3>
+
+<p class="open-collective-sponsors sponsor-section">
+<%_ for (let i = 0; i < 5; i++) {_%>
+  <a href="https://opencollective.com/vuejs/tiers/silver-sponsors/<%- i %>/website" target="_blank">
+    <img src="https://opencollective.com/vuejs/tiers/silver-sponsors/<%- i %>/avatar.svg">
   </a>
 <%_ } _%>
 </p>
