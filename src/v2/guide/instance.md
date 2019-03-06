@@ -1,12 +1,12 @@
 ---
-title: Permintaan Vue
+title: Vue Instance
 type: guide
 order: 3
 ---
 
-## Membuat Permintaan Vue
+## Membuat *Vue Instance*
 
-Setiap aplikasi Vue dimulai dengan membuat **Permintaan Vue** dengan fungsi `Vue` seperti berikut :
+Setiap aplikasi Vue dimulai dengan membuat **Vue Instance** dengan fungsi `Vue` seperti berikut :
 
 ```js
 var vm = new Vue({
@@ -14,13 +14,13 @@ var vm = new Vue({
 })
 ```
 
-Meskipun tidak dengan terkait dengan ketat dengan [Pola MVVM](https://en.wikipedia.org/wiki/Model_View_ViewModel), desain yang dimiliki Vue sebagian terinspirasi oleh konsep tersebut. Sebagai ketentuan, kita kadang menggunakan variabel `vm` ( kependekan dari ViewModel ) untuk mengacu pada permintaan Vue kami.
+Meskipun tidak dengan terkait dengan ketat dengan [Pola MVVM](https://en.wikipedia.org/wiki/Model_View_ViewModel), desain yang dimiliki Vue sebagian terinspirasi oleh konsep tersebut. Sebagai ketentuan, kita kadang menggunakan variabel `vm` ( kependekan dari ViewModel ) untuk mengacu pada *Vue Instance* kami.
 
 
-Ketika anda membuat permintaan Vue, anda mengirimkan **objek pilihan**. Sebagian besar dari panduan ini menjelaskan bagaimana anda bisa menggunakan opsi ini untuk membuat tindakan yang anda inginkan. Sebagai contoh, anda juga bisa melihat lihat daftar lengkap dari opsi ini di [Contoh API](../api/#Options-Data).
+Ketika anda membuat *Vue Instance*, anda mengirimkan **obyek opsi**. Sebagian besar dari panduan ini menjelaskan bagaimana anda bisa menggunakan opsi ini untuk membuat tindakan yang anda inginkan. Sebagai contoh, Anda juga bisa melihat lihat daftar lengkap dari opsi ini di [Contoh API](../api/#Options-Data).
 
 
-Sebuah aplikasi Vue terdiri dari **permintaan dasar Vue** yang dibuat dengan `new Vue`, secara opsional di atur ke dalam struktur pohon, komponen yang bisa digunakan ulang. Sebagai contoh, komponen aplikasi pengingat mungkin terliat seperti ini :
+Sebuah aplikasi Vue terdiri dari **permintaan dasar Vue** yang dibuat dengan `new Vue`, secara opsional di atur ke dalam akar (root) *Vue Instance*, komponen yang bisa digunakan ulang. Sebagai contoh, komponen aplikasi pengingat mungkin terlihat seperti ini :
 
 
 ```
@@ -34,19 +34,19 @@ Root Instance
       └─ TodoListStatistics
 ```
 
-Kita akan membiacarakan tentang [sistem komponen](components.html) pada detail selanjunya. Sekarang, dengan hanya mengetahui bahwa semua komponen Vue juga adalah permintaan Vue, dan jug menerima opsi objek yang sama (kecuali untuk beberapa opsi pohon-spesifik).
+Kita akan membicarakan tentang [sistem komponen](components.html) pada detail selanjutnya. Sekarang, dengan hanya mengetahui bahwa semua komponen Vue juga adalah *Vue Instance*, dan juga menerima opsi objek yang sama (kecuali untuk beberapa opsi *tree of nested*).
 
 
 ## Data dan Metode
 
-Ketika permintaan Vue dibuat, ini menambah semua properti yang ditemukan di dalam objek `data` ke Vue's **sistem reaktifitas**. Ketika nilai dari properti tersebut berubah, tampilanya akan "bereaksi", memperbarui untuk mencocokan dengan nilai yang baru.
+Ketika *Vue Instance* dibuat, ini menambah semua properti yang ditemukan di dalam objek `data` ke Vue's **sistem reaktifitas**. Ketika nilai dari properti tersebut berubah, tampilanya akan "bereaksi", memperbarui untuk mencocokan dengan nilai yang baru.
 
 
 ```js
 // Objek data kita
 var data = { a: 1 }
 
-// Objek ditambahkan kedalam permintaan Vue
+// Objek ditambahkan kedalam Vue Instance
 var vm = new Vue({
   data: data
 })
@@ -109,7 +109,7 @@ new Vue({
 </div>
 ```
 
-Untuk tambahan ke data properti, permintaan Vue menunjukan sejumlah properti permintaan dan metode yang berguna. Ini juga diawalai dengan `$` untuk membedakan mereka dari properti yang ditetapkan-pengguna. Sebagai contoh:
+Untuk tambahan ke data properti, *Vue Instance* menunjukan sejumlah properti permintaan dan metode yang berguna. Ini juga diawalai dengan `$` untuk membedakan mereka dari properti yang ditetapkan-pengguna. Sebagai contoh:
 
 
 ```js
@@ -133,7 +133,7 @@ Selanjutnya, anda bisa berkonsultasi ke [Referensi API](../api/#Instance-Propert
 
 ## Siklus Hidup Pengait Permintaan
 
-Setiap permintaan Vue melewati beberapa serangkaian langkan inisiasi pada saat dibuat - sebagai contoh, ini perlu diatur observasi data, memproses templat, memasang permintaan ke DOM, dan memperbarui DOM ketika data berubah. Sepanjang proses, ini juga berjalan dengan fungsi bernama **siklus hidup pengait**, memberi pengguna kesempatan untuk menambah kode mereka sendiri pada tahapan tertentu.
+Setiap *Vue Instance* melewati beberapa serangkaian langkan inisiasi pada saat dibuat - sebagai contoh, ini perlu diatur observasi data, memproses templat, memasang permintaan ke DOM, dan memperbarui DOM ketika data berubah. Sepanjang proses, ini juga berjalan dengan fungsi bernama **siklus hidup pengait**, memberi pengguna kesempatan untuk menambah kode mereka sendiri pada tahapan tertentu.
 
 Sebagai contoh, pengait [`created`](../api/#created) bisa digunakan untuk menjalankan kode setelah permintaan ini dibuat:
 
@@ -150,13 +150,13 @@ new Vue({
 // => "a is: 1"
 ```
 
-Ada juga pengait lain yang akan dipanggil pada tahapan berbeda di siklus hidup permintaan, seperti [`mounted`](../api/#mounted), [`updated`](../api/#updated), dan [`destroyed`](../api/#destroyed). Semua siklus hidup pengait dipanggil dengan konteks `this` mereka yang menunjuk ke konteks permintaan Vue yang menjalankanya.
+Ada juga pengait lain yang akan dipanggil pada tahapan berbeda di siklus hidup permintaan, seperti [`mounted`](../api/#mounted), [`updated`](../api/#updated), dan [`destroyed`](../api/#destroyed). Semua siklus hidup pengait dipanggil dengan konteks `this` mereka yang menunjuk ke konteks *Vue Instance* yang menjalankanya.
 
-<p class="tip">Jangan menggunakan [fungsi panah](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) pada opsi properti atau pemanggilan ulang, seperti `created: () => console.log(this.a)` or `vm.$watch('a', newValue => this.myMethod())`. Sejak fungsi panah terikat dengan konteks induk, `this` tidak akan menjadi permintaan Vue seperti yang anda harapkan, kadang menyebabkan kesalahan seperti `Uncaught TypeError: Cannot read property of undefined` atau `Uncaught TypeError: this.myMethod is not a function`.</p>
+<p class="tip">Jangan menggunakan [fungsi panah](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) pada opsi properti atau pemanggilan ulang, seperti `created: () => console.log(this.a)` or `vm.$watch('a', newValue => this.myMethod())`. Sejak fungsi panah terikat dengan konteks induk, `this` tidak akan menjadi *Vue Instance* seperti yang anda harapkan, kadang menyebabkan kesalahan seperti `Uncaught TypeError: Cannot read property of undefined` atau `Uncaught TypeError: this.myMethod is not a function`.</p>
 
 ## Diagram Siklus Hidup
 
 Dibawah ini adalah diagram dari siklus hidup permintaan. Anda tidak perlu memahami dengan penuh apapun yang terjadi sekarang, tapi selama anda belajar dan terus membuat, ini akan menjadi referensi yang berguna
 
 
-![The Vue Instance Lifecycle](/images/lifecycle.png)
+![The *Vue Instance* Lifecycle](/images/lifecycle.png)
