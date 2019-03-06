@@ -3,23 +3,23 @@ title: Sintaks Templat
 type: guide
 order: 4
 ---
-Vue.js menggunakan sintaks templat berbasis HTML yang memungkinkan anda secara deklaratif untuk mengikat hasil render DOM untuk mendasari instant data Vue. Semua templat Vue.js adalah HTML yang valid yang dapat diuraikan oleh browser yang sesuai spesifikasi dan pengurai HTML. 
+Vue.js menggunakan sintaks templat berbasis HTML yang memungkinkan anda secara deklaratif untuk binding hasil render DOM yang mendasari data dari Vue instance. Semua templat Vue.js adalah HTML yang valid yang dapat diuraikan oleh browser yang sesuai spesifikasi dan pengurai HTML.
 
-Pada dasarnya, Vue mengkompilasi templat ke dalam fungsi render Virtual DOM. Dikombinasikan dengan sistem reaktivitas, Vue mampu secara cerdas mencari tahu jumlah minimum komponen untuk render ulang dan menerapkan jumlah minimal manipulasi DOM ketika state pada aplikasi berubah.
+Pada dasarnya, Vue mengkompilasi templat ke dalam fungsi render Virtual DOM. Dikombinasikan dengan sistem reaktivitas, Vue mampu secara cerdas mencari tahu jumlah minimum komponen untuk render ulang dan menerapkan jumlah minimal manipulasi DOM ketika state pada app berubah.
 
-Jika anda terbiasa dengan konsep Virtual DOM dan lebih suka native JavaScript, anda juga dapat [menulis langsung fungsi render](render-function.html) pengganti templat, dengan opsi dukungan JSX.
+Jika anda terbiasa dengan konsep Virtual DOM dan lebih suka native JavaScript, anda juga dapat [menulis langsung fungsi render](render-function.html) sebagai pengganti templat, dengan opsi dukungan JSX.
 
 ## Interpolasi
 
 ### Teks
 
-Bentuk paling mendasar dari data binding adalah interpolasi teks menggunakan sintaksis "Kumis" (kurung kurawal ganda):
+Bentuk paling mendasar dari data binding adalah interpolasi teks menggunakan sintaksis "Mustache" (kurung kurawal ganda):
 
 ```html
 <span>Pesan: {{ msg }}</span>
 ```
 
-Tag kumis akan di ganti dengan nilai property `msg` pada objek data yang sesuai. Ini juga akan diperbarui setiap kali properti objek data `msg` berubah.
+Tag mustache akan di ganti dengan nilai property `msg` pada objek data yang sesuai. Ini juga akan diperbarui setiap kali properti objek data `msg` berubah.
 
 Anda juga dapat melakukan interpolasi satu kali yang tidak memperbarui pada perubahan data dengan menggunakan direktif [v-once](../api/#v-once), tetapi perlu diingat ini juga akan mempengaruhi binding lain pada node yang sama:
 
@@ -29,17 +29,17 @@ Anda juga dapat melakukan interpolasi satu kali yang tidak memperbarui pada peru
 
 ### Raw HTML
 
-Tanda kumis ganda menerjemahkan data sebagai teks biasa, bukan HTML. Untuk menghasilkan HTML asli, gunakan direktif `v-html`:
+Tanda mustache menerjemahkan data sebagai teks biasa, bukan HTML. Untuk menghasilkan HTML asli, gunakan direktif `v-html`:
 
 ```html
-<p>Menggunakan tanda kumis: {{ rawHtml }}</p>
+<p>Menggunakan tanda mustache: {{ rawHtml }}</p>
 <p>Menggunakan direktif v-html: <span v-html="rawHtml"></span></p>
 ```
 
 {% raw %}
 
 <div id="example1" class="demo">
-  <p>Menggunakan tanda kumis: {{ rawHtml }}</p>
+  <p>Menggunakan tanda mustache: {{ rawHtml }}</p>
   <p>Menggunakan direktif v-html: <span v-html="rawHtml"></span></p>
 </div>
 <script>
@@ -54,13 +54,13 @@ new Vue({
 </script>
 {% endraw %}
 
-Konten `span` akan diganti dengan nilai properti `rawHtml`, diterjemahkan sebagai HTML biasa - binding data diabaikan. Perhatikan bahwa anda tidak dapat menggunakan `v-html` untuk membuat parsial templat, karena Vue bukan mesin templating berbasis String. Sebaliknya, komponen lebih disukai sebagai unit dasar UI yang bisa digunakan kembali.
+Konten `span` akan diganti dengan nilai properti `rawHtml`, diterjemahkan sebagai HTML biasa - binding data diabaikan. Perhatikan bahwa anda tidak dapat menggunakan `v-html` untuk membuat parsial templat, karena Vue bukan mesin templating berbasis String. Sebaliknya, komponen lebih disukai sebagai unit dasar UI yang bisa digunakan kembali dan komposisi.
 
 <p class="tip">Merender HTML yang berubah-ubah secara dinamis di situs web anda bisa sangat berbahaya karena dapat mudah terserang [kerentanan XSS](https://en.wikipedia.org/wiki/Cross-site_scripting). Gunakan interpolasi HTML pada konten yang terpercaya dan **jangan pernah** pada konten yang disediakan pengguna.</p> 
 
 ### Atribut
 
-Tanda kumis tidak dapat digunakan di dalam atribut HTML. Sebagai gantinya, gunakan direktif [v-bind](../api/#v-bind):
+Tanda mustache tidak dapat digunakan di dalam atribut HTML. Sebagai gantinya, gunakan direktif [v-bind](../api/#v-bind):
 
 ```html
 <div v-bind:id="dynamicId"></div>
