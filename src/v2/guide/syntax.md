@@ -3,7 +3,7 @@ title: Sintaks Templat
 type: guide
 order: 4
 ---
-Vue.js menggunakan sintaks templat berbasis HTML yang memungkinkan anda secara deklaratif untuk mengikat hasil render DOM untuk yang mendasari instant data Vue. Semua templat Vue.js adalah HTML yang valid yang dapat diuraikan oleh browser yang sesuai spesifikasi dan pengurai HTML.
+Vue.js menggunakan sintaks templat berbasis HTML yang memungkinkan anda secara deklaratif untuk mengikat hasil render DOM untuk mendasari instant data Vue. Semua templat Vue.js adalah HTML yang valid yang dapat diuraikan oleh browser yang sesuai spesifikasi dan pengurai HTML. 
 
 Pada dasarnya, Vue mengkompilasi templat ke dalam fungsi render Virtual DOM. Dikombinasikan dengan sistem reaktivitas, Vue mampu secara cerdas mencari tahu jumlah minimum komponen untuk render ulang dan menerapkan jumlah minimal manipulasi DOM ketika state pada aplikasi berubah.
 
@@ -76,7 +76,7 @@ Jika `isButtonDisabled` bernilai `null`, `undefined`, atau `false`, atribut `dis
 
 ### Menggunakan Ekspresi JavaScript
 
-Sejauh ini kami hanya binding properti sederhana di template kami. Tetapi Vue.js sebenarnya mendukung penuh ekspresi JavaScript di dalam semua binding data:
+Sejauh ini kami hanya binding properti sederhana di templat kami. Tetapi Vue.js sebenarnya mendukung penuh ekspresi JavaScript di dalam semua binding data:
 
 ```html
 {{ number + 1 }} {{ ok ? 'YES' : 'NO' }} {{ message.split('').reverse().join('')
@@ -85,7 +85,7 @@ Sejauh ini kami hanya binding properti sederhana di template kami. Tetapi Vue.js
 <div v-bind:id="'list-' + id"></div>
 ```
 
-Ekspresi ini akan dievaluasi sebagai JavaScript dalam scope data dari Vue instance. Satu batasan adalah bahwa setiap binding hanya dapat berisi **one single expression**, jadi yang berikut ini **TIDAK** akan berfungsi:
+Ekspresi ini akan dievaluasi sebagai JavaScript dalam scope data dari Vue instance. Satu batasan adalah bahwa setiap binding hanya dapat berisi **satu ekspresi tunggal (one single expression)**, jadi yang berikut ini **TIDAK** akan berfungsi:
 
 ```html
 <!-- ini adalah sebuah statemen, bukan sebuah ekspresi: -->
@@ -135,7 +135,7 @@ Mulai versi 2.6.0, juga dimungkinkan untuk menggunakan ekspresi JavaScript dalam
 <a v-bind:[namaAtribut]="url"> ... </a>
 ```
 
-Di sini `namaAtribut` akan dievaluasi secara dinamis sebagai ekspresi JavaScript, dan nilainya yang dievaluasi akan digunakan sebagai nilai akhir untuk argumen. Misalnya, jika instance Vue Anda memiliki properti data, `namaAtribut`, yang nilainya `"href"`, maka binding ini setara dengan `v-bind:href`.
+Di sini `namaAtribut` akan dievaluasi secara dinamis sebagai ekspresi JavaScript, dan nilainya yang dievaluasi akan digunakan sebagai nilai akhir untuk argumen. Misalnya, jika instance Vue anda memiliki properti data, `namaAtribut`, yang nilainya `"href"`, maka binding ini setara dengan `v-bind:href`.
 
 Demikian pula, anda bisa menggunakan argumen dinamis untuk binding sebuah handler pada nama event yang dinamis:
 
