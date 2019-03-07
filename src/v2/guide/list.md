@@ -4,9 +4,9 @@ type: guide
 order: 8
 ---
 
-## Memetakan sebuah Array dengan Perintah `v-for`
+## Memetakan sebuah Array dengan Direktif `v-for`
 
-Kita bisa menggunakan perintah 'v-for' untuk mengeluarkan elemen yang berada didalam sebuah array. Perintah `v-for` ini memerlukan sebuah sintaksis spesial yaitu `item in items`, dimana `items` berarti data awalnya yang berada di dalam array dan `item` ini adalah sebuah **alias** untuk elemen array yang ingin di keluarkan.
+Kita bisa menggunakan perintah 'v-for' untuk mengeluarkan elemen yang berada didalam sebuah array. Direktif `v-for` ini memerlukan sebuah sintaksis spesial yaitu `item in items`, dimana `items` berarti data awalnya yang berada di dalam array dan `item` ini adalah sebuah **alias** untuk elemen array yang ingin di keluarkan.
 
 ``` html
 <ul id="example-1">
@@ -54,7 +54,7 @@ var example1 = new Vue({
 </script>
 {% endraw %}
 
-Di dalam perintah `v-for` kita bisa mengakses property di parentnya. Perintah `v-for` juga memiliki argument kedua untuk menunjukkan index dari item sekarang.
+Di dalam Direktif `v-for` kita bisa mengakses properti di induknya. Direktif `v-for` juga memiliki argument kedua untuk menunjukkan indeks dari item sekarang.
 
 ``` html
 <ul id="example-2">
@@ -104,15 +104,15 @@ var example2 = new Vue({
 </script>
 {% endraw %}
 
-Anda juga bisa menggunakan `of` sebagai pembatas dibandingkan dengan `in`, jadi lebih mirip dengan sintaksis perulangan milik Javascript.
+Anda juga bisa menggunakan `of` sebagai pembatas dibandingkan dengan `in`, jadi lebih mirip dengan sintaksis perulangan milik JavaScript.
 
 ``` html
 <div v-for="item of items"></div>
 ```
 
-## Menggunakan `v-for` pada sebuah Object
+## Menggunakan `v-for` pada sebuah Objek
 
-Anda juga bisa menggunakan `v-for` untuk melakukan perulangan kedalam property dari sebuah object.
+Anda juga bisa menggunakan `v-for` untuk melakukan perulangan kedalam properti dari sebuah objek.
 
 ``` html
 <ul id="v-for-object" class="demo">
@@ -185,7 +185,7 @@ new Vue({
 </script>
 {% endraw %}
 
-Dan argument lainnya untuk index:
+Dan argument lainnya untuk indeks:
 
 ``` html
 <div v-for="(value, key, index) in object">
@@ -213,11 +213,11 @@ new Vue({
 </script>
 {% endraw %}
 
-<p class="tip">Saat sedang melakukan perulangan pada sebuah object, urutannya berdasarkan key, yang mana tidak dijamin akan konsisten pada saat di implementasi ke setiap mesin yang memiliki Javascript.</p>
+<p class="tip">Saat sedang melakukan perulangan pada sebuah objek, urutannya berdasarkan key, yang mana tidak dijamin akan konsisten pada saat di implementasi ke setiap mesin yang memiliki JavaScript.</p>
 
 ## `key`
 
-Saat Vue melakukan update pada sekumpulan elemen yang dikeluarkan dari `v-for`, normalnya ia menggunakan "in-place patch" strategy. Jika urutan item di sekumpulan data berubah, daripada memindahkan elemen DOM untuk menyamakannya dengan urutan item dari data tersebut, Vue akan menambal setiap elemen pada tempatnya dan menyamakan dengan apa yang akan di keluarkan pada index tertentu. Ia memiliki sifat yang sama dengan `track-by="$index"` pada Vue 1.x.
+Saat Vue melakukan update pada sekumpulan elemen yang dikeluarkan dari `v-for`, normalnya ia menggunakan "in-place patch" strategy. Jika urutan item di sekumpulan data berubah, daripada memindahkan elemen DOM untuk menyamakannya dengan urutan item dari data tersebut, Vue akan menambal setiap elemen pada tempatnya dan menyamakan dengan apa yang akan di keluarkan pada indeks tertentu. Ia memiliki sifat yang sama dengan `track-by="$index"` pada Vue 1.x.
 
 Mode bawaan ini efisien, tapi hanya cocok **saat sekumpulan elemen yang dikeluarkan tidak bergantung pada state dari child component atau state sementara dari DOM (contohnya, nilai/value dari form input)**.
 
@@ -267,7 +267,7 @@ Anda mungkin berfikir kalau ini akan membuat Vue menghilangkan DOM yang telah ad
 
 Karna ada batas di JavaScript sendiri, Vue **tidak bisa** mendeteksi perubahan berikut yang terjadi di array:
 
-1. Saat Anda langsung menetapkan sebuah elemen dengan indexnya, contohnya `vm.items[indexOfItem] = newValue`
+1. Saat Anda langsung menetapkan sebuah elemen dengan indeksnya, contohnya `vm.items[indexOfItem] = newValue`
 2. Saat Anda mengubah panjang array itu sendiri, contohnya `vm.items.length = newLength`
 
 Contohnya: 
@@ -307,7 +307,7 @@ vm.items.splice(newLength)
 
 ## Peringatan Mendeteksi Perubahan Objek
 
-Lagi, karna batasan dari Javascript yang modern, **Vue tidak bisa mendeteksi penambahan ataupun penghapusan sebuah property**. Contohnya:
+Lagi, karna batasan dari JavaScript yang modern, **Vue tidak bisa mendeteksi penambahan ataupun penghapusan sebuah properti**. Contohnya:
 
 ``` js
 var vm = new Vue({
@@ -321,7 +321,7 @@ vm.b = 2
 // `vm.b` is NOT reactive
 ```
 
-Vue tidak mengizinkan menambah sebuah property yang reaktif pada root-level(Tingkat tertinggi) instance yang telah dibuat. Namun, mungkin saja menambah property reaktif kedalam object bersarang menggunakan method `Vue.set(object, key, value)`. Contonya:
+Vue tidak mengizinkan menambah sebuah properti yang reaktif pada root-level(Tingkat tertinggi) instance yang telah dibuat. Namun, mungkin saja menambah properti reaktif kedalam objek bersarang menggunakan method `Vue.set(object, key, value)`. Contonya:
 
 ``` js
 var vm = new Vue({
@@ -333,7 +333,7 @@ var vm = new Vue({
 })
 ```
 
-Anda bisa menambah sebuah property `umur` baru kedalam object bersarang `userProfile` dengan cara:
+Anda bisa menambah sebuah properti `umur` baru kedalam objek bersarang `userProfile` dengan cara:
 
 ``` js
 Vue.set(vm.userProfile, 'age', 27)
@@ -345,7 +345,7 @@ Anda bisa menggunakan perintah `vm.$set` methods dari instance, yang mana adalah
 vm.$set(vm.userProfile, 'age', 27)
 ```
 
-Terkadang Anda mungkin ingin menetapkan beberapa property baru berisi angka ke dalam objek yang telah ada, contohnya menggunakan perintah `Object.assign()` atau perintah `_.extend()`. Pada beberapa kasus, Anda harus membuat object baru dengan property dari kedua object. Jadi daripada melakukan:
+Terkadang Anda mungkin ingin menetapkan beberapa properti baru berisi angka ke dalam objek yang telah ada, contohnya menggunakan perintah `Object.assign()` atau perintah `_.extend()`. Pada beberapa kasus, Anda harus membuat objek baru dengan properti dari kedua objek. Jadi daripada melakukan:
 
 ``` js
 Object.assign(vm.userProfile, {
@@ -354,7 +354,7 @@ Object.assign(vm.userProfile, {
 })
 ```
 
-Anda harus membuat baru, property yang reaktif dengan:
+Anda harus membuat baru, properti yang reaktif dengan:
 
 ``` js
 vm.userProfile = Object.assign({}, vm.userProfile, {
@@ -365,7 +365,7 @@ vm.userProfile = Object.assign({}, vm.userProfile, {
 
 ## Menampilkan Hasil yang sudah di Filter/di Urut
 
-Terkadang kita ingin menampilkan sebuah array yang sudah di filter atau di urut tanpa mengubah data yang asli. Pada kasus ini, Anda bisa membuat sesuatu yang bernama computed property yang mengembalikan array yang sudah di filter ataupun di urut.
+Terkadang kita ingin menampilkan sebuah array yang sudah di filter atau di urut tanpa mengubah data yang asli. Pada kasus ini, Anda bisa membuat sesuatu yang bernama computed properti yang mengembalikan array yang sudah di filter ataupun di urut.
 
 Contohnya: 
 
