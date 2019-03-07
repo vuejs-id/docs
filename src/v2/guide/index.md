@@ -396,7 +396,9 @@ Anda pasti menyadari bahwa komponen pada Vue sangat mirip dengan **Elemen Kustom
 
 2. Komponen pada vue menyediakan fitur penting yang tidak tersedia di elemen kustom murni, terutama pada komponen lintas data, komunikasi *event* kustom dan integrasi *build tool*.
 
-## Siap untuk belajar lebih?
+Although Vue doesn't use custom elements internally, it has [great interoperability](https://custom-elements-everywhere.com/#vue) when it comes to consuming or distributing as custom elements. Vue CLI also supports building Vue components that register themselves as native custom elements.
+
+## Ready for More?
 
 Kita telah memperkenalkan secara singkat fitur - fitur dasar yang ada di Vue.js - sisanya akan dipandu melalui dokumentasi ini dan fitur yang lebih lanjut akan dijelaskan secara rinci, jadi pastikan untuk membaca semuanya!!
 
