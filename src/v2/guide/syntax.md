@@ -24,7 +24,7 @@ Tag mustache akan di ganti dengan nilai property `msg` pada objek data yang sesu
 Anda juga dapat melakukan interpolasi satu kali yang tidak memperbarui pada perubahan data dengan menggunakan direktif [v-once](../api/#v-once), tetapi perlu diingat ini juga akan mempengaruhi binding lain pada node yang sama:
 
 ```html
-<span v-once>Ini tidak akan berubah: {{ msg }}</span>
+<span v-once>Ini tidak akan pernah berubah: {{ msg }}</span>
 ```
 
 ### Raw HTML
