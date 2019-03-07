@@ -223,14 +223,14 @@ pengubah `.passive` secara khusus berguna meningkatkan performa pada perangkat m
 
 ## Pengubah (Modifier) Key
 
-Saat memantau keyboard event, kita sering membutuhkan untuk memeriksa key tertentu. Vue mengizinkan penambahan pengubah key untuk `v-on` saat memantau key events:
+Saat memantau keyboard event, kita sering membutuhkan untuk memeriksa _key_ tertentu. Vue mengizinkan penambahan pengubah _key_ untuk `v-on` saat memantau _key_ events:
 
 ``` html
 <!-- hanya memanggil `vm.submit()` saat `key` adalah `Enter` -->
 <input v-on:keyup.enter="submit">
 ```
 
-Anda dapat secara langsung menggunakan nama key yang valid via [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) sebagai pengubah dengan mengubahnya ke kebab-case.
+Anda dapat secara langsung menggunakan nama _key_ yang valid via [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) sebagai pengubah dengan mengubahnya ke kebab-case.
 
 ``` html
 <input v-on:keyup.page-down="onPageDown">
@@ -248,11 +248,11 @@ Menggunakan atribut `keyCode` juga diperbolehkan:
 <input v-on:keyup.13="submit">
 ```
 
-Vue menyediakan alias untuk key code umum jika dibutuhkan untuk mendukung browser lama:
+Vue menyediakan alias untuk _key_ code umum jika dibutuhkan untuk mendukung browser lama:
 
 - `.enter`
 - `.tab`
-- `.delete` (menangkap baik "Delete" dan "Backspace" key)
+- `.delete` (menangkap baik "Delete" dan "Backspace" _key_)
 - `.esc`
 - `.space`
 - `.up`
@@ -260,7 +260,7 @@ Vue menyediakan alias untuk key code umum jika dibutuhkan untuk mendukung browse
 - `.left`
 - `.right`
 
-<p class="tip">Beberapa kunci (.esc dan semua tombol arah) memiliki nilai key yang tidak konsisten pada browser IE9, jadi alias yang telah tersedia di atas lebih disarankan jika Anda butuh dukungan untuk browser IE9.</p>
+<p class="tip">Beberapa kunci (.esc dan semua tombol arah) memiliki nilai _key_ yang tidak konsisten pada browser IE9, jadi alias yang telah tersedia di atas lebih disarankan jika Anda butuh dukungan untuk browser IE9.</p>
 
 Anda juga dapat [mendefinisikan pengubah kustom alias key](../api/#keyCodes) melalui global config.keyCodes object:
 
@@ -280,7 +280,7 @@ Anda dapat menggunakan pengubah di bawah untuk memicu mouse atau keyboard event 
 - `.shift`
 - `.meta`
 
-> Note: pada keyboard Macintosh, meta adalah command key (⌘). Pada keyboard Windows, meta adalah Windows key (⊞). Pada keyboard Sun Microsystems, meta ditandai dengan solid diamond (◆). Pada keyboard tertentu, khususnya keyboard mesin MIT and Lisp dan penerusnya, seperti the Knight keyboard, space-cadet keyboard, meta diberi label “META”. Pada keyboard Symbolics, meta diberi label “META” atau “Meta”.
+> Note: pada keyboard Macintosh, meta adalah command _key_ (⌘). Pada keyboard Windows, meta adalah Windows _key_ (⊞). Pada keyboard Sun Microsystems, meta ditandai dengan solid diamond (◆). Pada keyboard tertentu, khususnya keyboard mesin MIT and Lisp dan penerusnya, seperti the Knight keyboard, space-cadet keyboard, meta diberi label “META”. Pada keyboard Symbolics, meta diberi label “META” atau “Meta”.
 
 Contoh:
 
@@ -292,7 +292,7 @@ Contoh:
 <div @click.ctrl="doSomething">Do something</div>
 ```
 
-<p class="tip">Perhatikan bahwa modifier key berbeda dengan key pada umumnya dan saat digunakan dengan `keyup` event, key tersebut harus ditekan saat event dijalankan. Dengan kata lain, `keyup.ctrl` hanya akan dipicu ketika Anda melepas key saat masih menekan `ctrl`. Hal tersebut tidak akan dipicu jika Anda melepas `ctrl` key sendiri. Jika Anda tidak ingin perilaku seperti itu, gunakan `keyCode` untuk `ctrl` alih-alih: `keyup.17`.</p>
+<p class="tip">Perhatikan bahwa pengubah _key_ berbeda dengan _key_ pada umumnya dan saat digunakan dengan `keyup` event, _key_ tersebut harus ditekan saat event dijalankan. Dengan kata lain, `keyup.ctrl` hanya akan dipicu ketika Anda melepas _key_ saat masih menekan `ctrl`. Hal tersebut tidak akan dipicu jika Anda melepas `ctrl` _key_ sendiri. Jika Anda tidak ingin perilaku seperti itu, gunakan `keyCode` untuk `ctrl` alih-alih: `keyup.17`.</p>
 
 ### Pengubah (Modifier) `.exact`
 
