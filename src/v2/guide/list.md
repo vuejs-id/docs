@@ -4,9 +4,9 @@ type: guide
 order: 8
 ---
 
-## Memetakan sebuah Array dengan direktif `v-for`
+## Memetakan sebuah Array dengan Direktif `v-for`
 
-Kita bisa menggunakan perintah 'v-for' untuk mengeluarkan elemen yang berada didalam sebuah array. direktif `v-for` ini memerlukan sebuah sintaksis spesial yaitu `item in items`, dimana `items` berarti data awalnya yang berada di dalam array dan `item` ini adalah sebuah **alias** untuk elemen array yang ingin di keluarkan.
+Kita bisa menggunakan perintah 'v-for' untuk mengeluarkan elemen yang berada didalam sebuah array. Direktif `v-for` ini memerlukan sebuah sintaksis spesial yaitu `item in items`, dimana `items` berarti data awalnya yang berada di dalam array dan `item` ini adalah sebuah **alias** untuk elemen array yang ingin di keluarkan.
 
 ``` html
 <ul id="example-1">
@@ -54,7 +54,7 @@ var example1 = new Vue({
 </script>
 {% endraw %}
 
-Di dalam direktif `v-for` kita bisa mengakses properti di induknya. direktif `v-for` juga memiliki argument kedua untuk menunjukkan indeks dari item sekarang.
+Di dalam direktif `v-for` kita bisa mengakses properti di induknya. Direktif `v-for` juga memiliki argument kedua untuk menunjukkan indeks dari item sekarang.
 
 ``` html
 <ul id="example-2">
