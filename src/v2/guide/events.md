@@ -44,13 +44,13 @@ var contoh1 = new Vue({
 
 ## Metode Event Handler
 
-Bagaimanapun baris kode untuk banyak event handler akan terlihat rumit, jadi menempatkan kode JavaScript Anda dalam `v-on` atribut tidaklah tepat. Itulah mengapa `v-on` dapat juga menerima nama metode yang ingin dijalankan.
+Bagaimanapun baris kode untuk banyak event handler akan terlihat rumit, jadi menempatkan kode JavaScript Anda dalam atribut `v-on` tidaklah tepat. Itulah mengapa `v-on` dapat juga menerima nama metode yang ingin dijalankan.
 
 Contoh:
 
 ``` html
 <div id="contoh-2">
-  <!-- `greet` adalah nama metode yang telah didefinisikan dibawah -->
+  <!-- `greet` adalah nama metode yang telah didefinisikan di bawah -->
   <button v-on:click="greet">Greet</button>
 </div>
 ```
@@ -212,14 +212,14 @@ Vue juga menawarkan `.passive` modifier, sesuai dengan [opsi `addEventListener`'
 
 ``` html
 <!-- perilaku bawaan event scroll (scrolling) akan terjadi -->
-<!-- seger, dari pada menunggu `onScroll` selesai -->
+<!-- segera, dari pada menunggu `onScroll` selesai -->
 <!-- jika memuat `event.preventDefault()` -->
 <div v-on:scroll.passive="onScroll">...</div>
 ```
 
 `.passive` modifier secara khusus berguna meningkatkan performa pada perangkat mobile.
 
-<p class="tip">Jangan menggunakan `.passive` dan `.prevent` bersamaan, karena `.prevent` akan diabaikan dan browser anda kemungkinan akan menampilkan peringatan. Ingat, `.passive` berkomunikasi dengan broswer yang mana anda tidak ingin mencegah perilaku bawaan event.</p>
+<p class="tip">Jangan menggunakan `.passive` dan `.prevent` bersamaan, karena `.prevent` akan diabaikan dan browser Anda kemungkinan akan menampilkan peringatan. Ingat, `.passive` berkomunikasi dengan broswer yang mana anda tidak ingin mencegah perilaku bawaan event.</p>
 
 ## Key Modifier
 
@@ -236,7 +236,7 @@ Anda dapat secara langsung menggunakan nama key yang valid via [`KeyboardEvent.k
 <input v-on:keyup.page-down="onPageDown">
 ```
 
-Pada contoh di atas, handler hanya akan dipanggail jika `$event.key` sama dengan `'PageDown'`.
+Pada contoh di atas, handler hanya akan dipanggil jika `$event.key` sama dengan `'PageDown'`.
 
 ### Key Code
 
@@ -260,7 +260,7 @@ Vue menyediakan alias untuk key code umum jika dibutuhkan untuk mendukung browse
 - `.left`
 - `.right`
 
-<p class="tip">beberapa kunci (.esc dan semua tombol arah) memiliki nilai key yang tidak konsisten pada peramban IE9, jadi alias yang telah tersedia di atas lebih disarankan jika anda butuh dukungan untuk peramban IE9.</p>
+<p class="tip">Beberapa kunci (.esc dan semua tombol arah) memiliki nilai key yang tidak konsisten pada peramban IE9, jadi alias yang telah tersedia di atas lebih disarankan jika anda butuh dukungan untuk peramban IE9.</p>
 
 Anda juga dapat [mendefinisikan kustom alias key modifier](../api/#keyCodes) melalui global config.keyCodes object:
 
@@ -273,7 +273,7 @@ Vue.config.keyCodes.f1 = 112
 
 > Baru pada versi 2.1.0+
 
-Anda dapat menggunakan modifier dibawah untuk memicu mouse atau keyboard event listener hanya pada saat modifier tertentu ditekan:
+Anda dapat menggunakan modifier di bawah untuk memicu mouse atau keyboard event listener hanya pada saat modifier tertentu ditekan:
 
 - `.ctrl`
 - `.alt`
@@ -327,6 +327,6 @@ Anda mungkin menyoroti bahwa keseluruhan pendekatan event listening menyalahi at
 
 1. Mempermudah penempatan implementasi fungsi handler diantara baris kode JS dengan menelusuri sekilas HTML templat.
 
-2. Sejak anda tidak membutuhkan peletakkan event listeners dalam JS secara manual, baris kode ViewModel menjadi berisi murni logika dan bebas DOM. Ini memudahkan dalam pengujian.
+2. Sejak Anda tidak membutuhkan peletakkan event listeners dalam JS secara manual, baris kode ViewModel menjadi berisi murni logika dan bebas DOM. Ini memudahkan dalam pengujian.
 
 3. Saat ViewModel dihapus, semua event listener secara otomatis dihapus. Anda tidak perlu khawatir tentang membersihkan event yang ada.
