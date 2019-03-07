@@ -4,17 +4,17 @@ type: guide
 order: 101
 ---
 
-> Halaman ini menganggap anda telah membaca [Komponen Dasar](components.html). Baca itu dahulu jika anda baru pada komponen.
+> Halaman ini berasumsi anda telah membaca [Komponen Dasar](components.html). Baca itu dahulu jika anda baru pada komponen.
 
 ## Nama Komponen
 
-Ketika mendaftarkan sebuah komponen, itu akan diberi sebuah nama. Sebagai contoh, didalam sebuah daftar global kita telah melihat:
+Ketika mendaftarkan sebuah komponen, itu akan selalu diberi nama. Misalnya, dalam sebuah daftar global yang kita lihat sejauh ini:
 
 ```js
 Vue.component('my-component-name', { /* ... */ })
 ```
 
-Nama sebuah komponen adalah argumen pertama dari `Vue.component`.
+Nama komponen adalah argumen pertama dari `Vue.component`.
 
 Nama yang anda berikan ke komponen mungkin tergantung pada dimana anda akan menggunakanya. Ketika menggunakan komponen secara langsung didalam DOM ( sebagai lawan didalam *template string* atau [komponen *single-file*](single-file-components.html)), kita sangat merekomendasikan untuk mengikuti [aturan W3C](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) untuk membuat nama tag *custom* (semuanya huruf kecil, harus berisi tanda penghubung). Ini membantu anda untuk menghindari konflik dengan elemen HTML sekarang dan kedepanya.
 
@@ -30,7 +30,7 @@ Anda mempunyai dua pilihan ketika mendefinisikan nama komponen:
 Vue.component('nama-komponen-saya', { /* ... */ })
 ```
 
-Ketika mendefinisikan sebuah komponen dengan *kebab-case*, anda juga harus menggunakan *kebab-case* ketika memberi referensi ke elemen *custom*, seperti di `<nama-komponen-saya>`.
+Ketika mendefinisikan komponen dengan *kebab-case*, anda juga harus menggunakan *kebab-case* ketika memberi referensi ke elemen *custom*, seperti di `<nama-komponen-saya>`.
 
 #### Dengan *PascalCase*
 
@@ -38,7 +38,7 @@ Ketika mendefinisikan sebuah komponen dengan *kebab-case*, anda juga harus mengg
 Vue.component('NamaKomponenSaya', { /* ... */ })
 ```
 
-Ketika mendefinisikan sebuah komponen dengan *PascalCase*, anda dapat menggunakan kedua hal ketika memberi referensi ke *custom* elemenya. Itu berarti, kedua `<nama-komponen-saya>` dan `<NamaKomponenSaya>` dapat diterima. Catatan, meskipun hanya nama *kebab-case* yang valid secara langsung di DOM (contoh : *templates non-string*).
+Ketika mendefinisikan komponen dengan *PascalCase*, anda dapat menggunakan kedua hal ketika memberi referensi ke *custom* elemenya. Itu berarti, kedua `<nama-komponen-saya>` dan `<NamaKomponenSaya>` dapat diterima. Catatan, meskipun hanya nama *kebab-case* yang valid secara langsung di DOM (contoh : *templates non-string*).
 
 ## Registrasi Global
 
