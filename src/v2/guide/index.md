@@ -1,17 +1,17 @@
 ---
-title: Pengantar
+title: Perkenalan
 type: guide
 order: 2
 ---
 
 ## Apa itu Vue.js?
 
-Vue (cara pengucapannya /vjuː/, seperti **view**) adalah sebuah **progressive framework** untuk membangun antarmuka pengguna. Tidak seperti beberapa framework monolitik yang lain, Vue dirancang dari bawah keatas agar dapat diadopsi secara bertahap. Pustaka inti nya di fokuskan pada layer tampilan saja, dan sangat mudah untuk diintegrasikan dengan pustaka yang lain atau dengan proyek yang sudah ada. Di sisi lain, Vue sangat mampu memberikan dan mendukung `Single Page Application` yang canggih ketika dikombinasikan dengan [perkakas modern](single-file-components.html) dan [dukungan pustaka](https://github.com/vuejs/awesome-vue#components--libraries).
+Vue (cara pengucapannya /vjuː/, seperti **view**) adalah sebuah kerangka kerja nan progresif untuk membangun antarmuka pengguna. Tidak seperti beberapa framework monolitik yang lain, Vue dirancang dari dasar sekali agar dapat diadopsi secara bertahap. Pustaka inti nya di fokuskan pada layer tampilan saja, dan sangat mudah untuk diintegrasikan dengan pustaka yang lain atau dengan proyek yang sudah ada. Di sisi lain, Vue sangat mampu memberikan dan mendukung `Single Page Application` yang canggih ketika dikombinasikan dengan [perkakas modern](single-file-components.html) dan [dukungan pustaka](https://github.com/vuejs/awesome-vue#components--libraries).
 
-Jika anda ingin mempelajari lebih lanjut tentang Vue sebelum menyelam lebih dalam, kami <a id="modal-player"  href="#">membuat sebuah video</a> tentang prinsip - prinsip inti dan contoh proyek.
+Jika anda ingin mempelajari lebih lanjut tentang Vue, kami <a id="modal-player"  href="#">membuat sebuah video</a> tentang prinsip - prinsip inti dan contoh proyek.
 
 
-Jika anda adalah seorang frontend developer yang berpengalaman dan ingin tahu bagaimana Vue dibandingkan dengan pustaka/framework yang lain, silakan kunjungi [Perbandingan dengan framework yang lain](comparison.html).
+Jika anda adalah seorang *frontend developer* yang berpengalaman dan ingin tahu bagaimana Vue dibandingkan dengan pustaka/framework yang lain, silakan kunjungi [Perbandingan dengan framework yang lain](comparison.html).
 
 <div class="vue-mastery"><a href="https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance/" target="_blank" rel="noopener" title="Free Vue.js Course">Tonton video kursus gratis di Vue Mastery</a></div>
 
