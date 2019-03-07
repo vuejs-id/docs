@@ -396,6 +396,8 @@ Anda pasti menyadari bahwa komponen pada Vue sangat mirip dengan **Elemen Kustom
 
 2. Komponen pada vue menyediakan fitur penting yang tidak tersedia di elemen kustom murni, terutama pada komponen lintas data, komunikasi *event* kustom dan integrasi *build tool*.
 
+Meskipun Vue tidak menggunakan elemen khusus secara internal, Vue memiliki interopabilitas yang sangat baik dalam hal mengkonsumsi atau mendistribusikan elemen kustom. Vue CLI juga mendukung pengembangan Komponen Vue yang didaftarkan sebagai elemen kustom secara *native*.
+
 ## Siap untuk belajar lebih?
 
 Kita telah memperkenalkan secara singkat fitur - fitur dasar yang ada di Vue.js - sisanya akan dipandu melalui dokumentasi ini dan fitur yang lebih lanjut akan dijelaskan secara rinci, jadi pastikan untuk membaca semuanya!!
