@@ -39,7 +39,7 @@ Kita akan membicarakan tentang [sistem komponen](components.html) pada detail se
 
 ## Data dan Metode
 
-Ketika *Vue Instance* dibuat, ini menambah semua properti yang ditemukan di dalam objek `data` ke Vue's **sistem reaktifitas**. Ketika nilai dari properti tersebut berubah, tampilanya akan "bereaksi", memperbarui untuk mencocokan dengan nilai yang baru.
+Ketika *Vue Instance* dibuat, ini menambah semua properti yang ditemukan di dalam objek `data` ke **sistem reaktif** milok Vue. Ketika nilai dari properti tersebut berubah, tampilanya akan "bereaksi", memperbarui untuk mencocokan dengan nilai yang baru.
 
 
 ```js
@@ -51,11 +51,11 @@ var vm = new Vue({
   data: data
 })
 
-// Mendapat properti dari permintaan
+// Mendapat properti dari instance
 // lalu mengembalikan dari data asli
 vm.a == data.a // => true
 
-// Mengatur properti pada permintaan
+// Mengatur properti pada instance
 // yang juga berdampak pada data asli
 vm.a = 2
 data.a // => 2
@@ -65,7 +65,7 @@ data.a = 3
 vm.a // => 3
 ```
 
-Ketika data ini berubah, tampilanya akan berubah. Itu harus dicatat bahwa properti di `data` adalah yang satu satunya **reaktif** jika mereka ada pada saat permintaan dibuat. Itu berarti kamu harus menambah properti baru, seperti:
+Ketika data ini berubah, tampilanya akan berubah. Itu harus dicatat bahwa properti di `data` adalah yang satu satunya **reaktif** jika mereka ada pada saat *instance* dibuat. Itu berarti kamu harus menambah properti baru, seperti:
 
 
 ```js
@@ -85,7 +85,7 @@ data: {
 }
 ```
 
-Satu satunya pengecualian untuk ini adalah menggunakan `Object.freeze()`, yang mencegah properti untuk dirubah, yang juga berarti reaktifitas sistem yang tidak bisa _menarik_ perubahan.
+Satu satunya pengecualian untuk ini adalah menggunakan `Object.freeze()`, yang mencegah properti untuk diubah, yang juga berarti reaktifitas sistem yang tidak bisa _melacak_ perubahan.
 
 
 ```js
@@ -104,7 +104,7 @@ new Vue({
 ```html
 <div id="app">
   <p>{{ foo }}</p>
-  <!-- ini tidak akan mengubah `foo`! -->
+  <!-- ini tidak akan lagi mengubah `foo`! -->
   <button v-on:click="foo = 'baz'">Change it</button>
 </div>
 ```
@@ -122,13 +122,13 @@ var vm = new Vue({
 vm.$data === data // => true
 vm.$el === document.getElementById('example') // => true
 
-// $watch adalah metode permintaan
+// $watch adalah metode instance
 vm.$watch('a', function (newValue, oldValue) {
-  // Panggilan balik ini akan di panggil ketika `vm.a` berubah
+  // Panggilan balik (callback) ini akan di panggil ketika `vm.a` berubah
 })
 ```
 
-Selanjutnya, Anda bisa berkonsultasi ke [Referensi API](../api/#Instance-Properties) untuk daftar lengkap dari properti permintaan dan metode.
+Selanjutnya, Anda bisa berkonsultasi ke [Referensi API](../api/#Instance-Properties) untuk daftar lengkap dari metode dan properti instance.
 
 
 ## Siklus Hidup Pengait Permintaan
