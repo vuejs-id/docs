@@ -5,9 +5,9 @@ order: 4
 ---
 Vue.js menggunakan sintaks templat berbasis HTML yang memungkinkan Anda secara deklaratif untuk binding hasil render DOM yang mendasari data dari Vue instance. Semua templat Vue.js adalah HTML yang valid yang dapat diuraikan oleh browser yang sesuai spesifikasi dan pengurai HTML.
 
-Pada dasarnya, Vue mengkompilasi templat ke dalam fungsi render Virtual DOM. Dikombinasikan dengan sistem reaktivitas, Vue mampu secara cerdas mencari tahu jumlah minimum komponen untuk render ulang dan menerapkan jumlah minimal manipulasi DOM ketika state pada app berubah.
+Pada dasarnya, Vue mengkompilasi templat ke dalam fungsi render DOM Virtual. Dikombinasikan dengan sistem reaktivitas, Vue mampu secara cerdas mencari tahu jumlah minimum komponen untuk render ulang dan menerapkan jumlah minimal manipulasi DOM ketika state pada app berubah.
 
-Jika Anda terbiasa dengan konsep Virtual DOM dan lebih suka native JavaScript, Anda juga dapat [menulis langsung fungsi render](render-function.html) sebagai pengganti templat, dengan opsi dukungan JSX.
+Jika Anda terbiasa dengan konsep DOM Virtual dan lebih suka native JavaScript, Anda juga dapat [menulis langsung fungsi render](render-function.html) sebagai pengganti templat, dengan opsi dukungan JSX.
 
 ## Interpolasi
 
