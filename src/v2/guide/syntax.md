@@ -3,11 +3,11 @@ title: Sintaks Templat
 type: guide
 order: 4
 ---
-Vue.js menggunakan sintaks templat berbasis HTML yang memungkinkan anda secara deklaratif untuk binding hasil render DOM yang mendasari data dari Vue instance. Semua templat Vue.js adalah HTML yang valid yang dapat diuraikan oleh browser yang sesuai spesifikasi dan pengurai HTML.
+Vue.js menggunakan sintaks templat berbasis HTML yang memungkinkan Anda secara deklaratif untuk binding hasil render DOM yang mendasari data dari Vue instance. Semua templat Vue.js adalah HTML yang valid yang dapat diuraikan oleh browser yang sesuai spesifikasi dan pengurai HTML.
 
 Pada dasarnya, Vue mengkompilasi templat ke dalam fungsi render Virtual DOM. Dikombinasikan dengan sistem reaktivitas, Vue mampu secara cerdas mencari tahu jumlah minimum komponen untuk render ulang dan menerapkan jumlah minimal manipulasi DOM ketika state pada app berubah.
 
-Jika anda terbiasa dengan konsep Virtual DOM dan lebih suka native JavaScript, anda juga dapat [menulis langsung fungsi render](render-function.html) sebagai pengganti templat, dengan opsi dukungan JSX.
+Jika Anda terbiasa dengan konsep Virtual DOM dan lebih suka native JavaScript, Anda juga dapat [menulis langsung fungsi render](render-function.html) sebagai pengganti templat, dengan opsi dukungan JSX.
 
 ## Interpolasi
 
@@ -54,9 +54,9 @@ new Vue({
 </script>
 {% endraw %}
 
-Konten `span` akan diganti dengan nilai properti `rawHtml`, diterjemahkan sebagai HTML biasa - binding data diabaikan. Perhatikan bahwa anda tidak dapat menggunakan `v-html` untuk membuat parsial templat, karena Vue bukan mesin templating berbasis String. Sebaliknya, komponen lebih disukai sebagai unit dasar UI yang bisa digunakan kembali dan komposisi.
+Konten `span` akan diganti dengan nilai properti `rawHtml`, diterjemahkan sebagai HTML biasa - binding data diabaikan. Perhatikan bahwa Anda tidak dapat menggunakan `v-html` untuk membuat parsial templat, karena Vue bukan mesin templating berbasis String. Sebaliknya, komponen lebih disukai sebagai unit dasar UI yang bisa digunakan kembali dan komposisi.
 
-<p class="tip">Merender HTML yang berubah-ubah secara dinamis di situs web anda bisa sangat berbahaya karena dapat mudah terserang [kerentanan XSS](https://en.wikipedia.org/wiki/Cross-site_scripting). Gunakan interpolasi HTML pada konten yang terpercaya dan **jangan pernah** pada konten yang disediakan pengguna.</p> 
+<p class="tip">Merender HTML yang berubah-ubah secara dinamis di situs web Anda bisa sangat berbahaya karena dapat mudah terserang [kerentanan XSS](https://en.wikipedia.org/wiki/Cross-site_scripting). Gunakan interpolasi HTML pada konten yang terpercaya dan **jangan pernah** pada konten yang disediakan pengguna.</p> 
 
 ### Atribut
 
@@ -102,7 +102,7 @@ Ekspresi ini akan dievaluasi sebagai JavaScript dalam scope data dari Vue instan
 Direktif adalah atribut khusus dengan awalan `v-`. Nilai atribut direktif diharapkan menjadi **sebuah ekspresi JavaScript tunggal** (dengan pengecualian `v-for`, yang akan dibahas nanti). Tugas direktif adalah menerapkan efek pada DOM secara reaktif ketika nilai ekspresinya berubah. Mari kita lihat pada contoh terdahulu:
 
 ```html
-<p v-if="seen">Sekarang anda bisa melihatku</p>
+<p v-if="seen">Sekarang Anda bisa melihatku</p>
 ```
 
 Di sini, direktif `v-if` akan menghapus / memasukkan elemen `<p>` berdasarkan kebenaran dari nilai ekspresi `seen`.
@@ -135,9 +135,9 @@ Mulai versi 2.6.0, juga dimungkinkan untuk menggunakan ekspresi JavaScript dalam
 <a v-bind:[namaAtribut]="url"> ... </a>
 ```
 
-Di sini `namaAtribut` akan dievaluasi secara dinamis sebagai ekspresi JavaScript, dan nilainya yang dievaluasi akan digunakan sebagai nilai akhir untuk argumen. Misalnya, jika instance Vue anda memiliki properti data, `namaAtribut`, yang nilainya `"href"`, maka binding ini setara dengan `v-bind:href`.
+Di sini `namaAtribut` akan dievaluasi secara dinamis sebagai ekspresi JavaScript, dan nilainya yang dievaluasi akan digunakan sebagai nilai akhir untuk argumen. Misalnya, jika instance Vue Anda memiliki properti data, `namaAtribut`, yang nilainya `"href"`, maka binding ini setara dengan `v-bind:href`.
 
-Demikian pula, anda bisa menggunakan argumen dinamis untuk binding sebuah handler pada nama event yang dinamis:
+Demikian pula, Anda bisa menggunakan argumen dinamis untuk binding sebuah handler pada nama event yang dinamis:
 
 ```html
 <a v-on:[namaEvent]="doSomething"> ... </a>
@@ -162,7 +162,7 @@ Misalnya, berikut ini tidak valid:
 
 Solusinya adalah menggunakan ekspresi tanpa spasi atau tanda kutip, atau mengganti ekspresi kompleks dengan properti computed.
 
-Selain itu, jika anda menggunakan templat di-DOM (templat yang langsung ditulis dalam file HTML), anda harus menyadari bahwa browser akan memaksa nama atribut menjadi huruf kecil:
+Selain itu, jika Anda menggunakan templat di-DOM (templat yang langsung ditulis dalam file HTML), Anda harus menyadari bahwa browser akan memaksa nama atribut menjadi huruf kecil:
 
 ```html
 <!-- Ini akan dikonversi menjadi v-bind: [someattr] di templat di-DOM. -->
@@ -181,7 +181,7 @@ Anda akan melihat contoh modifier lain nanti, [untuk `v-on`](events.html#Event-M
 
 ## Singkatan
 
-Awalan `v-` berfungsi sebagai isyarat visual untuk mengidentifikasi atribut spesifik Vue di templat anda. Ini sangat berguna ketika anda menggunakan Vue.js untuk menerapkan perilaku (behavior) yang dinamis pada beberapa markup yang ada, tetapi dapat terasa tepat untuk beberapa direktif yang sering digunakan. Pada saat yang sama, kebutuhan awalan `v-` menjadi kurang penting ketika anda membangun [SPA](https://en.wikipedia.org/wiki/Single-page_application), di mana Vue mengelola setiap templat. Oleh karena itu, Vue menyediakan singkatan khusus untuk dua direktif yang paling sering digunakan, `v-bind` dan` v-on`:
+Awalan `v-` berfungsi sebagai isyarat visual untuk mengidentifikasi atribut spesifik Vue di templat Anda. Ini sangat berguna ketika Anda menggunakan Vue.js untuk menerapkan perilaku (behavior) yang dinamis pada beberapa markup yang ada, tetapi dapat terasa tepat untuk beberapa direktif yang sering digunakan. Pada saat yang sama, kebutuhan awalan `v-` menjadi kurang penting ketika Anda membangun [SPA](https://en.wikipedia.org/wiki/Single-page_application), di mana Vue mengelola setiap templat. Oleh karena itu, Vue menyediakan singkatan khusus untuk dua direktif yang paling sering digunakan, `v-bind` dan` v-on`:
 
 ### Singkatan `v-bind`
 
@@ -209,4 +209,4 @@ Awalan `v-` berfungsi sebagai isyarat visual untuk mengidentifikasi atribut spes
 <a @[event]="doSomething"> ... </a>
 ```
 
-Mereka mungkin terlihat sedikit berbeda dari HTML normal, tetapi `:` dan `@` adalah karakter yang valid untuk nama atribut dan semua browser yang didukung Vue dapat menguraikannya dengan benar. Selain itu, mereka tidak muncul di hasil markup render. Sintaks singkatan benar-benar opsional, tetapi anda mungkin akan mengapresiasi ketika anda mempelajari lebih lanjut tentang penggunaannya nanti.
+Mereka mungkin terlihat sedikit berbeda dari HTML normal, tetapi `:` dan `@` adalah karakter yang valid untuk nama atribut dan semua browser yang didukung Vue dapat menguraikannya dengan benar. Selain itu, mereka tidak muncul di hasil markup render. Sintaks singkatan benar-benar opsional, tetapi Anda mungkin akan mengapresiasi ketika Anda mempelajari lebih lanjut tentang penggunaannya nanti.
