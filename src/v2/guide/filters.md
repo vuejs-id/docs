@@ -4,7 +4,7 @@ type: guide
 order: 305
 ---
 
-Vue.js memungkinkan Anda untuk menentukan filter yang dapat digunakan untuk memformat tulisan. Filter dapat digunakan di dua tempat: **interpolasi mustache dan ekspresi `v-bind`** (terakhir didukung di 2.1.0+). Filter harus ditambahkan di akhir JavaScript expression dengan simbol "pipe" ( | ):
+Vue.js memungkinkan Anda untuk menentukan filter yang dapat digunakan untuk memformat tulisan. Filter dapat digunakan di dua tempat: **interpolasi mustache dan ekspresi `v-bind`** (terakhir didukung di 2.1.0+). Filter harus ditambahkan di akhir ekspresi JavaScript dengan simbol "pipe" ( | ):
 
 ``` html
 <!-- di mustaches -->
@@ -66,7 +66,7 @@ Di bawah ini adalah contoh dari filter `capitalize` yang kami gunakan:
 </script>
 {% endraw %}
 
-Filter selalu menerima nilai expressions (hasil dari rantai sebelumnya) sebagai argumen pertama. Dalam contoh di atas, filter `capitalize` akan menerima nilai `message` sebagai argumen.
+Filter selalu menerima nilai ekspresi (hasil dari rantai sebelumnya) sebagai argumen pertama. Dalam contoh di atas, filter `capitalize` akan menerima nilai `message` sebagai argumen.
 
 Filter bisa berantai:
 
@@ -82,4 +82,4 @@ Filter adalah fungsi JavaScript, oleh karena itu mereka dapat mengambil argumen:
 {{ message | filterA('arg1', arg2) }}
 ```
 
-Di sini `filterA` didefinisikan sebagai fungsi yang mengambil tiga argumen. Nilai `message` yang akan dilanjutkan ke argumen pertama. String `'arg1'` yang akan di lanjutkan ke `filterA` sebagian argumen kedua, dan nilai dari expression `arg2` yang akan dievaluasi dan diteruskan sebagai argumen ketiga.
+Di sini `filterA` didefinisikan sebagai fungsi yang mengambil tiga argumen. Nilai `message` yang akan dilanjutkan ke argumen pertama. String `'arg1'` yang akan di lanjutkan ke `filterA` sebagian argumen kedua, dan nilai dari ekspresi `arg2` akan dievaluasi dan diteruskan sebagai argumen ketiga.
