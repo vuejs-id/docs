@@ -44,7 +44,7 @@ var contoh1 = new Vue({
 
 ## Metode Event Handler
 
-Bagaimanapun baris kode untuk banyak event handler akan terlihat rumit, jadi menempatkan kode JavaScript Anda dalam atribut `v-on` tidaklah tepat. Itulah mengapa `v-on` dapat juga menerima nama metode yang ingin dijalankan.
+Bagaimanapun Logika untuk banyak _event_ _handler_ akan terlihat rumit, jadi menempatkan kode JavaScript Anda dalam atribut `v-on` tidaklah tepat. Itulah mengapa `v-on` dapat juga menerima nama metode yang ingin dijalankan.
 
 Contoh:
 
@@ -102,9 +102,9 @@ var contoh2 = new Vue({
 </script>
 {% endraw %}
 
-## Metode dalam Inline Handler
+## Metode dalam Handler Sebaris
 
-Dari pada menempatkan nama metode secara langsung, kita juga dapat menggunakan metode dalam sebuah inline JavaScript statement:
+Dari pada menempatkan nama metode secara langsung, kita juga dapat menggunakan metode dalam sebuah JavaScript statement sebaris:
 
 ``` html
 <div id="contoh-3">
@@ -141,7 +141,7 @@ new Vue({
 </script>
 {% endraw %}
 
-Terkadang kita juga butuh akses ke event DOM bawaan dalam inline statement handler. Anda dapat menempatkan variabel khusus `$event` ke dalam sebuah metode:
+Terkadang kita juga butuh akses ke event DOM bawaan dalam statement _handler_ sebaris. Anda dapat menempatkan variabel khusus `$event` ke dalam sebuah metode:
 
 ``` html
 <button v-on:click="warn('Form cannot be submitted yet.', $event)">
@@ -160,11 +160,11 @@ methods: {
 }
 ```
 
-## Event Modifier
+## Pengubah (Modifier) Event
 
-Merupakan kebutuhan umum memanggil `event.preventDefault()` atau `event.stopPropagation()` di dalam event handler. Meskipun kita dapat melakukannya dengan mudah di dalam metode, akan lebih baik jika metode murni hanya berisi logika data dari pada menangani rincian event DOM.
+Merupakan kebutuhan umum memanggil `event.preventDefault()` atau `event.stopPropagation()` di dalam event _handler_. Meskipun kita dapat melakukannya dengan mudah di dalam metode, akan lebih baik jika metode murni hanya berisi logika data dari pada menangani rincian event DOM.
 
-Untuk menyelesaikan masalah ini, Vue menyediakan  **event modifier** untuk `v-on`. Penggunaan modifier tersebut ialah dengan tambahan direktif diawali dengan simbol titik.
+Untuk menyelesaikan masalah ini, Vue menyediakan  **pengubah event ** untuk `v-on`. Penggunaan pengubah tersebut ialah dengan tambahan direktif diawali dengan simbol titik.
 
 - `.stop`
 - `.prevent`
@@ -174,28 +174,28 @@ Untuk menyelesaikan masalah ini, Vue menyediakan  **event modifier** untuk `v-on
 - `.passive`
 
 ``` html
-<!-- click event propagation akan dihentikan -->
+<!-- perambatan event klik akan dihentikan -->
 <a v-on:click.stop="doThis"></a>
 
-<!-- the submit event tidak lagi memuat ulang halaman -->
+<!-- event submit tidak lagi memuat ulang halaman -->
 <form v-on:submit.prevent="onSubmit"></form>
 
-<!-- modifiers dapat ditulis berantai -->
+<!-- pengubah dapat ditulis berantai -->
 <a v-on:click.stop.prevent="doThat"></a>
 
-<!-- sebuah modifier -->
+<!-- sebuah pengubah -->
 <form v-on:submit.prevent></form>
 
 <!-- gunakan mode capture saat menambahkan event listener -->
-<!-- sebagai contoh, sebuah event menargetkan sebuah inner element ditangani disini sebelum ditangani oleh element tesebut -->
+<!-- sebagai contoh, sebuah event menargetkan sebuah inner elemen ditangani disini sebelum ditangani oleh elemen tesebut -->
 <div v-on:click.capture="doThis">...</div>
 
-<!-- handler hanya dipicu jiks event.target adalah element itu sendiri -->
-<!-- sebagai contoh, tidak dari child element -->
+<!-- handler hanya dipicu jiks event.target adalah elemen itu sendiri -->
+<!-- sebagai contoh, tidak dari elemen anak -->
 <div v-on:click.self="doThat">...</div>
 ```
 
-<p class="tip">Urutan penting saat menggunakan modifier karena kode yang bersangkutan dibentuk dengan urutan yang sama. Maka dari itu, menggunakan `v-on:click.prevent.self` akan mencegah **semua klik** sementara `v-on:click.self.prevent` hanya akan mencegah klik pada element itu sendiri.</p>
+<p class="tip">Urutan penting saat menggunakan pengubah karena kode yang bersangkutan dibentuk dengan urutan yang sama. Maka dari itu, menggunakan `v-on:click.prevent.self` akan mencegah **semua klik** sementara `v-on:click.self.prevent` hanya akan mencegah klik pada elemen itu sendiri.</p>
 
 > Baru pada versi 2.1.4+
 
@@ -204,11 +204,11 @@ Untuk menyelesaikan masalah ini, Vue menyediakan  **event modifier** untuk `v-on
 <a v-on:click.once="doThis"></a>
 ```
 
-Tidak seperti modifier lainnya, yang khusus untuk event DOM bawaan, `.once` modifier juga dapat digunakan pada [komponen event](components-custom-events.html). Jika anda belum membaca tentang komponen, jangan khawatir tentang ini untuk sekarang.
+Tidak seperti pengubah lainnya, yang khusus untuk event DOM bawaan, `.once` modifier juga dapat digunakan pada [komponen event](components-custom-events.html). Jika anda belum membaca tentang komponen, jangan khawatir tentang ini untuk sekarang.
 
 > Baru pada versi 2.3.0+
 
-Vue juga menawarkan `.passive` modifier, sesuai dengan [opsi `addEventListener`'s `passive`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters).
+Vue juga menawarkan pengubah `.passive`, sesuai dengan [opsi `addEventListener`'s `passive`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters).
 
 ``` html
 <!-- perilaku bawaan event scroll (scrolling) akan terjadi -->
@@ -217,26 +217,26 @@ Vue juga menawarkan `.passive` modifier, sesuai dengan [opsi `addEventListener`'
 <div v-on:scroll.passive="onScroll">...</div>
 ```
 
-`.passive` modifier secara khusus berguna meningkatkan performa pada perangkat mobile.
+pengubah `.passive` secara khusus berguna meningkatkan performa pada perangkat mobile.
 
 <p class="tip">Jangan menggunakan `.passive` dan `.prevent` bersamaan, karena `.prevent` akan diabaikan dan browser Anda kemungkinan akan menampilkan peringatan. Ingat, `.passive` berkomunikasi dengan broswer yang mana anda tidak ingin mencegah perilaku bawaan event.</p>
 
-## Key Modifier
+## Pengubah (Modifier) Key
 
-Saat memantau keyboard event, kita sering membutuhkan untuk memeriksa key tertentu. Vue mengizinkan penambahan key modifier untuk `v-on` saat memantau key events:
+Saat memantau keyboard event, kita sering membutuhkan untuk memeriksa key tertentu. Vue mengizinkan penambahan pengubah key untuk `v-on` saat memantau key events:
 
 ``` html
 <!-- hanya memanggil `vm.submit()` saat `key` adalah `Enter` -->
 <input v-on:keyup.enter="submit">
 ```
 
-Anda dapat secara langsung menggunakan nama key yang valid via [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) sebagai modifier dengan mengubahnya ke kebab-case.
+Anda dapat secara langsung menggunakan nama key yang valid via [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) sebagai pengubah dengan mengubahnya ke kebab-case.
 
 ``` html
 <input v-on:keyup.page-down="onPageDown">
 ```
 
-Pada contoh di atas, handler hanya akan dipanggil jika `$event.key` sama dengan `'PageDown'`.
+Pada contoh di atas, _handler_ hanya akan dipanggil jika `$event.key` sama dengan `'PageDown'`.
 
 ### Key Code
 
@@ -260,27 +260,27 @@ Vue menyediakan alias untuk key code umum jika dibutuhkan untuk mendukung browse
 - `.left`
 - `.right`
 
-<p class="tip">Beberapa kunci (.esc dan semua tombol arah) memiliki nilai key yang tidak konsisten pada peramban IE9, jadi alias yang telah tersedia di atas lebih disarankan jika anda butuh dukungan untuk peramban IE9.</p>
+<p class="tip">Beberapa kunci (.esc dan semua tombol arah) memiliki nilai key yang tidak konsisten pada browser IE9, jadi alias yang telah tersedia di atas lebih disarankan jika Anda butuh dukungan untuk browser IE9.</p>
 
-Anda juga dapat [mendefinisikan kustom alias key modifier](../api/#keyCodes) melalui global config.keyCodes object:
+Anda juga dapat [mendefinisikan pengubah kustom alias key](../api/#keyCodes) melalui global config.keyCodes object:
 
 ``` js
 // Mengaktifkan `v-on:keyup.f1`
 Vue.config.keyCodes.f1 = 112
 ```
 
-## Sistem Modifier Key
+## Sistem Pengubah (Modifier) Key
 
 > Baru pada versi 2.1.0+
 
-Anda dapat menggunakan modifier di bawah untuk memicu mouse atau keyboard event listener hanya pada saat modifier tertentu ditekan:
+Anda dapat menggunakan pengubah di bawah untuk memicu mouse atau keyboard event listener hanya pada saat pengubah tertentu ditekan:
 
 - `.ctrl`
 - `.alt`
 - `.shift`
 - `.meta`
 
-> Note: pada keyboard Macintosh, meta adalah command key (⌘). Pada keyboard Windows, meta adalah windows key (⊞). Pada keyboard Sun Microsystems, meta ditandai dengan solid diamond (◆). Pada keyboard tertentu, khususnya keyboard mesin MIT and Lisp dan penerusnya, seperti the Knight keyboard, space-cadet keyboard, meta diberi label “META”. Pada keyboard Symbolics, meta diberi label “META” atau “Meta”.
+> Note: pada keyboard Macintosh, meta adalah command key (⌘). Pada keyboard Windows, meta adalah Windows key (⊞). Pada keyboard Sun Microsystems, meta ditandai dengan solid diamond (◆). Pada keyboard tertentu, khususnya keyboard mesin MIT and Lisp dan penerusnya, seperti the Knight keyboard, space-cadet keyboard, meta diberi label “META”. Pada keyboard Symbolics, meta diberi label “META” atau “Meta”.
 
 Contoh:
 
@@ -294,11 +294,11 @@ Contoh:
 
 <p class="tip">Perhatikan bahwa modifier key berbeda dengan key pada umumnya dan saat digunakan dengan `keyup` event, key tersebut harus ditekan saat event dijalankan. Dengan kata lain, `keyup.ctrl` hanya akan dipicu ketika Anda melepas key saat masih menekan `ctrl`. Hal tersebut tidak akan dipicu jika Anda melepas `ctrl` key sendiri. Jika Anda tidak ingin perilaku seperti itu, gunakan `keyCode` untuk `ctrl` alih-alih: `keyup.17`.</p>
 
-### `.exact` Modifier
+### Pengubah (Modifier) `.exact`
 
 > Baru pada versi 2.5.0+
 
-`.exact` modifier mengizinkan kontrol kombinasi eksak sistem modifier yang dibutuhkan untuk memicu event.
+Pengubah `.exact` mengizinkan kontrol kombinasi eksak sistem pengubah yang dibutuhkan untuk memicu event.
 
 ``` html
 <!-- baris ini akan mengeksekusi metode bahkan jika tombol Alt atau Shift juga ditekan -->
@@ -311,7 +311,7 @@ Contoh:
 <button @click.exact="onClick">A</button>
 ```
 
-### Tombol Mouse Modifier
+### Pengubah (Modifier) Tombol Mouse
 
 > Baru pada versi 2.2.0+
 
@@ -319,13 +319,13 @@ Contoh:
 - `.right`
 - `.middle`
 
-Modifier ini membatasi handler pada event saat dipicu oleh tombol mouse tertentu.
+Pengubah ini membatasi _handler_ pada event saat dipicu oleh tombol mouse tertentu.
 
 ## Mengapa Listener di dalam HTML?
 
-Anda mungkin menyoroti bahwa keseluruhan pendekatan event listening menyalahi aturan lama tentang "separation of concerns". Kebanyakan meyakini itu - sejak semua fungsi-fungsi dan ekspresi Vue handler terikat secara terbatas pada ViewModel yang mana menangani view yang berhubungan, hal itu tidak akan mempersulit pemeliharaan. Faktanya, terdapat beberapa keuntungan penggunaan `v-on`:
+Anda mungkin menyoroti bahwa keseluruhan pendekatan event listening menyalahi aturan lama tentang "separation of concerns". Kebanyakan meyakini itu - sejak semua fungsi-fungsi dan ekspresi Vue _handler_ terikat secara terbatas pada ViewModel yang mana menangani view yang berhubungan, hal itu tidak akan mempersulit pemeliharaan. Faktanya, terdapat beberapa keuntungan penggunaan `v-on`:
 
-1. Mempermudah penempatan implementasi fungsi handler diantara baris kode JS dengan menelusuri sekilas HTML templat.
+1. Mempermudah penempatan implementasi fungsi _handler_ diantara baris kode JS dengan menelusuri sekilas HTML templat.
 
 2. Sejak Anda tidak membutuhkan peletakkan event listeners dalam JS secara manual, baris kode ViewModel menjadi berisi murni logika dan bebas DOM. Ini memudahkan dalam pengujian.
 
