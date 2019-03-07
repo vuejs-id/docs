@@ -4,9 +4,9 @@ type: guide
 order: 8
 ---
 
-## Memetakan sebuah Array dengan Direktif `v-for`
+## Memetakan sebuah Array dengan direktif `v-for`
 
-Kita bisa menggunakan perintah 'v-for' untuk mengeluarkan elemen yang berada didalam sebuah array. Direktif `v-for` ini memerlukan sebuah sintaksis spesial yaitu `item in items`, dimana `items` berarti data awalnya yang berada di dalam array dan `item` ini adalah sebuah **alias** untuk elemen array yang ingin di keluarkan.
+Kita bisa menggunakan perintah 'v-for' untuk mengeluarkan elemen yang berada didalam sebuah array. direktif `v-for` ini memerlukan sebuah sintaksis spesial yaitu `item in items`, dimana `items` berarti data awalnya yang berada di dalam array dan `item` ini adalah sebuah **alias** untuk elemen array yang ingin di keluarkan.
 
 ``` html
 <ul id="example-1">
@@ -54,7 +54,7 @@ var example1 = new Vue({
 </script>
 {% endraw %}
 
-Di dalam Direktif `v-for` kita bisa mengakses properti di induknya. Direktif `v-for` juga memiliki argument kedua untuk menunjukkan indeks dari item sekarang.
+Di dalam direktif `v-for` kita bisa mengakses properti di induknya. direktif `v-for` juga memiliki argument kedua untuk menunjukkan indeks dari item sekarang.
 
 ``` html
 <ul id="example-2">
@@ -157,7 +157,7 @@ new Vue({
 </script>
 {% endraw %}
 
-Anda bisa juga menyediakan argument kedua untuk keynya:
+Anda bisa juga menyediakan argument kedua untuk *`key`* nya:
 
 ``` html
 <div v-for="(value, key) in object">
@@ -213,15 +213,15 @@ new Vue({
 </script>
 {% endraw %}
 
-<p class="tip">Saat sedang melakukan perulangan pada sebuah objek, urutannya berdasarkan key, yang mana tidak dijamin akan konsisten pada saat di implementasi ke setiap mesin yang memiliki JavaScript.</p>
+<p class="tip">Saat sedang melakukan perulangan pada sebuah objek, urutannya berdasarkan *`key`*, yang mana tidak dijamin akan konsisten pada saat diimplementasikan ke setiap mesin JavaScript.</p>
 
-## `key`
+## *`key`*
 
 Saat Vue melakukan update pada sekumpulan elemen yang dikeluarkan dari `v-for`, normalnya ia menggunakan "in-place patch" strategy. Jika urutan item di sekumpulan data berubah, daripada memindahkan elemen DOM untuk menyamakannya dengan urutan item dari data tersebut, Vue akan menambal setiap elemen pada tempatnya dan menyamakan dengan apa yang akan di keluarkan pada indeks tertentu. Ia memiliki sifat yang sama dengan `track-by="$index"` pada Vue 1.x.
 
 Mode bawaan ini efisien, tapi hanya cocok **saat sekumpulan elemen yang dikeluarkan tidak bergantung pada state dari child component atau state sementara dari DOM (contohnya, nilai/value dari form input)**.
 
-Untuk memberikan petunjuk pada Vue supaya ia bisa mengikuti jejak pada setiap elemen yang memiliki identitas, dan hingga elemen yang ada bisa digunakan kembali dan diurutkan, Anda harus menggunakan sebuah unique `key` sebagai attribute pada setiap elemen. Nilai / value yang disarankan untuk `key` harus id yang unik pada setiap elemen. Special Attribute ini secara kasar setara dengan `track-by` di 1.x, tapi ia bekerja seperti sebuah attribute, jadi Anda perlu menggunakan `v-bind` untuk mengikatnya ke nilai yang dinamis (ini sintaksis singkatnya):
+Untuk memberikan petunjuk pada Vue supaya ia bisa mengikuti jejak pada setiap elemen yang memiliki identitas, dan hingga elemen yang ada bisa digunakan kembali dan diurutkan, Anda harus menggunakan sebuah *`key`* yang unik sebagai atribut pada setiap elemen. Nilai / value yang disarankan untuk *`key`* harus id yang unik pada setiap elemen. Atribut spesial ini secara kasar setara dengan `track-by` di 1.x, tapi ia bekerja seperti sebuah atribut, jadi Anda perlu menggunakan `v-bind` untuk mengikatnya ke nilai yang dinamis (berikut ini sintaksis singkatnya):
 
 ``` html
 <div v-for="item in items" :key="item.id">
@@ -229,11 +229,11 @@ Untuk memberikan petunjuk pada Vue supaya ia bisa mengikuti jejak pada setiap el
 </div>
 ```
 
-Direkomendasikan untuk menggunakan `key` saat menggunakan `v-for` jika memungkinkan, kecuali saat content yang dihasilkan dari perulangan sangat sederhana, atau Anda secara sengaja bergantung pada sifat bawaan supaya mendapatkan performa yang lebih baik.
+Direkomendasikan untuk menggunakan *`key`* saat menggunakan `v-for` jika memungkinkan, kecuali saat content yang dihasilkan dari perulangan sangat sederhana, atau Anda secara sengaja bergantung pada sifat bawaan supaya mendapatkan performa yang lebih baik.
 
-Sejak ini adalah mekanisme yang umum untuk Vue mengenali elemen, `key` ini juga memiliki kegunaan yang lain yang tidak secara spesifik terikat di `v-for`, kita akan mempelajarinya nanti di panduan ini.
+Sejak ini adalah mekanisme yang umum untuk Vue mengenali elemen, *`key`* ini juga memiliki kegunaan yang lain yang tidak secara spesifik terikat di `v-for`, kita akan mempelajarinya nanti di panduan ini.
 
-<p class="tip">Jangan menggunakan nilai non-primitif seperti objek dan array sebagai keys dari `v-for`. Lebih baik gunakan nilai String atau Numeric</p>
+<p class="tip">Jangan menggunakan nilai non-primitif seperti objek dan array sebagai *`keys`* dari `v-for`. Lebih baik gunakan nilai String atau Numeric</p>
 
 ## Deteksi perubahan pada Array
 
@@ -514,7 +514,7 @@ Ada beberapa contoh dari aplikasi sederhana todo list:
 </div>
 ```
 
-<p class="tip">Ketahuilah bahwa attribute `is="todo-item"`. Ini lumayan penting di dalam template DOM, karna hanya sebuah elemen `<li>` itu sah-sah saja didalam elemen `<ul>`. Ia melakukan hal yang sama seperti `<todo-item>`, tapi bisa berpotensi menyebabkan browser mengeluarkan error. Lihat pada [DOM Template Parsing Caveats](components.html#DOM-Template-Parsing-Caveats) untuk mempelajari lebih lanjut</p>
+<p class="tip">Ketahuilah bahwa atribut `is="todo-item"`. Ini lumayan penting di dalam template DOM, karna hanya sebuah elemen `<li>` itu sah-sah saja didalam elemen `<ul>`. Ia melakukan hal yang sama seperti `<todo-item>`, tapi bisa berpotensi menyebabkan browser mengeluarkan error. Lihat pada [DOM Template Parsing Caveats](components.html#DOM-Template-Parsing-Caveats) untuk mempelajari lebih lanjut</p>
 
 ``` js
 Vue.component('todo-item', {
