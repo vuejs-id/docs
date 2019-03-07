@@ -1,12 +1,12 @@
 ---
-title: List Rendering
+title: Me-render Daftar
 type: guide
 order: 8
 ---
 
 ## Memetakan sebuah Array dengan Perintah `v-for`
 
-Kita bisa menggunakan perintah 'v-for' untuk mengeluarkan elemen yang berada didalam sebuah array. Perintah `v-for` ini memerlukan sebuah syntaksis spesial yaitu `item in items`, dimana `items` berarti data awalnya yang berada di dalam array dan `item` ini adalah sebuah **alias** untuk elemen array yang ingin di keluarkan.
+Kita bisa menggunakan perintah 'v-for' untuk mengeluarkan elemen yang berada didalam sebuah array. Perintah `v-for` ini memerlukan sebuah sintaksis spesial yaitu `item in items`, dimana `items` berarti data awalnya yang berada di dalam array dan `item` ini adalah sebuah **alias** untuk elemen array yang ingin di keluarkan.
 
 ``` html
 <ul id="example-1">
@@ -104,7 +104,7 @@ var example2 = new Vue({
 </script>
 {% endraw %}
 
-Anda juga bisa menggunakan `of` sebagai pembatas dibandingkan dengan `in`, jadi lebih mirip dengan syntaksis perulangan milik Javascript.
+Anda juga bisa menggunakan `of` sebagai pembatas dibandingkan dengan `in`, jadi lebih mirip dengan sintaksis perulangan milik Javascript.
 
 ``` html
 <div v-for="item of items"></div>
@@ -221,7 +221,7 @@ Saat Vue melakukan update pada sekumpulan elemen yang dikeluarkan dari `v-for`, 
 
 Mode bawaan ini efisien, tapi hanya cocok **saat sekumpulan elemen yang dikeluarkan tidak bergantung pada state dari child component atau state sementara dari DOM (contohnya, nilai/value dari form input)**.
 
-Untuk memberikan petunjuk pada Vue supaya ia bisa mengikuti jejak pada setiap elemen yang memiliki identitas, dan hingga elemen yang ada bisa digunakan kembali dan diurutkan, Anda harus menggunakan sebuah unique `key` sebagai attribute pada setiap elemen. Nilai / value yang disarankan untuk `key` harus id yang unik pada setiap elemen. Special Attribute ini secara kasar setara dengan `track-by` di 1.x, tapi ia bekerja seperti sebuah attribute, jadi Anda perlu menggunakan `v-bind` untuk mengikatnya ke nilai yang dinamis (ini syntaksis singkatnya):
+Untuk memberikan petunjuk pada Vue supaya ia bisa mengikuti jejak pada setiap elemen yang memiliki identitas, dan hingga elemen yang ada bisa digunakan kembali dan diurutkan, Anda harus menggunakan sebuah unique `key` sebagai attribute pada setiap elemen. Nilai / value yang disarankan untuk `key` harus id yang unik pada setiap elemen. Special Attribute ini secara kasar setara dengan `track-by` di 1.x, tapi ia bekerja seperti sebuah attribute, jadi Anda perlu menggunakan `v-bind` untuk mengikatnya ke nilai yang dinamis (ini sintaksis singkatnya):
 
 ``` html
 <div v-for="item in items" :key="item.id">
