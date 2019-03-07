@@ -1,12 +1,12 @@
 ---
-title: Pengamat dan properti penghitung
+title: Properti Penghitung (Computed) dan Pengamat (Watchers)
 type: guide
 order: 5
 ---
 
-## Properti Penghitung (Computed Properties)
+## Properti Penghitung 
 
-Pernyataan *In-template* sangatlah mudah, tapi mereka dibuat untuk operasi yang sederhana. Memberikan terlalu banyak logika di *template* anda dapat menyebabkan mereka berat dan susah untuk dipelihara. Sebagai Contoh :
+Pernyataan *In-template* sangatlah mudah, tapi hal tersebut dibuat untuk operasi yang sederhana. Memberikan terlalu banyak logika di *template* anda dapat menyebabkan menjadi berat dan susah untuk dipelihara. Sebagai Contoh :
 
 
 ``` html
@@ -17,7 +17,7 @@ Pernyataan *In-template* sangatlah mudah, tapi mereka dibuat untuk operasi yang 
 
 Pada poin ini, *template* tidak lagi sederhana dan deklaratif. Anda harus melihat itu untuk beberapa saat sebelum menyadari bahwa itu menampilkan *`message`* secara terbalik. Masalahnya diperburuk ketika anda ingin memasukan pesan terbalik itu kedalam *template* anda lebih dari sekali.
 
-Itulah kenapa, untuk logika yang kompleks, anda harus menggunakan **properti penghitung**.
+Itulah mengapa untuk logika yang kompleks, Anda harus menggunakan **properti penghitung**.
 
 ### Contoh Sederhana
 
@@ -76,7 +76,7 @@ console.log(vm.reversedMessage) // => 'haD'
 
 Anda dapat membuka konsol *(console)* dan bermain dengan contoh vm sendirian. Nilai dari `vm.reversedMessage` selalu tergantung dengan nilai `vm.message`.
 
-Anda bisa melakukan *data-bind* ke properti penghitung di *template* seperti properti normal. Vue sadar bahwa `vm.reversedMessage` tergantung dengan `vm.message`, jadi itu akan merubah semua yang terkait dengan `vm.reversedMessage` ketika `vm.message` berubah. Dan bagian terbaiknya adalah kita telah membuat hubungan *dependency* secara deklaratif : penghitung fungsi *getter* tidak mempunyai efek samping, yang membuat itu menjadi lebih mudah untuk di coba dan di pahami.
+Anda bisa melakukan *data-bind* ke properti penghitung di *template* seperti properti normal. Vue sadar bahwa `vm.reversedMessage` tergantung dengan `vm.message`, jadi itu akan merubah semua yang terkait dengan `vm.reversedMessage` ketika `vm.message` berubah. Dan bagian terbaiknya adalah kita telah membuat hubungan *dependency* secara deklaratif : penghitung fungsi *getter* tidak mempunyai efek samping, yang membuat itu menjadi lebih mudah untuk dicoba dan dipahami.
 
 ### Penyimpanan Penghitung (Computed Cache) vs Metode
 
@@ -95,7 +95,7 @@ methods: {
 }
 ```
 
-Selain properti penghitung, kita dapat menetapkan fungsi yang sama sebagai metode. Untuk hasil akhirnya, dua pendekatan memang sama persis. Tetapi, perbedaanya adalah **properti penghitung *(computed property)* di simpan berdasarkan *dependencies* mereka.** Sebuah properti penghitung hanya akan mengevaluasi ulang ketika salah satu *dependencies* mereka telah berubah. Ini berarti selama `message` belum berubah, semua akses ke `reversedMessage` properti penghitung akan langsung kembali ke hasil penghitungan sebelumnya tanpa harus menjalankan ulang fungsi tersebut
+Selain properti penghitung, kita dapat menetapkan fungsi yang sama sebagai metode. Untuk hasil akhirnya, dua pendekatan memang sama persis. Tetapi, perbedaanya adalah **properti penghitung** di simpan berdasarkan *dependencies* mereka.** Sebuah properti penghitung hanya akan mengevaluasi ulang ketika salah satu *dependencies* mereka telah berubah. Ini berarti selama `message` belum berubah, semua akses ke `reversedMessage` properti penghitung akan langsung kembali ke hasil penghitungan sebelumnya tanpa harus menjalankan ulang fungsi tersebut
 
 Ini juga berarti properti penghitung dibawah tidak akan pernah berubah, karena `Date.now()` bukan *dependency* reaktif:
 
@@ -111,7 +111,7 @@ Sebagai perbandingan, sebuah pemanggilan metode akan **selalu** menjalankan fung
 
 Kenapa kita membutuhkan penyimpanan *(caching)* ? Bayangkan kita mempunyai sebuah *expensive computed property* bernama **A**, yang membutuhkan pengulangan melewati *Array* yang besar dan mengerjakan banyak perhitungan. Lalu kita mungkin mempunyai properti penghitung lainya yang tergantung dari **A**. Tanpa penyimpanan *(caching)*, kita mungkin akan menjalankan *getter* milik **A** lebih dari yang dibutuhkan! Ketika anda tidak butuh penyimpanan *(caching)*, gunakan metode sebagi gantinya.
 
-### Properti Penghitung (Computed Property) vs Properti Pengawas (Watched Property)
+### Properti Penghitung vs Properti Pengawas
 
 Vue juga menyediakan banyak cara umum untuk mengamati dan beraksi kepada perubahan data pada sebuah *instance* Vue: **Properti Pengawas *(Watch Properties)***. Ketika anda mempunyai beberapa data yang perlu dirubah berdasarkan data lainya, dan sudah terlalu banyak menggunakan `watch` - khususunya jika anda datang dari latar belakang AngularJS. Namun, terkadang ide yang lebih baik adalah untuk menggunakan  properti penghitung daripada sebuah perintah *callback* `watch`. Pertimbangkan contoh ini:
 
