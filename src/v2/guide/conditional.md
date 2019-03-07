@@ -50,7 +50,7 @@ Sebuah elemen `v-else` harus berada setelah `v-if` atau setelah elemen `v-else-i
 
 > Baru tersedia pada 2.1.0+
 
-`v-else-if`, sesuai namanya, bertindak sebagai "blok else if" untuk `v-if`. Ia juga bisa dirangkai berkali kali:
+`v-else-if`, sesuai namanya, bertindak sebagai "blok else if" untuk `v-if`. Ia juga bisa dirangkai berkali-kali:
 
 ```html
 <div v-if="type === 'A'">
@@ -71,7 +71,7 @@ Sama seperti `v-else`, sebuah elemen `v-else-if` harus berada sesudah `v-if` ata
 
 ### Mengendalikan Elemen Reusable dengan `key`
 
-Vue mencoba me-*render* elemen se-efisien mungkin, Seringkali memakai mereka kembali daripada melakukan *rendering* dari awal. Itulah mengapa Vue sangat cepat, dimana hal ini memiliki banyak manfaat. Sebagai contoh, jika Anda mengizinkan pengguna untuk beralih antar jenis *login*:
+Vue mencoba me-*render* elemen se-efisien mungkin, lebih sering memakainya kembali dibandingkan melakukan *rendering* dari awal. Itulah mengapa Vue sangat cepat, dimana hal ini memiliki banyak manfaat. Sebagai contoh, jika Anda mengizinkan pengguna untuk beralih antar jenis *login*:
 
 ``` html
 <template v-if="loginType === 'username'">
@@ -84,7 +84,7 @@ Vue mencoba me-*render* elemen se-efisien mungkin, Seringkali memakai mereka kem
 </template>
 ```
 
-Jadi peralihan `loginType` pada kode di atas tidak akan menghapus apa yang pengguna telah ketikkan. Karena templat keduanya menggunakan elemen yang sama, `<input>` tidak akan ditimpa - hanya bagian `placeholder`.
+Kemudian peralihan `loginType` pada kode di atas tidak akan menghapus apa yang pengguna telah ketikkan. Karena templat keduanya menggunakan elemen yang sama, `<input>` tidak akan ditimpa - hanya bagian `placeholder`.
 
 Periksa sendiri dengan memasukkan beberapa teks pada kotak isian, lalu tekan tombol alih:
 
@@ -117,7 +117,7 @@ new Vue({
 </script>
 {% endraw %}
 
-Hal ini kadang tidak diinginkan, sehingga Vue menawarkan cara bagi Anda yang bilang, "Dua elemen ini sepenuhnya terpisah - Jangan gunakan ulang mereka." Tambahkan sebuah atribut `key` dengan nilai yang unik:
+Hal ini kadang tidak diinginkan, sehingga Vue menawarkan cara bagi Anda yang bilang, "Dua elemen ini sepenuhnya terpisah - jangan gunakan ulang mereka." Tambahkan sebuah atribut `key` dengan nilai yang unik:
 
 ``` html
 <template v-if="loginType === 'username'">
@@ -177,7 +177,7 @@ Perbedaannya adalah `v-show` akan selalu melakukan *rendering* dan tetap berada 
 
 ## `v-if` vs `v-show`
 
-`v-if` merupakan rendering bersyarat yang "real" sebab ia memastikan bahwa penyimak *event* dan komponen anak di dalam blok kondisional benar benar dihancurkan dan dibuat ulang selama peralihan.
+`v-if` merupakan rendering bersyarat yang "nyata (real)" sebab ia memastikan bahwa penyimak *event* dan komponen anak di dalam blok kondisional benar benar dihancurkan dan dibuat ulang selama peralihan.
 
 `v-if` juga **malas**: jika kondisi bernilai salah pada render awal, maka tidak akan melakukan apa-apa - blok kondisional tidak akan di-*render* hingga kondisi menjadi bernilai benar untuk pertama kali.
 
