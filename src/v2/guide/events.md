@@ -104,7 +104,7 @@ var contoh2 = new Vue({
 
 ## Metode dalam Handler Sebaris
 
-Dari pada menempatkan nama metode secara langsung, kita juga dapat menggunakan metode dalam sebuah JavaScript statement sebaris:
+Dari pada menempatkan nama metode secara langsung, kita juga dapat menggunakan metode dalam sebuah JavaScript statemen sebaris:
 
 ``` html
 <div id="contoh-3">
@@ -141,7 +141,7 @@ new Vue({
 </script>
 {% endraw %}
 
-Terkadang kita juga butuh akses ke event DOM bawaan dalam statement _handler_ sebaris. Anda dapat menempatkan variabel khusus `$event` ke dalam sebuah metode:
+Terkadang kita juga butuh akses ke event DOM bawaan dalam statemen _handler_ sebaris. Anda dapat menempatkan variabel khusus `$event` ke dalam sebuah metode:
 
 ``` html
 <button v-on:click="warn('Form cannot be submitted yet.', $event)">
@@ -219,7 +219,7 @@ Vue juga menawarkan pengubah `.passive`, sesuai dengan [opsi `addEventListener`'
 
 pengubah `.passive` secara khusus berguna meningkatkan performa pada perangkat mobile.
 
-<p class="tip">Jangan menggunakan `.passive` dan `.prevent` bersamaan, karena `.prevent` akan diabaikan dan browser Anda kemungkinan akan menampilkan peringatan. Ingat, `.passive` berkomunikasi dengan broswer yang mana anda tidak ingin mencegah perilaku bawaan event.</p>
+<p class="tip">Jangan menggunakan `.passive` dan `.prevent` bersamaan, karena `.prevent` akan diabaikan dan peramban Anda kemungkinan akan menampilkan peringatan. Ingat, `.passive` berkomunikasi dengan peramban yang mana anda tidak ingin mencegah perilaku bawaan event.</p>
 
 ## Pengubah (Modifier) Key
 
@@ -240,7 +240,7 @@ Pada contoh di atas, _handler_ hanya akan dipanggil jika `$event.key` sama denga
 
 ### Key Code
 
-<p class="tip">Penggunaan `keyCode` event [telah usang](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode) dan mungkin tidak didukung pada browser-browser baru.</p>
+<p class="tip">Penggunaan `keyCode` event [telah usang](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode) dan mungkin tidak didukung pada peramban-peramban baru.</p>
 
 Menggunakan atribut `keyCode` juga diperbolehkan:
 
@@ -248,7 +248,7 @@ Menggunakan atribut `keyCode` juga diperbolehkan:
 <input v-on:keyup.13="submit">
 ```
 
-Vue menyediakan alias untuk _key_ code umum jika dibutuhkan untuk mendukung browser lama:
+Vue menyediakan alias untuk _key_ code umum jika dibutuhkan untuk mendukung peramban lama:
 
 - `.enter`
 - `.tab`
@@ -260,7 +260,7 @@ Vue menyediakan alias untuk _key_ code umum jika dibutuhkan untuk mendukung brow
 - `.left`
 - `.right`
 
-<p class="tip">Beberapa kunci (.esc dan semua tombol arah) memiliki nilai _key_ yang tidak konsisten pada browser IE9, jadi alias yang telah tersedia di atas lebih disarankan jika Anda butuh dukungan untuk browser IE9.</p>
+<p class="tip">Beberapa kunci (.esc dan semua tombol arah) memiliki nilai _key_ yang tidak konsisten pada peramban IE9, jadi alias yang telah tersedia di atas lebih disarankan jika Anda butuh dukungan untuk peramban IE9.</p>
 
 Anda juga dapat [mendefinisikan pengubah kustom alias key](../api/#keyCodes) melalui global config.keyCodes object:
 
