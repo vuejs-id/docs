@@ -54,7 +54,7 @@ var example1 = new Vue({
 </script>
 {% endraw %}
 
-Di dalam direktif `v-for` kita bisa mengakses properti di induknya. Direktif `v-for` juga memiliki argument kedua untuk menunjukkan indeks dari item sekarang.
+Di dalam direktif `v-for` kita bisa mengakses properti di induknya. Direktif `v-for` juga memiliki argumen kedua untuk menunjukkan indeks dari item sekarang.
 
 ``` html
 <ul id="example-2">
@@ -157,7 +157,7 @@ new Vue({
 </script>
 {% endraw %}
 
-Anda bisa juga menyediakan argument kedua untuk *`key`* nya:
+Anda bisa juga menyediakan argumen kedua untuk *`key`* nya:
 
 ``` html
 <div v-for="(value, key) in object">
@@ -185,7 +185,7 @@ new Vue({
 </script>
 {% endraw %}
 
-Dan argument lainnya untuk indeks:
+Dan argumen lainnya untuk indeks:
 
 ``` html
 <div v-for="(value, key, index) in object">
