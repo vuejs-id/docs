@@ -4,11 +4,11 @@ type: guide
 order: 101
 ---
 
-> Halaman ini berasumsi anda telah membaca [Komponen Dasar](components.html). Baca itu dahulu jika anda baru pada komponen.
+> Halaman ini berasumsi Anda telah membaca [Komponen Dasar](components.html). Baca halaman itu terlebih dahulu bila Anda belum mengerti komponen.
 
 ## Nama Komponen
 
-Ketika mendaftarkan sebuah komponen, itu akan selalu diberi nama. Misalnya, dalam sebuah daftar global yang kita lihat sejauh ini:
+Ketika mendaftarkan sebuah komponen, selalu berikan nama. Misalnya, untuk sebuah registrasi global kita akan melihat seperti berikut:
 
 ```js
 Vue.component('my-component-name', { /* ... */ })
@@ -16,9 +16,9 @@ Vue.component('my-component-name', { /* ... */ })
 
 Nama komponen adalah argumen pertama dari `Vue.component`.
 
-Nama yang anda berikan ke komponen mungkin tergantung pada dimana anda akan menggunakanya. Ketika menggunakan komponen secara langsung didalam DOM ( sebagai lawan didalam *template string* atau [komponen *single-file*](single-file-components.html)), kita sangat merekomendasikan untuk mengikuti [aturan W3C](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) untuk membuat nama tag *custom* (semuanya huruf kecil, harus berisi tanda penghubung). Ini membantu anda untuk menghindari konflik dengan elemen HTML sekarang dan kedepanya.
+Nama yang Anda berikan ke komponen mungkin tergantung pada dimana Anda akan menggunakannya. Ketika menggunakan komponen secara langsung di dalam DOM ( sebagai lawan di dalam *template string* atau [berkas komponen tunggal *(single-file component)*](single-file-components.html)), kita sangat merekomendasikan untuk mengikuti [Panduan W3C](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) untuk membuat nama tag *custom* (semuanya huruf kecil, harus berisi tAnda penghubung). Ini membantu Anda untuk menghindari konflik dengan elemen HTML sekarang dan kedepanya.
 
-Anda bisa melihat rekomendasi lainya untuk nama nama komponen di [Aturan Gaya](../style-guide/#Base-component-names-strongly-recommended).
+Anda bisa melihat rekomendasi lainya untuk nama nama komponen di [Panduan Gaya](../style-guide/#Base-component-names-strongly-recommended).
 
 ### Bingkai Nama (Name Casing)
 
@@ -30,7 +30,7 @@ Anda mempunyai dua pilihan ketika mendefinisikan nama komponen:
 Vue.component('nama-komponen-saya', { /* ... */ })
 ```
 
-Ketika mendefinisikan komponen dengan *kebab-case*, anda juga harus menggunakan *kebab-case* ketika memberi referensi ke elemen *custom*, seperti di `<nama-komponen-saya>`.
+Ketika mendefinisikan komponen dengan *kebab-case*, Anda juga harus menggunakan *kebab-case* ketika memberi referensi ke elemen *custom*, seperti di `<nama-komponen-saya>`.
 
 #### Dengan *PascalCase*
 
@@ -38,7 +38,7 @@ Ketika mendefinisikan komponen dengan *kebab-case*, anda juga harus menggunakan 
 Vue.component('NamaKomponenSaya', { /* ... */ })
 ```
 
-Ketika mendefinisikan komponen dengan *PascalCase*, anda dapat menggunakan kedua hal ketika memberi referensi ke *custom* elemenya. Itu berarti, kedua `<nama-komponen-saya>` dan `<NamaKomponenSaya>` dapat diterima. Catatan, meskipun hanya nama *kebab-case* yang valid secara langsung di DOM (contoh : *templates non-string*).
+Ketika mendefinisikan komponen dengan *PascalCase*, Anda dapat menggunakan kedua hal ketika memberi referensi ke *custom* elemenya. Itu berarti, kedua `<nama-komponen-saya>` dan `<NamaKomponenSaya>` dapat diterima. Catatan, meskipun hanya nama *kebab-case* yang valid secara langsung di DOM (contoh : *templates non-string*).
 
 ## Registrasi Global
 
@@ -50,7 +50,7 @@ Vue.component('nama-komponen-saya', {
 })
 ```
 
-Komponen ini **teregistrasi secara global**. Itu berarti mereka dapat digunakan didalam *template* dari semua *root Vue Instance* (`new Vue`) dibuat setelah diregistrasi. Sebagai contoh:
+Komponen ini **teregistrasi secara global**. Itu berarti mereka dapat digunakan di dalam *template* dari semua *root Vue Instance* (`new Vue`) dibuat setelah diregistrasi. Sebagai contoh:
 
 ```js
 Vue.component('component-a', { /* ... */ })
@@ -68,13 +68,13 @@ new Vue({ el: '#app' })
 </div>
 ```
 
-Ini bahkan berlaku kepada semua subkomponen, berarti tiga komponen tersebut juga tersedia _didalam satu sama lain_.
+Ini bahkan berlaku kepada semua sub komponen, berarti tiga komponen tersebut juga tersedia _di dalam satu sama lain_.
 
 ## Registrasi Lokal
 
-Registrasi global jarang menjadi ideal. Sebagai contoh, ketika anda menggunakan *build system* seperti Webpack, meregristasi global semua komponen berarti ketika anda berhenti menggunakan sebuah komponen, itu juga masih termasuk di *final build* anda. Ketidakperluan ini menambah banyak Javascript yang harus di unduh oleh pengguna anda.
+Registrasi global jarang menjadi ideal. Sebagai contoh, ketika Anda menggunakan *build system* seperti Webpack, meregistrasi global semua komponen berarti ketika Anda berhenti menggunakan sebuah komponen, itu juga masih termasuk di *final build* Anda. Ketidakperluan ini menambah banyak Javascript yang harus di unduh oleh pengguna Anda.
 
-Pada kasus ini, anda bisa menetapkan komponen anda sebagai objek Javascript sederhana:
+Pada kasus ini, Anda bisa menetapkan komponen Anda sebagai objek Javascript sederhana:
 
 ```js
 var ComponentA = { /* ... */ }
@@ -82,7 +82,7 @@ var ComponentB = { /* ... */ }
 var ComponentC = { /* ... */ }
 ```
 
-Lalu tetapkan komponen komponen yang akan anda gunakan di pilihan `components`
+Lalu tetapkan komponen komponen yang akan Anda gunakan di opsi `komponen`
 
 ```js
 new Vue({
@@ -94,9 +94,9 @@ new Vue({
 })
 ```
 
-Untuk setiap properti didalam objek `components`, kuncinya akan menjadi nama dari elemen *custom*, ketika nilai akan berisi pilihan objek dari komponen tersebut.
+Untuk setiap properti di dalam objek `components`, kuncinya akan menjadi nama dari elemen *custom*, ketika nilai akan berisi pilihan objek dari komponen tersebut.
 
-Catat bahwa **komponen yang terdaftar secara lokal juga _tidak_ terdapat di dalam _subkomponen_**. Sebagai contoh, jika anda ingin `Component A` terdapat di dalam `Component B`, anda harus menggunakan:
+Catat bahwa **komponen yang terdaftar secara lokal juga _tidak_ terdapat di dalam _sub komponen_**. Sebagai contoh, jika Anda ingin `Component A` terdapat di dalam `Component B`, Anda harus menggunakan:
 
 ```js
 var ComponentA = { /* ... */ }
@@ -109,7 +109,7 @@ var ComponentB = {
 }
 ```
 
-Atau jika anda tertarik menggunakan modul ES2015, seperti melewati Babel dan Webpack, itu akan lebih terlihat seperti:
+Atau jika Anda menggunakan modul ES2015, seperti menggunakan Babel dan Webpack, itu akan lebih terlihat seperti:
 
 ```js
 import ComponentA from './ComponentA.vue'
@@ -122,20 +122,20 @@ export default {
 }
 ```
 
-Cata bahwa di ES2015+, menempatkan nama variabel seperti `ComponentA` didalam *shorthand* objek untuk`ComponentA: ComponentA`, berarti nama dari kedua variabel adalah:
+Catat bahwa di ES2015+, menempatkan nama variabel seperti `ComponentA` di dalam *shorthand* objek untuk`ComponentA: ComponentA`, berarti nama dari kedua variabel adalah:
 
 - nama elemen *custom* yang digunakan di *template*, dan
 - nama dari variabel berisi pilihan komponen
 
 ## Sistem Modul
 
-Ketika anda tidak menggunakan sistem modul dengan `import`/`require`, anda mungkin bisa melewati bagian ini untuk sekarang. Jika anda menggunakanya, kita punya beberapa arahan spesial dan tips khusus untukmu.
+Ketika Anda tidak menggunakan sistem modul dengan `import`/`require`, Anda mungkin bisa melewati bagian ini untuk sekarang. Jika Anda menggunakanya, kita punya beberapa arahan spesial dan tips khusus untukmu.
 
-### Registrasi Lokal didalam Sistem Modul
+### Registrasi Lokal di dalam Sistem Modul
 
-Jika anda masih disini, berarti sepertinya anda menggunakan sistem modul, seperti Babel dan Webpack. Pada kasus ini, kita merekomendasi membuat sebuah direktori `komponen`, dengan setiap komponen memiliki filenya sendiri.
+Jika Anda masih disini, berarti sepertinya Anda menggunakan sistem modul, seperti Babel dan Webpack. Pada kasus ini, kita merekomendasi membuat sebuah direktori `komponen`, dengan setiap komponen memiliki filenya sendiri.
 
-Lalu anda harus memasukan setiap komponen yang akan anda gunakan, sebelum anda mendaftarkanya secara lokal. Sebagai contoh, di sebuah *hypothetical* `ComponentB.js` atau `ComponentB.vue` file:
+Lalu Anda harus memasukan setiap komponen yang akan Anda gunakan, sebelum Anda mendaftarkanya secara lokal. Sebagai contoh, di sebuah *hypothetical* `ComponentB.js` atau `ComponentB.vue` file:
 
 ```js
 import ComponentA from './ComponentA'
@@ -150,11 +150,11 @@ export default {
 }
 ```
 
-Sekarang kedua `ComponentA` Dan `ComponentC` dapat digunakan didalam *template* `ComponentB`.
+Sekarang kedua `ComponentA` Dan `ComponentC` dapat digunakan di dalam *template* `ComponentB`.
 
 ### Registrasi Otomatis Global dari Komponen Dasar
 
-Banyak dari komponen anda akan generik secara relatif, mungkin hanya membungkus elemen seperti sebuah tombol atau *input*. Kita terkadang mengacu pada ini sebagai [komponen dasar](../style-guide/#Base-component-names-strongly-recommended) dan mereka cenderung sering digunakan di beberapa komponen anda.
+Banyak dari komponen Anda akan generik secara relatif, mungkin hanya membungkus elemen seperti sebuah tombol atau *input*. Kita terkadang mengacu pada ini sebagai [komponen dasar](../style-guide/#Base-component-names-strongly-recommended) dan mereka cenderung sering digunakan di beberapa komponen Anda.
 
 Hasilnya adalah banyak komponen mungkin memasukan daftar panjang dari komponen dasar:
 
@@ -184,7 +184,7 @@ Hanya untuk membantu sedikit *markup* yang sama di sebuah *template*:
 </BaseButton>
 ```
 
-Untungnya, jika anda menggunakan Webpack (atau [Vue CLI 3+](https://github.com/vuejs/vue-cli), yang menggunakan Webpack didalamnya), anda bisa menggunakan `require.context` untuk mendaftarkan secara global komponen dasar yang paling umum. Berikut ini adalah contoh dari kode yang mungkin anda gunakan secara global untuk memasukan komponen dasar di awalan file aplikasi milik anda (contohnya `src/main.js`):
+Untungnya, jika Anda menggunakan Webpack (atau [Vue CLI 3+](https://github.com/vuejs/vue-cli), yang menggunakan Webpack di dalamnya), Anda bisa menggunakan `require.context` untuk mendaftarkan secara global komponen dasar yang paling umum. Berikut ini adalah contoh dari kode yang mungkin Anda gunakan secara global untuk memasukan komponen dasar di awalan file aplikasi milik Anda (contohnya `src/main.js`):
 
 ```js
 import Vue from 'vue'
