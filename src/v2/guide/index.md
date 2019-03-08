@@ -6,18 +6,18 @@ order: 2
 
 ## Apa itu Vue.js?
 
-Vue (cara pengucapannya /vjuː/, seperti **view**) adalah sebuah kerangka kerja nan progresif untuk membangun antarmuka pengguna. Tidak seperti beberapa framework monolitik yang lain, Vue dirancang dari dasar sekali agar dapat diadopsi secara bertahap. Pustaka inti nya di fokuskan pada layer tampilan saja, dan sangat mudah untuk diintegrasikan dengan pustaka yang lain atau dengan proyek yang sudah ada. Di sisi lain, Vue sangat mampu memberikan dan mendukung `Single Page Application` yang canggih ketika dikombinasikan dengan [perkakas modern](single-file-components.html) dan [dukungan pustaka](https://github.com/vuejs/awesome-vue#components--libraries).
+Vue (cara pengucapannya /vjuː/, seperti **view**) adalah sebuah kerangka kerja nan progresif untuk membangun antarmuka pengguna. Tidak seperti beberapa kerangka kerja monolitik yang lain, Vue dirancang dari dasar sekali agar dapat diadopsi secara bertahap. Pustaka intinya difokuskan pada layer tampilan saja, dan sangat mudah untuk diintegrasikan dengan pustaka yang lain atau dengan proyek yang sudah ada. Di sisi lain, Vue sangat mampu memberikan dan mendukung `Single Page Application` yang canggih ketika dikombinasikan dengan [perkakas modern](single-file-components.html) dan [dukungan pustaka](https://github.com/vuejs/awesome-vue#components--libraries).
 
 Jika anda ingin mempelajari lebih lanjut tentang Vue, kami <a id="modal-player"  href="#">membuat sebuah video</a> tentang prinsip - prinsip inti dan contoh proyek.
 
 
-Jika anda adalah seorang *frontend developer* yang berpengalaman dan ingin tahu bagaimana Vue dibandingkan dengan pustaka/framework yang lain, silakan kunjungi [Perbandingan dengan framework yang lain](comparison.html).
+Jika anda adalah seorang *frontend developer* yang berpengalaman dan ingin tahu bagaimana Vue dibandingkan dengan pustaka/kerangka kerja yang lain, silakan kunjungi [Perbandingan dengan kerangka kerja yang lain](comparison.html).
 
 <div class="vue-mastery"><a href="https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance/" target="_blank" rel="noopener" title="Free Vue.js Course">Tonton video kursus gratis di Vue Mastery</a></div>
 
 ## Memulai
 
-<p class="tip">Panduan resmi ini mengasumsikan bahwa pengetahuan pembaca berada di tingkat menengah tentang HTML, CSS, dan Javascript. Jika anda benar - benar baru di pengembangan aplikasi frontend, ini mungkin bukan keputusan yang tepat untuk langsung mencoba framework sebagai langkah pertama anda. Pelajari terlebih dahulu dasar - dasar nya, kemudian kembali kesini!! Pengalaman menggunakan framework yang lain sangat membantu, tapi bukan sebuah kewajiban.</p>
+<p class="tip">Panduan resmi ini mengasumsikan bahwa pengetahuan Anda berada di tingkat menengah tentang HTML, CSS, dan Javascript. Jika anda benar - benar baru di pengembangan aplikasi frontend, ini mungkin bukan keputusan yang tepat untuk langsung mencoba kerangka kerja sebagai langkah pertama anda. Pelajari terlebih dahulu dasar - dasar nya, kemudian kembali kesini!! Pengalaman menggunakan kerangka kerja yang lain sangat membantu, tapi bukan sebuah kewajiban.</p>
 
 Cara yang paling mudah untuk mencoba Vue.js adalah dengan menggunakan [JSFiddle Contoh Hello World](https://jsfiddle.net/chrisvfritz/50wL7mdz/). Jangan ragu untuk mencobanya di tab lain dan ikuti bagaimana kami memberikan contoh dasar. Atau, anda bisa <a href="https://gist.githubusercontent.com/chrisvfritz/7f8d7d63000b48493c336e48b3db3e52/raw/ed60c4e5d5c6fec48b0921edaed0cb60be30e87c/index.html" target="_blank" download="index.html" rel="noopener noreferrer">membuat sebuah file<code>index.html</code></a> dan isikan script dibawah ini:
 
@@ -33,7 +33,7 @@ atau:
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 ```
 
-Pada halaman [Instalasi](installation.html) tersedia lebih banyak opsi ketika memulai instalasi Vue. Catatan: Kami **tidak** menyarankan para pemula untuk memulai proyek dengan menggunakan `vue-cli`, terlebih lagi jika anda masih belum terbiasa / familiar dengan *build tools* yang bernama Node.js.
+Pada halaman [Instalasi](installation.html) tersedia lebih banyak opsi ketika memulai instalasi Vue. Catatan: Kami **tidak** menyarankan para pemula untuk memulai proyek dengan menggunakan `vue-cli`, terlebih lagi jika anda masih belum terbiasa / familiar dengan *build tools* yang berbasiskan Node.js.
 
 Jika anda lebih tertarik dengan hal hal yang lebih interaktif, anda bisa melihat [seri tutorial ini di Scrimba](https://scrimba.com/playlist/pXKqta), yang mana akan memberikan anda campuran beberapa screencast dan `code playground` yang bisa anda jeda dan mainkan kapan saja.
 
@@ -70,7 +70,7 @@ var app = new Vue({
 </script>
 {% endraw %}
 
-Kita telah berhasil membuat aplikasi Vue pertama kita! Jika kita perhatikan proses *rendering* nya masih sama seperti *string template* yang biasa, tetapi Vue disini sudah membantu banyak pekerjaan kita secara ajaib. Data yang ditampilkan sudah terhubung dengan DOM, dan semuanya bersifat reaktif. Bagaimana kita bisa tahu hal tersebut? Silakan buka javascript console pada peramban/*browser* anda (di halaman yang anda baca sekarang ini) dan *set* `app.pesan` dengan nilai yang berbeda. Anda akan langsung melihat perubahan pesan yang baru saja Anda ketikkan/ubah.
+Kita telah berhasil membuat aplikasi Vue pertama kita! Jika kita perhatikan proses *rendering* nya masih sama seperti *string template* yang biasa, tetapi Vue disini sudah membantu banyak pekerjaan kita secara ajaib. Data yang ditampilkan sudah terhubung dengan DOM, dan semuanya bersifat reaktif. Bagaimana kita bisa tahu hal tersebut? Silakan buka JavaScript konsol pada peramban anda (di halaman yang anda baca sekarang ini) dan *set* `app.pesan` dengan nilai yang berbeda. Anda akan langsung melihat perubahan pesan yang baru saja Anda ketikkan/ubah.
 
 Selain interpolasi teks, kita juga bisa langsung *binding* attribute pada elemen seperti dibawah ini:
 
@@ -108,7 +108,7 @@ var app2 = new Vue({
 
 Sekarang kita telah mempelajari hal baru. Atribut `v-bind` yang telah Anda lihat dinamakan **directive**. **Directive** diawali dengan huruf `v-` untuk mengindikasikan/menginformasikan bahwa dia adalah atribut spesial yang dibawa oleh Vue, dan seperti yang bisa anda tebak, dia menerapkan perilaku yang reaktif di DOM yang sudah dirender. Ibarat kata, "Jaga atribut `title` ini agar tetap *update* dengan properti `pesan`".
 
-Jika Anda buka javascript console lagi dan tekan enter `app2.pesan = 'ini adalah pesan baru'`, maka Anda akan melihat atribute `title` telah terupdate dengan pesan baru tersebut.
+Jika Anda buka JavaScript konsol lagi dan tekan enter `app2.pesan = 'ini adalah pesan baru'`, maka Anda akan melihat atribute `title` telah terupdate dengan pesan baru tersebut.
 
 ## Kondisi dan Perulangan
 
@@ -146,7 +146,7 @@ var app3 = new Vue({
 </script>
 {% endraw %}
 
-Cobalah buka console di browser Anda sekali lagi, dan ketikkan `app3.terlihat = false` kemudian tekan enter. Maka pesan yang tadi akan hilang
+Cobalah buka konsol di peramban Anda sekali lagi, dan ketikkan `app3.terlihat = false` kemudian tekan enter. Maka pesan yang tadi akan hilang
 
 Contoh ini mendemonstrasikan kepada kita bahwa tidak hanya teks dan atribut yang bisa kita *binding*, tetapi juga struktur dari DOM. Bahkan, Vue juga mampu menyediakan transisi yang keren pada sistem efek yang secara otomatis bisa dipakai di [efek transisi](transitions.html) ketika elemen ditambahkan/diperbaharui/dihapus oleh Vue.
 
@@ -195,7 +195,7 @@ var app4 = new Vue({
 </script>
 {% endraw %}
 
-Di console, ketik dan enter `app4.todos.push({ text: 'Hasilkan uang' })`. Maka anda akan melihat *item* baru akan muncul dalam daftar.
+Di konsol, ketik dan enter `app4.todos.push({ text: 'Hasilkan uang' })`. Maka anda akan melihat *item* baru akan muncul dalam daftar.
 
 ## Menangani Inputan Pengguna
 
@@ -392,7 +392,7 @@ di Aplikasi yang berskala besar, sangat penting untuk membagi keseluruhan aspek 
 
 Anda pasti menyadari bahwa komponen pada Vue sangat mirip dengan **Elemen Kustom**, yang mana adalah bagian dari [Spesifikasi Web Components](https://www.w3.org/wiki/WebComponents/). Hal itu dikarenakan sintaks di komponen Vue sangatlah fleksibel. Sebagai contoh, komponen Vue mengimplementasikan [Slot API](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md) dan atribut spesial `is`. Tetapi bagaimanapun, terdapat perbedaan di beberapa sisi:
 
-1. Spesifikasi dari *Web Components* sudah final, tetapi dia masih belum tersedia / bisa diimplementasikan di setiap browser secara *native*. Safari 10.1+, Chrome 54+ dan Firefox 63+ sudah mendukung *Web Components* secara *native*. Jika dibandingkan, komponen pada Vue tidak membutuhkan *polyfill* apapun dan bekerja secara konsisten di semua browser (IE9 keatas). Ketika dibutuhkan, komponen pada Vue juga bisa di bungkus kedalam *native* elemen kustom.
+1. Spesifikasi dari *Web Components* sudah final, tetapi dia masih belum tersedia / bisa diimplementasikan di setiap peramban secara *native*. Safari 10.1+, Chrome 54+ dan Firefox 63+ sudah mendukung *Web Components* secara *native*. Jika dibandingkan, komponen pada Vue tidak membutuhkan *polyfill* apapun dan bekerja secara konsisten di semua peramban (IE9 keatas). Ketika dibutuhkan, komponen pada Vue juga bisa di bungkus kedalam *native* elemen kustom.
 
 2. Komponen pada vue menyediakan fitur penting yang tidak tersedia di elemen kustom murni, terutama pada komponen lintas data, komunikasi *event* kustom dan integrasi *build tool*.
 
