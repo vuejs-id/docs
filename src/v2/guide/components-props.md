@@ -207,8 +207,8 @@ Vue.component('my-component', {
     // Objek dengan sebuah nilai dasar
     propE: {
       type: Object,
-      // Object or array defaults must be returned from
-      // a factory function
+      // Objek atau array dasar harus dikembailkan dari 
+      // sebuah factory function
       default: function () {
         return { message: 'hello' }
       }
