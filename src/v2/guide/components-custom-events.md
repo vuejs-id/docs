@@ -16,14 +16,14 @@ Sebaliknya, nama event yang di *emit* harus sama dengan nama *event* yang dideng
 this.$emit('myEvent')
 ```
 
-Mendengarkan ke versi *kebab-cased* tidak akan memberikan efek
+Mendengarkan menggunakan *kebab-cased* tidak akan memberikan efek
 
 ```html
 <!-- Won't work -->
 <my-component v-on:my-event="doSomething"></my-component>
 ```
 
-Tidak seperti komponen dan props, nama *event* tidak akan pernah digunakan sebagai nama variabel atau properti di dalam JavaScript, jadi tidak ada alasan untuk menggunakan kata dengan *camelCase* atau *PascalCase*. Selain itu, *listeners* *event* `v-on` didalam *templates* DOM akan secara otomatis dirubah menjadi huruf kecil (karena ketidakpekaan huruf HTML), jadi `v-on:myEvent` akan menjadi `v-on:myevent` -- membuat `myEvent` tidak mungkin untuk didengarkan
+Tidak seperti komponen dan props, nama *event* tidak akan pernah digunakan sebagai nama variabel atau properti di dalam JavaScript, jadi tidak ada alasan untuk menggunakan kata dengan *camelCase* atau *PascalCase*. Selain itu, *listener* *event* `v-on` di dalam *template* DOM akan secara otomatis diubah menjadi huruf kecil (karena HTML tidak peka terhadap besar kecil huruf), jadi `v-on:myEvent` akan menjadi `v-on:myevent` -- membuat `myEvent` tidak mungkin untuk didengarkan
 
 Karena alasan tersebut, kami merekomendasikan kamu  **selalu gunakan *kebab-case* untuk nama *event***
 
@@ -31,7 +31,7 @@ Karena alasan tersebut, kami merekomendasikan kamu  **selalu gunakan *kebab-case
 
 > Baru di 2.2.0+
 
-Secara standar, `v-model` pada sebuah komponen menggunakan `value` sebagai prop dan `input` sebagai *event*, tetapi beberapa tipe masukan seperti *checkboxes* dan *radio buttons* mungkin menggunakan atribut `value` untuk sebuah [different purpose] (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Value). Menggunakan opsi `model` dapat menghindari konflik dalam kasus-kasus seperti:
+Secara standar, `v-model` pada sebuah komponen menggunakan `value` sebagai prop dan `input` sebagai *event*, tetapi beberapa tipe *input* seperti *checkbox* dan *radio button* mungkin menggunakan atribut `value` untuk sebuah [different purpose] (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Value). Menggunakan opsi `model` dapat menghindari konflik dalam kasus-kasus seperti:
 
 ```js
 Vue.component('base-checkbox', {
@@ -58,9 +58,9 @@ Sekarang ketika menggunakan `v-model` pada komponen ini
 <base-checkbox v-model="lovingVue"></base-checkbox>
 ```
 
-nilai dari `lovingVue` akan diteruskan ke prop `checked`. Properti `lovingVue` kemudian akan diperbaharui ketika `<base-checkbox>` melakukan *emit* pada sebuah *event* bernama `change` dengan nilai yang baru.
+nilai dari `lovingVue` akan dioper ke prop `checked`. Properti `lovingVue` kemudian akan diperbarui ketika `<base-checkbox>` melakukan *emit* pada sebuah *event* bernama `change` dengan nilai yang baru.
 
-<p class="tip">Perhatian anda masih harus mendeklarasikan<code>checked</code> prop didalam opsi <code>props</code> komponen.</p>
+<p class="tip">Catatan bahwa anda masih harus mendeklarasikan<code>checked</code> prop di dalam opsi <code>props</code> komponen.</p>
 
 ## *Binding Native Events* ke Komponen
 
@@ -70,7 +70,7 @@ Mungkin ada saat-saat anda ingin mendengarkan secara langsung ke *native event* 
 <base-input v-on:focus.native="onFocus"></base-input>
 ```
 
-Terkadang ini berguna, tetapi ini bukan ide yang bagus ketika kamu mencoba untuk mendengarkan sebuah elemen khusus, seperti `<input>`. Sebagai contoh, komponen `<base-input>` diatas mungkin mengalami *refactor* sehingga elemen utama sebenarnya adalah elemen `<label>` 
+Terkadang ini berguna, tetapi ini bukan ide yang bagus ketika kamu mencoba untuk mendengarkan sebuah elemen khusus, seperti `<input>`. Sebagai contoh, komponen `<base-input>` diatas mungkin harus diperbaiki agar elemen akar yang sebenarnya adalah elemen `<label>` 
 
 ```html
 <label>
@@ -83,9 +83,9 @@ Terkadang ini berguna, tetapi ini bukan ide yang bagus ketika kamu mencoba untuk
 </label>
 ```
 
-Dalam kasus ini, *listeners* `.native` dalam induk komponen akan diam-diam berhenti. Tidak akan terjadi kesalahan, tetapi *handler* `onFocus` tidak akan dipanggil ketika kita mengharapkannya.
+Dalam kasus ini, *listener* `.native` dalam induk komponen akan diam-diam berhenti. Tidak akan terjadi kesalahan, tetapi *handler* `onFocus` tidak akan dipanggil ketika kita mengharapkannya.
 
-Untuk mengatasi masalah ini, Vue menyediakan properti `$listeners` yang berisi objek *listeners* yang digunakan pada komponen. Sebagai contoh :
+Untuk mengatasi masalah ini, Vue menyediakan properti `$listeners` yang berisi objek *listener* yang digunakan pada komponen. Sebagai contoh :
 
 ```js
 {
@@ -94,7 +94,7 @@ Untuk mengatasi masalah ini, Vue menyediakan properti `$listeners` yang berisi o
 }
 ```
 
-Menggunakan properti `$listeners`, kamu dapat meneruskan semua *listeners* *event* pada komponen ke elemen anak khusus dengan `v-on="$listeners"`. Sebagai contoh seperti `<input>`, bahwa kamu juga ingin bekerja dengan `v-model`, ini akan sering berguna untuk membuat sebuah *computed* properti baru untuk *listeners*, seperti `inputListener` dibawah ini :
+Menggunakan properti `$listeners`, kamu dapat meneruskan semua *listener* *event* pada komponen ke elemen anak khusus dengan `v-on="$listeners"`. Sebagai contoh seperti `<input>`, bahwa kamu juga ingin bekerja dengan `v-model`, ini akan sering berguna untuk membuat sebuah *computed* properti baru untuk *listener*, seperti `inputListener` dibawah ini :
 
 ```js
 Vue.component('base-input', {
@@ -107,8 +107,8 @@ Vue.component('base-input', {
       return Object.assign({},
         // Kita menambahkan semua pendengar dari induk
         this.$listeners,
-        // Kemudian kita bisa menambahkan *listeners* modifikasi atau mengesampingkan kebiasaan
-        // dari beberapa *listeners*
+        // Kemudian kita bisa menambahkan *listener* modifikasi atau mengesampingkan kebiasaan
+        // dari beberapa *listener*
         {
           // Ini memastikan komponen bekerja dengan v-model
           input: function (event) {
@@ -131,21 +131,21 @@ Vue.component('base-input', {
 })
 ```
 
-Sekarang komponen `<base-input>` adalah sebuah **pembungkus transparan sepenuhnya**, artinya dapat digunakan persis seperti elemen `<input>` normal: semua atribut dan *listeners* akan bekerja, tanpa *modifier* `.native`
+Sekarang komponen `<base-input>` adalah sebuah **pembungkus yang sepenuhnya transparan**, artinya dapat digunakan persis seperti elemen `<input>` normal: semua atribut dan *listener* akan bekerja, tanpa *modifier* `.native`
 
 ## *Modifier* `.sync`
 
 > Baru di 2.3.0+
 
-Dalam beberapa kasus, kita mungkin memerlukan "two-way binding" untuk sebuah prop. sayangnya *two-way binding* yang benar dapat menciptakan pemeliharaan masalah, karena komponent anak dapat mengubah induk tanpa sumber perubahan itu menjadi jelas di induk dan di anak
+Dalam beberapa kasus, kita mungkin memerlukan *binding* dua arah untuk sebuah prop. sayangnya *binding* dua arah yang benar dapat menciptakan pemeliharaan masalah, karena komponent anak dapat mengubah induk tanpa sumber perubahan itu menjadi jelas di induk dan di anak
 
-Karena itu, kami merekomendasikan dalam melakukan *emit* pada sebuah *event* dalam pola `update:myPropName`. Sebagai contoh, dalam sebuah komponen hipotesis dengan sebuah `title` prop, kita tidak dapat mengkomunikasikan maksud pemberian nilai baru dengan :
+Karena itu, kami merekomendasikan dalam melakukan *emit* pada sebuah *event* dalam pola `update:myPropName`. Sebagai contoh, dalam sebuah komponen hipotesis dengan sebuah `title` prop, kita tidak dapat menyampaikan maksud pemberian nilai baru dengan :
 
 ```js
 this.$emit('update:title', newTitle)
 ```
 
-Kemudian induk akan mendengarkan ke *event* tersebut dan memperbaharui properti data lokal, jika diinginkan. Sebagai contoh :
+Kemudian induk akan mendengarkan ke *event* tersebut dan memperbarui properti data lokal, jika diinginkan. Sebagai contoh :
 
 ```html
 <text-document
@@ -160,7 +160,7 @@ Untuk kenyamanan, kami menawarkan singkatan untuk pola ini dengan `.sync` *modif
 <text-document v-bind:title.sync="doc.title"></text-document>
 ```
 
-<p class="tip">Catatan <code>v-bind</code> dengan *modifier* <code>.sync</code> <strong>tidak</strong> bekerja dengan ekspresi (e.g. <code>v-bind:title.sync="doc.title + '!'"</code> adalah tidak valid). Sebaliknya, Anda hanya harus memberikan nama dari properti yang anda ingin *bind*, mirib dengan <code>v-model</code>.</p>
+<p class="tip">Catatan <code>v-bind</code> dengan *modifier* <code>.sync</code> <strong>tidak</strong> bekerja dengan ekspresi (e.g. <code>v-bind:title.sync="doc.title + '!'"</code> adalah tidak valid). Sebaliknya, Anda hanya harus memberikan nama dari properti yang anda ingin *bind*, mirip dengan <code>v-model</code>.</p>
 
 Pengubah `.sync` dapat juga digunakan dengan `v-bind` ketika menggunakan sebuah objek untuk mengatur beberapa props sekaligus
 
@@ -171,4 +171,4 @@ Pengubah `.sync` dapat juga digunakan dengan `v-bind` ketika menggunakan sebuah 
 Ini meneruskan setiap properti di objek `doc` (Contoh. `title`) sebagai sebuah prop individu, 
 kemudian tambahkan `v-on` perbarui untuk masing-masing
 
-<p class="tip">Menggunakan <code>v-bind.sync</code> dengan objek literal, seperti di <code>v-bind.sync="{ title: doc.title }"</code>, tidak akan berfungsi, karena ada terlalu banyak kasus tepi untuk dipertimbangkan dalam menguraikan ekspresi kompleks seperti ini</p>
+<p class="tip">Menggunakan <code>v-bind.sync</code> dengan objek literal, seperti di <code>v-bind.sync="{ title: doc.title }"</code>, tidak akan berfungsi, karena ada terlalu banyak kasus baru untuk dipertimbangkan dalam menguraikan ekspresi kompleks seperti ini</p>
