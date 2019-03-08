@@ -4,11 +4,11 @@ type: guide
 order: 102
 ---
 
-> Halaman ini mengganggap Anda telah membaca bagian [Dasar-dasar Komponen](components.html). Baca terlebih dahulu bagian tersebut jika Anda masih baru dalam hal komponen.
+> Halaman ini berasumsi Anda telah membaca [dasar-dasar komponen](components.html). Baca halaman itu terlebih dahulu bila Anda belum mengerti komponen.
 
-## Mengemas Prop (camelCase vs kebab-case)
+## Aturan Huruf Prop (camelCase vs kebab-case)
 
-Nama atribut dalam HTML bersifat case-insensitive, jadi peramban akan mengartikan semua karakter yang berhuruf besar sebagai karakter yang berhuruf kecil. Itu berarti ketika Anda menggunakan templat di dalam DOM, nama prop yang berformat camelCased perlu menggunakan padanan format kebab-cased (dipisahkan dengan tanda hubung) :
+Nama atribut dalam HTML bersifat *case-insensitive*, jadi peramban akan mengartikan semua karakter yang berhuruf besar sebagai karakter yang berhuruf kecil. Itu berarti ketika Anda menggunakan templat di dalam DOM, nama prop yang berformat camelCase perlu menggunakan padanan format kebab-case (dipisahkan dengan tanda hubung) :
 
 ``` js
 Vue.component('blog-post', {
@@ -33,7 +33,7 @@ Sejauh ini, kita hanya melihat props yang terdaftar sebagai sebuah string di dal
 props: ['title', 'likes', 'isPublished', 'commentIds', 'author']
 ```
 
-Namun biasanya, Anda ingin setiap prop menjadi sebuah tipe nilai yang spesifik. Dalam kasus ini, Anda bisa membuat daftar props sebagai sebuah objek, dimana nama dan nilai masing-masing properti berisikan nama dan nilai props :
+Namun biasanya, Anda ingin setiap prop  memiliki nilai yang spesifik tipenya. Dalam kasus ini, Anda bisa membuat daftar props sebagai sebuah objek, dimana properti nama akan berisi nama dari props sedangkan properti nilai akan berisi tipe data dari props tersebut :
 
 ```js
 props: {
@@ -47,7 +47,7 @@ props: {
 }
 ```
 
-Hal ini tidak hanya akan mendokumentasikan komponen Anda, tapi juga akan memperingatkan pengguna di konsol Javascript Peramban jika mereka memasukkan tipe yang salah. Anda akan lebih banyak belajar tentang [tipe pengecekan dan validasi prop lainnya](#Prop-Validation) lebih lanjut di halaman ini.
+Hal ini tidak hanya akan mendokumentasikan komponen Anda, tapi juga akan memperingatkan pengguna di konsol Javascript sebuah Peramban jika mereka memasukkan tipe data yang salah. Anda akan lebih banyak belajar tentang [tipe pengecekan dan validasi prop lainnya](#Prop-Validation) lebih lanjut di halaman ini.
 
 ## Memasukkan Props Statis atau Dinamis
 
@@ -107,7 +107,7 @@ Dari dua contoh di atas, kita telah memasukkan nilai string, tapi sebenarnya _se
 <blog-post v-bind:comment-ids="post.commentIds"></blog-post>
 ```
 
-### Memasukkan sebuah Object
+### Memasukkan sebuah Objek
 
 ```html
 <!-- Even though the object is static, we need v-bind to tell Vue that -->
@@ -224,11 +224,11 @@ Vue.component('my-component', {
 })
 ```
 
-Ketika validasi prop gagal, Vue akan membuat sebuah pesan peringatan di konsol (Jika menggunakan development build).
+Jika validasi prop gagal, Vue akan membuat sebuah pesan peringatan di konsol (Jika menggunakan development build).
 
 <p class="tip">Perhatikan bahwa props telah divalidasi **sebelum** sebuah komponen instance dibuat, jadi properti instance (misalnya `data`, `computed`, dll) tidak akan bisa dipakai di fungsi `default` atau `validator`</p>
 
-### Tipe Pemeriksaan
+### Pengecekan Tipe Data
 
 Sebuah `tipe` bisa jadi adalah salah satu dari konstruktor-konstruktor asli sebagai berikut:
 
@@ -241,7 +241,7 @@ Sebuah `tipe` bisa jadi adalah salah satu dari konstruktor-konstruktor asli seba
 - Function
 - Symbol
 
-Selain itu, sebuah `tipe` bisa juga merupakan sebuah fungsi konstrukor yang disesuaikan dan pernyataannya akan dibuat dengan pemeriksaan `instanceof`. Sebagai contoh, berikut ada sebuah following constructor:
+Selain itu, sebuah `tipe` bisa juga merupakan sebuah fungsi konstruktor yang disesuaikan dan pernyataannya akan dibuat dengan pemeriksaan `instanceof`. Sebagai contoh, berikut ada sebuah konstruktor:
 
 ```js
 function Person (firstName, lastName) {
@@ -262,11 +262,11 @@ Vue.component('blog-post', {
 
 untuk memvalidasi bahwa nilai dari prop `author` dibuat dengan `new Person`.
 
-## Attribut Non-Prop
+## Atribut Non-Prop
 
 Sebuah atribut non-prop merupakan sebuah atribut yang telah dimasukkan ke dalam sebuah component, tapi tidak memiliki prop yang didefiniskan dengan sesuai.
 
-Sementara props yang telah didefinisikan secara eksplisit lebih diutamakan untuk memasukkan informasi ke dalam komponen anak, penulis perpustakaan komponen tidak dapat selalu melihat konteks dimana saja komponen milik mereka bisa digunakan. Itulah sebabnya komponen dapat menerima atribut semaunya, yang mana ditambahkan ke elemen komponen root.
+Sementara props yang telah didefinisikan secara eksplisit lebih diutamakan untuk memasukkan informasi ke dalam komponen anak, pembuat pustaka komponen tidak dapat selalu melihat konteks dimana saja komponen milik mereka bisa digunakan. Itulah sebabnya komponen dapat menerima atribut semaunya, yang mana ditambahkan ke elemen komponen root.
 
 Sebagai contoh, seumpama kita menggunakan komponen pihak ketiga `bootstrap-date-input` dengan sebuah plugin Bootstrap yang membutuhkan atribut `data-date-picker` di dalam `input`. Kita bisa menambahkan atribut ini ke dalam komponen instance kita : 
 
@@ -320,7 +320,7 @@ Hal ini bisa sangat berguna dalam kombinasi dengan properti instance `$attrs`, y
 }
 ```
 
-Dengan `inheritAttrs: false` dan `$attrs`, Anda secara manual dapat memutuskan elemen mana yang Anda ingin teruskan ke atribut, yang mana sering diperlukan sekali untuk [komponen-komponen dasar](../style-guide/#Base-component-names-strongly-recommended):
+Dengan `inheritAttrs: false` dan `$attrs`, Anda secara manual dapat memutuskan elemen mana yang Anda ingin teruskan ke atribut, yang mana sering diperlukan sekali untuk [dasar-dasar komponen](../style-guide/#Base-component-names-strongly-recommended):
 
 ```js
 Vue.component('base-input', {
