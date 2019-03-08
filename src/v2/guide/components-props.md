@@ -47,9 +47,9 @@ props: {
 }
 ```
 
-Hal ini tidak hanya akan mendokumentasikan komponen Anda, tapi juga akan memperingatkan pengguna di konsol Javascript sebuah Peramban jika mereka memasukkan tipe data yang salah. Anda akan lebih banyak belajar tentang [tipe pengecekan dan validasi prop lainnya](#Prop-Validation) lebih lanjut di halaman ini.
+Hal ini tidak hanya akan mendokumentasikan komponen Anda, tapi juga akan memperingatkan pengguna di konsol Javascript sebuah peramban jika mereka mengoper tipe data yang salah. Anda akan lebih banyak belajar tentang [pengecekan tipe data dan validasi prop lainnya](#Prop-Validation) lebih lanjut di halaman ini.
 
-## Memasukkan Props Statis atau Dinamis
+## Mengoper(*Passing*) Props Statis atau Dinamis
 
 Sejauh ini, Anda telah melihat props yang dimasukkan dengan sebuah nilai statis, seperti berikut:
 
@@ -60,58 +60,58 @@ Sejauh ini, Anda telah melihat props yang dimasukkan dengan sebuah nilai statis,
 Anda juga telah melihat props yang secara dinamis ditetapkan dengan `v-bind`, seperti berikut:
 
 ```html
-<!-- Dynamically assign the value of a variable -->
+<!-- Secara dinamis menetapkan nilai dari sebuah variabel -->
 <blog-post v-bind:title="post.title"></blog-post>
 
-<!-- Dynamically assign the value of a complex expression -->
+<!-- Secara dinamis menetapkan nilai dari sebuah ekspresi kompleks -->
 <blog-post
   v-bind:title="post.title + ' by ' + post.author.name"
 ></blog-post>
 ```
 
-Dari dua contoh di atas, kita telah memasukkan nilai string, tapi sebenarnya _semua_ tipe nilai dapat dimasukkan ke dalam sebuah prop.
+Dari dua contoh di atas, kita telah mengoper nilai string, tapi sebenarnya _semua_ tipe nilai dapat dimasukkan ke dalam sebuah prop.
 
-### Memasukkan sebuah Angka
+### Mengoper sebuah Angka
 
 ```html
-<!-- Even though `42` is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.       -->
+<!-- Walaupun objek bersifat statis, kita perlu v-bind untuk memberi tahu Vue hal itu -->
+<!-- berikut ini adalah sebuah ekspresi Javascript daripada sebuah string -->
 <blog-post v-bind:likes="42"></blog-post>
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Secara dinamis menetapkan nilai dari sebuah variabel. -->
 <blog-post v-bind:likes="post.likes"></blog-post>
 ```
 
-### Memasukkan sebuah Boolean
+### Mengoper sebuah Boolean
 
 ```html
-<!-- Including the prop with no value will imply `true`. -->
+<!-- Memuat sebuah prop yang tidak memiliki nilai akan menghasilkan nilai `true`. -->
 <blog-post is-published></blog-post>
 
-<!-- Even though `false` is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.          -->
+<!-- Walaupun objek bersifat statis, kita perlu v-bind untuk memberi tahu Vue hal itu -->
+<!-- berikut ini adalah sebuah ekspresi Javascript daripada sebuah string -->
 <blog-post v-bind:is-published="false"></blog-post>
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Secara dinamis menetapkan nilai dari sebuah variabel. -->
 <blog-post v-bind:is-published="post.isPublished"></blog-post>
 ```
 
-### Memasukkan sebuah Array
+### Mengoper sebuah Array
 
 ```html
-<!-- Even though the array is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.            -->
+<!-- Walaupun objek bersifat statis, kita perlu v-bind untuk memberi tahu Vue hal itu -->
+<!-- berikut ini adalah sebuah ekspresi Javascript daripada sebuah string -->
 <blog-post v-bind:comment-ids="[234, 266, 273]"></blog-post>
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Secara dinamis menetapkan nilai dari sebuah variabel. -->
 <blog-post v-bind:comment-ids="post.commentIds"></blog-post>
 ```
 
-### Memasukkan sebuah Objek
+### Mengoper sebuah Objek
 
 ```html
-<!-- Even though the object is static, we need v-bind to tell Vue that -->
-<!-- this is a JavaScript expression rather than a string.             -->
+<!-- Walaupun objek bersifat statis, kita perlu v-bind untuk memberi tahu Vue hal itu -->
+<!-- berikut ini adalah sebuah ekspresi Javascript daripada sebuah string -->
 <blog-post
   v-bind:author="{
     name: 'Veronica',
@@ -119,13 +119,13 @@ Dari dua contoh di atas, kita telah memasukkan nilai string, tapi sebenarnya _se
   }"
 ></blog-post>
 
-<!-- Dynamically assign to the value of a variable. -->
+<!-- Secara dinamis menetapkan nilai dari sebuah variabel. -->
 <blog-post v-bind:author="post.author"></blog-post>
 ```
 
-### Memasukkan nilai Properti dari sebuah Objek
+### Mengoper nilai Properti dari sebuah Objek
 
-Jika Anda ingin memasukkan semua nilai properti dari sebuah objek sebagai props, Anda dapat menggunakan `v-bind` tanpa sebuah argumen (`v-bind` sebagai ganti `v-bind:prop-name`). Misalnya, sebuah objek ditaruh dalam `post`:
+Jika Anda ingin mengoper semua nilai properti dari sebuah objek sebagai props, Anda dapat menggunakan `v-bind` tanpa sebuah argumen (`v-bind` sebagai ganti `v-bind:prop-name`). Misalnya, sebuah objek ditaruh dalam `post`:
 
 ``` js
 post: {
@@ -151,13 +151,13 @@ Akan menjadi sama dengan:
 
 ## Alur Data Satu-Jalur
 
-Semua props berasal dari **satu-jalur-menurun yang mengikat** di antara properti anak dan induknya: ketika Properti induk diperbarui, maka itu akan mengalir turun ke anak, namun tidak sebaliknya. Hal ini mencegah komponen anak secara tidak sengaja memutasi keadaan induknya, yang mana dapat membuat aplikasi Anda lebih sulit untuk dipahami.
+Semua props berasal dari **binding satu-jalur-menurun(one-way-down)** di antara properti anak dan induknya: ketika Properti induk diperbarui, maka itu akan mengalir turun ke anak, namun tidak sebaliknya. Hal ini mencegah komponen anak secara tidak sengaja memutasi keadaan induknya, yang mana dapat membuat aplikasi Anda lebih sulit untuk dipahami.
 
 Selain itu, setiap saat komponen induk diperbarui, maka semua props yang ada di dalam komponen anak akan diperbarui dengan nilai yang terbaru. Ini berarti Anda **tidak** boleh mencoba memutasi sebuah prop di dalam komponen anak. Jika Anda melakukannya, Vue akan memperingatkan Anda dalam konsol.
 
 Biasanya ada dua kasus dimana itu menggoda untuk memutasi sebuah prop:
 
-1. **Prop dipakai untuk memasukkan sebuah nilai awal; kemudian komponen anak ingin menggunakannya sebagai properti data lokal.** Dalam hal ini, cara yang terbaik adalah mendefinisikan properti data lokal yang menggunakan prop sebagai nilai awalnya:
+1. **Prop dipakai untuk mengoper sebuah nilai awal; kemudian komponen anak ingin menggunakannya sebagai properti data lokal.** Dalam hal ini, cara yang terbaik adalah mendefinisikan properti data lokal yang menggunakan prop sebagai nilai awalnya:
 
   ``` js
   props: ['initialCounter'],
@@ -190,21 +190,21 @@ Untuk menentukan validasi props, Anda dapat membuat sebuah objek dengan syarat-s
 ``` js
 Vue.component('my-component', {
   props: {
-    // Basic type check (`null` and `undefined` values will pass any type validation)
+    // Pengecekan dasar (nilai `null` dan `undefinied` akan diloloskan oleh semua tipe validasi)
     propA: Number,
     // Multiple possible types
     propB: [String, Number],
-    // Required string
+    // Membutuhkan String
     propC: {
       type: String,
       required: true
     },
-    // Number with a default value
+    // Angka dengan sebuah nilai dasar
     propD: {
       type: Number,
       default: 100
     },
-    // Object with a default value
+    // Objek dengan sebuah nilai dasar
     propE: {
       type: Object,
       // Object or array defaults must be returned from
@@ -213,7 +213,7 @@ Vue.component('my-component', {
         return { message: 'hello' }
       }
     },
-    // Custom validator function
+    // Fungsi validasi yang disesuaikan
     propF: {
       validator: function (value) {
         // The value must match one of these strings
@@ -266,7 +266,7 @@ untuk memvalidasi bahwa nilai dari prop `author` dibuat dengan `new Person`.
 
 Sebuah atribut non-prop merupakan sebuah atribut yang telah dimasukkan ke dalam sebuah component, tapi tidak memiliki prop yang didefiniskan dengan sesuai.
 
-Sementara props yang telah didefinisikan secara eksplisit lebih diutamakan untuk memasukkan informasi ke dalam komponen anak, pembuat pustaka komponen tidak dapat selalu melihat konteks dimana saja komponen milik mereka bisa digunakan. Itulah sebabnya komponen dapat menerima atribut semaunya, yang mana ditambahkan ke elemen komponen root.
+Sementara props yang telah didefinisikan secara eksplisit lebih diutamakan untuk mengoper informasi ke dalam komponen anak, pembuat pustaka komponen tidak dapat selalu melihat konteks dimana saja komponen milik mereka bisa digunakan. Itulah sebabnya komponen dapat menerima atribut semaunya, yang mana ditambahkan ke elemen komponen root.
 
 Sebagai contoh, seumpama kita menggunakan komponen pihak ketiga `bootstrap-date-input` dengan sebuah plugin Bootstrap yang membutuhkan atribut `data-date-picker` di dalam `input`. Kita bisa menambahkan atribut ini ke dalam komponen instance kita : 
 
@@ -298,7 +298,7 @@ Dalam kasus ini, dua nilai yang berbeda untuk `class` didefinisikan sebagai beri
 - `form-control`, dimana diatur oleh komponen dalam templatnya
 - `date-picker-theme-dark`, dimana dimasukkan ke komponen oleh induknya
 
-Untuk sebagian besar atribut, nilai yang diberikan ke komponen akan menggantikan nilai yang ditetapkan oleh komponen. Jadi misalnya, memasukkan `type =" text "` akan menggantikan `type =" date "` dan mungkin merusaknya! Untungnya, atribut `class` dan` style` sedikit lebih pintar, sehingga ketika kedua nilai digabungkan, akan membuat nilai akhir: `form-control date-picker-theme-dark`.
+Untuk sebagian besar atribut, nilai yang diberikan ke komponen akan menggantikan nilai yang ditetapkan oleh komponen. Jadi misalnya, mengoper `type =" text "` akan menggantikan `type =" date "` dan mungkin merusaknya! Untungnya, atribut `class` dan` style` sedikit lebih pintar, sehingga ketika kedua nilai digabungkan, akan membuat nilai akhir: `form-control date-picker-theme-dark`.
 
 ### Menonaktifkan Pewarisan Atribut
 
