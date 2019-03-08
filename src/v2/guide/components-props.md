@@ -4,11 +4,11 @@ type: guide
 order: 102
 ---
 
-> This page assumes you've already read the [Components Basics](components.html). Read that first if you are new to components.
+> Halaman ini mengganggap Anda telah membaca bagian [Dasar-dasar Komponen](components.html). Baca terlebih dahulu bagian tersebut jika Anda masih baru dalam hal komponen.
 
-## Prop Casing (camelCase vs kebab-case)
+## Mengemas Prop (camelCase vs kebab-case)
 
-HTML attribute names are case-insensitive, so browsers will interpret any uppercase characters as lowercase. That means when you're using in-DOM templates, camelCased prop names need to use their kebab-cased (hyphen-delimited) equivalents:
+Nama atribut dalam HTML bersifat case-insensitive, jadi peramban akan mengartikan semua karakter yang berhuruf besar sebagai karakter yang berhuruf kecil. Itu berarti ketika Anda menggunakan templat di dalam DOM, nama prop yang berformat camelCased perlu menggunakan padanan format kebab-cased (dipisahkan dengan tanda hubung) :
 
 ``` js
 Vue.component('blog-post', {
@@ -23,17 +23,17 @@ Vue.component('blog-post', {
 <blog-post post-title="hello!"></blog-post>
 ```
 
-Again, if you're using string templates, this limitation does not apply.
+Dan lagi, jika Anda menggunakan templat string, maka batasan ini tidak berlaku.
 
-## Prop Types
+## Tipe Prop
 
-So far, we've only seen props listed as an array of strings:
+Sejauh ini, kita hanya melihat props yang terdaftar sebagai sebuah string di dalam array:
 
 ```js
 props: ['title', 'likes', 'isPublished', 'commentIds', 'author']
 ```
 
-Usually though, you'll want every prop to be a specific type of value. In these cases, you can list props as an object, where the properties' names and values contain the prop names and types, respectively:
+Namun biasanya, Anda ingin setiap prop menjadi sebuah tipe nilai yang spesifik. Dalam kasus ini, Anda bisa membuat daftar props sebagai sebuah objek, dimana nama dan nilai masing-masing properti berisikan nama dan nilai props :
 
 ```js
 props: {
@@ -47,17 +47,17 @@ props: {
 }
 ```
 
-This not only documents your component, but will also warn users in the browser's JavaScript console if they pass the wrong type. You'll learn much more about [type checks and other prop validations](#Prop-Validation) further down this page.
+Hal ini tidak hanya akan mendokumentasikan komponen Anda, tapi juga akan memperingatkan pengguna di konsol Javascript Peramban jika mereka memasukkan tipe yang salah. Anda akan lebih banyak belajar tentang [tipe pengecekan dan validasi prop lainnya](#Prop-Validation) lebih lanjut di halaman ini.
 
-## Passing Static or Dynamic Props
+## Memasukkan Props Statis atau Dinamis
 
-So far, you've seen props passed a static value, like in:
+Sejauh ini, Anda telah melihat props yang dimasukkan dengan sebuah nilai statis, seperti berikut:
 
 ```html
 <blog-post title="My journey with Vue"></blog-post>
 ```
 
-You've also seen props assigned dynamically with `v-bind`, such as in:
+Anda juga telah melihat props yang secara dinamis ditetapkan dengan `v-bind`, seperti berikut:
 
 ```html
 <!-- Dynamically assign the value of a variable -->
@@ -69,9 +69,9 @@ You've also seen props assigned dynamically with `v-bind`, such as in:
 ></blog-post>
 ```
 
-In the two examples above, we happen to pass string values, but _any_ type of value can actually be passed to a prop.
+Dari dua contoh di atas, kita telah memasukkan nilai string, tapi sebenarnya _semua_ tipe nilai dapat dimasukkan ke dalam sebuah prop.
 
-### Passing a Number
+### Memasukkan sebuah Angka
 
 ```html
 <!-- Even though `42` is static, we need v-bind to tell Vue that -->
@@ -82,7 +82,7 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 <blog-post v-bind:likes="post.likes"></blog-post>
 ```
 
-### Passing a Boolean
+### Memasukkan sebuah Boolean
 
 ```html
 <!-- Including the prop with no value will imply `true`. -->
@@ -96,7 +96,7 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 <blog-post v-bind:is-published="post.isPublished"></blog-post>
 ```
 
-### Passing an Array
+### Memasukkan sebuah Array
 
 ```html
 <!-- Even though the array is static, we need v-bind to tell Vue that -->
@@ -107,7 +107,7 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 <blog-post v-bind:comment-ids="post.commentIds"></blog-post>
 ```
 
-### Passing an Object
+### Memasukkan sebuah Object
 
 ```html
 <!-- Even though the object is static, we need v-bind to tell Vue that -->
@@ -123,9 +123,9 @@ In the two examples above, we happen to pass string values, but _any_ type of va
 <blog-post v-bind:author="post.author"></blog-post>
 ```
 
-### Passing the Properties of an Object
+### Memasukkan nilai Properti dari sebuah Objek
 
-If you want to pass all the properties of an object as props, you can use `v-bind` without an argument (`v-bind` instead of `v-bind:prop-name`). For example, given a `post` object:
+Jika Anda ingin memasukkan semua nilai properti dari sebuah objek sebagai props, Anda dapat menggunakan `v-bind` tanpa sebuah argumen (`v-bind` sebagai ganti `v-bind:prop-name`). Misalnya, sebuah objek ditaruh dalam `post`:
 
 ``` js
 post: {
@@ -134,13 +134,13 @@ post: {
 }
 ```
 
-The following template:
+Templatnya adalah sebagai berikut:
 
 ``` html
 <blog-post v-bind="post"></blog-post>
 ```
 
-Will be equivalent to:
+Akan menjadi sama dengan:
 
 ``` html
 <blog-post
@@ -149,15 +149,15 @@ Will be equivalent to:
 ></blog-post>
 ```
 
-## One-Way Data Flow
+## Alur Data Satu-Jalur
 
-All props form a **one-way-down binding** between the child property and the parent one: when the parent property updates, it will flow down to the child, but not the other way around. This prevents child components from accidentally mutating the parent's state, which can make your app's data flow harder to understand.
+Semua props berasal dari **satu-jalur-menurun yang mengikat** di antara properti anak dan induknya: ketika Properti induk diperbarui, maka itu akan mengalir turun ke anak, namun tidak sebaliknya. Hal ini mencegah komponen anak secara tidak sengaja memutasi keadaan induknya, yang mana dapat membuat aplikasi Anda lebih sulit untuk dipahami.
 
-In addition, every time the parent component is updated, all props in the child component will be refreshed with the latest value. This means you should **not** attempt to mutate a prop inside a child component. If you do, Vue will warn you in the console.
+Selain itu, setiap saat komponen induk diperbarui, maka semua props yang ada di dalam komponen anak akan diperbarui dengan nilai yang terbaru. Ini berarti Anda **tidak** boleh mencoba memutasi sebuah prop di dalam komponen anak. Jika Anda melakukannya, Vue akan memperingatkan Anda dalam konsol.
 
-There are usually two cases where it's tempting to mutate a prop:
+Biasanya ada dua kasus dimana itu menggoda untuk memutasi sebuah prop:
 
-1. **The prop is used to pass in an initial value; the child component wants to use it as a local data property afterwards.** In this case, it's best to define a local data property that uses the prop as its initial value:
+1. **Prop dipakai untuk memasukkan sebuah nilai awal; kemudian komponen anak ingin menggunakannya sebagai properti data lokal.** Dalam hal ini, cara yang terbaik adalah mendefinisikan properti data lokal yang menggunakan prop sebagai nilai awalnya:
 
   ``` js
   props: ['initialCounter'],
@@ -168,7 +168,7 @@ There are usually two cases where it's tempting to mutate a prop:
   }
   ```
 
-2. **The prop is passed in as a raw value that needs to be transformed.** In this case, it's best to define a computed property using the prop's value:
+2. **Prop ditetapkan sebagai sebuah data mentah yang perlu untuk diubah.** Dalam kasus ini, cara yang terbaik adalah mendefiniskan sebuah properti computed dengan menggunakan nilai dari prop.
 
   ``` js
   props: ['size'],
@@ -179,13 +179,13 @@ There are usually two cases where it's tempting to mutate a prop:
   }
   ```
 
-<p class="tip">Note that objects and arrays in JavaScript are passed by reference, so if the prop is an array or object, mutating the object or array itself inside the child component **will** affect parent state.</p>
+<p class="tip">Perhatikan bahwa objek dan array dalam Javascript ditetapkan berdasarkan referensi, jadi jika prop adalah sebuah array atau objek, memutasi objek atau array itu sendiri di dalam komponen anak **akan** mempengaruhi keadaan induk.</p>
 
-## Prop Validation
+## Validasi Prop
 
-Components can specify requirements for its props, such as the types you've already seen. If a requirement isn't met, Vue will warn you in the browser's JavaScript console. This is especially useful when developing a component that's intended to be used by others.
+Komponen dapat menentukan persyaratan untuk prop miliknya, seperti tipe yang pernah Anda lihat. Jika suatu persyaratan tidak terpenuhi, Vue akan memperingatkan Anda di konsol Javascript Peramban. Hal ini sangat berguna terutama saat pengembangan sebuah komponen yang ditujukan untuk dipakai oleh orang lain.
 
-To specify prop validations, you can provide an object with validation requirements to the value of `props`, instead of an array of strings. For example:
+Untuk menentukan validasi props, Anda dapat membuat sebuah objek dengan syarat-syarat validasi ke dalam nilai `props`, daripada hanya sebuah string di dalam array. sebagai contoh:
 
 ``` js
 Vue.component('my-component', {
@@ -224,13 +224,13 @@ Vue.component('my-component', {
 })
 ```
 
-When prop validation fails, Vue will produce a console warning (if using the development build).
+Ketika validasi prop gagal, Vue akan membuat sebuah pesan peringatan di konsol (Jika menggunakan development build).
 
-<p class="tip">Note that props are validated **before** a component instance is created, so instance properties (e.g. `data`, `computed`, etc) will not be available inside `default` or `validator` functions.</p>
+<p class="tip">Perhatikan bahwa props telah divalidasi **sebelum** sebuah komponen instance dibuat, jadi properti instance (misalnya `data`, `computed`, dll) tidak akan bisa dipakai di fungsi `default` atau `validator`</p>
 
-### Type Checks
+### Tipe Pemeriksaan
 
-The `type` can be one of the following native constructors:
+Sebuah `tipe` bisa jadi adalah salah satu dari konstruktor-konstruktor asli sebagai berikut:
 
 - String
 - Number
@@ -241,7 +241,7 @@ The `type` can be one of the following native constructors:
 - Function
 - Symbol
 
-In addition, `type` can also be a custom constructor function and the assertion will be made with an `instanceof` check. For example, given the following constructor function exists:
+Selain itu, sebuah `tipe` bisa juga merupakan sebuah fungsi konstrukor yang disesuaikan dan pernyataannya akan dibuat dengan pemeriksaan `instanceof`. Sebagai contoh, berikut ada sebuah following constructor:
 
 ```js
 function Person (firstName, lastName) {
@@ -250,7 +250,7 @@ function Person (firstName, lastName) {
 }
 ```
 
-You could use:
+Anda juga bisa menggunakan:
 
 ```js
 Vue.component('blog-post', {
@@ -260,31 +260,31 @@ Vue.component('blog-post', {
 })
 ```
 
-to validate that the value of the `author` prop was created with `new Person`.
+untuk memvalidasi bahwa nilai dari prop `author` dibuat dengan `new Person`.
 
-## Non-Prop Attributes
+## Attribut Non-Prop
 
-A non-prop attribute is an attribute that is passed to a component, but does not have a corresponding prop defined.
+Sebuah atribut non-prop merupakan sebuah atribut yang telah dimasukkan ke dalam sebuah component, tapi tidak memiliki prop yang didefiniskan dengan sesuai.
 
-While explicitly defined props are preferred for passing information to a child component, authors of component libraries can't always foresee the contexts in which their components might be used. That's why components can accept arbitrary attributes, which are added to the component's root element.
+Sementara props yang telah didefinisikan secara eksplisit lebih diutamakan untuk memasukkan informasi ke dalam komponen anak, penulis perpustakaan komponen tidak dapat selalu melihat konteks dimana saja komponen milik mereka bisa digunakan. Itulah sebabnya komponen dapat menerima atribut semaunya, yang mana ditambahkan ke elemen komponen root.
 
-For example, imagine we're using a 3rd-party `bootstrap-date-input` component with a Bootstrap plugin that requires a `data-date-picker` attribute on the `input`. We can add this attribute to our component instance:
+Sebagai contoh, seumpama kita menggunakan komponen pihak ketiga `bootstrap-date-input` dengan sebuah plugin Bootstrap yang membutuhkan atribut `data-date-picker` di dalam `input`. Kita bisa menambahkan atribut ini ke dalam komponen instance kita : 
 
 ``` html
 <bootstrap-date-input data-date-picker="activated"></bootstrap-date-input>
 ```
 
-And the `data-date-picker="activated"` attribute will automatically be added to the root element of `bootstrap-date-input`.
+Dan atribut `data-date-picker="activated"` akan secara otomatis ditambahkan ke dalam elemen root dari `bootstrap-date-input`.
 
-### Replacing/Merging with Existing Attributes
+### Mengganti/Menyatukan dengan Atribut yang sudah ada
 
-Imagine this is the template for `bootstrap-date-input`:
+Umpamanya ini adalah template untuk `bootstrap-date-input`:
 
 ``` html
 <input type="date" class="form-control">
 ```
 
-To specify a theme for our date picker plugin, we might need to add a specific class, like this:
+Untuk menentukan sebuah tema untuk plugin date picker kita, kita perlu menambah class yang spesifik, seperti ini :
 
 ``` html
 <bootstrap-date-input
@@ -293,16 +293,16 @@ To specify a theme for our date picker plugin, we might need to add a specific c
 ></bootstrap-date-input>
 ```
 
-In this case, two different values for `class` are defined:
+Dalam kasus ini, dua nilai yang berbeda untuk `class` didefinisikan sebagai berikut:
 
-- `form-control`, which is set by the component in its template
-- `date-picker-theme-dark`, which is passed to the component by its parent
+- `form-control`, dimana diatur oleh komponen dalam templatnya
+- `date-picker-theme-dark`, dimana dimasukkan ke komponen oleh induknya
 
-For most attributes, the value provided to the component will replace the value set by the component. So for example, passing `type="text"` will replace `type="date"` and probably break it! Fortunately, the `class` and `style` attributes are a little smarter, so both values are merged, making the final value: `form-control date-picker-theme-dark`.
+Untuk sebagian besar atribut, nilai yang diberikan ke komponen akan menggantikan nilai yang ditetapkan oleh komponen. Jadi misalnya, memasukkan `type =" text "` akan menggantikan `type =" date "` dan mungkin merusaknya! Untungnya, atribut `class` dan` style` sedikit lebih pintar, sehingga ketika kedua nilai digabungkan, akan membuat nilai akhir: `form-control date-picker-theme-dark`.
 
-### Disabling Attribute Inheritance
+### Menonaktifkan Pewarisan Atribut
 
-If you do **not** want the root element of a component to inherit attributes, you can set `inheritAttrs: false` in the component's options. For example:
+Jika Anda **tidak** ingin elemen root dari sebuah komponen mewariskan atribut, Anda dapat mengatur `inheritAttrs:false` di dalam pengaturan komponen. Misalnya:
 
 ```js
 Vue.component('my-component', {
@@ -311,7 +311,7 @@ Vue.component('my-component', {
 })
 ```
 
-This can be especially useful in combination with the `$attrs` instance property, which contains the attribute names and values passed to a component, such as:
+Hal ini bisa sangat berguna dalam kombinasi dengan properti instance `$attrs`, yang mana berisikan nama dan nilai atribut yang telah dimasukkan ke sebuah komponen, seperti:
 
 ```js
 {
@@ -320,7 +320,7 @@ This can be especially useful in combination with the `$attrs` instance property
 }
 ```
 
-With `inheritAttrs: false` and `$attrs`, you can manually decide which element you want to forward attributes to, which is often desirable for [base components](../style-guide/#Base-component-names-strongly-recommended):
+Dengan `inheritAttrs: false` dan `$attrs`, Anda secara manual dapat memutuskan elemen mana yang Anda ingin teruskan ke atribut, yang mana sering diperlukan sekali untuk [komponen-komponen dasar](../style-guide/#Base-component-names-strongly-recommended):
 
 ```js
 Vue.component('base-input', {
@@ -339,9 +339,9 @@ Vue.component('base-input', {
 })
 ```
 
-<p class="tip">Note that `inheritAttrs: false` option does **not** affect `style` and `class` bindings.</p>
+<p class="tip">Perhatikan bahwa pengaturan `inheritAttrs: false` **tidak** mempengaruhi ikatan `style` dan `class`.</p>
 
-This pattern allows you to use base components more like raw HTML elements, without having to care about which element is actually at its root:
+Pola ini membolehkan Anda untuk menggunakan komponen-komponen dasar seperti elemen HTML mentah, tanpa harus peduli elemen mana yang sebenarnya berada di root:
 
 ```html
 <base-input
