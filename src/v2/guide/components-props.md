@@ -339,7 +339,7 @@ Vue.component('base-input', {
 })
 ```
 
-<p class="tip">Perhatikan bahwa pengaturan `inheritAttrs: false` **tidak** mempengaruhi ikatan `style` dan `class`.</p>
+<p class="tip">Perhatikan bahwa pengaturan `inheritAttrs: false` **tidak** mempengaruhi binding `style` dan `class`.</p>
 
 Pola ini membolehkan Anda untuk menggunakan komponen-komponen dasar seperti elemen HTML mentah, tanpa harus peduli elemen mana yang sebenarnya berada di root:
 
