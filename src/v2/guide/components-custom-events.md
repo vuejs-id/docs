@@ -4,12 +4,12 @@ type: guide
 order: 103
 ---
 
-> Halaman ini menganggap anda sudah membaca [Components Basics](components.html). Baca ini terlebih dahulu jika anda baru pertama kali mengenal komponen.
+> Halaman ini berasumsi Anda telah membaca [dasar-dasar komponen](components.html). Baca halaman itu terlebih dahulu bila Anda belum mengerti komponen.
 
 ## Nama *Event*
 
 Tidak seperti komponen dan props, nama *event* tidak menyediakan transofrmasi kata secara otomatis.
-Sebaliknya, nama event yang di *emit* harus sama dengan nama *event* yang didengarkan. Sebagai contoh jika melakukan *emit* pada *event* dengan camelCased:
+Sebaliknya, nama event yang di *emit* harus sama dengan nama *event* yang didengarkan. Sebagai contoh jika melakukan *emit* pada *event* dengan *camelCase*:
  
 
 ```js
@@ -23,13 +23,13 @@ Mendengarkan ke versi *kebab-cased* tidak akan memberikan efek
 <my-component v-on:my-event="doSomething"></my-component>
 ```
 
-Tidak seperti komponen dan props, nama *event* tidak akan pernah digunakan sebagai nama variabel atau properti di dalam JavaScript, jadi tidak ada alasan untuk menggunakan kata dengan camelCase atau PascalCase. Selain itu, *listeners* *event* `v-on` didalam DOM templates akan secara otomatis dirubah menjadi huruf kecil (karena ketidakpekaan huruf HTML), jadi `v-on:myEvent` akan menjadi `v-on:myevent` -- membuat `myEvent` tidak mungkin untuk didengarkan
+Tidak seperti komponen dan props, nama *event* tidak akan pernah digunakan sebagai nama variabel atau properti di dalam JavaScript, jadi tidak ada alasan untuk menggunakan kata dengan *camelCase* atau *PascalCase*. Selain itu, *listeners* *event* `v-on` didalam *templates* DOM akan secara otomatis dirubah menjadi huruf kecil (karena ketidakpekaan huruf HTML), jadi `v-on:myEvent` akan menjadi `v-on:myevent` -- membuat `myEvent` tidak mungkin untuk didengarkan
 
-Karena alasan tersebut, kami merekomendasikan kamu **always use kebab-case for event names**.
+Karena alasan tersebut, kami merekomendasikan kamu  **selalu gunakan *kebab-case* untuk nama *event***
 
 ## Menyesuaikan Komponen `v-model`
 
-Baru di 2.2.0+
+> Baru di 2.2.0+
 
 Secara standar, `v-model` pada sebuah komponen menggunakan `value` sebagai prop dan `input` sebagai *event*, tetapi beberapa tipe masukan seperti *checkboxes* dan *radio buttons* mungkin menggunakan atribut `value` untuk sebuah [different purpose] (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Value). Menggunakan opsi `model` dapat menghindari konflik dalam kasus-kasus seperti:
 
@@ -52,16 +52,15 @@ Vue.component('base-checkbox', {
 })
 ```
 
-<!-- Sekarang ketika menggunakan `v-model` pada komponen ini -->
-Now when using `v-model` on this component:
+Sekarang ketika menggunakan `v-model` pada komponen ini
 
 ```html
 <base-checkbox v-model="lovingVue"></base-checkbox>
 ```
 
-nilai dari `lovingVue` akan diteruskan ke prop `checked`. Properti `lovingVue` kemudian akan diperbaharui ketika `<base-checkbox>` melakukan *emit* pada sebuah *event* bernama `change` dengan nilai yang baru 
+nilai dari `lovingVue` akan diteruskan ke prop `checked`. Properti `lovingVue` kemudian akan diperbaharui ketika `<base-checkbox>` melakukan *emit* pada sebuah *event* bernama `change` dengan nilai yang baru.
 
-<p class="tip">Perhatian anda masih harus mendeklarasikan <code>checked</code> prop pilihan <code>props</code> komponen</p>
+<p class="tip">Perhatian anda masih harus mendeklarasikan<code>checked</code> prop didalam opsi <code>props</code> komponen.</p>
 
 ## *Binding Native Events* ke Komponen
 
@@ -84,7 +83,7 @@ Terkadang ini berguna, tetapi ini bukan ide yang bagus ketika kamu mencoba untuk
 </label>
 ```
 
-Dalam kasus ini, *listeners* `.native` dalam induk komponen akan diam-diam berhenti. Tidak akan terjadi kesalahan, tetapi *handler* `onFocus` tidak akan dipanggil ketika kita mengharapkannya
+Dalam kasus ini, *listeners* `.native` dalam induk komponen akan diam-diam berhenti. Tidak akan terjadi kesalahan, tetapi *handler* `onFocus` tidak akan dipanggil ketika kita mengharapkannya.
 
 Untuk mengatasi masalah ini, Vue menyediakan properti `$listeners` yang berisi objek *listeners* yang digunakan pada komponen. Sebagai contoh :
 
@@ -132,12 +131,11 @@ Vue.component('base-input', {
 })
 ```
 
-Sekarang komponen `<base-input>` adalah sebuah **fully transparent wrapper**, artinya dapat digunakan
-persis seperti elemen `<input>` normal: semua atribut dan *listeners* akan bekerja, tanpa pengubah `.native`
+Sekarang komponen `<base-input>` adalah sebuah **pembungkus transparan sepenuhnya**, artinya dapat digunakan persis seperti elemen `<input>` normal: semua atribut dan *listeners* akan bekerja, tanpa *modifier* `.native`
 
-## Pengubah `.sync`
+## *Modifier* `.sync`
 
-Baru di 2.3.0+
+> Baru di 2.3.0+
 
 Dalam beberapa kasus, kita mungkin memerlukan "two-way binding" untuk sebuah prop. sayangnya *two-way binding* yang benar dapat menciptakan pemeliharaan masalah, karena komponent anak dapat mengubah induk tanpa sumber perubahan itu menjadi jelas di induk dan di anak
 
@@ -156,13 +154,13 @@ Kemudian induk akan mendengarkan ke *event* tersebut dan memperbaharui properti 
 ></text-document>
 ```
 
-Untuk kenyamanan, kami menawarkan singkatan untuk pola ini dengan pengubah `.sync`
+Untuk kenyamanan, kami menawarkan singkatan untuk pola ini dengan `.sync` *modifier*
 
 ```html
 <text-document v-bind:title.sync="doc.title"></text-document>
 ```
 
-<p class="tip">Perhatian <code>v-bind</code> dengan pengubah <code>.sync</code> <strong>tidak</strong> bekerja dengan ekspresi (e.g. <code>v-bind:title.sync="doc.title + '!'"</code> adalah tidak valid). Sebaliknya, Anda hanya harus memberikan nama dari properti yang anda ingin *bind*, mirib dengan <code>v-model</code>.</p>
+<p class="tip">Catatan <code>v-bind</code> dengan *modifier* <code>.sync</code> <strong>tidak</strong> bekerja dengan ekspresi (e.g. <code>v-bind:title.sync="doc.title + '!'"</code> adalah tidak valid). Sebaliknya, Anda hanya harus memberikan nama dari properti yang anda ingin *bind*, mirib dengan <code>v-model</code>.</p>
 
 Pengubah `.sync` dapat juga digunakan dengan `v-bind` ketika menggunakan sebuah objek untuk mengatur beberapa props sekaligus
 
