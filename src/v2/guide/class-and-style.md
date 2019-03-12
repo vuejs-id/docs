@@ -10,7 +10,7 @@ Kebutuhan umum untuk data *binding* adalah untuk memanipulasi daftar kelas dan g
 
 ### Sintaksis Objek
 
-Kita dapat melempar sebuah objek ke `v-bind:class` untuk mengubah `class` secara dinamis
+Kita dapat oper sebuah objek ke `v-bind:class` untuk mengubah `class` secara dinamis
 
 ``` html
 <div v-bind:class="{ active: isActive }"></div>
@@ -80,7 +80,7 @@ computed: {
 
 ### Sintaksis Array
 
-Kita dapat melempar sebuah array ke `v-bind:class` untuk menerapkan daftar kelas:
+Kita dapat oper sebuah array ke `v-bind:class` untuk menerapkan daftar kelas:
 
 ``` html
 <div v-bind:class="[activeClass, errorClass]"></div>
@@ -190,7 +190,7 @@ Sintaksis array untuk `v-bind:style` memungkinkan Anda menerapkan beberapa gaya 
 <div v-bind:style="[baseStyles, overridingStyles]"></div>
 ```
 
-### Prefiks Otomatis
+### Prefiks Otomatis (Auto-prefixing)
 
 Ketika Anda menggunakan properti CSS yang membutuhkan [vendor prefixes](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) di `v-bind:style`, misalnya `transform`, Vue akan secara otomatis mendeteksi dan menambahkan prefiks yang sesuai dengan gaya yang diterapkan.
 
