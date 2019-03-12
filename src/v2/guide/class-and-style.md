@@ -16,9 +16,9 @@ Kita dapat melempar sebuah objek ke `v-bind:class` untuk mengubah `class` secara
 <div v-bind:class="{ active: isActive }"></div>
 ```
 
-Sintaksis di atas berarti kehadiran `active` akan ditentukan oleh nilai [benar](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) dari properti data `isActive`.
+Sintaksis di atas berarti kehadiran `active` akan ditentukan oleh nilai [kebenaran](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) dari properti data `isActive`.
 
-Anda dapat memiliki beberapa kelas beralih dengan memiliki banyak *field* dalam objek. Selain itu, direktif `v-bind:class` dapat berdampingan dengan atribut `class` biasa. Jadilah templat berikut:
+Anda dapat memiliki beberapa kelas yang akan saling menggantikan dengan menambahkan lebih banyak *field* dalam objek. Selain itu, direktif `v-bind:class` dapat berdampingan dengan atribut `class` biasa. Seperti pada templat berikut:
 
 ``` html
 <div
@@ -36,13 +36,13 @@ data: {
 }
 ```
 
-Ini akan memberikan:
+Akan menghasilkan:
 
 ``` html
 <div class="static active"></div>
 ```
 
-Saat `isActive` atau `hasError` berubah, daftar kelas akan diperbaharui. Sebagai contoh, jika `hasError` menjadi `true`, daftar kelas akan menjadi `"static active text-danger "`.
+Saat `isActive` atau `hasError` berubah, daftar kelas akan diperbarui. Sebagai contoh, jika `hasError` menjadi `true`, daftar kelas akan menjadi `"static active text-danger "`.
 
 Objek terikat tidak harus sebaris:
 
@@ -92,7 +92,7 @@ data: {
 }
 ```
 
-Yang akan memberikan:
+Yang akan menghasilkan:
 
 ``` html
 <div class="active text-danger"></div>
@@ -104,7 +104,7 @@ Jika Anda juga ingin mengganti kelas dalam daftar secara kondisional, Anda dapat
 <div v-bind:class="[isActive ? activeClass : '', errorClass]"></div>
 ```
 
-Ini akan selalu berlaku `errorClass`, tetapi hanya akan menerapkan `activeClass` ketika `isActive` bernilai benar.
+Ini akan selalu menerapkan `errorClass`, dan hanya akan menerapkan `activeClass` ketika `isActive` bernilai benar.
 
 Namun, ini bisa menjadi sedikit bertele-tele jika Anda memiliki beberapa kelas kondisional. Itu sebabnya juga boleh untuk menggunakan sintaksis objek di dalam sintaksis *array*:
 
@@ -112,7 +112,7 @@ Namun, ini bisa menjadi sedikit bertele-tele jika Anda memiliki beberapa kelas k
 <div v-bind:class="[{ active: isActive }, errorClass]"></div>
 ```
 
-### Dengan Komponen-Komponen
+### Dengan Komponen
 
 > Bagian ini mengasumsikan pengetahuan tentang [Vue Components](components.html). Silakan lewati dan kembali lagi nanti.
 
