@@ -1,37 +1,37 @@
 ---
-title: Single File Components
+title: Berkas Komponen Tunggal
 type: guide
 order: 401
 ---
 
-## Introduction
+## Pengantar
 
-In many Vue projects, global components will be defined using `Vue.component`, followed by `new Vue({ el: '#container' })` to target a container element in the body of every page.
+Dikebanyakan projek Vue, Komponen global akan didefinisikan menggunakan `Vue.component`, diikuti dengan `new Vue({ el: '#container' })` untuk mengarahkan ke elemen kontainer pada body setiap halaman.
 
-This can work very well for small to medium-sized projects, where JavaScript is only used to enhance certain views. In more complex projects however, or when your frontend is entirely driven by JavaScript, these disadvantages become apparent:
+Hal ini berjalan dengan sangat baik untuk projek skala kecil hingga menengah, dimana JavaScript hanya untuk meningkatkan tampilan bagian tertentu saja. Namun untuk projek yang lebih komplek, atau ketika *frontend* anda diatur sepenuhnya oleh JavaScript, masalah-masalah berikut akan muncul:
 
-- **Global definitions** force unique names for every component
-- **String templates** lack syntax highlighting and require ugly slashes for multiline HTML
-- **No CSS support** means that while HTML and JavaScript are modularized into components, CSS is conspicuously left out
-- **No build step** restricts us to HTML and ES5 JavaScript, rather than preprocessors like Pug (formerly Jade) and Babel
+- **Definisi Global** memaksa setiap komponen mempunyai nama yang unik
+- **String templates** tidak adanya *syntax highlighting* dan untuk template yang panjang (multiline HTML) membutuhkan karakter garis miring (slash) yang jelek
+- **Tidak ada dukungan CSS** HTML and JavaScript dapat di-modularisasi-kan ke komponent, namun tidak dengan CSS
+- **Tidak ada build step** membatasi kita hanya menggunakan HTML dan JavaScript ES5, daripada *preprocessor* seperti Pug (dulunya Jade) dan Babel
 
-All of these are solved by **single-file components** with a `.vue` extension, made possible with build tools such as Webpack or Browserify.
+Semua masalah tersebut dapat teratasi oleh **berkas komponen tunggal** (***single-file components***) ber-ektensi `.vue`, memungkinkan kita menggunakan *build tool* seperti Webpack atau Browserify.
 
-Here's an example of a file we'll call `Hello.vue`:
+Berikut ini contoh dari file `Hello.vue`:
 
 <a href="https://gist.github.com/chrisvfritz/e2b6a6110e0829d78fa4aedf7cf6b235" target="_blank" rel="noopener noreferrer"><img src="/images/vue-component.png" alt="Single-file component example (click for code as text)" style="display: block; margin: 30px auto;"></a>
 
-Now we get:
+Sekarang kita mendapatkan:
 
 - [Complete syntax highlighting](https://github.com/vuejs/awesome-vue#source-code-editing)
 - [CommonJS modules](https://webpack.js.org/concepts/modules/#what-is-a-webpack-module)
 - [Component-scoped CSS](https://vue-loader.vuejs.org/en/features/scoped-css.html)
 
-As promised, we can also use preprocessors such as Pug, Babel (with ES2015 modules), and Stylus for cleaner and more feature-rich components.
+Sesuai yang dijanjikan, kita juga dapat menggunakan *preprocessor* seperti Pug, Babel (dengan modul ES2015), dan Stylus untuk komponen yang lebih rapi dan lebih kaya akan fitur.
 
 <a href="https://gist.github.com/chrisvfritz/1c9f2daea9bc078dcb47e9a82e5f7587" target="_blank" rel="noopener noreferrer"><img src="/images/vue-component-with-preprocessors.png" alt="Single-file component example with preprocessors (click for code as text)" style="display: block; margin: 30px auto;"></a>
 
-These specific languages are only examples. You could as easily use Bublé, TypeScript, SCSS, PostCSS - or whatever other preprocessors that help you be productive. If using Webpack with `vue-loader`, it also has first-class support for CSS Modules.
+Bahasa tersebut hanya sebagai contoh. Anda dapat menggunakan Bublé, TypeScript, SCSS, PostCSS - atau *preprocessor* lainnya yang membantu produktifitas Anda. Jika menggunakan Webpack dengan `vue-loader`, juga akan mendapatkan dukungan terbaik untuk Modul CSS.
 
 ### What About Separation of Concerns?
 
