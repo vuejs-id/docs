@@ -91,7 +91,7 @@ Yang terakhir, *styling* pada *single-file component* milik Vue sangat fleksibel
 
 ### Skala
 
-#### Meningkatkan Besaran Skala
+#### Meningkatkan Skala Aplikasi
 
 Untuk aplikasi yang besar, Vue dan React menawarkan solusi *routing* yang kuat. Komunitas React juga sangat inovatif dalam menentukan solusi untuk pengelolaan *state* (contohnya Flux/Redux). Pola dari Pengelolaan *state* ini dan [bahkan Redux itu sendiri](https://yarnpkg.com/en/packages?q=redux%20vue&p=1) bisa dengan mudah di integrasikan kedalam aplikasi Vue. Faktanya, Vue sudah menerapkan model ini selangkah lebih maju dengan menggunakan [Vuex](https://github.com/vuejs/vuex), solusi pengelolaan *state* yang terinspirasi dari Elm, yang kami harap bisa meningkatkan pengalaman disisi pengembang.
 
@@ -100,32 +100,33 @@ Informasi penting lainnya selain penawaran ini adalah pustaka Vue untuk pengelol
 Yang terakhir, Vue menawarkan [*Generator* proyek CLI](https://github.com/vuejs/vue-cli) yang mampu membuat proyek awal dengan mudah menggunakan *build system* sesuai dengan pilihan Anda, beserta [webpack](https://github.com/vuejs-templates/webpack), [Browserify](https://github.com/vuejs-templates/browserify), atau bahkan [tanpa *build system*](https://github.com/vuejs-templates/simple). React juga berhasil membuat hal yang sama dengan menggunakan [create-react-app](https://github.com/facebookincubator/create-react-app), tetapi saat ini masih memiliki keterbatasan sebagai berikut:
 
 - Dia tidak memperbolehkan konfigurasi apapun ketika proses *generate*, sedangkan proyek templat pada Vue memperbolehkannya, seperti kustomisasi milik [Yeoman](http://yeoman.io/)
-- It only offers a single template that assumes you're building a single-page application, while Vue offers a wide variety of templates for various purposes and build systems.
-- It cannot generate projects from user-built templates, which can be especially useful for enterprise environments with pre-established conventions.
+- Hanya menawarkan templat tunggal, karena *create-react-app* hanya berasumsi bahwa Anda ingin membuat SPA. Sedangkan Vue menawarkan variasi templat yang lebih luas lagi untuk membangun berbagai macam aplikasi dan kondisi.
+- *Create-react-app* tidak bisa men-*generate* proyek yang berasal dari templat buatan si pengembang, yang mana hal ini justru sangat berguna bagi lingkungan perusahaan yang menggunakan konvensi *pre-established*.
 
-It's important to note that many of these limitations are intentional design decisions made by the create-react-app team and they do have their advantages. For example, as long as your project's needs are very simple and you never need to "eject" to customize your build process, you'll be able to update it as a dependency. You can read more about the [differing philosophy here](https://github.com/facebookincubator/create-react-app#philosophy).
+Sebagai catatan penting, banyaknya keterbatasan ini memang pilihan yang dibuat oleh tim *create-react-app* dan mereka juga membuat apa yang menjadi kelebihannya. Sebagai contoh, selama kebutuhan proyek anda masih sangat sederhana (sedikit) dan Anda tidak membutuhkan untuk kustomisasi proses *build* Anda, maka Anda boleh untuk memperbaharuinya menjadi sebuah *dependency*. Anda bisa baca selengkapnya tentang [Perbedaaan Filosofi disini](https://github.com/facebookincubator/create-react-app#philosophy).
 
-#### Scaling Down
+#### Menurunkan Skala Aplikasi
 
-React is renowned for its steep learning curve. Before you can really get started, you need to know about JSX and probably ES2015+, since many examples use React's class syntax. You also have to learn about build systems, because although you could technically use Babel Standalone to live-compile your code in the browser, it's absolutely not suitable for production.
+React terkenal dengan pustaka yang susah untuk dipelajari. Sebelum Anda benar - benar ingin mulai memakainya, Anda dituntut untuk paham tentang JSX dan mungkin juga dituntut untuk memahami ES2015+, sejak banyak nya contoh-contoh yang menggunakan sintaks kelas pada React. Anda juga harus mempelajari tentang sistem *build*, karena meski Anda secara teknikal sudah menggunakan Babel untuk mengkompilasi kode ada di peramban, hal tersebut belum tentu cocok untuk digunakan ke tingkat produksi.
 
-While Vue scales up just as well as React, it also scales down just as well as jQuery. That's right - to get started, all you have to do is drop a single script tag into the page:
+Sedangkan Vue mampu menaikkan besaran skala aplikasi dengan kemampuan yang sama dengan React, dia juga bisa menurunkan besaran skala aplikasi sama seperti jQuery. Untuk mulai menggunakan Vue, yang perlu Anda lakukan hanya menyematkan skrip dibawah ini kedalam halaman web Anda.
 
 ``` html
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 ```
 
-Then you can start writing Vue code and even ship the minified version to production without feeling guilty or having to worry about performance problems.
+Setelah itu Anda bisa langsung menulis kode Vue, dan bahkan Vue tersebut sudah berbentuk versi *minified* yang siap untuk dibawa ke tingkat produksi tanpa khawatir dengan adanya masalah performa.
 
 Since you don't need to know about JSX, ES2015, or build systems to get started with Vue, it also typically takes developers less than a day reading [the guide](./) to learn enough to build non-trivial applications.
+Anda tidak perlu memahami apapun tentang JSX, ES2015, atau sistem *build* untuk mulai menggunakan Vue, bahkan biasanya para pengembang hanya perlu membaca [panduan](./) dalam waktu kurang dari sehari untuk mempelajari bagaimana membangun aplikasi yang berskala besar.
 
-### Native Rendering
+### Me-render Secara Native
 
-React Native enables you to write native-rendered apps for iOS and Android using the same React component model. This is great in that as a developer, you can apply your knowledge of a framework across multiple platforms. On this front, Vue has an official collaboration with [Weex](https://weex.apache.org/), a cross-platform UI framework created by Alibaba Group and being incubated by the Apache Software Foundation (ASF). Weex allows you to use the same Vue component syntax to author components that can not only be rendered in the browser, but also natively on iOS and Android!
+React Native bisa Anda gunakan untuk membuat aplikasi *native* yang bisa berjalan di iOS dan Android dengan hanya menggunakan model komponen yang sama seperti React. Hal ini sangat positif untuk para pengembang, Anda bisa memanfaatkan pengetahuan yang Anda miliki tentang kerangka kerja untuk membuat aplikasi lintas *platform*. Vue juga secara resmi telah berkolaborasi dengan [Weex](https://weex.apache.org/), sebuah kerangka kerja untuk antarmuka lintas *platform* yang dibuat oleh *Alibaba Group* dan sekarang ini telah diinkubasi oleh Apache Software Foundation (ASF). Anda bisa menggunakan sintaks komponen pada Vue kedalam Weex yang tidak hanya bisa berjalan diatas peramban, melainkan juga bisa berjalan di iOS dan Android secara *native*!
 
-At this moment, Weex is still in active development and is not as mature and battle-tested as React Native, but its development is driven by the production needs of the largest e-commerce business in the world, and the Vue team will also actively collaborate with the Weex team to ensure a smooth experience for Vue developers.
+Pada kesempatan ini, Weex masih berada di masa pengembangan dan Weex juga masih belum siap jika dibandingkan dengan React Native, tetapi proses pengembangannya didorong oleh kebutuhan produksi dari bisnis *e-commerce* terbesar di dunia (Alibaba Group), dan tim Vue akan secara aktif berkolaborasi dengan tim Weex untuk memastikan para pengembang Vue memperoleh pengalaman pengembangan yang baik.
 
-Another option is [NativeScript-Vue](https://nativescript-vue.org/), a [NativeScript](https://www.nativescript.org/) plugin for building truly native applications using Vue.js.
+Pilihan yang lain adalah menggunakan [NativeScript-Vue](https://nativescript-vue.org/), [NativeScript](https://www.nativescript.org/) adalah sebuah *plugin* untuk membangun aplikasi yang benar-benar *native* dengan menggunakan Vue.js.
 
 ### With MobX
 
