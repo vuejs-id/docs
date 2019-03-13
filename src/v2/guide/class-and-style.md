@@ -10,7 +10,7 @@ Kebutuhan umum untuk data *binding* adalah untuk memanipulasi daftar kelas dan g
 
 ### Sintaksis Objek
 
-Kita dapat oper sebuah objek ke `v-bind:class` untuk mengubah `class` secara dinamis
+Kita dapat mengoper sebuah objek ke `v-bind:class` untuk mengubah `class` secara dinamis
 
 ``` html
 <div v-bind:class="{ active: isActive }"></div>
@@ -80,7 +80,7 @@ computed: {
 
 ### Sintaksis Array
 
-Kita dapat oper sebuah array ke `v-bind:class` untuk menerapkan daftar kelas:
+Kita dapat mengoper sebuah array ke `v-bind:class` untuk menerapkan daftar kelas:
 
 ``` html
 <div v-bind:class="[activeClass, errorClass]"></div>
