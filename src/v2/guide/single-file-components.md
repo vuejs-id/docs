@@ -6,12 +6,12 @@ order: 401
 
 ## Pengantar
 
-Dikebanyakan projek Vue, Komponen global akan didefinisikan menggunakan `Vue.component`, diikuti dengan `new Vue({ el: '#container' })` untuk mengarahkan ke elemen kontainer pada *body* setiap halaman.
+Dikebanyakan projek Vue, Komponen global akan didefinisikan menggunakan `Vue.component`, diikuti dengan `new Vue({ el: '#container' })` untuk mengarahkan ke elemen kontainer dalam *body* setiap halaman.
 
-Hal ini berjalan dengan sangat baik untuk projek skala kecil hingga menengah, dimana JavaScript hanya untuk meningkatkan tampilan bagian tertentu saja. Namun untuk projek yang lebih komplek, atau ketika *frontend* anda diatur sepenuhnya oleh JavaScript, kekurangan - kekurangan berikut akan muncul:
+Ini dapat bekerja dengan sangat baik untuk projek skala kecil hingga menengah, dimana JavaScript hanya digunakan untuk meningkatkan tampilan bagian tertentu saja. Namun di projek yang lebih komplek, atau ketika *frontend* anda diatur sepenuhnya oleh JavaScript, kekurangan - kekurangan berikut akan muncul:
 
 - **Definisi Global** memaksa setiap komponen mempunyai nama yang unik
-- **Templat String** tidak adanya *syntax highlighting* dan membutuhkan karakter garis miring (slash) yang jelek untuk HTML multi-baris (*multiline HTML*)
+- **Templat String** kurangnya *syntax highlighting* dan membutuhkan karakter garis miring (slash) yang jelek untuk HTML multi-baris (*multiline HTML*)
 - **Tidak ada dukungan CSS** HTML and JavaScript dapat di-modularisasi-kan ke komponen, namun tidak dengan CSS
 - **Tidak ada build step** membatasi kita hanya menggunakan HTML dan JavaScript ES5, *preprocessor* seperti Pug (dulunya Jade) dan Babel tidak bisa kita gunakan
 
