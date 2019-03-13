@@ -128,73 +128,75 @@ Pada kesempatan ini, Weex masih berada di masa pengembangan dan Weex juga masih 
 
 Pilihan yang lain adalah menggunakan [NativeScript-Vue](https://nativescript-vue.org/), [NativeScript](https://www.nativescript.org/) adalah sebuah *plugin* untuk membangun aplikasi yang benar-benar *native* dengan menggunakan Vue.js.
 
-### With MobX
+### Integrasi dengan MobX
 
-MobX has become quite popular in the React community and it actually uses a nearly identical reactivity system to Vue. To a limited extent, the React + MobX workflow can be thought of as a more verbose Vue, so if you're using that combination and are enjoying it, jumping into Vue is probably the next logical step.
+MobX cukup populer dikalangan komunitas React dan MobX ini hampir identik/sama dengan sistem reaktifitasnya Vue. Pada tingkat tertentu, cara kerja React + MobX sama seperti menggunakan Vue tetapi dengan cara yang lebih rumit, jadi jika Anda nyaman menggunakan kombinasi tersebut, melangkah langsung untuk menggunakan Vue mungkin adalah suatu langkah yang logis kedepannya.
 
-### Preact and Other React-Like Libraries
+### Preact dan Pustaka Mirip React Lainnya
 
-React-like libraries usually try to share as much of their API and ecosystem with React as is feasible. For that reason, the vast majority of comparisons above will also apply to them. The main difference will typically be a reduced ecosystem, often significantly, compared to React. Since these libraries cannot be 100% compatible with everything in the React ecosystem, some tooling and companion libraries may not be usable. Or, even if they appear to work, they could break at any time unless your specific React-like library is officially supported on par with React.
+Pustaka yang mirip React biasanya mencoba berbagi API sebanyak mungkin dengan dukungan dari komunitas React yang layak. Dengan alasan tersebut, sebagian besar perbandingan yang kita bahas diatas juga berlaku untuk pustaka ini. Perbedaan yang utama biasanya adalah berkurangnya/kecilnya ekosistem mereka, jarak perbedaannya terbilang sangat signifikan jika dibandingkan dengan ekosistem milik React. Karena pustaka ini tidak sepenuhnya 100% kompatibel dengan apapun yang ada di ekosistem React, beberapa alat pustaka dan pustaka pendamping mungkin tidak bisa digunakan. Atau, bahkan jika pustaka ini berfungsi dengan baik, ia bisa saja mengalami kerusakan (*break*), kecuali pustaka yang spesifik didukung oleh React secara resmi.
 
 ## AngularJS (Angular 1)
 
-Some of Vue's syntax will look very similar to AngularJS (e.g. `v-if` vs `ng-if`). This is because there were a lot of things that AngularJS got right and these were an inspiration for Vue very early in its development. There are also many pains that come with AngularJS however, where Vue has attempted to offer a significant improvement.
+Beberapa sintaks pada Vue akan terlihat sangat mirip seperti yang ada pada AngularJS (contohnya `v-if` vs `ng-if`). Hal ini dikarenakan banyak kelebihan yang dilakukan oleh Angular sehingga menjadi inspirasi bagi Vue sejak pertama kali dikembangkan. Ada juga beberapa hal buruk yang terjadi/tertanam di AngularJS, dimana Vue berusaha untuk menawarkan peningkatan/perbaikan hal buruk tersebut secara signifikan.
 
-### Complexity
+### Kompleksitas
 
-Vue is much simpler than AngularJS, both in terms of API and design. Learning enough to build non-trivial applications typically takes less than a day, which is not true for AngularJS.
+Vue jauh lebih sederhana jika dibandingkan dengan AngularJS, baik dari segi API dan desain. Untuk belajar membangun aplikasi yang besar pun tidak membutuhkan waktu kurang dari sehari, yang mana hal ini tidak berlaku di AngularJS.
 
-### Flexibility and Modularity
+### Fleksibilitas dan Modularitas
 
-AngularJS has strong opinions about how your applications should be structured, while Vue is a more flexible, modular solution. While this makes Vue more adaptable to a wide variety of projects, we also recognize that sometimes it's useful to have some decisions made for you, so that you can just start coding.
+AngularJS mempunyai pendapat yang kuat tentang bagaimana struktur yang baik untuk aplikasi Anda, sementara Vue adalah solusi modular yang lebih fleksible. Yang mana hal ini membuat Vue lebih bisa dibuat untuk beradaptasi pada berbagai jenis proyek yang bervariasi, Kami juga menyadari bahwa terkadang Anda juga perlu untuk mengambil beberapa keputusan, hingga Anda benar-benar siap untuk mulai menulis kode.
 
-That's why we offer a [webpack template](https://github.com/vuejs-templates/webpack) that can set you up within minutes, while also granting you access to advanced features such as hot module reloading, linting, CSS extraction, and much more.
+Itulah kenapa kami menawarkan sebuah [templat webpack](https://github.com/vuejs-templates/webpack) sehingga memudahkan mempersiapkan proyek Anda dalam beberapa menit saja, sementara itu templat ini juga memberikan fitur-fitur canggih kepada Anda, seperti *Hot Module Reload*, *linting*, ekstraksi CSS, dan masih banyak lagi.
 
 ### Data binding
 
-AngularJS uses two-way binding between scopes, while Vue enforces a one-way data flow between components. This makes the flow of data easier to reason about in non-trivial applications.
+AngularJS menggunakan data *binding* secara dua arah, sementara pada Vue menggunakan aliran satu arah antar komponen. Hal ini membuat aliran data lebih mudah untuk dikelola di aplikasi berskala besar.
 
-### Directives vs Components
+### Direktif vs Komponen
 
-Vue has a clearer separation between directives and components. Directives are meant to encapsulate DOM manipulations only, while components are self-contained units that have their own view and data logic. In AngularJS, directives do everything and components are just a specific kind of directive.
+Vue memiliki pemisahan yang lebih jelas antara direktif dengan komponen. Direktif dimaksudkan untuk mengengkapsulasi pemanipulasian DOM saja, sedangkan komponen adalah unit mandiri yang mempunyai tampilan templat dan logika data tersendiri. Di AngularJS, direktif bertugas untuk melakukan apapun dan komponen hanyalah sebuah direktif yang lebih spesifik.
 
-### Runtime Performance
+### Kinerja Runtime / Performa
 
-Vue has better performance and is much, much easier to optimize because it doesn't use dirty checking. AngularJS becomes slow when there are a lot of watchers, because every time anything in the scope changes, all these watchers need to be re-evaluated again. Also, the digest cycle may have to run multiple times to "stabilize" if some watcher triggers another update. AngularJS users often have to resort to esoteric techniques to get around the digest cycle, and in some situations, there's no way to optimize a scope with many watchers.
+Vue memiliki kinerja yang lebih baik dan lebih mudah untuk dioptimalkan karena Vue tidak menggunakan *dirty checking*. AngularJS bisa menjadi lambat ketika terdapat banyak *watchers*, karena setiap kali terjadi perubahan pada komponen nya, semua *watchers* juga perlu untuk menjalankan proses nya lagi. Selain itu, siklus AngularJS yang lebih dalam mungkin juga akan menjalankan "proses stabilitas" berulang kali jika beberapa *watchers* dipicu oleh perubahan yang lain. Pengguna AngularJS kadang juga harus menggunakan teknik esoterik untuk menyiasati siklus tersebut, dan dalam beberapa kondisi, tidak ada cara untuk mengoptimalkan hal tersebut dengan banyaknya *watchers* yang dipasang.
 
-Vue doesn't suffer from this at all because it uses a transparent dependency-tracking observation system with async queueing - all changes trigger independently unless they have explicit dependency relationships.
+Vue sangat aman dalam hal ini karena dia mengunakan sistem pengamatan *dependency-tracking* yang transparan dengan *async queueing* - semua perubahan akan memicu secara independen, kecuali jika mereka memiliki ketergantungan yang eksplisit.
 
-Interestingly, there are quite a few similarities in how Angular and Vue are addressing these AngularJS issues.
+Yang menarik adalah, ada beberapa kesamaan bagaimana cara Angular dan Vue mengatasi masalah yang ada pada AngularJS ini.
 
-## Angular (Formerly known as Angular 2)
+## Angular (Sebelumnya dikenal dengan nama Angular 2)
 
-We have a separate section for the new Angular because it really is a completely different framework from AngularJS. For example, it features a first-class component system, many implementation details have been completely rewritten, and the API has also changed quite drastically.
+Kami akan membagi artikel dibawah ini menjadi beberapa bagian untuk Angular versi baru, karena dia benar-benar kerangka kerja yang berbeda dengan AngularJS. Sebagai contoh, adanya fitur sistem komponen *first-class*, sudah banyak detail implementasi yang ditulis ulang, dan API nya juga telah berubah cukup drastis.
 
 ### TypeScript
 
-Angular essentially requires using TypeScript, given that almost all its documentation and learning resources are TypeScript-based. TypeScript has its benefits - static type checking can be very useful for large-scale applications, and can be a big productivity boost for developers with backgrounds in Java and C#.
+Angular pada dasarnya membutuhkan TypeScript, mengingat hampir semua dokumentasi dan sumber belajarnya berbasis TypeScript. TypeScript mempunyai kelebihan tersendiri - pengecekan tipe data statis bisa sangat berguna untuk aplikasi berskala besar, dan bisa meningkatkan produktifitas bagi para pengembang dengan latar belakang Java dan C#.
 
-However, not everyone wants to use TypeScript. In many smaller-scale use cases, introducing a type system may result in more overhead than productivity gain. In those cases you'd be better off going with Vue instead, since using Angular without TypeScript can be challenging.
+Namun, tidak semua orang mau menggunakan TypeScript. Di banyak kasus yang lebih kecil, memperkenalkan *type system* ke pengembang malah akan membuat pusing daripada peningkatan produktifitas. Dalam kasus tersebut, Anda mungkin lebih baik langsung menggunakan Vue, karena menggunakan Angular tanpa TypeScript bisa menantang/susah.
 
-Finally, although not as deeply integrated with TypeScript as Angular is, Vue also offers [official typings](https://github.com/vuejs/vue/tree/dev/types) and [official decorator](https://github.com/vuejs/vue-class-component) for those who wish to use TypeScript with Vue. We are also actively collaborating with the TypeScript and VSCode teams at Microsoft to improve the TS/IDE experience for Vue + TS users.
+Yang terakhir, meskipun tidak begitu terintegrasi secara mendalam dengan TypeScript sama seperti Angular, Vue juga menawarkan [*typing* resmi](https://github.com/vuejs/vue/tree/dev/types) dan [dekorator resmi](https://github.com/vuejs/vue-class-component) yang siap digunakan untuk para pengembang yang ingin memakai Typescript dengan Vue. Kita juga secara aktif berkolaborasi dengan TypeScript dan tim VSCode di Microsoft untuk meningkatkan pengalaman TS/IDE untuk para pengguna Vue + TS.
 
-### Runtime Performance
+### Kinerja Runtime
 
 Both frameworks are exceptionally fast, with very similar metrics on benchmarks. You can [browse specific metrics](https://stefankrause.net/js-frameworks-benchmark8/table.html) for a more granular comparison, but speed is unlikely to be a deciding factor.
+Kedua kerangka kerja ini sangatlah memiliki performa yang kencang, dengan metrik yang sangat mirip ketika di uji coba *benchmark*. Anda bisa [menelusuri metrik tertentu](https://stefankrause.net/js-frameworks-benchmark8/table.html) untuk perbandingan yang lebih terperinci, akan tetapi kecepatan bukanlah faktor utamanya.
 
-### Size
+### Ukuran
 
 Recent versions of Angular, with [AOT compilation](https://en.wikipedia.org/wiki/Ahead-of-time_compilation) and [tree-shaking](https://en.wikipedia.org/wiki/Tree_shaking), have been able to get its size down considerably. However, a full-featured Vue 2 project with Vuex + Vue Router included (~30KB gzipped) is still significantly lighter than an out-of-the-box, AOT-compiled application generated by `angular-cli` (~65KB gzipped).
+Versi terakhir dari Angular, dengan [kompilasi AOT](https://en.wikipedia.org/wiki/Ahead-of-time_compilation) dan [*tree-shaking*](https://en.wikipedia.org/wiki/Tree_shaking), telah mampu menurunkan ukurannya secara signifikan. Namun, proyek Vue 2 yang sudah disematkan fitur Vuex + Vue Router (~ 30KB *gzipped*) masih jauh lebih ringan daripada kompilasi AOT yang dihasilkan oleh `angular-cli` (~65KB *gzipped*).
 
-### Flexibility
+### Fleksibilitas
 
-Vue is much less opinionated than Angular, offering official support for a variety of build systems, with no restrictions on how you structure your application. Many developers enjoy this freedom, while some prefer having only one Right Way to build any application.
+Vue jauh lebih dogmatis dibandingkan dengan Angular, Vue menawarkan dukungan resmi untuk berbagai sistem *build* yang bervariasi, dengan tanpa adanya batasan tentang cara bagaimana menyusun aplikasi milik Anda. Banyak pengembang yang menyukai kebebasan ini, sementara beberapa pengembang hanya suka dengan  satu cara membangun sebuah aplikasi.
 
-### Learning Curve
+### Tingkat Belajar
 
-To get started with Vue, all you need is familiarity with HTML and ES5 JavaScript (i.e. plain JavaScript). With these basic skills, you can start building non-trivial applications within less than a day of reading [the guide](./).
+Untuk bisa mulai menggunakan Vue, semua yang Anda butuhkan hanyalah paham/mengenal HTML dan ES5 JavaScript (misalnya seperti JavaScript murni). Dengan keterampilan dasar ini, Anda bisa mulai membangun aplikasi besar dalam waktu kurang dari satu hari untuk mempelajari [panduan ini](./).
 
-Angular's learning curve is much steeper. The API surface of the framework is huge and as a user you will need to familiarize yourself with a lot more concepts before getting productive. The complexity of Angular is largely due to its design goal of targeting only large, complex applications - but that does make the framework a lot more difficult for less-experienced developers to pick up.
+Tingkatan belajar pada Angular sedikit lebih susah. lapisan luar API di kerangka kerja ini tergolong besar dan sebagai pengguna Anda harus membiasakan diri dengan banyak konsep sebelum mulai produktif menggunakannya. Kompleksitas Angular sebagian besar didesain untuk aplikasi berskala besar dan aplikasi yang kompleks - tetapi hal itu yang membuat kerangka kerja ini jauh lebih sulit untuk dipakai para pengembang yang kurang berpengalaman.
 
 ## Ember
 
