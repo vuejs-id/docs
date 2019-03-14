@@ -1,12 +1,12 @@
 ---
-title: Direktif Khusus
+title: Direktif Kustom
 type: guide
 order: 302
 ---
 
 ## Pendahuluan
 
-Selain kumpulan direktif standar (`v-model` dan `v-show`), Vue juga memperbolehkan Anda untuk mendaftarkan direktif khusus milik Anda. Perhatikan bahwa dalam Vue 2.0, bentuk utama dari penggunaan kembali dan abstraksi kode adalah komponen - namun mungkin ada kasus dimana Anda memerlukan akses DOM tingkat rendah pada elemen polos, dan disini dimana direktif khusus akan tetap bermanfaat. Contoh fokus kepada elemen input, seperti satu ini:
+Selain kumpulan direktif standard (`v-model` dan `v-show`), Vue juga memperbolehkan Anda untuk mendaftarkan direktif kustom milik Anda. Perhatikan bahwa dalam Vue 2.0, bentuk utama dari penggunaan kembali dan abstraksi kode adalah komponen - namun mungkin ada kasus dimana Anda memerlukan akses DOM tingkat rendah pada elemen polos, dan disini dimana direktif kustom akan tetap bermanfaat. Contoh fokus kepada elemen input, seperti satu ini:
 
 {% raw %}
 <div id="simplest-directive-example" class="demo">
@@ -27,7 +27,7 @@ new Vue({
 Saat halaman dimuat, elemen tersebut akan mendapatkan fokus (perhatikan: `autofocus` tidak bekerja pada Safari seluler). Faktanya, jika Anda belum mengklik hal lain sejak mengunjungi halaman ini, input diatas seharusnya sudah fokus sekarang. Sekarang mari kita bangung direktif yang mencapai hal ini:
 
 ``` js
-// Mendaftarkan sebuah direktif khusus dipanggil `v-focus`
+// Mendaftarkan sebuah direktif kustom dipanggil `v-focus`
 Vue.directive('focus', {
   // Saat elemen yang terikat dimasukan ke dalam DOM...
   inserted: function (el) {
@@ -94,7 +94,7 @@ Kait direktif dioper argumen ini:
 
 <p class="tip">Terlepas dari `el`, Anda harus memperlakukan argumen ini sebagai hanya-baca dan tidak pernah memodifikasinya. Jika Anda perlu berbagi informasi lintas kait, direkomendasikan untuk melakukannya memlalui elemen [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).</p>
 
-Contoh direktif khusus menggunakan beberapa properti ini:
+Contoh direktif kustom menggunakan beberapa properti ini:
 
 ``` html
 <div id="hook-arguments-example" v-demo:foo.a.b="message"></div>
