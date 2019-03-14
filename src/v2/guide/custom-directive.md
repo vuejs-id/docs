@@ -66,7 +66,7 @@ Objek definisi direktif dapat menyediakan beberapa fungsi kait (semua opsional):
 
 - `inserted`: dipanggil ketika elemen terikat telah dimasukkan ke dalam *node* induknya (ini hanya menjamin keberadaan *node* induknya, tidak harus dalam dokumen).
 
-- `update`: dipanggil ketika komponen yang memuat *VNode* telah diperbaharui, __tetapi mungkin sebelum anak-anaknya diperbarui__. Nilai direktif ini mungkin berubah atau mungkin tidak berubah, tetapi Anda dapat melewati pembaruan yang tidak perlu dengan membandingkan nilai saat ini dan lama (lihat di bawah ini pada argumen hook).
+- `update`: dipanggil ketika komponen yang memuat *VNode* telah diperbarui, __tetapi mungkin sebelum anak-anaknya diperbarui__. Nilai direktif ini mungkin berubah atau mungkin tidak berubah, tetapi Anda dapat melewati pembaruan yang tidak perlu dengan membandingkan nilai saat ini dan lama (lihat di bawah ini pada argumen hook).
 
 <p class="tip">Kami akan membahas VNodes secara lebih rinci [nanti](./render-function.html#The-Virtual-DOM), ketika kita membahas [fungsi render](./render-function.html).</p>
 
