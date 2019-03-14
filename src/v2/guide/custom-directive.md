@@ -37,7 +37,7 @@ Vue.directive('focus', {
 })
 ```
 
-Jika Anda ingin mendaftarkan direktif secara lokal sebagai gantinya, komponen juga menerima opsi `directives`:
+Jika Anda ingin mendaftarkan direktif secara lokal, komponen juga menerima opsi `directives`:
 
 ``` js
 directives: {
