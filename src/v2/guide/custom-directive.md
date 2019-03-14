@@ -31,7 +31,7 @@ Saat halaman dimuat, elemen tersebut akan mendapatkan fokus (perhatikan: `autofo
 Vue.directive('focus', {
   // Saat elemen yang terikat dimasukan ke dalam DOM...
   inserted: function (el) {
-    // Fokus elemen
+    // Fokus terhadap elemen
     el.focus()
   }
 })
