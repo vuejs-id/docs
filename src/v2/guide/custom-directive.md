@@ -6,7 +6,7 @@ order: 302
 
 ## Pendahuluan
 
-Selain kumpulan direktif standard (`v-model` dan `v-show`), Vue juga memperbolehkan Anda untuk mendaftarkan direktif kustom milik Anda. Perhatikan bahwa dalam Vue 2.0, bentuk utama dari penggunaan kembali dan abstraksi kode adalah komponen - namun mungkin ada kasus dimana Anda memerlukan akses DOM tingkat rendah pada elemen polos, dan disini dimana direktif kustom akan tetap bermanfaat. Contoh fokus kepada elemen input, seperti satu ini:
+Selain kumpulan direktif standard (`v-model` dan `v-show`), Vue juga memperbolehkan Anda untuk mendaftarkan direktif kustom milik Anda. Perhatikan bahwa dalam Vue 2.0, bentuk utama dari penggunaan kembali dan abstraksi kode adalah komponen - namun mungkin ada kasus dimana Anda memerlukan akses DOM tingkat rendah pada elemen polos, dan di sini dimana direktif kustom akan tetap bermanfaat. Contoh fokus kepada elemen input, seperti satu ini:
 
 {% raw %}
 <div id="simplest-directive-example" class="demo">
@@ -24,7 +24,7 @@ new Vue({
 </script>
 {% endraw %}
 
-Saat halaman dimuat, elemen tersebut akan mendapatkan fokus (perhatikan: `autofocus` tidak bekerja pada Safari seluler). Faktanya, jika Anda belum mengklik hal lain sejak mengunjungi halaman ini, input diatas seharusnya sudah fokus sekarang. Sekarang mari kita bangung direktif yang mencapai hal ini:
+Saat halaman dimuat, elemen tersebut akan mendapatkan fokus (perhatikan: `autofocus` tidak bekerja pada Safari seluler). Faktanya, jika Anda belum mengklik hal lain sejak mengunjungi halaman ini, input di atas seharusnya sudah fokus sekarang. Sekarang mari kita bangung direktif yang mencapai hal ini:
 
 ``` js
 // Mendaftarkan sebuah direktif kustom dengan nama `v-focus`
@@ -62,7 +62,7 @@ Kemudian di templat, Anda dapat menggunakan atribut `v-focus` baru pada elemen a
 Objek definisi direktif dapat menyediakan beberapa fungsi kait (semua opsional):
 
 
-- `bind`: dipanggil hanya sekali, saat direktif partama kali terikat dengan elemen. Disini Anda dapat melakukan pekerjaan pengaturan satu kali.
+- `bind`: dipanggil hanya sekali, saat direktif partama kali terikat dengan elemen. Di sini Anda dapat melakukan pekerjaan pengaturan satu kali.
 
 - `inserted`: dipanggil ketika elemen terikat telah dimasukkan ke dalam *node* induknya (ini hanya menjamin keberadaan *node* induknya, tidak harus dalam dokumen).
 
