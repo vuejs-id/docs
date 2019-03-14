@@ -27,7 +27,7 @@ new Vue({
 Saat halaman dimuat, elemen tersebut akan mendapatkan fokus (perhatikan: `autofocus` tidak bekerja pada Safari seluler). Faktanya, jika Anda belum mengklik hal lain sejak mengunjungi halaman ini, input diatas seharusnya sudah fokus sekarang. Sekarang mari kita bangung direktif yang mencapai hal ini:
 
 ``` js
-// Mendaftarkan sebuah direktif kustom dipanggil `v-focus`
+// Mendaftarkan sebuah direktif kustom dengan nama `v-focus`
 Vue.directive('focus', {
   // Saat elemen yang terikat dimasukan ke dalam DOM...
   inserted: function (el) {
