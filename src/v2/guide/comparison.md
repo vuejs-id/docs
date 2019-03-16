@@ -200,33 +200,33 @@ Tingkatan belajar pada Angular sedikit lebih susah. lapisan luar API di kerangka
 
 ## Ember
 
-Ember is a full-featured framework that is designed to be highly opinionated. It provides a lot of established conventions and once you are familiar enough with them, it can make you very productive. However, it also means the learning curve is high and flexibility suffers. It's a trade-off when you try to pick between an opinionated framework and a library with a loosely coupled set of tools that work together. The latter gives you more freedom but also requires you to make more architectural decisions.
+Ember adalah kerangka kerja yang kaya akan fitur dan didesain untuk menjadi kerangka kerja yang *opinionated*. Ember memberikan banyak konvensi yang telah tersedia dan ketika Anda sudah cukup familiar dengan konvensi tersebut, hal tersebut akan membuat Anda menjadi sangat produktif. Namun, hal tersebut juga berarti membutuhkan tingkatan belajar yang tinggi. Ini memang merupakan sebuah resiko ketika Anda mencoba untuk menggunakan salah satu kerangka kerja yang *opinionated* dan sebuah pustaka dengan seperangkat alat yang saling terkait dan saling bekerja sama. Pada akhirnya, hal tersebut memberi Anda lebih banyak kebebasan tetapi juga mengharuskan Anda untuk membuat lebih banyak keputusan arsitektur.
 
-That said, it would probably make a better comparison between Vue core and Ember's [templating](https://guides.emberjs.com/v2.10.0/templates/handlebars-basics/) and [object model](https://guides.emberjs.com/v2.10.0/object-model/) layers:
+Oleh karenanya, hal itu mungkin akan menjadi sebuah perbandingan antara inti Vue dengan lapisan [templat Ember](https://guides.emberjs.com/v2.10.0/templates/handlebars-basics/) dan [model obyek](https://guides.emberjs.com/v2.10.0/object-model/):
 
-- Vue provides unobtrusive reactivity on plain JavaScript objects and fully automatic computed properties. In Ember, you need to wrap everything in Ember Objects and manually declare dependencies for computed properties.
+- Vue mampu memberikan reaktifitas yang tidak mencolok di obyek JavaScript murni dan *computed properties* yang sepenuhnya otomatis (reaktifitas).
 
-- Vue's template syntax harnesses the full power of JavaScript expressions, while Handlebars' expression and helper syntax is intentionally quite limited in comparison.
+- Sintaks templat pada Vue memanfaatkan kekuatan penuh yang ada pada JavaScript, sedangkan *Handlebars* dan sintaks *helper* sangat terbatas jika dibandingkan dengan Vue.
 
-- Performance-wise, Vue outperforms Ember [by a fair margin](https://stefankrause.net/js-frameworks-benchmark8/table.html), even after the latest Glimmer engine update in Ember 3.x. Vue automatically batches updates, while in Ember you need to manually manage run loops in performance-critical situations.
+- Dari segi kinera, Vue mampu mengungguli Ember dengan [margin yang adil](https://stefankrause.net/js-frameworks-benchmark8/table.html), bahkan setelah pembaharuan *Glimmer engine* di Ember 3.x. Vue secara otomatis menumpuk pembaharuan, sementara di Ember Anda perlu mengelola *loop* yang dijalankan secara manual dalam situasi kinerja yang kritis.
 
 ## Knockout
 
-Knockout was a pioneer in the MVVM and dependency tracking spaces and its reactivity system is very similar to Vue's. Its [browser support](http://knockoutjs.com/documentation/browser-support.html) is also very impressive considering everything it does, with support back to IE6! Vue on the other hand only supports IE9+.
+Knockout adalah pelopor dalam MVVM dan pelacakan *dependency*. Dan bahkan reaktifitas pada sistem nya sangat mirip dengan yang ada pada Vue. [Dukungan pada peramban](http://knockoutjs.com/documentation/browser-support.html) juga sangat mengesankan, bahkan mendukung di peramban IE6! Sedangkan Vue hanya mendukung IE9+.
 
-Over time though, Knockout development has slowed and it's begun to show its age a little. For example, its component system lacks a full set of lifecycle hooks and although it's a very common use case, the interface for passing children to a component feels a little clunky compared to [Vue's](components.html#Content-Distribution-with-Slots).
+Namun dengan seiring berjalannya waktu, pengembangan Knockout mulai melambat dan kelihatan berumur (menua). Sebagai contoh, sistem komponennya tidak memiliki satu set yang lengkap mengenai siklus hidup *hook*nya dan meskipun hal tersebut adalah sesuatu yang sudah umum. Antarmuka untuk mengoper data antar komponen juga terasa sedikit aneh jika dibandingkan dengan Vue.
 
-There also seem to be philosophical differences in the API design which if you're curious, can be demonstrated by how each handles the creation of a [simple todo list](https://gist.github.com/chrisvfritz/9e5f2d6826af00fcbace7be8f6dccb89). It's definitely somewhat subjective, but many consider Vue's API to be less complex and better structured.
+Nampaknya juga ada perbedaan filosofis di dalam desain API nya, yang jika Anda penasaran bisa dilihat di demonstrasi tentang bagaimana membuat [*todo list* sederhana](https://gist.github.com/chrisvfritz/9e5f2d6826af00fcbace7be8f6dccb89). Memang ini agak subyektif, tetapi banyak yang mengatakan bahwa API pada Vue tidaklah rumit dan terstruktur dengan baik.
 
 ## Polymer
 
-Polymer is another Google-sponsored project and in fact was a source of inspiration for Vue as well. Vue's components can be loosely compared to Polymer's custom elements and both provide a very similar development style. The biggest difference is that Polymer is built upon the latest Web Components features and requires non-trivial polyfills to work (with degraded performance) in browsers that don't support those features natively. In contrast, Vue works without any dependencies or polyfills down to IE9.
+Polymer adalah proyek lain yang di sponsori oleh Google dan faktanya adalah Polymer adalah sumber inspirasi bagi Vue. Komponen Vue dapat dibandingkan dengan kustom elemen pada Polymer dan kedua nya memberikan gaya pengembangan yang sangat mirip. Perbedaan terbesarnya adalah Polymer dibangun di atas *Web Components* yang terbaru dan memerlukan *polyfill* untuk bekerja (dengan kinerja yang tergradasi) di peramban yang tidak mendukung fitur-fitur tersebut secara *native*. Sebaliknya, Vue bekerja tanpa adanya ketergantungan atau *polyfill* ke IE9.
 
-In Polymer, the team has also made its data-binding system very limited in order to compensate for the performance. For example, the only expressions supported in Polymer templates are boolean negation and single method calls. Its computed property implementation is also not very flexible.
+Di Polymer, tim juga telah membuat sistem pengikatan data (*data binding*) yang terbatas untuk mengimbangi kinerja Polymer. Misalnya, satu-satunya ekspresi yang di dukung oleh templat Polymer adalah negasi *boolean* dan pemanggilan metode tunggal. Ini seperti halnya pada *computed properties* nya Vue, tetapi tidak terlalu fleksibel.
 
 ## Riot
 
-Riot 3.0 provides a similar component-based development model (which is called a "tag" in Riot), with a minimal and beautifully designed API. Riot and Vue probably share a lot in design philosophies. However, despite being a bit heavier than Riot, Vue does offer some significant advantages:
+Riot 3.0 menyediakan model pengembangan yang berbasis komponen (yang mana ini disebut dengan "tag" di Riot), dengan API yang dirancang secara indah dan minimalis. Riot dan Vue mungkin saling berbagi dalam hal filosofi desain. Namun, meskipun sedikit lebih berat daripada Riot, Vue memang mampu menawarkan beberapa keuntungan secara signifikan:
 
-- Better performance. Riot [traverses a DOM tree](http://riotjs.com/compare/#virtual-dom-vs-expressions-binding) rather than using a virtual DOM, so suffers from the same performance issues as AngularJS.
-- More mature tooling support. Vue provides official support for [webpack](https://github.com/vuejs/vue-loader) and [Browserify](https://github.com/vuejs/vueify), while Riot relies on community support for build system integration.
+- Kinerja yang lebih baik. Riot lebih memilih untuk [menelusuri pohon DOM](http://riotjs.com/compare/#virtual-dom-vs-expressions-binding) daripada menggunakan DOM virtual, sehingga menyebabkan kinerja yang lambat, sama seperti isu yang terdapat di AngularJS.
+- Dukungan alat yang lebih matang. Vue memberikan dukungan resmi untuk [webpack](https://github.com/vuejs/vue-loader) dan [Browserify](https://github.com/vuejs/vueify), sedangkan Riot lebih mengandalkan dukungan dari komunitas untuk membangun integrasi sistem.
