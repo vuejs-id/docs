@@ -4,23 +4,23 @@ type: guide
 order: 104
 ---
 
-> This page assumes you've already read the [Components Basics](components.html). Read that first if you are new to components.
+> Sebelum lanjut membaca halaman ini, kami berasumsi bahwa Anda telah membaca [Dasar-Dasar Komponen](components.html). Baca halaman itu terlebih dahulu bila Anda belum mengerti tentang komponen.
 
-> In 2.6.0, we introduced a new unified syntax (the `v-slot` directive) for named and scoped slots. It replaces the `slot` and `slot-scope` attributes, which are now deprecated, but have _not_ been removed and are still documented [here](#Deprecated-Syntax). The rationale for introducing the new syntax is described in this [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md).
+> Di versi 2.6.0, kami memperkenalkan sintaks baru (direktif `v-slot`) untuk nama dan slot *scope*. Sintaks tersebut menggantikan `slot` dan atribut `slot-scope`, yang sekarang telah usang, tapi masih belum dihapus dan masih didokumentasikan [di sini](#Deprecated-Syntax). Alasan kami untuk memperkenalkan sintaks baru dapat dilihat di [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md).
 
-## Slot Content
+## Konten Slot
 
-Vue implements a content distribution API inspired by the [Web Components spec draft](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md), using the `<slot>` element to serve as distribution outlets for content.
+Vue mengimplementasikan *API* distribusi konten yang terinspirasi dari [Draf Spesifikasi Komponen Web,](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md), dan elemen `<slot>` dapat digunakan sebagai outlet distribusi untuk konten kita.
 
-This allows you to compose components like this:
+Ini memungkinkan Anda untuk membuat komponen seperti ini:
 
 ``` html
 <navigation-link url="/profile">
-  Your Profile
+  Profil Anda
 </navigation-link>
 ```
 
-Then in the template for `<navigation-link>`, you might have:
+Kemudian di templat `<navigation-link>`, Anda mungkin memiliki templat seperti ini:
 
 ``` html
 <a
@@ -31,58 +31,58 @@ Then in the template for `<navigation-link>`, you might have:
 </a>
 ```
 
-When the component renders, `<slot></slot>` will be replaced by "Your Profile". Slots can contain any template code, including HTML:
+Ketika komponen di-*render*, `<slot></slot>` akan menggantinya dengan "Profil Anda". Elemen slot dapat berisi kode templat apa saja, termasuk HTML:
 
 ``` html
 <navigation-link url="/profile">
-  <!-- Add a Font Awesome icon -->
+  <!-- Menambahkan ikon Font Awesome -->
   <span class="fa fa-user"></span>
-  Your Profile
+  Profil Anda
 </navigation-link>
 ```
 
-Or even other components:
+Atau bahkan dapat berisi komponen lain:
 
 ``` html
 <navigation-link url="/profile">
-  <!-- Use a component to add an icon -->
+  <!-- Menggunakan komponen untuk menambahkan ikon -->
   <font-awesome-icon name="user"></font-awesome-icon>
-  Your Profile
+  Profil Anda
 </navigation-link>
 ```
 
-If `<navigation-link>`'s template did **not** contain a `<slot>` element, any content provided between its opening and closing tag would be discarded.
+Jika templat `<navigation-link>` tidak berisi elemen `<slot>`, konten apapun yang kita sediakan di dalam komponen `<navigation-link>` akan di buang.
 
-## Compilation Scope
+## Kompilasi Scope
 
-When you want to use data inside a slot, such as in:
+Saat Anda ingin menggunakan data didalam slot, seperti ini:
 
 ``` html
 <navigation-link url="/profile">
-  Logged in as {{ user.name }}
+  Masuk sebagai {{ user.name }}
 </navigation-link>
 ```
 
-That slot has access to the same instance properties (i.e. the same "scope") as the rest of the template. The slot does **not** have access to `<navigation-link>`'s scope. For example, trying to access `url` would not work:
+Slot dapat mengakses properti *instance* yang sama (*scope* yang sama). Slot **tidak** dapat mengakses ke *scope* `<navigation-link>`. Misalnya, Anda mencoba untuk mengakses data `url` dari *scope* `<navigation-link>`, itu tidak akan bisa:
 
 ``` html
 <navigation-link url="/profile">
-  Clicking here will send you to: {{ url }}
+  Klik disini dan Anda akan diarahkan ke: {{ url }}
   <!--
-  The `url` will be undefined, because this content is passed
-  _to_ <navigation-link>, rather than defined _inside_ the
-  <navigation-link> component.
+  Data `url` akan *undefined*, karena tidak di definisikan _didalam_ komponen
+  <navigation-link>, akan tetapi data `url` akan dilanjutkan ke
+  _ke_ templat <navigation-link>.
   -->
 </navigation-link>
 ```
 
-As a rule, remember that:
+Ingat, bahwa aturannya:
 
-> Everything in the parent template is compiled in parent scope; everything in the child template is compiled in the child scope.
+> Semua yang ada di templat induk, akan dikompilasi didalam *scope* induk; semua yang ada di templat anak, akan dikompilasi didalam *scope* anak.
 
-## Fallback Content
+## Konten Fallback
 
-There are cases when it's useful to specify fallback (i.e. default) content for a slot, to be rendered only when no content is provided. For example, in a `<submit-button>` component:
+Ada beberapa kasus yang bermanfaat untuk menentukan konten *fallback* (*default*) slot, yang hanya akan di-*render* ketika konten slot telah kita sediakan. Misalnya, didalam komponen `<submit-button>`:
 
 ```html
 <button type="submit">
@@ -90,7 +90,7 @@ There are cases when it's useful to specify fallback (i.e. default) content for 
 </button>
 ```
 
-We might want the text "Submit" to be rendered inside the `<button>` most of the time. To make "Submit" the fallback content, we can place it in between the `<slot>` tags:
+Kita mungkin ingin me*render* teks "Submit" didalam `<button>` setiap saat. Untuk membuatnya, kita bisa menempatkan teks "Submit" di antara tag `<slot>`:
 
 ```html
 <button type="submit">
@@ -98,13 +98,13 @@ We might want the text "Submit" to be rendered inside the `<button>` most of the
 </button>
 ```
 
-Now when we use `<submit-button>` in a parent component, providing no content for the slot:
+Sekarang saat kita menggunakan `<submit-button>` sebagai komponen induk, yang tidak kita sediakan konten didalamnya:
 
 ```html
 <submit-button></submit-button>
 ```
 
-will render the fallback content, "Submit":
+Komponen tersebut akan me*render* konten *fallback* (*default*) yang telah kita sediakan sebelumnya:
 
 ```html
 <button type="submit">
@@ -112,7 +112,7 @@ will render the fallback content, "Submit":
 </button>
 ```
 
-But if we provide content:
+Akan tetapi jika kita menyediakan konten di komponen tersebut:
 
 ```html
 <submit-button>
@@ -120,7 +120,7 @@ But if we provide content:
 </submit-button>
 ```
 
-Then the provided content will be rendered instead:
+Konten tersebut akan di-*render* sebagai gantinya:
 
 ```html
 <button type="submit">
@@ -128,27 +128,27 @@ Then the provided content will be rendered instead:
 </button>
 ```
 
-## Named Slots
+## Slot yang Diberi Nama
 
-> Updated in 2.6.0+. [See here](#Deprecated-Syntax) for the deprecated syntax using the `slot` attribute.
+> Diperbarui di versi 2.6.0+. [Lihat disini](#Deprecated-Syntax) untuk sintaks yang telah usang, yang menggunakan atribut `slot`.
 
-There are times when it's useful to have multiple slots. For example, in a `<base-layout>` component with the following template:
+Ada kalanya memiliki banyak slot itu bermanfaat. Misalnya, didalam komponen `<base-layout>` dengan templat berikut ini:
 
 ``` html
 <div class="container">
   <header>
-    <!-- We want header content here -->
+    <!-- Kita ingin konten *header* disini -->
   </header>
   <main>
-    <!-- We want main content here -->
+    <!-- Kita ingin konten *main* disini -->
   </main>
   <footer>
-    <!-- We want footer content here -->
+    <!-- Kita ingin konten *footer* disini -->
   </footer>
 </div>
 ```
 
-For these cases, the `<slot>` element has a special attribute, `name`, which can be used to define additional slots:
+Pada kasus ini, elemen `<slot>` memiliki atribut khusus, `name`, yang dapat digunakan untuk mendefinisikan slot tambahan:
 
 ``` html
 <div class="container">
@@ -164,78 +164,77 @@ For these cases, the `<slot>` element has a special attribute, `name`, which can
 </div>
 ```
 
-A `<slot>` outlet without `name` implicitly has the name "default".
+`<slot>` tanpa menggunakan `name` secara implisit memiliki nama "default".
 
-To provide content to named slots, we can use the `v-slot` directive on a `<template>`, providing the name of the slot as `v-slot`'s argument:
+Untuk menyediakan konten di slot yang diberi nama, kita bisa menggunakan direktif `v-slot` di `<template>` yang menggunakan nama slot sebagai argumen `v-slot`:
 
 ```html
 <base-layout>
   <template v-slot:header>
-    <h1>Here might be a page title</h1>
+    <h1>Disini mungkin untuk judul halaman</h1>
   </template>
 
-  <p>A paragraph for the main content.</p>
-  <p>And another one.</p>
+  <p>Paragraf untuk konten utama</p>
+  <p>Dan satu lagi</p>
 
   <template v-slot:footer>
-    <p>Here's some contact info</p>
+    <p>Disini untuk beberapa info kontak</p>
   </template>
 </base-layout>
 ```
 
-Now everything inside the `<template>` elements will be passed to the corresponding slots. Any content not wrapped in a `<template>` using `v-slot` is assumed to be for the default slot.
+Sekarang semua yang ada di dalam templat `<template>` akan dilanjutkan ke slot yang sesuai. Konten apa pun yang tidak di bungkus dengan `<template>` yang menggunakan `v-slot`, itu akan diasumsikan sebagai slot default.
 
-However, you can still wrap default slot content in a `<template>` if you wish to be explicit:
+Namun, Anda masih bisa membungkus konten slot *default* di `<template>` jika Anda ingin lebih eksplisit:
 
 ```html
 <base-layout>
   <template v-slot:header>
-    <h1>Here might be a page title</h1>
+    <h1>Disini mungkin untuk judul halaman</h1>
   </template>
 
   <template v-slot:default>
-    <p>A paragraph for the main content.</p>
-    <p>And another one.</p>
+    <p>Paragraf untuk konten utama</p>
+    <p>Dan satu lagi</p>
   </template>
 
   <template v-slot:footer>
-    <p>Here's some contact info</p>
+    <p>Disini untuk beberapa info kontak</p>
   </template>
 </base-layout>
 ```
 
-Either way, the rendered HTML will be:
+HTML yang kita tempatkan di antara templat `<template>` akan di-*render* seperti ini:
 
 ``` html
 <div class="container">
   <header>
-    <h1>Here might be a page title</h1>
+    <h1>Disini mungkin untuk judul halaman</h1>
   </header>
   <main>
-    <p>A paragraph for the main content.</p>
-    <p>And another one.</p>
+    <p>Paragraf untuk konten utama</p>
+    <p>Dan satu lagi</p>
   </main>
   <footer>
-    <p>Here's some contact info</p>
+    <p>Disini untuk beberapa info kontak</p>
   </footer>
 </div>
 ```
 
-Note that **`v-slot` can only be added to a `<template>`** (with [one exception](#Abbreviated-Syntax-for-Lone-Default-Slots)), unlike the deprecated [`slot` attribute](#Deprecated-Syntax).
+Perhatikan bahwa **`v-slot` hanya bisa ditambahkan di `<template>`** (dengan [satu pengecualian](#Abbreviated-Syntax-for-Lone-Default-Slots)), dan tidak usang seperti [atribut `slot`](#Deprecated-Syntax).
 
-## Scoped Slots
+## Slot Scope
 
-> Updated in 2.6.0+. [See here](#Deprecated-Syntax) for the deprecated syntax using the `slot-scope` attribute.
+> Diperbarui di versi 2.6.0+. [Lihat disini](#Deprecated-Syntax) untuk sintaks yang telah usang, yang menggunakan atribut `slot-scope`.
 
-Sometimes, it's useful for slot content to have access to data only available in the child component. For example, imagine a `<current-user>` component with the following template:
+Terkadang, konten slot yang hanya memiliki akses ke data yang tersedia di komponen anak, itu sangat berguna. Misalnya, bayangkan jika komponen `<current-user>` dengan templat berikut ini:
 
 ```html
 <span>
   <slot>{{ user.lastName }}</slot>
 </span>
 ```
-
-We might want to replace this fallback content to display the user's first name, instead of last, like this:
+Ingin kita ganti dengan komponen *fallback* (*default*) dengan nama depan pengguna, seperti ini:
 
 ``` html
 <current-user>
@@ -243,9 +242,9 @@ We might want to replace this fallback content to display the user's first name,
 </current-user>
 ```
 
-That won't work, however, because only the `<current-user>` component has access to the `user` and the content we're providing is rendered in the parent.
+Itu tidak akan bisa, karena komponen `<current-user>` hanya dapat mengakses data `user` dan konten yang kita sediakan di-*render* di induk.
 
-To make `user` available to the slot content in the parent, we can bind `user` as an attribute to the `<slot>` element:
+Untuk membuat data `user` tersedia di induk konten slot, kita bisa *bind* data `user` sebagai attribut di elemen `<slot>`:
 
 ``` html
 <span>
@@ -255,7 +254,7 @@ To make `user` available to the slot content in the parent, we can bind `user` a
 </span>
 ```
 
-Attributes bound to a `<slot>` element are called **slot props**. Now, in the parent scope, we can use `v-slot` with a value to define a name for the slot props we've been provided:
+Atribut yang di-*bind* di elemen `<slot>` diberi nama **slot props**. Sekarang, di *scope* induk, kita bisa menggunakan `v-slot` dengan nilai untuk mendefinisikan nama slot *props* yang telah kita sediakan:
 
 ``` html
 <current-user>
@@ -265,9 +264,9 @@ Attributes bound to a `<slot>` element are called **slot props**. Now, in the pa
 </current-user>
 ```
 
-In this example, we've chosen to name the object containing all our slot props `slotProps`, but you can use any name you like.
+Di contoh ini, kita memilih untuk memberi nama objek yang berisi semua slot *props* `slotProps` kami, tetapi Anda bisa menggunakan nama apa pun yang Anda suka.
 
-### Abbreviated Syntax for Lone Default Slots
+### Sintaks yang Diringkas untuk Slot Default yang Sendirian
 
 In cases like above, when _only_ the default slot is provided content, the component's tags can be used as the slot's template. This allows us to use `v-slot` directly on the component:
 
