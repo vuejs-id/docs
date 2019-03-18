@@ -1,5 +1,5 @@
 # 🇮🇩 Dokumentasi resmi Vue.js dalam Bahasa Indonesia
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 
 Halaman ini dibuat menggunakan [hexo](http://hexo.io/). Konten ditulis menggunakan _Markdown_ dan diletakkan pada direktori `src`. _*Pull requests*_ Anda sangat kami tunggu!
 
@@ -49,7 +49,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-<table><tr><td align="center"><a href="http://nasution.id"><img src="https://avatars2.githubusercontent.com/u/113989?v=4" width="100px;" alt="Mulia Nasution"/><br /><sub><b>Mulia Nasution</b></sub></a><br /><a href="#translation-mul14" title="Translation">🌍</a></td></tr></table>
+<table><tr><td align="center"><a href="http://nasution.id"><img src="https://avatars2.githubusercontent.com/u/113989?v=4" width="100px;" alt="Mulia Nasution"/><br /><sub><b>Mulia Nasution</b></sub></a><br /><a href="#translation-mul14" title="Translation">🌍</a></td><td align="center"><a href="https://nusendra.com/"><img src="https://avatars1.githubusercontent.com/u/8466308?v=4" width="100px;" alt="Nusendra Hanggarawan"/><br /><sub><b>Nusendra Hanggarawan</b></sub></a><br /><a href="#translation-nusendra" title="Translation">🌍</a></td></tr></table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
