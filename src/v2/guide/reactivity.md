@@ -130,7 +130,7 @@ Sejak nilai kembalian dari `$nextTick()` adalah *promise*, Anda dapat mencapai h
       this.message = 'updated'
       console.log(this.$el.textContent) // => 'tidak diperbaharui'
       await this.$nextTick()
-      console.log(this.$el.textContent) // => 'diperbaharui'
+      console.log(this.$el.textContent) // => 'diperbarui'
     }
   }
 ```
