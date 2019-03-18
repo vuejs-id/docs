@@ -12,7 +12,7 @@ Sakarang waktunya untuk pemahaman secara mendalam! Salah satu fitur pembeda Vue 
 
 Saat Anda mengoper objek JavaScript biasa ke *instance* Vue sebagai opsi `data`, Vue akan menelusuri semua propertinya dan mengonversinya menjadi [*getter/setters*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects#Defining_getters_and_setters) menggunakan [*Object.defineProperty*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty). Ini adalah fitur ES5 dan *un-shimmable*, itulah sebabnya Vue tidak mendukung IE8 dan di bawahnya.
 
-*Getter/setters* tidak terlihat oleh pengguna, tapi memungkinkan Vue untuk melakukan pelacakan-*dependency* dan pemberitahuan-perubahan saat properti diakses atau diubah. Satu kekurangannya adalah bahwa format *getter/setters* konsol peramban berbeda ketika objek data yang dikonversi dicatat, jadi Anda mungkin ingin menginstal [*vue-devtools*](https://github.com/vuejs/vue-devtools) untuk antarmuka yang lebih ramah inspeksi.
+*Getter/setters* tidak terlihat oleh pengguna, tapi memungkinkan Vue untuk melakukan pelacakan *dependency* dan pemberitahuan perubahan saat properti diakses atau diubah. Satu kekurangannya adalah bahwa format *getter/setters* konsol peramban berbeda ketika objek data yang dikonversi dicatat, jadi Anda mungkin ingin memasang [*vue-devtools*](https://github.com/vuejs/vue-devtools) untuk antarmuka yang lebih ramah inspeksi.
 
 Setiap *instance* komponen memiliki **pengamat** yang terhubung, yang merekam properti apa pun yang "disentuh" selama komponen di-*render* sebagai *dependencies*. Kemudian ketika *setter dependencies* dipicu, ia memberi tahu pengamat, yang pada gilirannya menyebabkan komponen untuk me-*render* ulang.
 
