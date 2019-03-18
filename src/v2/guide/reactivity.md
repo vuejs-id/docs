@@ -6,7 +6,7 @@ order: 601
 
 Sakarang waktunya untuk pemahaman secara mendalam! Salah satu fitur pembeda Vue adalah sistem reaktivitas yang tidak menyulitkan. Model hanyalah objek JavaScript biasa. Saat Anda memodifikasinya, tampilan diperbarui. Itu membuat manajemen *state* menjadi sederhana dan intuitif, tetapi juga penting untuk memahami cara kerjanya untuk menghindari beberapa kesalahan umum. Pada bagian ini, kita akan menggali beberapa detail sistem reaktivitas Vue pada tingkat yang lebih rendah.
 
-<div class="vue-mastery"><a href="https://www.vuemastery.com/courses/advanced-components/build-a-reactivity-system" target="_blank" rel="noopener" title="Vue Reactivity">Tonton penjelasan video tentang Vue Mastery</a></div>
+<div class="vue-mastery"><a href="https://www.vuemastery.com/courses/advanced-components/build-a-reactivity-system" target="_blank" rel="noopener" title="Vue Reactivity">Tonton video penjelasan tentang Vue Mastery</a></div>
 
 ## Bagaimana Perubahan Dilacak
 
