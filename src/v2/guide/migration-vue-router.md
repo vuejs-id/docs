@@ -8,9 +8,9 @@ urutan: 702
 
 ## Inisialisasi Router
 
-### `router.start` <sup>digantikan</sup>
+### `router.start` <sup>diganti</sup>
 
-Tidak ada lagi API spesial untuk menginisialisasi sebuah app dengan Vue Router. Itu berarti bukannya:
+Tidak ada lagi API spesial untuk menginisialisasi sebuah aplikasi dengan Vue Router. Itu berarti bukannya:
 
 ``` js
 router.start({
@@ -41,15 +41,15 @@ new Vue({
 {% raw %}
 <div class="upgrade-path">
   <h4>Jalur Peningkatan</h4>
-  <p>Jalankan <a href="https://github.com/vuejs/vue-migration-helper">pembantu migrasi</a> pada basis kode Anda untuk mencari contoh pemanggilan <code>router.start</code></p>
+  <p>Jalankan <a href="https://github.com/vuejs/vue-migration-helper">pembantu migrasi</a> pada basis kode Anda untuk mencari contoh dari pemanggilan <code>router.start</code></p>
 </div>
 {% endraw %}
 
 ## Definisi Rute
 
-### `router.map` <sup>digantikan</sup>
+### `router.map` <sup>diganti</sup>
 
-Kini rute didefinisikan sebagai *array* pada [opsi `routes`](https://router.vuejs.org/en/essentials/getting-started.html#javascript) di instansiasi router. Jadi sebagai contoh rute berikut:
+Kini rute didefinisikan sebagai *array* pada [opsi `routes`](https://router.vuejs.org/en/essentials/getting-started.html#javascript) pada saat instansiasi router. Jadi rute berikut sebagai contoh:
 
 ``` js
 router.map({
@@ -62,7 +62,7 @@ router.map({
 })
 ```
 
-Akan didefinisikan dengan:
+Sebagai gantinya akan didefinisikan dengan:
 
 ``` js
 var router = new VueRouter({
@@ -73,18 +73,18 @@ var router = new VueRouter({
 })
 ```
 
-Sintaksis array memungkinkan pencocokan rute yang lebih terprediksi, sejak mengulang-ulang sebuah objek tidak dijamin untuk menggunakan urutan *Key* yang sama di seluruh peramban.
+Sintaksis array memungkinkan pencocokan rute yang lebih mudah diprediksi, sejak mengulang-ulang sebuah objek tidak dijamin untuk menggunakan urutan *Key* yang sama di seluruh peramban.
 
 {% raw %}
 <div class="upgrade-path">
   <h4>Jalur Peningkatan</h4>
-  <p>Jalankan <a href="https://github.com/vuejs/vue-migration-helper">pembantu migrasi</a> pada basis kode Anda untuk mencari contoh pemanggilan <code>router.map</code></p>
+  <p>Jalankan <a href="https://github.com/vuejs/vue-migration-helper">pembantu migrasi</a> pada basis kode Anda untuk mencari contoh dari pemanggilan <code>router.map</code></p>
 </div>
 {% endraw %}
 
 ### `router.on` <sup>dihapus</sup>
 
-Jika Anda membutuhkan pengadaan rute secara terprogram saat memulai app Anda, Anda bisa melakukan hal tersebut dengan cara mendorong definisi ke sebuah *routes array* secara dinamis. Sebagai contoh:
+Jika Anda perlu membuat rute secara terprogram saat memulai aplikasi Anda, Anda bisa melakukan hal tersebut dengan cara mendorong definisi ke sebuah *routes array* secara dinamis. Sebagai contoh:
 
 ``` js
 // Basis rute normal
@@ -92,7 +92,7 @@ var routes = [
   // ...
 ]
 
-// Pengadaan rute secara dinamis
+// Rute yang dibuat secara dinamis
 marketingPages.forEach(function (page) {
   routes.push({
     path: '/marketing/' + page.slug
@@ -110,7 +110,7 @@ var router = new Router({
 })
 ```
 
-Jika Anda hendak menambahkan rute baru setelah *router* telah diinstansiasi, Anda dapat mengganti pencocokan router dengan yang baru yang menyertakan rute yang ingin Anda tambahkan:
+Jika Anda hendak menambahkan rute baru setelah *router* diinstansiasi, Anda dapat mengganti pencocokan router dengan yang baru yang menyertakan rute yang ingin Anda tambahkan:
 
 ``` js
 router.match = createMatcher(
@@ -124,7 +124,7 @@ router.match = createMatcher(
 {% raw %}
 <div class="upgrade-path">
   <h4>Jalur Peningkatan</h4>
-  <p>Jalankan <a href="https://github.com/vuejs/vue-migration-helper">pembantu migrasi</a> pada basis kode Anda untuk mencari contoh pemanggilan <code>router.on</code></p>
+  <p>Jalankan <a href="https://github.com/vuejs/vue-migration-helper">pembantu migrasi</a> pada basis kode Anda untuk mencari contoh dari pemanggilan <code>router.on</code></p>
 </div>
 {% endraw %}
 
@@ -163,7 +163,7 @@ router.beforeEach(function (to, from, next) {
 </div>
 {% endraw %}
 
-### `router.redirect` <sup>digantikan</sup>
+### `router.redirect` <sup>diganti</sup>
 
 Sekarang ini merupakan sebuah [opsi pada definisi rute](https://router.vuejs.org/en/essentials/redirect-and-alias.html). Jadi sebagai contoh, Anda akan memperbarui:
 
@@ -189,7 +189,7 @@ ke sebuah definisi seperti dibawah ini pada konfigurasi `routes` Anda:
 </div>
 {% endraw %}
 
-### `router.alias` <sup>digantikan</sup>
+### `router.alias` <sup>diganti</sup>
 
 Sekarang ini merupakan sebuah [opsi pada definisi untuk rute](https://router.vuejs.org/en/essentials/redirect-and-alias.html) yang ingin Anda berikan alias. Jadi sebagai contoh, Anda akan memperbarui:
 
@@ -209,7 +209,7 @@ ke sebuah definisi seperti dibawah ini pada konfigurasi `routes` Anda:
 }
 ```
 
-Jika Anda menginginkan alias berganda, Anda dapat juga menggunakan sintaksis array:
+Jika Anda menginginkan lebih dari satu alias, Anda dapat juga menggunakan sintaksis array:
 
 {% codeblock lang:js %}
 ``` js
@@ -224,7 +224,7 @@ alias: ['/manage', '/administer', '/administrate']
 </div>
 {% endraw %}
 
-### Properti Rute Kewenangan <sup>digantikan</sup>
+### Properti Rute Kewenangan <sup>diganti</sup>
 
 Properti rute kewenangan sekarang harus dicakup dalam properti meta baru, untuk menghindari konflik dengan fitur yang akan datang. Jadi sebagai contoh, jika Anda mendefinisikan:
 
@@ -235,7 +235,7 @@ Properti rute kewenangan sekarang harus dicakup dalam properti meta baru, untuk 
 }
 ```
 
-Sekarang Anda bisa memperbaharuinya menjadi:
+Maka sekarang Anda memperbaruinya menjadi:
 
 ``` js
 {
@@ -264,7 +264,7 @@ if (route.meta.requiresAuth) {
 
 ### [] Sintaksis untuk Array pada *Query* <sup>dihapus</sup>
 
-Ketika mengoper satu atau lebih *array* ke parameter *query*, sintaksis QueryString tidak lagi `/foo?users[]=Tom&users[]=Jerry`, tetapi sintaksis yang baru adalah `/foo?users=Tom&users=Jerry`. Secara internal, `$route.query.users` akan tetap menjadi sebuah Array, tapi jika hanya ada satu parameter pada query: `/foo?users=Tom`, lalu mengakses rute ini secara langsung, maka tidak ada cara untuk router mengetahui bahwa jika kita mengharapkan `users` menjadi sebuah Array. Dikarenakan hal ini, pertimbangkan untuk menambahkan properti terhitung dan mengganti setiap referensi dari `$route.query.users` dengan:
+Ketika mengoper satu atau lebih *array* ke parameter *query*, sintaksis QueryString tidak lagi `/foo?users[]=Tom&users[]=Jerry`, tetapi sintaksis yang baru adalah `/foo?users=Tom&users=Jerry`. Secara internal, `$route.query.users` akan tetap menjadi sebuah Array, tapi jika hanya ada satu parameter pada query: `/foo?users=Tom`, lalu mengakses rute ini secara langsung, maka tidak ada cara untuk router mengetahui bahwa kita mengharapkan `users` menjadi sebuah Array. Dikarenakan hal ini, pertimbangkan untuk menambahkan properti terhitung dan mengganti setiap referensi dari `$route.query.users` dengan:
 
 ```javascript
 export default {
@@ -285,7 +285,7 @@ Pencocokan rute sekarang pada dasarnya menggunakan [path-to-regexp](https://gith
 
 ### Satu atau lebih parameter bernama <sup>berubah</sup>
 
-Sintaksis berubah sedikit, jadi sebagai contoh `/category/*tags`, harus diperbarui menjadi `/category/:tags+`.
+Sintaksis berubah sedikit, jadi sebagai contoh `/category/*tags`, perlu diperbarui menjadi `/category/:tags+`.
 
 {% raw %}
 <div class="upgrade-path">
@@ -296,15 +296,15 @@ Sintaksis berubah sedikit, jadi sebagai contoh `/category/*tags`, harus diperbar
 
 ## Tautan
 
-### `v-link` <sup>digantikan</sup>
+### `v-link` <sup>diganti</sup>
 
-Direktif `v-link` digantikan dengan [`<router-link>` component](https://router.vuejs.org/en/api/router-link.html) yang baru, karena jenis pekerjaan ini sekarang hanya menjadi tanggung jawab dari komponen di Vue 2. Ini berarti kapanpun dan dimanapun Anda harus memiliki tautan seperti ini:
+Direktif `v-link` diganti dengan [komponen `<router-link>`](https://router.vuejs.org/en/api/router-link.html) yang baru, karena jenis pekerjaan ini sekarang hanya menjadi tanggung jawab dari komponen di Vue 2. Ini berarti kapanpun dan dimanapun Anda memiliki tautan seperti ini:
 
 ``` html
 <a v-link="'/about'">About</a>
 ```
 
-Anda harus memperbaruinya seperti ini:
+Anda harus memperbaruinya menjadi seperti ini:
 
 ``` html
 <router-link to="/about">About</router-link>
@@ -319,7 +319,7 @@ Perlu dicatat bahwa `target="_blank"` tidak didukung pada `<router-link>`, jadi 
 </div>
 {% endraw %}
 
-### `v-link-active` <sup>digantikan</sup>
+### `v-link-active` <sup>diganti</sup>
 
 Direktif `v-link-active` juga telah digantikan dengan atribut `tag` pada [komponen `<router-link>`](https://router.vuejs.org/en/api/router-link.html). Jadi sebagai contoh, Anda memperbarui ini:
 
@@ -348,7 +348,7 @@ menjadi ini:
 
 ## Navigasi Terprogram
 
-### `router.go` <sup>digantikan</sup>
+### `router.go` <sup>diganti</sup>
 
 Untuk konsistensi dengan [HTML5 History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API), sekarang `router.go` hanya digunakan untuk [navigasi back/forward](https://router.vuejs.org/en/essentials/navigation.html#routergon), sedangkan [`router.push`](https://router.vuejs.org/en/essentials/navigation.html#routerpushlocation) digunakan untuk menavigasikan ke halaman tertentu.
 
@@ -372,7 +372,7 @@ Hashbangs tidak lagi dibutuhkan oleh Google untuk merayapi sebuah URL, jadi mere
 </div>
 {% endraw %}
 
-### `history: true` <sup>digantikan</sup>
+### `history: true` <sup>diganti</sup>
 
 Semua opsi mode perutean telah diringkas menjadi [opsi `mode`](https://router.vuejs.org/en/api/options.html#mode) tunggal. Pembaruan:
 
@@ -397,7 +397,7 @@ var router = new VueRouter({
 </div>
 {% endraw %}
 
-### `abstract: true` <sup>digantikan</sup>
+### `abstract: true` <sup>diganti</sup>
 
 Semua opsi mode perutean telah diringkas menjadi [opsi `mode`](https://router.vuejs.org/en/api/options.html#mode) tunggal. Pembaruan:
 
@@ -424,7 +424,7 @@ var router = new VueRouter({
 
 ## Opsi Rute: Lain-ain
 
-### `saveScrollPosition` <sup>digantikan</sup>
+### `saveScrollPosition` <sup>diganti</sup>
 
 Hal ini telah digantikan dengan [opsi `scrollBehavior`](https://router.vuejs.org/en/advanced/scroll-behavior.html) yang menerima sebuah *function*, jadi perilaku gulir sepenuhnya dapat disesuaikan walaupun tiap rute. Ini membuka banyak kemungkinan baru, tapi untuk mengulang perilaku lama dari:
 
@@ -482,7 +482,7 @@ Dihapus dikarenakan untuk penyederhanaan kait. Jika Anda benar-benar ingin menek
 
 ## Pengait Rute
 
-### `activate` <sup>digantikan</sup>
+### `activate` <sup>diganti</sup>
 
 Gunakan [`beforeRouteEnter`](https://router.vuejs.org/en/advanced/navigation-guards.html#incomponent-guards) di dalam komponen sebagai gantinya.
 
@@ -493,7 +493,7 @@ Gunakan [`beforeRouteEnter`](https://router.vuejs.org/en/advanced/navigation-gua
 </div>
 {% endraw %}
 
-### `canActivate` <sup>digantikan</sup>
+### `canActivate` <sup>diganti</sup>
 
 Gunakan [`beforeEnter`](https://router.vuejs.org/en/advanced/navigation-guards.html#perroute-guard) di dalam rute sebagai gantinya.
 
@@ -515,7 +515,7 @@ Gunakan pengait komponen [`beforeDestroy`](../api/#beforeDestroy) atau [`destroy
 </div>
 {% endraw %}
 
-### `canDeactivate` <sup>digantikan</sup>
+### `canDeactivate` <sup>diganti</sup>
 
 Gunakan [`beforeRouteLeave`](https://router.vuejs.org/en/advanced/navigation-guards.html#incomponent-guards) di dalam komponen sebagai gantinya.
 
@@ -537,7 +537,7 @@ Tidak ada lagi kasus penggunaan seperti ini di dalam Vue Router yang baru.
 </div>
 {% endraw %}
 
-### `data` <sup>digantikan</sup>
+### `data` <sup>diganti</sup>
 
 Properti `$route` sekarang reaktif, jadi Anda dapat menggunakan sebuah *watcher* untuk memberi reaksi pada perubahan rute, seperti ini:
 
