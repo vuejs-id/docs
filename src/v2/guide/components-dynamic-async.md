@@ -250,7 +250,7 @@ new Vue({
 
 ### Menangani Pemuatan State
 
-> Baru di 2.3.0+
+> Baru di versi 2.3.0+
 
 *Async component factory* juga bisa mengembalikan objek dengan menggunakan format berikut:
 

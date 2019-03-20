@@ -4,7 +4,7 @@ type: guide
 order: 305
 ---
 
-Vue.js memungkinkan Anda untuk menentukan *filter* yang dapat digunakan untuk memformat tulisan. *Filter* dapat digunakan di dua tempat: **interpolasi mustache dan ekspresi `v-bind`** (terakhir didukung di 2.1.0+). *Filter* harus ditambahkan di akhir ekspresi JavaScript dengan simbol "pipe" ( | ):
+Vue.js memungkinkan Anda untuk menentukan *filter* yang dapat digunakan untuk memformat tulisan. *Filter* dapat digunakan di dua tempat: **interpolasi mustache dan ekspresi `v-bind`** (terakhir didukung di versi 2.1.0+). *Filter* harus ditambahkan di akhir ekspresi JavaScript dengan simbol "pipe" ( | ):
 
 ``` html
 <!-- di mustaches -->

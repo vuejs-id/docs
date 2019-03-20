@@ -1,12 +1,12 @@
 ---
-title: Slots
+title: Slot
 type: guide
 order: 104
 ---
 
 > Sebelum lanjut membaca halaman ini, kami berasumsi bahwa Anda telah membaca [Dasar-Dasar Komponen](components.html). Baca halaman itu terlebih dahulu bila Anda belum mengerti tentang komponen.
 
-> Di versi 2.6.0, kami memperkenalkan sintaks baru (direktif `v-slot`) untuk nama dan *scope* slot. Sintaks tersebut menggantikan `slot` dan atribut `slot-scope`, yang sekarang telah usang, tapi masih belum dihapus dan masih didokumentasikan [di sini](#Deprecated-Syntax). Alasan kami untuk memperkenalkan sintaks baru dapat dilihat di [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md).
+> Di versi 2.6.0, kami memperkenalkan sintaks baru (direktif `v-slot`) untuk nama dan *scope* slot. Sintaks tersebut menggantikan `slot` dan atribut `slot-scope`, yang sekarang tidak digunakan lagi, tapi masih belum dihapus dan masih didokumentasikan [di sini](#Deprecated-Syntax). Alasan kami untuk memperkenalkan sintaks baru dapat dilihat di [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md).
 
 ## Konten Slot
 
@@ -127,9 +127,9 @@ Konten tersebut akan di-*render* sebagai gantinya:
 </button>
 ```
 
-## Slot yang Diberi Nama
+## Slot yang Memiliki Nama
 
-> Diperbarui di versi 2.6.0+. [Lihat disini](#Deprecated-Syntax) untuk sintaks yang telah usang, yang menggunakan atribut `slot`.
+> Diperbarui di versi 2.6.0+. [Lihat disini](#Deprecated-Syntax) untuk sintaks yang tidak digunakan lagi, yang menggunakan atribut `slot`.
 
 Ada kalanya memiliki banyak slot itu bermanfaat. Misalnya, didalam komponen `<base-layout>` dengan templat berikut ini:
 
@@ -165,7 +165,7 @@ Pada kasus ini, elemen `<slot>` memiliki atribut khusus, `name`, yang dapat digu
 
 `<slot>` tanpa menggunakan `name` secara implisit memiliki nama "default".
 
-Untuk menyediakan konten di slot yang diberi nama, kita dapat menggunakan direktif `v-slot` di `<template>` yang menggunakan nama slot sebagai argumen `v-slot`:
+Untuk menyediakan konten di slot yang memiliki nama, kita dapat menggunakan direktif `v-slot` di `<template>` yang menggunakan nama slot sebagai argumen `v-slot`:
 
 ```html
 <base-layout>
@@ -182,7 +182,7 @@ Untuk menyediakan konten di slot yang diberi nama, kita dapat menggunakan direkt
 </base-layout>
 ```
 
-Sekarang semua yang ada di dalam templat `<template>` akan dioper ke slot yang sesuai. Konten apa pun yang tidak di bungkus dengan `<template>` yang menggunakan `v-slot`, itu akan diasumsikan sebagai slot default.
+Sekarang semua yang ada di dalam templat `<template>` akan dioper ke slot yang sesuai. Konten apa pun yang tidak di bungkus dengan `<template>` yang menggunakan atribut `v-slot`, itu akan diasumsikan sebagai slot default.
 
 Namun, Anda masih bisa membungkus konten slot *default* di `<template>` jika Anda ingin lebih eksplisit:
 
@@ -220,11 +220,11 @@ HTML yang kita tempatkan di antara templat `<template>` akan di-*render* seperti
 </div>
 ```
 
-Perhatikan bahwa **`v-slot` hanya bisa ditambahkan di `<template>`** (dengan [satu pengecualian](#Abbreviated-Syntax-for-Lone-Default-Slots)), dan tidak usang seperti [atribut `slot`](#Deprecated-Syntax).
+Perhatikan bahwa **`v-slot` hanya dapat ditambahkan di `<template>`** (dengan [satu pengecualian](#Abbreviated-Syntax-for-Lone-Default-Slots)), tidak seperti [atribut `slot`](#Deprecated-Syntax) yang tidak digunakan lagi.
 
 ## Scope Slot
 
-> Diperbarui di versi 2.6.0+. [Lihat disini](#Deprecated-Syntax) untuk sintaks yang telah usang, yang menggunakan atribut `slot-scope`.
+> Diperbarui di versi 2.6.0+. [Lihat disini](#Deprecated-Syntax) untuk sintaks yang tidak digunakan lagi, yang menggunakan atribut `slot-scope`.
 
 Terkadang, konten slot yang hanya memiliki akses ke data yang tersedia di komponen anak, itu sangat berguna. Misalnya, bayangkan jika komponen `<current-user>` dengan templat berikut ini:
 
@@ -253,7 +253,7 @@ Untuk membuat data `user` tersedia di induk konten slot, kita bisa *bind* data `
 </span>
 ```
 
-Atribut yang di-*bind* di elemen `<slot>` diberi nama **slot props**. Sekarang, di *scope* induk, kita dapat menggunakan `v-slot` dengan nilai untuk mendefinisikan nama *props* slot yang telah kita sediakan:
+Atribut yang di-*bind* di elemen `<slot>` yang memiliki nama **slot props**. Sekarang di *scope* induk, kita dapat menggunakan `v-slot` dengan nilai untuk mendefinisikan nama *props* slot yang telah kita sediakan:
 
 ``` html
 <current-user>
@@ -267,7 +267,7 @@ Di contoh ini, kita memilih untuk memberi nama objek yang berisi semua *props* s
 
 ### Sintaks yang Diringkas untuk Slot Default yang Sendirian
 
-Pada kasus di atas, ketika _hanya_ slot *default* saja yang disediakan konten, tag komponen dapat digunakan sebagai templat slot. Ini memungkinkan kita untuk menggunakan `v-slot` langsung di komponen:
+Pada kasus di atas, ketika slot *default* saja yang _hanya_ disediakan konten, tag komponen dapat digunakan sebagai templat slot. Ini memungkinkan kita untuk menggunakan `v-slot` secara langsung di komponen:
 
 ``` html
 <current-user v-slot:default="slotProps">
@@ -283,14 +283,14 @@ Ini bisa dipersingkat, bahkan bisa lebih. Sama seperti konten yang tidak ditentu
 </current-user>
 ```
 
-Perhatikan bahwa sintaks yang diringkas untuk slot *default* yang sendirian **tidak bisa** dicampur dengan slot yang diberi nama, karena akan menyebabkan *scope* yang ambigu:
+Perhatikan bahwa sintaks yang diringkas untuk slot *default* yang sendirian **tidak bisa** dicampur dengan slot yang memiliki nama, karena akan menyebabkan *scope* yang ambigu:
 
 ``` html
-<!-- INVALID, will result in warning -->
+<!-- TIDAK VALID, dan akan menghasilkan peringatan -->
 <current-user v-slot="slotProps">
   {{ slotProps.user.firstName }}
   <template v-slot:other="otherSlotProps">
-    slotProps is NOT available here
+    slotProps TIDAK tersedia disini
   </template>
 </current-user>
 ```
@@ -357,11 +357,11 @@ Anda bahkan dapat mendefinisikan *fallbacks*, untuk di gunakan ketika *props* sl
 </base-layout>
 ```
 
-## Nama Slot yang Ringkas
+## Nama Slot yang Disingkat
 
 > Baru di versi 2.6.0+
 
-Sama seperti `v-on` dan `v-bind`, `v-slot` juga memiliki nama yang ringkas, mengganti semua argumen sebelum (`v-slot:`) dengan simbol khusus `#`. Misalnya, `v-slot:header` bisa ditulis ulang sebagai `#header`:
+Sama seperti `v-on` dan `v-bind`, `v-slot` juga memiliki nama yang disingkat, mengganti semua argumen sebelum (`v-slot:`) dengan simbol khusus `#`. Misalnya, `v-slot:header` bisa ditulis ulang sebagai `#header`:
 
 ```html
 <base-layout>
@@ -378,7 +378,7 @@ Sama seperti `v-on` dan `v-bind`, `v-slot` juga memiliki nama yang ringkas, meng
 </base-layout>
 ```
 
-Namun, seperti halnya dengan direktif, nama yang ringkas hanya tersedia saat argumen telah disediakan. Itu berarti sintaks berikut ini tidak valid:
+Namun, seperti halnya dengan direktif, nama yang disingkat hanya tersedia saat argumen telah disediakan. Itu berarti sintaks berikut ini tidak valid:
 
 ``` html
 <!-- Ini akan memicu peringatan -->
@@ -399,7 +399,7 @@ Sebagai gantinya, Anda harus selalu menentukan nama slot jika Anda ingin menggun
 
 ***Props* slot memungkinkan kita untuk merubah slot menjadi templat yang dapat digunakan kembali, dan bisa di-*render* dengan konten yang berbeda, yang berbasis pada input *props*.** Ini sangat berguna ketika Anda mendesain komponen yang dapat digunakan kembali yang merangkum logika data, yang memungkinkan komponen induk untuk mengkonsumsi data tersebut, untuk mengkustomisasi *layout*.
 
-Misalnya, kami sedang mengimplementasikan komponen `<todo-list>` yang berisi *layout* dan logika penyaringan untuk *list*:
+Misalnya, kami sedang mengimplementasikan komponen `<todo-list>` yang berisi *layout* dan logika *filter* untuk *list*:
 
 ```html
 <ul>
@@ -431,7 +431,7 @@ Daripada *hard-coding* setiap konten *todo*, kita bisa membiarkan komponen induk
 </ul>
 ```
 
-Now when we use the `<todo-list>` component, we can optionally define an alternative `<template>` for todo items, but with access to data from the child:
+Sekarang saat kita menggunakan komponen `<todo-list>`, secara opsional kita bisa mendifinisikan alternatif `<template>` untuk item *todo*, tapi dengan akses ke data dari anak:
 
 ```html
 <todo-list v-bind:todos="todos">
@@ -442,68 +442,68 @@ Now when we use the `<todo-list>` component, we can optionally define an alterna
 </todo-list>
 ```
 
-However, even this barely scratches the surface of what scoped slots are capable of. For real-life, powerful examples of scoped slot usage, we recommend browsing libraries such as [Vue Virtual Scroller](https://github.com/Akryum/vue-virtual-scroller), [Vue Promised](https://github.com/posva/vue-promised), and [Portal Vue](https://github.com/LinusBorg/portal-vue).
+Namun, ini bahkan nyaris tidak menjelaskan apa saja yang bisa slot lakukan. Di dunia nyata, contoh yang bagus untuk penggunaan slot, kami sarankan untuk menelusuri perpustakaan seperti [Vue Virtual Scroller](https://github.com/Akryum/vue-virtual-scroller), [Vue Promised](https://github.com/posva/vue-promised), dan [Portal Vue](https://github.com/LinusBorg/portal-vue).
 
-## Deprecated Syntax
+## Sintaks yang tidak digunakan lagi
 
-> The `v-slot` directive was introduced in Vue 2.6.0, offering an improved, alternative API to the still-supported `slot` and `slot-scope` attributes. The full rationale for introducing `v-slot` is described in this [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md). The `slot` and `slot-scope` attributes will continue to be supported in all future 2.x releases, but are officially deprecated and will eventually be removed in Vue 3.
+> Direktif `v-slot` diperkenalkan di Vue versi 2.6.0, menawarkan API alternatif yang telah ditingkatkan, yang masih mendukung atribut `slot` dan `slot-scope`. Alasan lengkap diperkenalkannya `v-slot` dapat dilihat di [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md). Atribut `slot` dan `slot-scope` akan terus didukung di semua rilis Vue 2.x mendatang, tetapi secara resmi tidak digunakan lagi dan akhirnya akan dihapus di Vue 3.
 
-### Named Slots with the `slot` Attribute
+### Slot yang Memiliki Nama dengan Atribut `slot`
 
-> <abbr title="Still supported in all 2.x versions of Vue, but no longer recommended.">Deprecated</abbr> in 2.6.0+. See [here](#Named-Slots) for the new, recommended syntax.
+> <abbr title="Masih didukung di semua versi Vue 2.x, tapi tidak lagi direkomendasikan.">Tidak digunakan lagi</abbr> di versi 2.6.0+. Lihat [disini](#Named-Slots) untuk sintaks baru yand direkomendasikan.
 
-To pass content to named slots from the parent, use the special `slot` attribute on `<template>` (using the `<base-layout>` component described [here](#Named-Slots) as example):
+Untuk mengoper konten ke slot yang memiliki nama dari induk, gunakan atribut khusus `slot` di `<template>` (menggunakan komponen `<base-layout>` yang dijelaskan di bawah [ini](#Named-Slots) sebagai contoh):
 
 ```html
 <base-layout>
   <template slot="header">
-    <h1>Here might be a page title</h1>
+    <h1>Disini mungkin untuk judul halaman</h1>
   </template>
 
-  <p>A paragraph for the main content.</p>
-  <p>And another one.</p>
+  <p>Paragraf untuk konten utama</p>
+  <p>Dan satu lagi</p>
 
   <template slot="footer">
-    <p>Here's some contact info</p>
+    <p>Disini untuk beberapa info kontak</p>
   </template>
 </base-layout>
 ```
 
-Or, the `slot` attribute can also be used directly on a normal element:
+Atau, atribut `slot` yang juga bisa digunakan secara langsung di elemen *normal*:
 
 ``` html
 <base-layout>
-  <h1 slot="header">Here might be a page title</h1>
+  <h1 slot="header">Disini mungkin untuk judul halaman</h1>
 
-  <p>A paragraph for the main content.</p>
-  <p>And another one.</p>
+  <p>Paragraf untuk konten utama</p>
+  <p>Dan satu lagi</p>
 
-  <p slot="footer">Here's some contact info</p>
+  <p slot="footer">Disini untuk beberapa info kontak</p>
 </base-layout>
 ```
 
-There can still be one unnamed slot, which is the **default slot** that serves as a catch-all for any unmatched content. In both examples above, the rendered HTML would be:
+Masih ada satu slot yang tidak memiliki nama, yang merupakan **default slot**, yang berfungsi untuk menangkap semua konten yang tidak cocok. Didalam dua contoh diatas, HTML akan di-*render* menjadi:
 
 ``` html
 <div class="container">
   <header>
-    <h1>Here might be a page title</h1>
+    <h1>Disini mungkin untuk judul halaman</h1>
   </header>
   <main>
-    <p>A paragraph for the main content.</p>
-    <p>And another one.</p>
+    <p>Paragraf untuk konten utama</p>
+    <p>Dan satu lagi</p>
   </main>
   <footer>
-    <p>Here's some contact info</p>
+    <p>Disini untuk beberapa info kontak</p>
   </footer>
 </div>
 ```
 
-### Scoped Slots with the `slot-scope` Attribute
+### Scope Slot dengan Atribut `slot-scope`
 
-> <abbr title="Still supported in all 2.x versions of Vue, but no longer recommended.">Deprecated</abbr> in 2.6.0+. See [here](#Scoped-Slots) for the new, recommended syntax.
+> <abbr title="Masih didukung di semua versi Vue 2.x, tapi tidak lagi direkomendasikan.">Tidak digunakan lagi</abbr> di versi 2.6.0+. Lihat [disini](#Scoped-Slots) untuk sintaks baru yand direkomendasikan.
 
-To receive props passed to a slot, the parent component can use `<template>` with the `slot-scope` attribute (using the `<slot-example>` described [here](#Scoped-Slots) as example):
+Untuk menerima *props* yang dioper ke slot, komponen induk juga bisa menggunakan `<template>` dengan atribut `slot-scope`  (menggunakan `<slot-example>` yang dijelaskan di bawah [ini](#Scoped-Slots) sebagai contoh):
 
 ``` html
 <slot-example>
@@ -513,9 +513,9 @@ To receive props passed to a slot, the parent component can use `<template>` wit
 </slot-example>
 ```
 
-Here, `slot-scope` declares the received props object as the `slotProps` variable, and makes it available inside the `<template>` scope. You can name `slotProps` anything you like similar to naming function arguments in JavaScript.
+Disini, `slot-scope` menerima objek *props* sebagai variabel `slotProps`, dan membuatnya tersedia di dalam *scope* `<template>`. Anda dapat memberi nama `slotProps` apa pun yang Anda suka, sama seperti memberi nama argumen *function* di JavaScript.
 
-Here `slot="default"` can be omitted as it is implied:
+Disini, `slot="default"` dapat dihilangkan karena tersirat:
 
 ``` html
 <slot-example>
@@ -525,7 +525,7 @@ Here `slot="default"` can be omitted as it is implied:
 </slot-example>
 ```
 
-The `slot-scope` attribute can also be used directly on a non-`<template>` element (including components):
+Atribut `slot-scope` juga bisa digunakan secara langsung di elemen yang non-`<template>` (termasuk komponen):
 
 ``` html
 <slot-example>
@@ -535,7 +535,7 @@ The `slot-scope` attribute can also be used directly on a non-`<template>` eleme
 </slot-example>
 ```
 
-The value of `slot-scope` can accept any valid JavaScript expression that can appear in the argument position of a function definition. This means in supported environments ([single-file components](single-file-components.html) or [modern browsers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Browser_compatibility)) you can also use [ES2015 destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring) in the expression, like so:
+Nilai `slot-scope` dapat menerima ekspresi JavaScript yang valid yang berada di posisi argumen dari definisi *function*. Itu berarti, di lingkungan yang didukung ([komponen berkas tunggal (single-file components)](single-file-components.html) atau [browser moderen](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Browser_compatibility)), Anda juga bisa menggunakan [Destrukturisasi ES2015](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring) di dalam expresi seperti ini:
 
 ``` html
 <slot-example>
@@ -545,7 +545,7 @@ The value of `slot-scope` can accept any valid JavaScript expression that can ap
 </slot-example>
 ```
 
-Using the `<todo-list>` described [here](#Other-Examples) as an example, here's the equivalent usage using `slot-scope`:
+Menggunakan `<todo-list>` yang dijelaskan di bawah [ini](#Other-Examples) sebagai contoh, inilah cara penggunaan `slot-scope`:
 
 ``` html
 <todo-list v-bind:todos="todos">
