@@ -6,11 +6,11 @@ order: 104
 
 > Sebelum lanjut membaca halaman ini, kami berasumsi bahwa Anda telah membaca [Dasar-Dasar Komponen](components.html). Baca halaman itu terlebih dahulu bila Anda belum mengerti tentang komponen.
 
-> Di versi 2.6.0, kami memperkenalkan sintaks baru (direktif `v-slot`) untuk nama dan *scope* slot. Sintaks tersebut menggantikan `slot` dan atribut `slot-scope`, yang sekarang tidak digunakan lagi, tapi masih belum dihapus dan masih didokumentasikan [di sini](#Deprecated-Syntax). Alasan kami untuk memperkenalkan sintaks baru dapat dilihat di [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md).
+> Di versi 2.6.0, kami memperkenalkan sintaks baru (direktif `v-slot`) untuk nama dan *slot scope*. Sintaks tersebut menggantikan `slot` dan atribut `slot-scope`, yang sekarang tidak digunakan lagi, tapi masih belum dihapus dan masih didokumentasikan [di sini](#Deprecated-Syntax). Alasan kami untuk memperkenalkan sintaks baru dapat dilihat di [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md).
 
 ## Konten Slot
 
-Vue mengimplementasikan *API* distribusi konten yang terinspirasi dari [Draf Spesifikasi Komponen Web,](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md), dan elemen `<slot>` dapat digunakan sebagai outlet distribusi untuk konten kita.
+Vue mengimplementasikan *API* distribusi konten yang terinspirasi dari [Draf Spesifikasi Komponen Web](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md), dan elemen `<slot>` dapat digunakan sebagai outlet distribusi untuk konten kita.
 
 Ini memungkinkan Anda untuk membuat komponen seperti ini:
 
@@ -31,7 +31,7 @@ Kemudian di templat `<navigation-link>`, Anda mungkin memiliki templat seperti i
 </a>
 ```
 
-Ketika komponen di-*render*, `<slot></slot>` akan menggantinya dengan "Profil Anda". Elemen slot dapat berisi kode templat apa saja, termasuk HTML:
+Ketika komponen di-*render*, `<slot></slot>` akan menggantinya dengan "Profil Anda". Elemen *slot* dapat berisi kode templat apa saja, termasuk HTML:
 
 ``` html
 <navigation-link url="/profile">
@@ -55,7 +55,7 @@ Jika templat `<navigation-link>` tidak berisi elemen `<slot>`, konten apapun yan
 
 ## Kompilasi Scope
 
-Saat Anda ingin menggunakan data didalam slot, seperti ini:
+Saat Anda ingin menggunakan data didalam *slot*, seperti ini:
 
 ``` html
 <navigation-link url="/profile">
@@ -63,7 +63,7 @@ Saat Anda ingin menggunakan data didalam slot, seperti ini:
 </navigation-link>
 ```
 
-Slot dapat mengakses properti *instance* yang sama (*scope* yang sama). Slot **tidak** dapat mengakses ke *scope* `<navigation-link>`. Misalnya, Anda mencoba untuk mengakses data `url` dari *scope* `<navigation-link>`, itu tidak akan bisa:
+*Slot* dapat mengakses properti *instance* yang sama (*scope* yang sama). *Slot* **tidak** dapat mengakses ke *scope* `<navigation-link>`. Misalnya, Anda mencoba untuk mengakses data `url` dari *scope* `<navigation-link>`, itu tidak akan bisa:
 
 ``` html
 <navigation-link url="/profile">
@@ -81,7 +81,7 @@ Ingat, bahwa aturannya:
 
 ## Konten Fallback
 
-Ada beberapa kasus yang bermanfaat untuk menentukan konten *fallback* (*default*) slot, yang hanya akan di-*render* ketika konten slot telah kita sediakan. Misalnya, didalam komponen `<submit-button>`:
+Ada beberapa kasus yang bermanfaat untuk menentukan konten *slot fallback* (*slot default*), yang hanya akan di-*render* ketika konten slot telah kita sediakan. Misalnya, didalam komponen `<submit-button>`:
 
 ```html
 <button type="submit">
@@ -147,7 +147,7 @@ Ada kalanya memiliki banyak slot itu bermanfaat. Misalnya, didalam komponen `<ba
 </div>
 ```
 
-Pada kasus ini, elemen `<slot>` memiliki atribut khusus, `name`, yang dapat digunakan untuk mendefinisikan slot tambahan:
+Pada kasus ini, elemen `<slot>` memiliki atribut khusus, `name`, yang dapat digunakan untuk mendefinisikan *slot* tambahan:
 
 ``` html
 <div class="container">
@@ -165,7 +165,7 @@ Pada kasus ini, elemen `<slot>` memiliki atribut khusus, `name`, yang dapat digu
 
 `<slot>` tanpa menggunakan `name` secara implisit memiliki nama "default".
 
-Untuk menyediakan konten di slot yang memiliki nama, kita dapat menggunakan direktif `v-slot` di `<template>` yang menggunakan nama slot sebagai argumen `v-slot`:
+Untuk menyediakan konten di *slot* yang memiliki nama, kita dapat menggunakan direktif `v-slot` di `<template>` yang menggunakan nama *slot* sebagai argumen `v-slot`:
 
 ```html
 <base-layout>
@@ -182,9 +182,9 @@ Untuk menyediakan konten di slot yang memiliki nama, kita dapat menggunakan dire
 </base-layout>
 ```
 
-Sekarang semua yang ada di dalam templat `<template>` akan dioper ke slot yang sesuai. Konten apa pun yang tidak di bungkus dengan `<template>` yang menggunakan atribut `v-slot`, itu akan diasumsikan sebagai slot default.
+Sekarang semua yang ada di dalam templat `<template>` akan dioper ke *slot* yang sesuai. Konten apa pun yang tidak di bungkus dengan `<template>` yang menggunakan atribut `v-slot`, itu akan diasumsikan sebagai *slot default*.
 
-Namun, Anda masih bisa membungkus konten slot *default* di `<template>` jika Anda ingin lebih eksplisit:
+Namun, Anda masih bisa membungkus konten *slot default* di `<template>` jika Anda ingin lebih eksplisit:
 
 ```html
 <base-layout>
@@ -226,7 +226,7 @@ Perhatikan bahwa **`v-slot` hanya dapat ditambahkan di `<template>`** (dengan [s
 
 > Diperbarui di versi 2.6.0+. [Lihat disini](#Deprecated-Syntax) untuk sintaks yang tidak digunakan lagi, yang menggunakan atribut `slot-scope`.
 
-Terkadang, konten slot yang hanya memiliki akses ke data yang tersedia di komponen anak, itu sangat berguna. Misalnya, bayangkan jika komponen `<current-user>` dengan templat berikut ini:
+Terkadang, konten *slot* yang hanya memiliki akses ke data yang tersedia di komponen anak, itu sangat berguna. Misalnya, bayangkan jika komponen `<current-user>` dengan templat berikut ini:
 
 ```html
 <span>
@@ -243,7 +243,7 @@ Ingin kita ganti dengan komponen *fallback* (*default*) dengan nama depan penggu
 
 Itu tidak akan bisa, karena komponen `<current-user>` hanya dapat mengakses data `user` dan konten yang kita sediakan di-*render* di induk.
 
-Untuk membuat data `user` tersedia di induk konten slot, kita bisa *bind* data `user` sebagai attribut di elemen `<slot>`:
+Untuk membuat data `user` tersedia di induk konten *slot*, kita bisa *bind* data `user` sebagai attribut di elemen `<slot>`:
 
 ``` html
 <span>
@@ -253,7 +253,7 @@ Untuk membuat data `user` tersedia di induk konten slot, kita bisa *bind* data `
 </span>
 ```
 
-Atribut yang di-*bind* di elemen `<slot>` yang memiliki nama **slot props**. Sekarang di *scope* induk, kita dapat menggunakan `v-slot` dengan nilai untuk mendefinisikan nama *props* slot yang telah kita sediakan:
+Atribut yang di-*bind* di elemen `<slot>` yang memiliki nama **slot props**. Sekarang di *scope* induk, kita dapat menggunakan `v-slot` dengan nilai untuk mendefinisikan nama *slot props* yang telah kita sediakan:
 
 ``` html
 <current-user>
@@ -263,11 +263,11 @@ Atribut yang di-*bind* di elemen `<slot>` yang memiliki nama **slot props**. Sek
 </current-user>
 ```
 
-Di contoh ini, kita memilih untuk memberi nama objek yang berisi semua *props* slot `slotProps` kami, tetapi Anda bisa menggunakan nama apa pun yang Anda suka.
+Di contoh ini, kita memilih untuk memberi nama objek yang berisi semua *slot props* `slotProps` kami, tetapi Anda bisa menggunakan nama apa pun yang Anda suka.
 
-### Sintaks yang Diringkas untuk Slot Default yang Sendirian
+### Sintaks yang Disingkat untuk Slot Default yang Sendirian
 
-Pada kasus di atas, ketika slot *default* saja yang _hanya_ disediakan konten, tag komponen dapat digunakan sebagai templat slot. Ini memungkinkan kita untuk menggunakan `v-slot` secara langsung di komponen:
+Pada kasus di atas, ketika *slot default* saja yang _hanya_ disediakan konten, tag komponen dapat digunakan sebagai templat *slot*. Ini memungkinkan kita untuk menggunakan `v-slot` secara langsung di komponen:
 
 ``` html
 <current-user v-slot:default="slotProps">
@@ -275,7 +275,7 @@ Pada kasus di atas, ketika slot *default* saja yang _hanya_ disediakan konten, t
 </current-user>
 ```
 
-Ini bisa dipersingkat, bahkan bisa lebih. Sama seperti konten yang tidak ditentukan, `v-slot` tanpa argumen dapat diasumsikan merujuk ke slot *default*:
+Ini bisa dipersingkat, bahkan bisa lebih. Sama seperti konten yang tidak ditentukan, `v-slot` tanpa argumen dapat diasumsikan merujuk ke *slot default*:
 
 ``` html
 <current-user v-slot="slotProps">
@@ -283,7 +283,7 @@ Ini bisa dipersingkat, bahkan bisa lebih. Sama seperti konten yang tidak ditentu
 </current-user>
 ```
 
-Perhatikan bahwa sintaks yang diringkas untuk slot *default* yang sendirian **tidak bisa** dicampur dengan slot yang memiliki nama, karena akan menyebabkan *scope* yang ambigu:
+Perhatikan bahwa sintaks yang disingkat untuk *slot default* yang sendirian **tidak bisa** dicampur dengan *slot* yang memiliki nama, karena akan menyebabkan *scope* yang ambigu:
 
 ``` html
 <!-- TIDAK VALID, dan akan menghasilkan peringatan -->
@@ -295,7 +295,7 @@ Perhatikan bahwa sintaks yang diringkas untuk slot *default* yang sendirian **ti
 </current-user>
 ```
 
-Setiap kali ada banyak slot, pastikan untuk menggunakan sintaks `<template>` pada _semua_ slot:
+Setiap kali ada banyak *slot*, pastikan untuk menggunakan sintaks `<template>` pada _semua_ *slot*:
 
 ``` html
 <current-user>
@@ -311,7 +311,7 @@ Setiap kali ada banyak slot, pastikan untuk menggunakan sintaks `<template>` pad
 
 ### Destrukturisasi Props Slot
 
-Dibelakang, cara *scope* slot bekerja adalah dengan membungkus konten slot Anda didalam suatu fungsi yang melewati satu argumen:
+Dibelakang, cara *slot scope* bekerja adalah dengan membungkus konten *slot* Anda didalam suatu *function* yang melewati satu argumen:
 
 ```js
 function (slotProps) {
@@ -319,7 +319,7 @@ function (slotProps) {
 }
 ```
 
-Itu berarti, nilai `v-slot` sebenarnya dapat menerima ekspresi JavaScript yang valid yang berada di posisi argumen dari definisi *function*. Jadi, di lingkungan yang didukung ([komponen berkas tunggal (single-file components)](single-file-components.html) atau [browser moderen](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Browser_compatibility)), Anda juga bisa menggunakan [Destrukturisasi ES2015](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring) untuk mengeluarkan *props* slot yang spesifik, seperti ini:
+Itu berarti, nilai `v-slot` sebenarnya dapat menerima ekspresi JavaScript yang valid yang berada di posisi argumen dari definisi *function*. Jadi, di lingkungan yang didukung ([komponen berkas tunggal (single-file components)](single-file-components.html) atau [browser moderen](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Browser_compatibility)), Anda juga bisa menggunakan [Destrukturisasi ES2015](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring) untuk mengeluarkan *slot props* yang spesifik, seperti ini:
 
 ``` html
 <current-user v-slot="{ user }">
@@ -327,7 +327,7 @@ Itu berarti, nilai `v-slot` sebenarnya dapat menerima ekspresi JavaScript yang v
 </current-user>
 ```
 
-Ini bisa membuat templat menjadi lebih bersih, terutama ketika slot menyediakan banyak *props*. Ini juga membuka kemungkinan lain, seperti mengganti nama *props*, Contohnya nama `user` diganti menjadi `person`:
+Ini bisa membuat templat menjadi lebih bersih, terutama ketika *slot* menyediakan banyak *props*. Ini juga membuka kemungkinan lain, seperti mengganti nama *props*, Contohnya nama `user` diganti menjadi `person`:
 
 ``` html
 <current-user v-slot="{ user: person }">
@@ -335,7 +335,7 @@ Ini bisa membuat templat menjadi lebih bersih, terutama ketika slot menyediakan 
 </current-user>
 ```
 
-Anda bahkan dapat mendefinisikan *fallbacks*, untuk di gunakan ketika *props* slot tidak didefinisikan:
+Anda bahkan dapat mendefinisikan *fallbacks*, untuk di gunakan ketika *slot props* tidak didefinisikan:
 
 ``` html
 <current-user v-slot="{ user = { firstName: 'Guest' } }">
@@ -347,7 +347,7 @@ Anda bahkan dapat mendefinisikan *fallbacks*, untuk di gunakan ketika *props* sl
 
 > Baru di versi 2.6.0+
 
-[Argumen direktif yang dinamis](syntax.html#Dynamic-Arguments) juga bekerja di `v-slot`, itu memungkinkan Anda untuk mendefinisikan nama slot secara dinamis:
+[Argumen direktif yang dinamis](syntax.html#Dynamic-Arguments) juga bekerja di `v-slot`, itu memungkinkan Anda untuk mendefinisikan nama *slot* secara dinamis:
 
 ``` html
 <base-layout>
@@ -387,7 +387,7 @@ Namun, seperti halnya dengan direktif, nama yang disingkat hanya tersedia saat a
 </current-user>
 ```
 
-Sebagai gantinya, Anda harus selalu menentukan nama slot jika Anda ingin menggunakan nama yang ringkas:
+Sebagai gantinya, Anda harus selalu menentukan nama *slot* jika Anda ingin menggunakan nama yang disingkat:
 
 ``` html
 <current-user #default="{ user }">
@@ -397,7 +397,7 @@ Sebagai gantinya, Anda harus selalu menentukan nama slot jika Anda ingin menggun
 
 ## Contoh Lainnya
 
-***Props* slot memungkinkan kita untuk merubah slot menjadi templat yang dapat digunakan kembali, dan bisa di-*render* dengan konten yang berbeda, yang berbasis pada input *props*.** Ini sangat berguna ketika Anda mendesain komponen yang dapat digunakan kembali yang merangkum logika data, yang memungkinkan komponen induk untuk mengkonsumsi data tersebut, untuk mengkustomisasi *layout*.
+***Slot props* memungkinkan kita untuk merubah *slot* menjadi templat yang dapat digunakan kembali, dan bisa di-*render* dengan konten yang berbeda, yang berbasis pada input *props*.** Ini sangat berguna ketika Anda mendesain komponen yang dapat digunakan kembali yang merangkum logika data, yang memungkinkan komponen induk untuk mengkonsumsi data tersebut, untuk mengkustomisasi *layout*.
 
 Misalnya, kami sedang mengimplementasikan komponen `<todo-list>` yang berisi *layout* dan logika *filter* untuk *list*:
 
@@ -412,7 +412,7 @@ Misalnya, kami sedang mengimplementasikan komponen `<todo-list>` yang berisi *la
 </ul>
 ```
 
-Daripada *hard-coding* setiap konten *todo*, kita bisa membiarkan komponen induk untuk membuat setiap *todo* slot, kemudian *bind* `todo` sebagai *props* slot:
+Daripada *hard-coding* setiap konten *todo*, kita bisa membiarkan komponen induk untuk membuat setiap *slot todo*, kemudian *bind* `todo` sebagai *slot props*:
 
 ```html
 <ul>
@@ -421,7 +421,7 @@ Daripada *hard-coding* setiap konten *todo*, kita bisa membiarkan komponen induk
     v-bind:key="todo.id"
   >
     <!--
-    Kita mimiliki slot untuk setiap `todo`, kemudian oper `todo` object sebagai *props*.
+    Kita mimiliki *slot* untuk setiap `todo`, kemudian oper `todo` object sebagai *props*.
     -->
     <slot name="todo" v-bind:todo="todo">
       <!-- Konten fallback (*default*) -->
@@ -442,7 +442,7 @@ Sekarang saat kita menggunakan komponen `<todo-list>`, secara opsional kita bisa
 </todo-list>
 ```
 
-Namun, ini bahkan nyaris tidak menjelaskan apa saja yang bisa slot lakukan. Di dunia nyata, contoh yang bagus untuk penggunaan slot, kami sarankan untuk menelusuri perpustakaan seperti [Vue Virtual Scroller](https://github.com/Akryum/vue-virtual-scroller), [Vue Promised](https://github.com/posva/vue-promised), dan [Portal Vue](https://github.com/LinusBorg/portal-vue).
+Namun, ini bahkan nyaris tidak menjelaskan apa saja yang bisa *slot* lakukan. Di dunia nyata, contoh yang bagus untuk penggunaan *slot*, kami sarankan untuk menelusuri perpustakaan seperti [Vue Virtual Scroller](https://github.com/Akryum/vue-virtual-scroller), [Vue Promised](https://github.com/posva/vue-promised), dan [Portal Vue](https://github.com/LinusBorg/portal-vue).
 
 ## Sintaks yang tidak digunakan lagi
 
@@ -452,7 +452,7 @@ Namun, ini bahkan nyaris tidak menjelaskan apa saja yang bisa slot lakukan. Di d
 
 > <abbr title="Masih didukung di semua versi Vue 2.x, tapi tidak lagi direkomendasikan.">Tidak digunakan lagi</abbr> di versi 2.6.0+. Lihat [disini](#Named-Slots) untuk sintaks baru yand direkomendasikan.
 
-Untuk mengoper konten ke slot yang memiliki nama dari induk, gunakan atribut khusus `slot` di `<template>` (menggunakan komponen `<base-layout>` yang dijelaskan di bawah [ini](#Named-Slots) sebagai contoh):
+Untuk mengoper konten ke *slot* yang memiliki nama dari induk, gunakan atribut khusus `slot` di `<template>` (menggunakan komponen `<base-layout>` yang dijelaskan di bawah [ini](#Named-Slots) sebagai contoh):
 
 ```html
 <base-layout>
@@ -482,7 +482,7 @@ Atau, atribut `slot` yang juga bisa digunakan secara langsung di elemen *normal*
 </base-layout>
 ```
 
-Masih ada satu slot yang tidak memiliki nama, yang merupakan **default slot**, yang berfungsi untuk menangkap semua konten yang tidak cocok. Didalam dua contoh diatas, HTML akan di-*render* menjadi:
+Masih ada satu *slot* yang tidak memiliki nama, yang merupakan **slot default**, yang berfungsi untuk menangkap semua konten yang tidak cocok. Didalam dua contoh diatas, HTML akan di-*render* menjadi:
 
 ``` html
 <div class="container">
@@ -503,7 +503,7 @@ Masih ada satu slot yang tidak memiliki nama, yang merupakan **default slot**, y
 
 > <abbr title="Masih didukung di semua versi Vue 2.x, tapi tidak lagi direkomendasikan.">Tidak digunakan lagi</abbr> di versi 2.6.0+. Lihat [disini](#Scoped-Slots) untuk sintaks baru yand direkomendasikan.
 
-Untuk menerima *props* yang dioper ke slot, komponen induk juga bisa menggunakan `<template>` dengan atribut `slot-scope`  (menggunakan `<slot-example>` yang dijelaskan di bawah [ini](#Scoped-Slots) sebagai contoh):
+Untuk menerima *props* yang dioper ke *slot*, komponen induk juga bisa menggunakan `<template>` dengan atribut `slot-scope`  (menggunakan `<slot-example>` yang dijelaskan di bawah [ini](#Scoped-Slots) sebagai contoh):
 
 ``` html
 <slot-example>
