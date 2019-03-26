@@ -4,7 +4,7 @@ type: guide
 order: 104
 ---
 
-> Sebelum lanjut membaca halaman ini, kami berasumsi bahwa Anda telah membaca [Dasar-Dasar Komponen](components.html). Baca halaman itu terlebih dahulu bila Anda belum mengerti tentang komponen.
+> Sebelum mulai membaca halaman ini, kami berasumsi bahwa Anda telah membaca [Dasar-Dasar Komponen](components.html). Baca halaman itu terlebih dahulu bila Anda belum mengerti tentang komponen.
 
 > Di versi 2.6.0, kami memperkenalkan sintaks baru (direktif `v-slot`) untuk nama dan *slot scope*. Sintaks tersebut menggantikan `slot` dan atribut `slot-scope`, yang sekarang tidak digunakan lagi, tapi masih belum dihapus dan masih didokumentasikan [di sini](#Deprecated-Syntax). Alasan kami untuk memperkenalkan sintaks baru dapat dilihat di [RFC](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0001-new-slot-syntax.md).
 
@@ -55,7 +55,7 @@ Jika templat `<navigation-link>` tidak berisi elemen `<slot>`, konten apapun yan
 
 ## Kompilasi Scope
 
-Saat Anda ingin menggunakan data didalam *slot*, seperti ini:
+Saat Anda ingin menggunakan data di dalam *slot*, seperti ini:
 
 ``` html
 <navigation-link url="/profile">
@@ -67,9 +67,9 @@ Saat Anda ingin menggunakan data didalam *slot*, seperti ini:
 
 ``` html
 <navigation-link url="/profile">
-  Klik disini dan Anda akan diarahkan ke: {{ url }}
+  Klik di sini dan Anda akan diarahkan ke: {{ url }}
   <!--
-  Data `url` akan *undefined*, karena tidak di definisikan _didalam_ komponen
+  Data `url` akan *undefined*, karena tidak di definisikan _di dalam_ komponen
   <navigation-link>, tetapi data `url` akan dioper _ke_ templat <navigation-link>.
   -->
 </navigation-link>
@@ -77,11 +77,11 @@ Saat Anda ingin menggunakan data didalam *slot*, seperti ini:
 
 Ingat, bahwa aturannya:
 
-> Semua yang ada di templat induk, akan dikompilasi didalam *scope* induk; semua yang ada di templat anak, akan dikompilasi didalam *scope* anak.
+> Semua yang ada di templat induk, akan dikompilasi di dalam *scope* induk; semua yang ada di templat anak, akan dikompilasi di dalam *scope* anak.
 
 ## Konten Fallback
 
-Ada beberapa kasus yang bermanfaat untuk menentukan konten *slot fallback* (*slot default*), yang hanya akan di-*render* ketika konten slot telah kita sediakan. Misalnya, didalam komponen `<submit-button>`:
+Ada beberapa kasus yang bermanfaat untuk menentukan konten *slot fallback* (*slot default*), yang hanya akan di-*render* ketika tidak ada konten yang tersedia. Misalnya, di dalam komponen `<submit-button>`:
 
 ```html
 <button type="submit">
@@ -89,7 +89,7 @@ Ada beberapa kasus yang bermanfaat untuk menentukan konten *slot fallback* (*slo
 </button>
 ```
 
-Kita mungkin ingin me*render* teks "Submit" didalam `<button>` setiap saat. Untuk membuatnya, kita dapat menempatkan teks "Submit" di antara tag `<slot>`:
+Kita mungkin ingin me*render* teks "Submit" di dalam `<button>` setiap saat. Untuk membuatnya, kita dapat menempatkan teks "Submit" di antara tag `<slot>`:
 
 ```html
 <button type="submit">
@@ -97,7 +97,7 @@ Kita mungkin ingin me*render* teks "Submit" didalam `<button>` setiap saat. Untu
 </button>
 ```
 
-Sekarang saat kita menggunakan `<submit-button>` sebagai komponen induk, yang tidak kita sediakan konten didalamnya:
+Sekarang saat kita menggunakan `<submit-button>` di dalam komponen induk, yang tidak kita sediakan konten di dalamnya:
 
 ```html
 <submit-button></submit-button>
@@ -119,7 +119,7 @@ Akan tetapi jika kita menyediakan konten di komponen tersebut:
 </submit-button>
 ```
 
-Konten tersebut akan di-*render* sebagai gantinya:
+Konten tersebut akan di-*render* sebagai:
 
 ```html
 <button type="submit">
@@ -127,22 +127,22 @@ Konten tersebut akan di-*render* sebagai gantinya:
 </button>
 ```
 
-## Slot yang Memiliki Nama
+## Slot yang Memiliki Nama (Named Slot)
 
-> Diperbarui di versi 2.6.0+. [Lihat disini](#Deprecated-Syntax) untuk sintaks yang tidak digunakan lagi, yang menggunakan atribut `slot`.
+> Diperbarui di versi 2.6.0+. [Lihat di sini](#Deprecated-Syntax) untuk sintaks yang tidak digunakan lagi, yang menggunakan atribut `slot`.
 
-Ada kalanya memiliki banyak slot itu bermanfaat. Misalnya, didalam komponen `<base-layout>` dengan templat berikut ini:
+Ada kalanya memiliki banyak slot itu bermanfaat. Misalnya, di dalam komponen `<base-layout>` dengan templat berikut ini:
 
 ``` html
 <div class="container">
   <header>
-    <!-- Kita ingin konten *header* disini -->
+    <!-- Kita ingin konten *header* di sini -->
   </header>
   <main>
-    <!-- Kita ingin konten *main* disini -->
+    <!-- Kita ingin konten *main* di sini -->
   </main>
   <footer>
-    <!-- Kita ingin konten *footer* disini -->
+    <!-- Kita ingin konten *footer* di sini -->
   </footer>
 </div>
 ```
@@ -170,26 +170,26 @@ Untuk menyediakan konten di *slot* yang memiliki nama, kita dapat menggunakan di
 ```html
 <base-layout>
   <template v-slot:header>
-    <h1>Disini mungkin untuk judul halaman</h1>
+    <h1>Di sini mungkin untuk judul halaman</h1>
   </template>
 
   <p>Paragraf untuk konten utama</p>
   <p>Dan satu lagi</p>
 
   <template v-slot:footer>
-    <p>Disini untuk beberapa info kontak</p>
+    <p>Di sini untuk beberapa info kontak</p>
   </template>
 </base-layout>
 ```
 
 Sekarang semua yang ada di dalam templat `<template>` akan dioper ke *slot* yang sesuai. Konten apa pun yang tidak di bungkus dengan `<template>` yang menggunakan atribut `v-slot`, itu akan diasumsikan sebagai *slot default*.
 
-Namun, Anda masih bisa membungkus konten *slot default* di `<template>` jika Anda ingin lebih eksplisit:
+Namun, jika Anda ingin lebih eksplisit, Anda masih bisa membungkus konten *slot default* di dalam `<template>`:
 
 ```html
 <base-layout>
   <template v-slot:header>
-    <h1>Disini mungkin untuk judul halaman</h1>
+    <h1>Di sini mungkin untuk judul halaman</h1>
   </template>
 
   <template v-slot:default>
@@ -198,24 +198,24 @@ Namun, Anda masih bisa membungkus konten *slot default* di `<template>` jika And
   </template>
 
   <template v-slot:footer>
-    <p>Disini untuk beberapa info kontak</p>
+    <p>Di sini untuk beberapa info kontak</p>
   </template>
 </base-layout>
 ```
 
-HTML yang kita tempatkan di antara templat `<template>` akan di-*render* seperti ini:
+Jika tidak, HTML yang kita tempatkan di antara templat `<template>` akan di-*render* seperti ini:
 
 ``` html
 <div class="container">
   <header>
-    <h1>Disini mungkin untuk judul halaman</h1>
+    <h1>Di sini mungkin untuk judul halaman</h1>
   </header>
   <main>
     <p>Paragraf untuk konten utama</p>
     <p>Dan satu lagi</p>
   </main>
   <footer>
-    <p>Disini untuk beberapa info kontak</p>
+    <p>Di sini untuk beberapa info kontak</p>
   </footer>
 </div>
 ```
@@ -224,7 +224,7 @@ Perhatikan bahwa **`v-slot` hanya dapat ditambahkan di `<template>`** (dengan [s
 
 ## Scope Slot
 
-> Diperbarui di versi 2.6.0+. [Lihat disini](#Deprecated-Syntax) untuk sintaks yang tidak digunakan lagi, yang menggunakan atribut `slot-scope`.
+> Diperbarui di versi 2.6.0+. [Lihat di sini](#Deprecated-Syntax) untuk sintaks yang tidak digunakan lagi, yang menggunakan atribut `slot-scope`.
 
 Terkadang, konten *slot* yang hanya memiliki akses ke data yang tersedia di komponen anak, itu sangat berguna. Misalnya, bayangkan jika komponen `<current-user>` dengan templat berikut ini:
 
@@ -243,7 +243,7 @@ Ingin kita ganti dengan komponen *fallback* (*default*) dengan nama depan penggu
 
 Itu tidak akan bisa, karena komponen `<current-user>` hanya dapat mengakses data `user` dan konten yang kita sediakan di-*render* di induk.
 
-Untuk membuat data `user` tersedia di induk konten *slot*, kita bisa *bind* data `user` sebagai attribut di elemen `<slot>`:
+Untuk membuat data `user` tersedia di induk konten *slot*, kita bisa *bind* data `user` sebagai atribut di elemen `<slot>`:
 
 ``` html
 <span>
@@ -290,7 +290,7 @@ Perhatikan bahwa sintaks yang disingkat untuk *slot default* yang sendirian **ti
 <current-user v-slot="slotProps">
   {{ slotProps.user.firstName }}
   <template v-slot:other="otherSlotProps">
-    slotProps TIDAK tersedia disini
+    slotProps TIDAK tersedia di sini
   </template>
 </current-user>
 ```
@@ -311,7 +311,7 @@ Setiap kali ada banyak *slot*, pastikan untuk menggunakan sintaks `<template>` p
 
 ### Destrukturisasi Props Slot
 
-Dibelakang, cara *slot scope* bekerja adalah dengan membungkus konten *slot* Anda didalam suatu *function* yang melewati satu argumen:
+Dibelakang, cara *slot scope* bekerja adalah dengan membungkus konten *slot* Anda di dalam suatu *function* yang melewati satu argumen:
 
 ```js
 function (slotProps) {
@@ -366,14 +366,14 @@ Sama seperti `v-on` dan `v-bind`, `v-slot` juga memiliki nama yang disingkat, me
 ```html
 <base-layout>
   <template #header>
-    <h1>Disini mungkin untuk judul halaman</h1>
+    <h1>Di sini mungkin untuk judul halaman</h1>
   </template>
 
   <p>Paragraf untuk konten utama</p>
   <p>Dan satu lagi</p>
 
   <template #footer>
-    <p>Disini untuk beberapa info kontak</p>
+    <p>Di sini untuk beberapa info kontak</p>
   </template>
 </base-layout>
 ```
@@ -397,7 +397,7 @@ Sebagai gantinya, Anda harus selalu menentukan nama *slot* jika Anda ingin mengg
 
 ## Contoh Lainnya
 
-***Slot props* memungkinkan kita untuk merubah *slot* menjadi templat yang dapat digunakan kembali, dan bisa di-*render* dengan konten yang berbeda, yang berbasis pada input *props*.** Ini sangat berguna ketika Anda mendesain komponen yang dapat digunakan kembali yang merangkum logika data, yang memungkinkan komponen induk untuk mengkonsumsi data tersebut, untuk mengkustomisasi *layout*.
+***Slot props* memungkinkan kita untuk mengubah *slot* menjadi templat yang dapat digunakan kembali, dan bisa di-*render* dengan konten yang berbeda, yang berbasis pada input *props*.** Ini sangat berguna ketika Anda mendesain komponen yang dapat digunakan kembali yang merangkum logika data, yang memungkinkan komponen induk untuk mengkonsumsi data tersebut, untuk mengkustomisasi *layout*.
 
 Misalnya, kami sedang mengimplementasikan komponen `<todo-list>` yang berisi *layout* dan logika *filter* untuk *list*:
 
@@ -421,7 +421,7 @@ Daripada *hard-coding* setiap konten *todo*, kita bisa membiarkan komponen induk
     v-bind:key="todo.id"
   >
     <!--
-    Kita mimiliki *slot* untuk setiap `todo`, kemudian oper `todo` object sebagai *props*.
+    Kita mimiliki *slot* untuk setiap `todo`, kemudian oper objek `todo` sebagai *slot props*.
     -->
     <slot name="todo" v-bind:todo="todo">
       <!-- Konten fallback (*default*) -->
@@ -431,7 +431,7 @@ Daripada *hard-coding* setiap konten *todo*, kita bisa membiarkan komponen induk
 </ul>
 ```
 
-Sekarang saat kita menggunakan komponen `<todo-list>`, secara opsional kita bisa mendifinisikan alternatif `<template>` untuk item *todo*, tapi dengan akses ke data dari anak:
+Sekarang saat kita menggunakan komponen `<todo-list>`, secara opsional kita bisa mendifinisikan alternatif `<template>` untuk *todo items*, tapi dengan akses ke data dari anak:
 
 ```html
 <todo-list v-bind:todos="todos">
@@ -442,7 +442,7 @@ Sekarang saat kita menggunakan komponen `<todo-list>`, secara opsional kita bisa
 </todo-list>
 ```
 
-Namun, ini bahkan nyaris tidak menjelaskan apa saja yang bisa *slot* lakukan. Di dunia nyata, contoh yang bagus untuk penggunaan *slot*, kami sarankan untuk menelusuri perpustakaan seperti [Vue Virtual Scroller](https://github.com/Akryum/vue-virtual-scroller), [Vue Promised](https://github.com/posva/vue-promised), dan [Portal Vue](https://github.com/LinusBorg/portal-vue).
+Namun, ini bahkan nyaris tidak menjelaskan apa saja yang bisa *slot* lakukan. Di dunia nyata, contoh yang bagus untuk penggunaan *slot*, kami sarankan untuk menelusuri pustaka seperti [Vue Virtual Scroller](https://github.com/Akryum/vue-virtual-scroller), [Vue Promised](https://github.com/posva/vue-promised), dan [Portal Vue](https://github.com/LinusBorg/portal-vue).
 
 ## Sintaks yang tidak digunakan lagi
 
@@ -450,21 +450,21 @@ Namun, ini bahkan nyaris tidak menjelaskan apa saja yang bisa *slot* lakukan. Di
 
 ### Slot yang Memiliki Nama dengan Atribut `slot`
 
-> <abbr title="Masih didukung di semua versi Vue 2.x, tapi tidak lagi direkomendasikan.">Tidak digunakan lagi</abbr> di versi 2.6.0+. Lihat [disini](#Named-Slots) untuk sintaks baru yand direkomendasikan.
+> <abbr title="Masih didukung di semua versi Vue 2.x, tapi tidak lagi direkomendasikan.">Tidak digunakan lagi</abbr> di versi 2.6.0+. Lihat [di sini](#Named-Slots) untuk sintaks baru yand direkomendasikan.
 
 Untuk mengoper konten ke *slot* yang memiliki nama dari induk, gunakan atribut khusus `slot` di `<template>` (menggunakan komponen `<base-layout>` yang dijelaskan di bawah [ini](#Named-Slots) sebagai contoh):
 
 ```html
 <base-layout>
   <template slot="header">
-    <h1>Disini mungkin untuk judul halaman</h1>
+    <h1>Di sini mungkin untuk judul halaman</h1>
   </template>
 
   <p>Paragraf untuk konten utama</p>
   <p>Dan satu lagi</p>
 
   <template slot="footer">
-    <p>Disini untuk beberapa info kontak</p>
+    <p>Di sini untuk beberapa info kontak</p>
   </template>
 </base-layout>
 ```
@@ -473,35 +473,35 @@ Atau, atribut `slot` yang juga bisa digunakan secara langsung di elemen *normal*
 
 ``` html
 <base-layout>
-  <h1 slot="header">Disini mungkin untuk judul halaman</h1>
+  <h1 slot="header">Di sini mungkin untuk judul halaman</h1>
 
   <p>Paragraf untuk konten utama</p>
   <p>Dan satu lagi</p>
 
-  <p slot="footer">Disini untuk beberapa info kontak</p>
+  <p slot="footer">Di sini untuk beberapa info kontak</p>
 </base-layout>
 ```
 
-Masih ada satu *slot* yang tidak memiliki nama, yang merupakan **slot default**, yang berfungsi untuk menangkap semua konten yang tidak cocok. Didalam dua contoh diatas, HTML akan di-*render* menjadi:
+Masih ada satu *slot* yang tidak memiliki nama, yang merupakan **slot default**, yang berfungsi untuk menangkap semua konten yang tidak cocok. Di dalam dua contoh di atas, HTML akan di-*render* menjadi:
 
 ``` html
 <div class="container">
   <header>
-    <h1>Disini mungkin untuk judul halaman</h1>
+    <h1>Di sini mungkin untuk judul halaman</h1>
   </header>
   <main>
     <p>Paragraf untuk konten utama</p>
     <p>Dan satu lagi</p>
   </main>
   <footer>
-    <p>Disini untuk beberapa info kontak</p>
+    <p>Di sini untuk beberapa info kontak</p>
   </footer>
 </div>
 ```
 
 ### Scope Slot dengan Atribut `slot-scope`
 
-> <abbr title="Masih didukung di semua versi Vue 2.x, tapi tidak lagi direkomendasikan.">Tidak digunakan lagi</abbr> di versi 2.6.0+. Lihat [disini](#Scoped-Slots) untuk sintaks baru yand direkomendasikan.
+> <abbr title="Masih didukung di semua versi Vue 2.x, tapi tidak lagi direkomendasikan.">Tidak digunakan lagi</abbr> di versi 2.6.0+. Lihat [di sini](#Scoped-Slots) untuk sintaks baru yand direkomendasikan.
 
 Untuk menerima *props* yang dioper ke *slot*, komponen induk juga bisa menggunakan `<template>` dengan atribut `slot-scope`  (menggunakan `<slot-example>` yang dijelaskan di bawah [ini](#Scoped-Slots) sebagai contoh):
 
@@ -513,9 +513,9 @@ Untuk menerima *props* yang dioper ke *slot*, komponen induk juga bisa menggunak
 </slot-example>
 ```
 
-Disini, `slot-scope` menerima objek *props* sebagai variabel `slotProps`, dan membuatnya tersedia di dalam *scope* `<template>`. Anda dapat memberi nama `slotProps` apa pun yang Anda suka, sama seperti memberi nama argumen *function* di JavaScript.
+Di sini, `slot-scope` menerima objek *props* sebagai variabel `slotProps`, dan membuatnya tersedia di dalam *scope* `<template>`. Anda dapat memberi nama `slotProps` apa pun yang Anda suka, sama seperti memberi nama argumen *function* di JavaScript.
 
-Disini, `slot="default"` dapat dihilangkan karena tersirat:
+Di sini, `slot="default"` dapat dihilangkan karena tersirat:
 
 ``` html
 <slot-example>
