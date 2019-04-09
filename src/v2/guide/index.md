@@ -4,14 +4,13 @@ type: guide
 order: 2
 ---
 
-## Apa itu Vue.js?
+## Apa itu Vue.js sdfsdfdsfsdfds?
 
 Vue (cara pengucapannya /vjuː/, seperti **view**) adalah sebuah kerangka kerja nan progresif untuk membangun antarmuka pengguna. Tidak seperti beberapa kerangka kerja monolitik yang lain, Vue dirancang dari dasar sekali agar dapat diadopsi secara bertahap. Pustaka intinya difokuskan pada layer tampilan saja, dan sangat mudah untuk diintegrasikan dengan pustaka yang lain atau dengan proyek yang sudah ada. Di sisi lain, Vue sangat mampu memberikan dan mendukung `Single Page Application` yang canggih ketika dikombinasikan dengan [perkakas modern](single-file-components.html) dan [dukungan pustaka](https://github.com/vuejs/awesome-vue#components--libraries).
 
 Jika anda ingin mempelajari lebih lanjut tentang Vue, kami <a id="modal-player"  href="#">membuat sebuah video</a> tentang prinsip - prinsip inti dan contoh proyek.
 
-
-Jika anda adalah seorang *frontend developer* yang berpengalaman dan ingin tahu bagaimana Vue dibandingkan dengan pustaka/kerangka kerja yang lain, silakan kunjungi [Perbandingan dengan kerangka kerja yang lain](comparison.html).
+Jika anda adalah seorang _frontend developer_ yang berpengalaman dan ingin tahu bagaimana Vue dibandingkan dengan pustaka/kerangka kerja yang lain, silakan kunjungi [Perbandingan dengan kerangka kerja yang lain](comparison.html).
 
 <div class="vue-mastery"><a href="https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance/" target="_blank" rel="noopener" title="Free Vue.js Course">Tonton video kursus gratis di Vue Mastery</a></div>
 
@@ -21,42 +20,45 @@ Jika anda adalah seorang *frontend developer* yang berpengalaman dan ingin tahu 
 
 Cara yang paling mudah untuk mencoba Vue.js adalah dengan menggunakan [JSFiddle Contoh Hello World](https://jsfiddle.net/chrisvfritz/50wL7mdz/). Jangan ragu untuk mencobanya di tab lain dan ikuti bagaimana kami memberikan contoh dasar. Atau, anda bisa <a href="https://gist.githubusercontent.com/chrisvfritz/7f8d7d63000b48493c336e48b3db3e52/raw/ed60c4e5d5c6fec48b0921edaed0cb60be30e87c/index.html" target="_blank" download="index.html" rel="noopener noreferrer">membuat sebuah file<code>index.html</code></a> dan isikan script dibawah ini:
 
-``` html
+```html
 <!-- versi development, berisi peringatan yang sangat membantu -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 ```
 
 atau:
 
-``` html
+```html
 <!-- versi production, ukuran lebih optimal dan kecepatan yang telah ditingkatkan -->
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 ```
 
-Pada halaman [Instalasi](installation.html) tersedia lebih banyak opsi ketika memulai instalasi Vue. Catatan: Kami **tidak** menyarankan para pemula untuk memulai proyek dengan menggunakan `vue-cli`, terlebih lagi jika anda masih belum terbiasa / familiar dengan *build tools* yang berbasiskan Node.js.
+Pada halaman [Instalasi](installation.html) tersedia lebih banyak opsi ketika memulai instalasi Vue. Catatan: Kami **tidak** menyarankan para pemula untuk memulai proyek dengan menggunakan `vue-cli`, terlebih lagi jika anda masih belum terbiasa / familiar dengan _build tools_ yang berbasiskan Node.js.
 
 Jika anda lebih tertarik dengan hal hal yang lebih interaktif, anda bisa melihat [seri tutorial ini di Scrimba](https://scrimba.com/playlist/pXKqta), yang mana akan memberikan anda campuran beberapa screencast dan `code playground` yang bisa anda jeda dan mainkan kapan saja.
 
-## *Render Secara Deklaratif*
+## _Render Secara Deklaratif_
 
 <div class="scrimba"><a href="https://scrimba.com/p/pXKqta/cQ3QVcr" target="_blank" rel="noopener noreferrer">Coba tutorial ini di Scrimba</a></div>
 
-Inti dari Vue.js adalah sistem yang mampu membantu kita dalam me *render* data kedalam DOM secara deklaratif menggunakan sintaks *template* yang mudah dan jelas:
+Inti dari Vue.js adalah sistem yang mampu membantu kita dalam me _render_ data kedalam DOM secara deklaratif menggunakan sintaks _template_ yang mudah dan jelas:
 
-``` html
+```html
 <div id="app">
   {{ pesan }}
 </div>
 ```
-``` js
+
+```js
 var app = new Vue({
-  el: '#app',
+  el: "#app",
   data: {
-    pesan: 'Hai, ini Vue!'
+    pesan: "Hai, ini Vue!"
   }
-})
+});
 ```
+
 {% raw %}
+
 <div id="app" class="demo">
   {{ pesan }}
 </div>
@@ -70,27 +72,30 @@ var app = new Vue({
 </script>
 {% endraw %}
 
-Kita telah berhasil membuat aplikasi Vue pertama kita! Jika kita perhatikan proses *rendering* nya masih sama seperti *string template* yang biasa, tetapi Vue disini sudah membantu banyak pekerjaan kita secara ajaib. Data yang ditampilkan sudah terhubung dengan DOM, dan semuanya bersifat reaktif. Bagaimana kita bisa tahu hal tersebut? Silakan buka JavaScript konsol pada peramban anda (di halaman yang anda baca sekarang ini) dan *set* `app.pesan` dengan nilai yang berbeda. Anda akan langsung melihat perubahan pesan yang baru saja Anda ketikkan/ubah.
+Kita telah berhasil membuat aplikasi Vue pertama kita! Jika kita perhatikan proses _rendering_ nya masih sama seperti _string template_ yang biasa, tetapi Vue disini sudah membantu banyak pekerjaan kita secara ajaib. Data yang ditampilkan sudah terhubung dengan DOM, dan semuanya bersifat reaktif. Bagaimana kita bisa tahu hal tersebut? Silakan buka JavaScript konsol pada peramban anda (di halaman yang anda baca sekarang ini) dan _set_ `app.pesan` dengan nilai yang berbeda. Anda akan langsung melihat perubahan pesan yang baru saja Anda ketikkan/ubah.
 
-Selain interpolasi teks, kita juga bisa langsung *binding* attribute pada elemen seperti dibawah ini:
+Selain interpolasi teks, kita juga bisa langsung _binding_ attribute pada elemen seperti dibawah ini:
 
-``` html
+```html
 <div id="app-2">
   <span v-bind:title="pesan">
-    Arahkan mouse Anda kesini dan tunggu dalam beberapa detik
-    untuk melihat judul pesan yang dinamis
+    Arahkan mouse Anda kesini dan tunggu dalam beberapa detik untuk melihat
+    judul pesan yang dinamis
   </span>
 </div>
 ```
-``` js
+
+```js
 var app2 = new Vue({
-  el: '#app-2',
+  el: "#app-2",
   data: {
-    pesan: 'Anda memuat halaman ini pada jam ' + new Date().toLocaleString()
+    pesan: "Anda memuat halaman ini pada jam " + new Date().toLocaleString()
   }
-})
+});
 ```
+
 {% raw %}
+
 <div id="app-2" class="demo">
   <span v-bind:title="pesan">
     Arahkan mouse Anda kesini dan tunggu dalam beberapa detik untuk melihat judul pesan yang dinamis
@@ -106,7 +111,7 @@ var app2 = new Vue({
 </script>
 {% endraw %}
 
-Sekarang kita telah mempelajari hal baru. Atribut `v-bind` yang telah Anda lihat dinamakan **directive**. **Directive** diawali dengan huruf `v-` untuk mengindikasikan/menginformasikan bahwa dia adalah atribut spesial yang dibawa oleh Vue, dan seperti yang bisa anda tebak, dia menerapkan perilaku yang reaktif di DOM yang sudah dirender. Ibarat kata, "Jaga atribut `title` ini agar tetap *update* dengan properti `pesan`".
+Sekarang kita telah mempelajari hal baru. Atribut `v-bind` yang telah Anda lihat dinamakan **directive**. **Directive** diawali dengan huruf `v-` untuk mengindikasikan/menginformasikan bahwa dia adalah atribut spesial yang dibawa oleh Vue, dan seperti yang bisa anda tebak, dia menerapkan perilaku yang reaktif di DOM yang sudah dirender. Ibarat kata, "Jaga atribut `title` ini agar tetap _update_ dengan properti `pesan`".
 
 Jika Anda buka JavaScript konsol lagi dan tekan enter `app2.pesan = 'ini adalah pesan baru'`, maka Anda akan melihat atribute `title` telah terupdate dengan pesan baru tersebut.
 
@@ -116,23 +121,23 @@ Jika Anda buka JavaScript konsol lagi dan tekan enter `app2.pesan = 'ini adalah 
 
 Sangat mudah untuk menerapkan pengkondisian pada suatu elemen:
 
-
-``` html
+```html
 <div id="app-3">
   <span v-if="terlihat">Saya bisa dilihat</span>
 </div>
 ```
 
-``` js
+```js
 var app3 = new Vue({
-  el: '#app-3',
+  el: "#app-3",
   data: {
     terlihat: true
   }
-})
+});
 ```
 
 {% raw %}
+
 <div id="app-3" class="demo">
   <span v-if="terlihat">Saya bisa dilihat</span>
 </div>
@@ -148,11 +153,11 @@ var app3 = new Vue({
 
 Cobalah buka konsol di peramban Anda sekali lagi, dan ketikkan `app3.terlihat = false` kemudian tekan enter. Maka pesan yang tadi akan hilang
 
-Contoh ini mendemonstrasikan kepada kita bahwa tidak hanya teks dan atribut yang bisa kita *binding*, tetapi juga struktur dari DOM. Bahkan, Vue juga mampu menyediakan transisi yang keren pada sistem efek yang secara otomatis bisa dipakai di [efek transisi](transitions.html) ketika elemen ditambahkan/diperbaharui/dihapus oleh Vue.
+Contoh ini mendemonstrasikan kepada kita bahwa tidak hanya teks dan atribut yang bisa kita _binding_, tetapi juga struktur dari DOM. Bahkan, Vue juga mampu menyediakan transisi yang keren pada sistem efek yang secara otomatis bisa dipakai di [efek transisi](transitions.html) ketika elemen ditambahkan/diperbaharui/dihapus oleh Vue.
 
-Selain itu juga terdapat *directive* yang lain, masing - masing memiliki fungsi yang spesial. Contohnya seperti, *directive* `v-for` bisa digunakan untuk menampilkan daftar *item* yang didapatkan dari data *Array*:
+Selain itu juga terdapat _directive_ yang lain, masing - masing memiliki fungsi yang spesial. Contohnya seperti, _directive_ `v-for` bisa digunakan untuk menampilkan daftar _item_ yang didapatkan dari data _Array_:
 
-``` html
+```html
 <div id="app-4">
   <ol>
     <li v-for="todo in todos">
@@ -161,19 +166,22 @@ Selain itu juga terdapat *directive* yang lain, masing - masing memiliki fungsi 
   </ol>
 </div>
 ```
-``` js
+
+```js
 var app4 = new Vue({
-  el: '#app-4',
+  el: "#app-4",
   data: {
     todos: [
-      { teks: 'Belajar JavaScript' },
-      { teks: 'Belajar Vue' },
-      { teks: 'Buat proyek keren' }
+      { teks: "Belajar JavaScript" },
+      { teks: "Belajar Vue" },
+      { teks: "Buat proyek keren" }
     ]
   }
-})
+});
 ```
+
 {% raw %}
+
 <div id="app-4" class="demo">
   <ol>
     <li v-for="todo in todos">
@@ -195,34 +203,40 @@ var app4 = new Vue({
 </script>
 {% endraw %}
 
-Di konsol, ketik dan enter `app4.todos.push({ text: 'Hasilkan uang' })`. Maka anda akan melihat *item* baru akan muncul dalam daftar.
+Di konsol, ketik dan enter `app4.todos.push({ text: 'Hasilkan uang' })`. Maka anda akan melihat _item_ baru akan muncul dalam daftar.
 
 ## Menangani Inputan Pengguna
 
 <div class="scrimba"><a href="https://scrimba.com/p/pXKqta/czPNaUr" target="_blank" rel="noopener noreferrer">Pelajari ini di Scrimba</a></div>
 
-Untuk mencoba para pengguna berinteraksi dengan aplikasi Anda, kita bisa menggunakan *directive* `v-on` untuk melampirkan *event listener* yang bisa menjalankan suatu fungsi/metode pada *instance* Vue kita.
+Untuk mencoba para pengguna berinteraksi dengan aplikasi Anda, kita bisa menggunakan _directive_ `v-on` untuk melampirkan _event listener_ yang bisa menjalankan suatu fungsi/metode pada _instance_ Vue kita.
 
-``` html
+```html
 <div id="app-5">
   <p>{{ pesan }}</p>
   <button v-on:click="balikkanPesan">Balikkan Pesan</button>
 </div>
 ```
-``` js
+
+```js
 var app5 = new Vue({
-  el: '#app-5',
+  el: "#app-5",
   data: {
-    pesan: 'Hai Vue.js!'
+    pesan: "Hai Vue.js!"
   },
   methods: {
-    balikkanPesan: function () {
-      this.pesan = this.pesan.split('').reverse().join('')
+    balikkanPesan: function() {
+      this.pesan = this.pesan
+        .split("")
+        .reverse()
+        .join("");
     }
   }
-})
+});
 ```
+
 {% raw %}
+
 <div id="app-5" class="demo">
   <p>{{ pesan }}</p>
   <button v-on:click="balikkanPesan">Balikkan Pesan</button>
@@ -242,25 +256,28 @@ var app5 = new Vue({
 </script>
 {% endraw %}
 
-Perlu diingat bahwa metode ini memperbaharui *state* di aplikasi kita tanpa menyentuh DOM sama sekali. Semua proses manipulasi DOM ditangani oleh Vue, dan kode yang Anda tulis hanya berfokus pada logika saja.
+Perlu diingat bahwa metode ini memperbaharui _state_ di aplikasi kita tanpa menyentuh DOM sama sekali. Semua proses manipulasi DOM ditangani oleh Vue, dan kode yang Anda tulis hanya berfokus pada logika saja.
 
-Vue juga menyediakan *directive* `v-model` yang mampu melakukan *binding* secara dua arah antara pengisian formulir dengan *state* pada aplikasi:
+Vue juga menyediakan _directive_ `v-model` yang mampu melakukan _binding_ secara dua arah antara pengisian formulir dengan _state_ pada aplikasi:
 
-``` html
+```html
 <div id="app-6">
   <p>{{ pesan }}</p>
-  <input v-model="pesan">
+  <input v-model="pesan" />
 </div>
 ```
-``` js
+
+```js
 var app6 = new Vue({
-  el: '#app-6',
+  el: "#app-6",
   data: {
-    pesan: 'Hai Vue!'
+    pesan: "Hai Vue!"
   }
-})
+});
 ```
+
 {% raw %}
+
 <div id="app-6" class="demo">
   <p>{{ pesan }}</p>
   <input v-model="pesan">
@@ -284,39 +301,39 @@ Sistem komponen juga termasuk salah satu hal penting yang ada di konsep Vue, kar
 ![Komponen Diagram Pohon](/images/components.png)
 
 In Vue, a component is essentially a Vue instance with pre-defined options. Registering a component in Vue is straightforward:
-Di Vue, pada dasarnya komponen adalah *instance* Vue yang sudah dilengkapi dengan opsi yang telah di definisikan sebelumnya. Mendaftarkan sebuah komponen di Vue sangatlah mudah:
+Di Vue, pada dasarnya komponen adalah _instance_ Vue yang sudah dilengkapi dengan opsi yang telah di definisikan sebelumnya. Mendaftarkan sebuah komponen di Vue sangatlah mudah:
 
-``` js
+```js
 // Definisikan komponen baru yang bernama todo-item
-Vue.component('todo-item', {
-  template: '<li>Ini adalah hal hal yang harus dilakukan</li>'
-})
+Vue.component("todo-item", {
+  template: "<li>Ini adalah hal hal yang harus dilakukan</li>"
+});
 ```
 
 Sekarang kita bisa pasang ke templat komponen yang lain:
 
-``` html
+```html
 <ol>
   <!-- Buat komponen todo-item -->
   <todo-item></todo-item>
 </ol>
 ```
 
-Tetapi ini hanya akan merender sebuah teks yang sama di setiap komponen todo, yang mana hal ini sama sekali tidak menarik. Kita harus bisa menyematkan data dari komponen *parent* ke komponen *child*. Mari kita coba modifikasi komponen tersebut agar bisa menerima [prop](components.html#Props):
+Tetapi ini hanya akan merender sebuah teks yang sama di setiap komponen todo, yang mana hal ini sama sekali tidak menarik. Kita harus bisa menyematkan data dari komponen _parent_ ke komponen _child_. Mari kita coba modifikasi komponen tersebut agar bisa menerima [prop](components.html#Props):
 
-``` js
-Vue.component('todo-item', {
+```js
+Vue.component("todo-item", {
   // Komponen todo-item sekarang bisa menerima
   // "prop", yang mana ini adalah atribut kustom.
   // Prop ini kita namakan todo.
-  props: ['todo'],
-  template: '<li>{{ todo.text }}</li>'
-})
+  props: ["todo"],
+  template: "<li>{{ todo.text }}</li>"
+});
 ```
 
 Sekarang kita bisa menyematkan todo di masing - masing komponen menggunakan `v-bind`:
 
-``` html
+```html
 <div id="app-7">
   <ol>
     <!--
@@ -333,24 +350,27 @@ Sekarang kita bisa menyematkan todo di masing - masing komponen menggunakan `v-b
   </ol>
 </div>
 ```
-``` js
-Vue.component('todo-item', {
-  props: ['todo'],
-  template: '<li>{{ todo.barang }}</li>'
-})
+
+```js
+Vue.component("todo-item", {
+  props: ["todo"],
+  template: "<li>{{ todo.barang }}</li>"
+});
 
 var app7 = new Vue({
-  el: '#app-7',
+  el: "#app-7",
   data: {
     barangBelanjaan: [
-      { id: 0, barang: 'Sayuran' },
-      { id: 1, barang: 'Keju' },
-      { id: 2, barang: 'Makanan yang lain' }
+      { id: 0, barang: "Sayuran" },
+      { id: 1, barang: "Keju" },
+      { id: 2, barang: "Makanan yang lain" }
     ]
   }
-})
+});
 ```
+
 {% raw %}
+
 <div id="app-7" class="demo">
   <ol>
     <todo-item v-for="item in barangBelanjaan" v-bind:todo="item" :key="item.id"></todo-item>
@@ -374,11 +394,11 @@ var app7 = new Vue({
 </script>
 {% endraw %}
 
-Ini salah satu contoh untuk percobaan, tetapi kita coba untuk memisahkan aplikasi kita menjadi dua *unit* yang lebih kecil, dan komponen *child* dipisahkan dari *parent* melalui penghubung *props*. Sekarang kita bisa memperbaiki komponen `<todo-item>` kita menjadi templat yang lebih kompleks dan logika yang kita buat di *child* tidak mempengarahui komponen *parent*.
+Ini salah satu contoh untuk percobaan, tetapi kita coba untuk memisahkan aplikasi kita menjadi dua _unit_ yang lebih kecil, dan komponen _child_ dipisahkan dari _parent_ melalui penghubung _props_. Sekarang kita bisa memperbaiki komponen `<todo-item>` kita menjadi templat yang lebih kompleks dan logika yang kita buat di _child_ tidak mempengarahui komponen _parent_.
 
 di Aplikasi yang berskala besar, sangat penting untuk membagi keseluruhan aspek aplikasi menjadi komponen mandiri agar proses developmen semakin mudah untuk di kelola. Kita akan banyak membahas tentang komponen [nanti di panduan](components.html). Berikut ini adalah salah satu contoh seperti apa bentuk suatu templat menggunakan komponen:
 
-``` html
+```html
 <div id="app">
   <app-nav></app-nav>
   <app-view>
@@ -392,11 +412,11 @@ di Aplikasi yang berskala besar, sangat penting untuk membagi keseluruhan aspek 
 
 Anda pasti menyadari bahwa komponen pada Vue sangat mirip dengan **Elemen Kustom**, yang mana adalah bagian dari [Spesifikasi Web Components](https://www.w3.org/wiki/WebComponents/). Hal itu dikarenakan sintaks di komponen Vue sangatlah fleksibel. Sebagai contoh, komponen Vue mengimplementasikan [Slot API](https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Slots-Proposal.md) dan atribut spesial `is`. Tetapi bagaimanapun, terdapat perbedaan di beberapa sisi:
 
-1. Spesifikasi dari *Web Components* sudah final, tetapi dia masih belum tersedia / bisa diimplementasikan di setiap peramban secara *native*. Safari 10.1+, Chrome 54+ dan Firefox 63+ sudah mendukung *Web Components* secara *native*. Jika dibandingkan, komponen pada Vue tidak membutuhkan *polyfill* apapun dan bekerja secara konsisten di semua peramban (IE9 keatas). Ketika dibutuhkan, komponen pada Vue juga bisa di bungkus kedalam *native* elemen kustom.
+1. Spesifikasi dari _Web Components_ sudah final, tetapi dia masih belum tersedia / bisa diimplementasikan di setiap peramban secara _native_. Safari 10.1+, Chrome 54+ dan Firefox 63+ sudah mendukung _Web Components_ secara _native_. Jika dibandingkan, komponen pada Vue tidak membutuhkan _polyfill_ apapun dan bekerja secara konsisten di semua peramban (IE9 keatas). Ketika dibutuhkan, komponen pada Vue juga bisa di bungkus kedalam _native_ elemen kustom.
 
-2. Komponen pada vue menyediakan fitur penting yang tidak tersedia di elemen kustom murni, terutama pada komponen lintas data, komunikasi *event* kustom dan integrasi *build tool*.
+2. Komponen pada vue menyediakan fitur penting yang tidak tersedia di elemen kustom murni, terutama pada komponen lintas data, komunikasi _event_ kustom dan integrasi _build tool_.
 
-Meskipun Vue tidak menggunakan elemen khusus secara internal, Vue memiliki interopabilitas yang sangat baik dalam hal mengkonsumsi atau mendistribusikan elemen kustom. Vue CLI juga mendukung pengembangan Komponen Vue yang didaftarkan sebagai elemen kustom secara *native*.
+Meskipun Vue tidak menggunakan elemen khusus secara internal, Vue memiliki interopabilitas yang sangat baik dalam hal mengkonsumsi atau mendistribusikan elemen kustom. Vue CLI juga mendukung pengembangan Komponen Vue yang didaftarkan sebagai elemen kustom secara _native_.
 
 ## Siap untuk belajar lebih?
 
