@@ -786,9 +786,9 @@ type: api
 
   - **See also:** [Render Functions](../guide/render-function.html)
 
-## Options / Lifecycle Hooks
+## Opsi / Kait Siklus hidup
 
-<p class="tip">All lifecycle hooks automatically have their `this` context bound to the instance, so that you can access data, computed properties, and methods. This means __you should not use an arrow function to define a lifecycle method__ (e.g. `created: () => this.fetchTodos()`). The reason is arrow functions bind the parent context, so `this` will not be the Vue instance as you expect and `this.fetchTodos` will be undefined.</p>
+<p class="tip">Semua kait siklus hidup secara otomatis terikat konteks `this` dengan <i>instance</i>, sehingga Anda dapat mengakses data, computed properties, dan methods. Ini berarti __Anda seharusnya tidak menggunakan <i>arrow function</i> saat mendefinisikan method siklus hidup__ (e.g. `created: () => this.fetchTodos()`). Alasannya adalah <i>arrow function</i> mengikat konteks induk, jadi `this` tidak akan menjadi <i>instance</i> Vue seperti yang Anda harapkan dan `this.fetchTodos` akan undefined.</p>
 
 ### beforeCreate
 
@@ -796,7 +796,7 @@ type: api
 
 - **Details:**
 
-  Called synchronously immediately after the instance has been initialized, before data observation and event/watcher setup.
+  Dipanggil *synchronously* segera setelah *instance* telah diinisialisasi, sebelum pengaturan data observation dan event/watcher.
 
 - **See also:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
 
@@ -806,7 +806,7 @@ type: api
 
 - **Details:**
 
-  Called synchronously after the instance is created. At this stage, the instance has finished processing the options which means the following have been set up: data observation, computed properties, methods, watch/event callbacks. However, the mounting phase has not been started, and the `$el` property will not be available yet.
+  Dipanggil *synchronously* setelah *instance* dibuat. Pada tahap ini, *instance* telah selesai memproses opsi yang berarti yang berikut telah diatur: *data observation*, *computed properties*, *methods*, *watch/event callbacks*. Namun, tahap pemasangan belum dimulai, dan properti `$el` belum tersedia.
 
 - **See also:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
 
@@ -816,9 +816,9 @@ type: api
 
 - **Details:**
 
-  Called right before the mounting begins: the `render` function is about to be called for the first time.
+  Dipanggin tepat sebelum pemasangan dimulai: fungsi `render` akan dipanggil untuk pertama kalinya
 
-  **This hook is not called during server-side rendering.**
+  **Kait ini tidak dipanggil selama rendering sisi server.**
 
 - **See also:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
 
@@ -828,20 +828,21 @@ type: api
 
 - **Details:**
 
-  Called after the instance has been mounted, where `el` is replaced by the newly created `vm.$el`. If the root instance is mounted to an in-document element, `vm.$el` will also be in-document when `mounted` is called.
+  Dipanggil setelah instance telah terpasang, dimana `el` digantikan oleh `vm.$el` yang baru dibuat. Jika root instance sudah terpasang ke sebuah elemen pada dokumen, `vm.$el` juga akan di dokumen ketika `mounted` dipanggil.
 
-  Note that `mounted` does **not** guarantee that all child components have also been mounted. If you want to wait until the entire view has been rendered, you can use [vm.$nextTick](#vm-nextTick) inside of `mounted`:
+  Perhatikan bahwa `mounted` tidak menjamin bahawa semua komponen turunannya telah terpasang. Jika Anda ingin menunggu hingga seluruh tampilan telah di-*rander*,  anda dapat menggunakan [vm.$nextTick](#vm-nextTick) di dalam `mounted`
+
 
   ``` js
   mounted: function () {
     this.$nextTick(function () {
-      // Code that will run only after the
-      // entire view has been rendered
+      // Kode yang hanya akan berjalan setelah
+      // seluruh tampilan telah di-render
     })
   }
   ```
 
-  **This hook is not called during server-side rendering.**
+  **Kait ini tidak dipanggil selama rendering sisi server.**
 
 - **See also:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
 
@@ -851,9 +852,9 @@ type: api
 
 - **Details:**
 
-  Called when data changes, before the DOM is patched. This is a good place to access the existing DOM before an update, e.g. to remove manually added event listeners.
+  Dipanggil ketika data berubahm sebelum DOM di-*patched*. Ini adalah tempat yang baik untuk mengakses DOM yang ada sebelum pembaruan, misalnya untuk menghapus *event listeners* yang ditambahkan secara manual.
 
-  **This hook is not called during server-side rendering, because only the initial render is performed server-side.**
+  **Kait ini tidak dipanggil selama rendering sisi server, karena hanya render awal yang dilakukan di sisi server.**
 
 - **See also:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
 
@@ -863,22 +864,22 @@ type: api
 
 - **Details:**
 
-  Called after a data change causes the virtual DOM to be re-rendered and patched.
+  Dipanggil setelah perubahan data menyebabkan *virtual DOM*  diubah dan *patched*.
 
-  The component's DOM will have been updated when this hook is called, so you can perform DOM-dependent operations here. However, in most cases you should avoid changing state inside the hook. To react to state changes, it's usually better to use a [computed property](#computed) or [watcher](#watch) instead.
+  *DOM* komponen akan diperbarui ketika kait ini dipanggil, sehingga Anda dapat melakukan operasi yang bergantung pada *DOM* di sini. Namun, dalam sebagian besar kasus, Anda harus menghindari perubahan *state* di dalam kait. Untuk bereaksi terhadap perubahan *state*, biasanya lebih baik menggunakan [computed property](#computed) atau [watcher](#watch).
 
-  Note that `updated` does **not** guarantee that all child components have also been re-rendered. If you want to wait until the entire view has been re-rendered, you can use [vm.$nextTick](#vm-nextTick) inside of `updated`:
+  Perhatikan bahwa `updated` tidak menjamin bahawa semua komponen turunannya telah terpasang. Jika Anda ingin menunggu hingga seluruh tampilan telah di-*rander*,  anda dapat menggunakan [vm.$nextTick](#vm-nextTick) di dalam `mounted`
 
   ``` js
   updated: function () {
     this.$nextTick(function () {
-      // Code that will run only after the
-      // entire view has been re-rendered
+      // Kode yang hanya akan berjalan setelah
+      // seluruh tampilan telah di-render
     })
   }
   ```
 
-  **This hook is not called during server-side rendering.**
+  **Kait ini tidak dipanggil selama rendering sisi server.**
 
 - **See also:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
 
@@ -888,9 +889,9 @@ type: api
 
 - **Details:**
 
-  Called when a kept-alive component is activated.
+  Dipanggil ketika komponen *kept-alive* diaktifkan.
 
-  **This hook is not called during server-side rendering.**
+  **Kait ini tidak dipanggil selama rendering sisi server.**
 
 - **See also:**
   - [Built-in Components - keep-alive](#keep-alive)
@@ -902,9 +903,9 @@ type: api
 
 - **Details:**
 
-  Called when a kept-alive component is deactivated.
+  Dipanggil ketika komponen *kept-alive* dinonaktifkan.
 
-  **This hook is not called during server-side rendering.**
+  **Kait ini tidak dipanggil selama rendering sisi server.**
 
 - **See also:**
   - [Built-in Components - keep-alive](#keep-alive)
@@ -916,9 +917,9 @@ type: api
 
 - **Details:**
 
-  Called right before a Vue instance is destroyed. At this stage the instance is still fully functional.
+  Dipanggil tepat sebelum *instance* Vue dihancurkan. Pada tahap ini *instance* masih berfungsi penuh.
 
-  **This hook is not called during server-side rendering.**
+  **Kait ini tidak dipanggil selama rendering sisi server.**
 
 - **See also:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
 
@@ -928,33 +929,33 @@ type: api
 
 - **Details:**
 
-  Called after a Vue instance has been destroyed. When this hook is called, all directives of the Vue instance have been unbound, all event listeners have been removed, and all child Vue instances have also been destroyed.
+  Dipanggil setelah *instance* Vue dihancurkan. Ketika kait ini dipanggil, semua *directives* dari instance Vue *unbound*, semua *event listeners* telah dihapus, dan semua turunan *instance* Vue juga telah dihancurkan.
 
-  **This hook is not called during server-side rendering.**
+  **Kait ini tidak dipanggil selama rendering sisi server.**
 
 - **See also:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
 
 ### errorCaptured
 
-> New in 2.5.0+
+> Baru di 2.5.0+
 
 - **Type:** `(err: Error, vm: Component, info: string) => ?boolean`
 
 - **Details:**
 
-  Called when an error from any descendent component is captured. The hook receives three arguments: the error, the component instance that triggered the error, and a string containing information on where the error was captured. The hook can return `false` to stop the error from propagating further.
+  Dipanggil ketika galat dari komponen turunan ditangkap. Kait menerima tiga argumen: Galatnya, *instance* komponen yang memicu galat, dan string yang memmuat informasi dimana galat itu tertangkap. Kait dapat mengembalikan `false` untuk menghentikan galat agar tidak menyebar lebih lanjut.
 
-  <p class="tip">You can modify component state in this hook. However, it is important to have conditionals in your template or render function that short circuits other content when an error has been captured; otherwise the component will be thrown into an infinite render loop.</p>
+  <p class="tip">Anda dapat mengubah state komponen dalam kait ini. Namun, penting untuk memiliki persyaratan dalam template Anda atau fungsi render yang memiliki sirkuit pendek konten lain ketika galat telah ditangkap; jika tidak, komponen akan dilemparkan ke loop render yang tak terbatas.</p>
 
-  **Error Propagation Rules**
+  **Aturan Propagasi Galat**
 
-  - By default, all errors are still sent to the global `config.errorHandler` if it is defined, so that these errors can still be reported to an analytics service in a single place.
+  - Secara default, semua kesalahan masih dikirim ke `config.errorHandler` global jika sudah didefinisikan, sehingga galat ini masih dapat dilaporkan ke layanan analitik di satu tempat.
 
-  - If multiple `errorCaptured` hooks exist on a component's inheritance chain or parent chain, all of them will be invoked on the same error.
+  - Jika ada beberapa kait `errorCaptured` pada rantai pewarisan atau rantai induk komponen, semuanya akan dipanggil pada kesalahan yang sama.
 
-  - If the `errorCaptured` hook itself throws an error, both this error and the original captured error are sent to the global `config.errorHandler`.
+  - Jika kait `errorCaptured` itu sendiri melempar kesalahan, kesalahan ini dan kesalahan yang ditangkap asli dikirim ke `config.errorHandler` global.
 
-  - An `errorCaptured` hook can return `false` to prevent the error from propagating further. This is essentially saying "this error has been handled and should be ignored." It will prevent any additional `errorCaptured` hooks or the global `config.errorHandler` from being invoked for this error.
+  - Kait `errorCaptured` dapat mengembalikan `false` untuk mencegah kesalahan agar tidak menyebar lebih lanjut. Ini pada dasarnya mengatakan "kesalahan ini telah ditangani dan harus diabaikan." Ini akan mencegah kait `errorCaptured` tambahan atau `global config.errorHandler` global agar tidak dipanggil untuk kesalahan ini.
 
 ## Options / Assets
 
