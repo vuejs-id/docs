@@ -2421,39 +2421,39 @@ type: api
   - [Komponen Dinamis](../guide/components.html#Dynamic-Components)
   - [Peringatan *Parsing* pada *DOM template*](../guide/components.html#DOM-Template-Parsing-Caveats)
 
-### slot <sup style="color:#c92222">deprecated</sup>
+### slot <sup style="color:#c92222">*deprecated*</sup>
 
-**Prefer [v-slot](#v-slot) in 2.6.0+.**
+**Rujuk ke [v-slot](#v-slot) di 2.6.0+.**
 
-- **Expects:** `string`
+- **Yang diharapkan:** `string`
 
-  Used on content inserted into child components to indicate which named slot the content belongs to.
+  Digunakan pada konten yang dimasukkan pada *child components* untuk menunjukkan slot mana yang dinamai pada konten tersebut.
 
-- **See also:** [Named Slots with `slot`](../guide/components.html#Named-Slots-with-slot)
+- **Lihat juga:** [Slot yang dinamai `slot`](../guide/components.html#Named-Slots-with-slot)
 
 ### slot-scope <sup style="color:#c92222">deprecated</sup>
 
-**Prefer [v-slot](#v-slot) in 2.6.0+.**
+**Rujuk ke [v-slot](#v-slot) di 2.6.0+.**
 
-- **Expects:** `function argument expression`
+- **Yang diharapkan:** `ekspresi fungsi argumen`
 
-- **Usage:**
+- **Kegunaan:**
 
-  Used to denote an element or component as a scoped slot. The attribute's value should be a valid JavaScript expression that can appear in the argument position of a function signature. This means in supported environments you can also use ES2015 destructuring in the expression. Serves as a replacement for [`scope`](#scope-replaced) in 2.5.0+.
+  Digunakan untuk menunjukkan sebuah elemen atau komponen sebagai slot tertutup (*scoped slot*). Nilai atribut harus menjadi ekspresi Javascript yang valid yang bisa muncul pada *argument position* dari sebuah *function signature*. Ini berarti dalam *environments* yang di dukung anda juga bisa menggunakan ES2015 *destructuring* pada ekpresi Javascript. Sebagai pengganti [`scope`](#scope-replaced) pada 2.5.0+.
 
-  This attribute does not support dynamic binding.
+  Attribut ini tidak mendukung *dynamic binding*.
 
-- **See also:** [Scoped Slots with `slot-scope`](../guide/components.html#Scoped-Slots-with-slot-scope)
+- **Lihat juga:** [Slot tertutup (*scoped slot*) dengan  `slot-scope`](../guide/components.html#Scoped-Slots-with-slot-scope)
 
-### scope <sup style="color:#c92222">removed</sup>
+### scope <sup style="color:#c92222">terhapus</sup>
 
-**Replaced by [slot-scope](#slot-scope) in 2.5.0+. Prefer [v-slot](#v-slot) in 2.6.0+.**
+**Digantikan dengan [slot-scope](#slot-scope) pada 2.5.0+. Rujuk ke [v-slot](#v-slot) in 2.6.0+.**
 
-Used to denote a `<template>` element as a scoped slot.
+Digunakan untuk menunjukkan sebuah elemen `<template>` sebagai sebuah slot tertutup.
 
-- **Usage:**
+- **Kegunaan:**
 
-  Same as [`slot-scope`](#slot-scope) except that `scope` can only be used on `<template>` elements.
+  Sama seperti [`slot-scope`](#slot-scope) Selain itu `scope` hanya bisa digunakan pada elemen `<template>`.
 
 ## Built-In Components
 
