@@ -2343,17 +2343,17 @@ type: api
   - [Sintaksis Data Binding - interpolasi](../guide/syntax.html#Text)
   - [Komponen - Komponen Statis Murah dengan `v-once`](../guide/components.html#Cheap-Static-Components-with-v-once)
 
-## Special Attributes
+## Attribut Spesial
 
 ### key
 
-- **Expects:** `number | string`
+- **Yang diharapkan:** `number | string`
 
-  The `key` special attribute is primarily used as a hint for Vue's virtual DOM algorithm to identify VNodes when diffing the new list of nodes against the old list. Without keys, Vue uses an algorithm that minimizes element movement and tries to patch/reuse elements of the same type in-place as much as possible. With keys, it will reorder elements based on the order change of keys, and elements with keys that are no longer present will always be removed/destroyed.
+  Attribut spesial `key` kegunaan utamanya adalah sebagai petunjuk bagi *virtual DOM algorithm* dari Vue untuk mengidentifikasi *VNodes* ketika membandingkan list yang baru terhadap list yang lama. Tanpa *keys*, Vue menggunakan algoritma yang meminimalisir pergerakan elemen dan mencoba untuk *patch/reuse* elemen di tempat dengan tipe yang sama sebanyak mungkin. Dengan keys, elemen-elemen akan disusun kembali berdasarkan susunan perubahan dari *keys*, dan elemen-elemen dengan *keys* yang sudah tidak ada lagi akan selalu di hapus.
 
-  Children of the same common parent must have **unique keys**. Duplicate keys will cause render errors.
+  Children dari parent yang sama harus mempunyai ***unique keys***. *Keys* yang kembar/duplikat akan menyebabkan *render errors*.
 
-  The most common use case is combined with `v-for`:
+  Use case yang sangat umum adalah menggabungkan *key* dengan `v-for`:
 
   ``` html
   <ul>
@@ -2361,12 +2361,12 @@ type: api
   </ul>
   ```
 
-  It can also be used to force replacement of an element/component instead of reusing it. This can be useful when you want to:
+  *Key* juga dapat digunakan untuk penggantian paksa terhadap sebuah elemen/komponen alih-alih menggunakannya kembali. Ini akan berguna ketika anda ingin:
 
-  - Properly trigger lifecycle hooks of a component
-  - Trigger transitions
+  - Memicu (Trigger) *lifecycle hooks* dari sebuah komponen dengan tepat
+  - Memicu (Trigger) transisi
 
-  For example:
+  Sebagai contoh:
 
   ``` html
   <transition>
@@ -2374,7 +2374,7 @@ type: api
   </transition>
   ```
 
-  When `text` changes, the `<span>` will always be replaced instead of patched, so a transition will be triggered.
+  Ketika `text` berubah, `<span>` akan selalu diganti alih-alih di *patch*, demikian sebuah transisi akan  dipicu.
 
 ### ref
 
