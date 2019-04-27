@@ -2398,28 +2398,28 @@ type: api
 
 ### is
 
-- **Expects:** `string | Object (component’s options object)`
+- **Yang diharapkan:** `string | Object (Objek opsi komponen)`
 
-  Used for [dynamic components](../guide/components.html#Dynamic-Components) and to work around [limitations of in-DOM templates](../guide/components.html#DOM-Template-Parsing-Caveats).
+  Digunakan untuk [Komponen-komponen dinamis](../guide/components.html#Dynamic-Components) dan juga sebagai solusi pada [keterbatasan dari *in-DOM templates*](../guide/components.html#DOM-Template-Parsing-Caveats).
 
-  For example:
+  Sebagai contoh:
 
   ``` html
-  <!-- component changes when currentView changes -->
+  <!-- komponen berubah ketika currentView berubah -->
   <component v-bind:is="currentView"></component>
 
-  <!-- necessary because `<my-row>` would be invalid inside -->
-  <!-- a `<table>` element and so would be hoisted out      -->
+  <!-- perlu karena `<my-row>` akan menjadi tidak valid di dalam -->
+  <!-- sebuah elemen `<table>` dan sebagainya akan diangkat  -->
   <table>
     <tr is="my-row"></tr>
   </table>
   ```
 
-  For detailed usage, follow the links in the description above.
+  Untuk kegunaan lebih lanjut, ikuti tautan dalam deskripsi diatas.
 
-- **See also:**
-  - [Dynamic Components](../guide/components.html#Dynamic-Components)
-  - [DOM Template Parsing Caveats](../guide/components.html#DOM-Template-Parsing-Caveats)
+- **Lihat juga:**
+  - [Komponen Dinamis](../guide/components.html#Dynamic-Components)
+  - [Peringatan *Parsing* pada *DOM template*](../guide/components.html#DOM-Template-Parsing-Caveats)
 
 ### slot <sup style="color:#c92222">deprecated</sup>
 
