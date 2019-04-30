@@ -2343,17 +2343,17 @@ type: api
   - [Sintaksis Data Binding - interpolasi](../guide/syntax.html#Text)
   - [Komponen - Komponen Statis Murah dengan `v-once`](../guide/components.html#Cheap-Static-Components-with-v-once)
 
-## Attribut Spesial
+## Atribut Spesial
 
 ### key
 
 - **Yang diharapkan:** `number | string`
 
-  Attribut spesial `key` kegunaan utamanya adalah sebagai petunjuk bagi *virtual DOM algorithm* dari Vue untuk mengidentifikasi *VNodes* ketika membandingkan list yang baru terhadap list yang lama. Tanpa *keys*, Vue menggunakan algoritma yang meminimalisir pergerakan elemen dan mencoba untuk *patch/reuse* elemen di tempat dengan tipe yang sama sebanyak mungkin. Dengan keys, elemen-elemen akan disusun kembali berdasarkan susunan perubahan dari *keys*, dan elemen-elemen dengan *keys* yang sudah tidak ada lagi akan selalu di hapus.
+  kegunaan Atribut spesial `key` adalah sebagai petunjuk bagi algoritma DOM virtual dari Vue untuk mengidentifikasi *VNodes* ketika membandingkan list yang baru terhadap list yang lama. Tanpa *keys*, Vue menggunakan algoritma yang meminimalisir pergerakan elemen dan mencoba untuk *patch/reuse* elemen di tempat dengan tipe yang sama sebanyak mungkin. Dengan keys, elemen-elemen akan disusun kembali berdasarkan susunan perubahan dari *keys*, dan elemen-elemen dengan *keys* yang sudah tidak ada lagi akan selalu di hapus.
 
-  Children dari parent yang sama harus mempunyai ***unique keys***. *Keys* yang kembar/duplikat akan menyebabkan *render errors*.
+  Anak dari induk yang sama harus mempunyai key yang unik. Key yang sama akan mengakibatkan galat pada saat render.
 
-  Use case yang sangat umum adalah menggabungkan *key* dengan `v-for`:
+  Contoh penggunaan yang paling umum adalah menggabungkan *key* dengan `v-for`:
 
   ``` html
   <ul>
@@ -2363,8 +2363,8 @@ type: api
 
   *Key* juga dapat digunakan untuk penggantian paksa terhadap sebuah elemen/komponen alih-alih menggunakannya kembali. Ini akan berguna ketika anda ingin:
 
-  - Memicu (Trigger) *lifecycle hooks* dari sebuah komponen dengan tepat
-  - Memicu (Trigger) transisi
+  - Memicu (*trigger*) *lifecycle hooks* dari sebuah komponen dengan tepat
+  - Memicu (*trigger*) transisi
 
   Sebagai contoh:
 
@@ -2380,19 +2380,19 @@ type: api
 
 - **Yang diharapkan:** `string`
 
-  `ref` digunakan untuk mendaftarkan referensi terhadap elemen atau *child component*. Referensi akan didaftarkan dibawah obyek `$refs` dari komponen parent. Jika digunakan pada elemen DOM polos, referensi akan menjadi elemen itu; jika digunakan pada sebuah *child element*, referensi akan menjadi *component instance*:
+  `ref` digunakan untuk mendaftarkan referensi terhadap elemen atau komponen anak. Referensi akan didaftarkan dibawah obyek `$refs` dari komponen parent. Jika digunakan pada elemen DOM polos, referensi akan menjadi elemen itu; jika digunakan pada sebuah elemen anak, referensi akan menjadi *instance* komponen:
 
   ``` html
   <!-- vm.$refs.p akan menjadi node DOM -->
   <p ref="p">hello</p>
 
-  <!-- vm.$refs.child akan menjadi komponen instance -->
+  <!-- vm.$refs.child akan menjadi *instance* komponen anak -->
   <child-component ref="child"></child-component>
   ```
 
-  Ketika digunakan pada elemen/komponen dengan `v-for`, referensi yang terdaftar akan menjadi sebuah Array yang berisi *DOM nodes*  atau *component instances*.
+  Ketika digunakan pada elemen/komponen dengan `v-for`, referensi yang terdaftar akan menjadi sebuah Array yang berisi *DOM nodes*  atau *instances* komponen.
 
-  Catatan pending dalam pendaftaran *ref* adalah pemilihan waktu: karena *refs* sendiri terbuat atas hasil dari *render function*, anda tidak dapat mengakses pada saat *initial render* - *refs* belum terbuat/ada! `$refs` juga tidak reaktif, untuk itu anda tidak seharusnya mencoba untuk menggunakannya pada template atau *data-binding*.
+  Catatan penting dalam pendaftaran *ref* adalah pemilihan waktu: karena *refs* sendiri terbuat atas hasil dari *render function*, anda tidak dapat mengakses pada saat *initial render* - *refs* belum terbuat/ada! `$refs` juga tidak reaktif, untuk itu anda tidak seharusnya mencoba untuk menggunakannya pada template atau *data-binding*.
 
 - **Lihat juga:** [*Child Component Refs*](../guide/components.html#Child-Component-Refs)
 
@@ -2427,7 +2427,7 @@ type: api
 
 - **Yang diharapkan:** `string`
 
-  Digunakan pada konten yang dimasukkan pada *child components* untuk menunjukkan slot mana yang dinamai pada konten tersebut.
+  Digunakan pada konten yang dimasukkan pada komponen anak untuk menunjukkan slot mana yang dinamai pada konten tersebut.
 
 - **Lihat juga:** [Slot yang dinamai `slot`](../guide/components.html#Named-Slots-with-slot)
 
