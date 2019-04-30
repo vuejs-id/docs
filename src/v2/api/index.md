@@ -2374,7 +2374,7 @@ type: api
   </transition>
   ```
 
-  Ketika `text` berubah, `<span>` akan selalu diganti alih-alih di *patch*, demikian sebuah transisi akan  dipicu.
+  Ketika `text` berubah, `<span>` akan selalu diganti alih-alih di *patch*, jadi sebuah transisi akan  terpicu.
 
 ### ref
 
