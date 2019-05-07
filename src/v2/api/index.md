@@ -788,49 +788,49 @@ type: api
 
 ## Opsi / Kait Siklus hidup
 
-<p class="tip">Semua kait siklus hidup secara otomatis terikat konteks `this` dengan <i>instance</i>, sehingga Anda dapat mengakses data, computed properties, dan methods. Ini berarti __Anda seharusnya tidak menggunakan <i>arrow function</i> saat mendefinisikan method siklus hidup__ (e.g. `created: () => this.fetchTodos()`). Alasannya adalah <i>arrow function</i> mengikat konteks induk, jadi `this` tidak akan menjadi <i>instance</i> Vue seperti yang Anda harapkan dan `this.fetchTodos` akan undefined.</p>
+<p class="tip">Semua kait siklus hidup secara otomatis terikat konteks `this` dengan *instance*, sehingga Anda bisa mengakses data, computed properties, dan methods. Ini berarti __Anda seharusnya tidak menggunakan *arrow function* saat mendefinisikan metode siklus hidup__ (e.g. `created: () => this.fetchTodos()`). Alasannya adalah *arrow function* mengikat konteks induk, jadi `this` tidak akan menjadi *instance* Vue seperti yang Anda harapkan dan `this.fetchTodos` akan undefined.</p>
 
 ### beforeCreate
 
-- **Type:** `Function`
+- **Tipe:** `Function`
 
-- **Details:**
+- **Rincian:**
 
-  Dipanggil *synchronously* segera setelah *instance* telah diinisialisasi, sebelum pengaturan data observation dan event/watcher.
+  Dipanggil secara sinkron segera setelah *instance* diinisialisasi, sebelum pengaturan data observasi dan *event/watcher*.
 
-- **See also:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
+- **Lihat juga:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
 
 ### created
 
-- **Type:** `Function`
+- **Tipe:** `Function`
 
-- **Details:**
+- **Rincian:**
 
-  Dipanggil *synchronously* setelah *instance* dibuat. Pada tahap ini, *instance* telah selesai memproses opsi yang berarti yang berikut telah diatur: *data observation*, *computed properties*, *methods*, *watch/event callbacks*. Namun, tahap pemasangan belum dimulai, dan properti `$el` belum tersedia.
+  Dipanggil secara sinkron setelah *instance* dibuat. Pada tahap ini, *instance* telah selesai memproses opsi yang berarti yang berikut telah diatur: data observasi, *computed properties*, *methods*, *watch/event callbacks*. Namun, tahap pemasangan belum dimulai, dan properti `$el` belum tersedia.
 
-- **See also:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
+- **Lihat juga:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
 
 ### beforeMount
 
-- **Type:** `Function`
+- **Tipe:** `Function`
 
-- **Details:**
+- **Rincian:**
 
-  Dipanggin tepat sebelum pemasangan dimulai: fungsi `render` akan dipanggil untuk pertama kalinya
+  Dipanggil tepat sebelum pemasangan dimulai: fungsi `render` akan dipanggil untuk pertama kalinya
 
-  **Kait ini tidak dipanggil selama rendering sisi server.**
+  **Kait ini tidak dipanggil selama *rendering* di sisi server.**
 
-- **See also:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
+- **Lihat juga:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
 
 ### mounted
 
-- **Type:** `Function`
+- **Tipe:** `Function`
 
-- **Details:**
+- **Rincian:**
 
-  Dipanggil setelah instance telah terpasang, dimana `el` digantikan oleh `vm.$el` yang baru dibuat. Jika root instance sudah terpasang ke sebuah elemen pada dokumen, `vm.$el` juga akan di dokumen ketika `mounted` dipanggil.
+  Dipanggil setelah *instance* telah terpasang, dimana `el` digantikan oleh `vm.$el` yang baru dibuat. Jika root instance sudah terpasang ke sebuah elemen pada dokumen, `vm.$el` juga akan di dokumen ketika `mounted` dipanggil.
 
-  Perhatikan bahwa `mounted` tidak menjamin bahawa semua komponen turunannya telah terpasang. Jika Anda ingin menunggu hingga seluruh tampilan telah di-*rander*,  anda dapat menggunakan [vm.$nextTick](#vm-nextTick) di dalam `mounted`
+  Perhatikan bahwa `mounted` tidak menjamin bahwa semua komponen turunannya telah terpasang. Jika Anda ingin menunggu hingga seluruh tampilan telah di-*rander*,  anda dapat menggunakan [vm.$nextTick](#vm-nextTick) di dalam `mounted`
 
 
   ``` js
@@ -842,33 +842,33 @@ type: api
   }
   ```
 
-  **Kait ini tidak dipanggil selama rendering sisi server.**
+  **Kait ini tidak dipanggil selama *rendering* di sisi server.**
 
-- **See also:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
+- **Lihat juga:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
 
 ### beforeUpdate
 
-- **Type:** `Function`
+- **Tipe:** `Function`
 
-- **Details:**
+- **Rincian:**
 
-  Dipanggil ketika data berubahm sebelum DOM di-*patched*. Ini adalah tempat yang baik untuk mengakses DOM yang ada sebelum pembaruan, misalnya untuk menghapus *event listeners* yang ditambahkan secara manual.
+  Dipanggil ketika data berubah sebelum DOM di-*patched*. Ini adalah tempat yang baik untuk mengakses DOM yang ada sebelum pembaruan, misalnya untuk menghapus *event listeners* yang ditambahkan secara manual.
 
-  **Kait ini tidak dipanggil selama rendering sisi server, karena hanya render awal yang dilakukan di sisi server.**
+  **Kait ini tidak dipanggil selama *rendering* di sisi server, karena hanya render awal yang dilakukan di sisi server.**
 
-- **See also:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
+- **Lihat juga:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
 
 ### updated
 
-- **Type:** `Function`
+- **Tipe:** `Function`
 
-- **Details:**
+- **Rincian:**
 
   Dipanggil setelah perubahan data menyebabkan *virtual DOM*  diubah dan *patched*.
 
   *DOM* komponen akan diperbarui ketika kait ini dipanggil, sehingga Anda dapat melakukan operasi yang bergantung pada *DOM* di sini. Namun, dalam sebagian besar kasus, Anda harus menghindari perubahan *state* di dalam kait. Untuk bereaksi terhadap perubahan *state*, biasanya lebih baik menggunakan [computed property](#computed) atau [watcher](#watch).
 
-  Perhatikan bahwa `updated` tidak menjamin bahawa semua komponen turunannya telah terpasang. Jika Anda ingin menunggu hingga seluruh tampilan telah di-*rander*,  anda dapat menggunakan [vm.$nextTick](#vm-nextTick) di dalam `mounted`
+  Perhatikan bahwa `updated` tidak menjamin bahawa semua komponen turunannya telah terpasang. Jika Anda ingin menunggu hingga seluruh tampilan telah di-*render*,  anda dapat menggunakan [vm.$nextTick](#vm-nextTick) di dalam `mounted`
 
   ``` js
   updated: function () {
@@ -879,77 +879,77 @@ type: api
   }
   ```
 
-  **Kait ini tidak dipanggil selama rendering sisi server.**
+  **Kait ini tidak dipanggil selama *rendering* di sisi server.**
 
-- **See also:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
+- **Lihat juga:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
 
 ### activated
 
-- **Type:** `Function`
+- **Tipe:** `Function`
 
-- **Details:**
+- **Rincian:**
 
   Dipanggil ketika komponen *kept-alive* diaktifkan.
 
-  **Kait ini tidak dipanggil selama rendering sisi server.**
+  **Kait ini tidak dipanggil selama *rendering* di sisi server.**
 
-- **See also:**
+- **Lihat juga:**
   - [Built-in Components - keep-alive](#keep-alive)
   - [Dynamic Components - keep-alive](../guide/components.html#keep-alive)
 
 ### deactivated
 
-- **Type:** `Function`
+- **Tipe:** `Function`
 
-- **Details:**
+- **Rincian:**
 
   Dipanggil ketika komponen *kept-alive* dinonaktifkan.
 
-  **Kait ini tidak dipanggil selama rendering sisi server.**
+  **Kait ini tidak dipanggil selama *rendering* di sisi server.**
 
-- **See also:**
+- **Lihat juga:**
   - [Built-in Components - keep-alive](#keep-alive)
   - [Dynamic Components - keep-alive](../guide/components.html#keep-alive)
 
 ### beforeDestroy
 
-- **Type:** `Function`
+- **Tipe:** `Function`
 
-- **Details:**
+- **Rincian:**
 
   Dipanggil tepat sebelum *instance* Vue dihancurkan. Pada tahap ini *instance* masih berfungsi penuh.
 
-  **Kait ini tidak dipanggil selama rendering sisi server.**
+  **Kait ini tidak dipanggil selama *rendering* di sisi server.**
 
-- **See also:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
+- **Lihat juga:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
 
 ### destroyed
 
-- **Type:** `Function`
+- **Tipe:** `Function`
 
-- **Details:**
+- **Rincian:**
 
-  Dipanggil setelah *instance* Vue dihancurkan. Ketika kait ini dipanggil, semua *directives* dari instance Vue *unbound*, semua *event listeners* telah dihapus, dan semua turunan *instance* Vue juga telah dihancurkan.
+  Dipanggil setelah *instance* Vue dihancurkan. Ketika kait ini dipanggil, semua *directives* dari *instance* Vue *unbound*, semua *event listeners* telah dihapus, dan semua turunan *instance* Vue juga telah dihancurkan.
 
-  **Kait ini tidak dipanggil selama rendering sisi server.**
+  **Kait ini tidak dipanggil selama *rendering* di sisi server.**
 
-- **See also:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
+- **Lihat juga:** [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
 
 ### errorCaptured
 
 > Baru di 2.5.0+
 
-- **Type:** `(err: Error, vm: Component, info: string) => ?boolean`
+- **Tipe:** `(err: Error, vm: Component, info: string) => ?boolean`
 
-- **Details:**
+- **Rincian:**
 
-  Dipanggil ketika galat dari komponen turunan ditangkap. Kait menerima tiga argumen: Galatnya, *instance* komponen yang memicu galat, dan string yang memmuat informasi dimana galat itu tertangkap. Kait dapat mengembalikan `false` untuk menghentikan galat agar tidak menyebar lebih lanjut.
+  Dipanggil ketika galat dari komponen turunan ditangkap. Kait menerima tiga argumen: Galatnya, *instance* komponen yang memicu galat, dan *string* yang memuat informasi dimana galat itu tertangkap. Kait dapat mengembalikan `false` untuk menghentikan galat agar tidak menyebar lebih lanjut.
 
-  <p class="tip">Anda dapat mengubah state komponen dalam kait ini. Namun, penting untuk memiliki persyaratan dalam template Anda atau fungsi render yang memiliki sirkuit pendek konten lain ketika galat telah ditangkap; jika tidak, komponen akan dilemparkan ke loop render yang tak terbatas.</p>
+  <p class="tip">Anda dapat mengubah state komponen dalam kait ini. Namun, penting untuk memiliki persyaratan dalam templat Anda atau fungsi *render* yang memiliki sirkuit pendek konten lain ketika galat telah ditangkap; jika tidak, komponen akan dilemparkan ke *loop render* yang tak terbatas.</p>
 
   **Aturan Propagasi Galat**
 
-  - Secara default, semua kesalahan masih dikirim ke `config.errorHandler` global jika sudah didefinisikan, sehingga galat ini masih dapat dilaporkan ke layanan analitik di satu tempat.
+  - Secara *default*, semua kesalahan masih dikirim ke `config.errorHandler` global jika sudah didefinisikan, sehingga galat ini masih dapat dilaporkan ke layanan analitik di satu tempat.
 
   - Jika ada beberapa kait `errorCaptured` pada rantai pewarisan atau rantai induk komponen, semuanya akan dipanggil pada kesalahan yang sama.
 
