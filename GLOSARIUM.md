@@ -2,6 +2,13 @@
 
 📚 Kamus perbendaharaan kata asing yang akan sering ditemukan ketikan menerjemahkan dokumentasi resmi Vue.js.
 
+## Sumber yang akan membantu Anda menerjemahkan
+
+- [PUEBI](https://puebi.readthedocs.io/en/latest/)
+- [KBBI Kemdigbud](https://kbbi.kemdikbud.go.id/)
+- [Kateglo.com](http://kateglo.com/)
+- [Hukum Diterangkan Menerangkan](https://rubrikbahasa.wordpress.com/2003/09/01/hukum-dm-dalam-bahasa-indonesia/)
+
 ## Navigasi Berdasarkan Abjad
 
 + [A](#a), [B](#b), [C](#c), [D](#d), [E](#e), [F](#f),
@@ -26,27 +33,34 @@
 
 ## C
 
+- Case: Aturan Huruf
 - Chain: Rantai (atau bisa dengan tetap *Chain*)
 - Child: Anak
 - Component: Komponen
 - Console: Konsol
+- Constructor: Konstruktor
 
 [⬆️](#navigasi-berdasarkan-abjad)
 
 ## D
 
+- Default Value: Nilai Anggapan
 - Define: Mendefinisikan
 - Development: Developmen, Pengembangan, Pembuatan (Pilih senatural mungkin)
+- Deploy: Menggelar (Tetap diikuti dengan bahasa inggris asli italic dan dalam kurung)
+- Deployment: Penggelaran (Tetap diikuti dengan bahasa inggris asli italic dan dalam kurung)
 - Directive: Direktif
 
 [⬆️](#navigasi-berdasarkan-abjad)
 
 ## E
 
-- Export: Ekspor
+- E.g. (exempli gratia / for example): Sebagai Contoh
 - Element: Elemen
-- Expression: Ekspresi
+- Error: Galat
 - Event: *Event*
+- Export: Ekspor
+- Expression: Ekspresi
 
 [⬆️](#navigasi-berdasarkan-abjad)
 
@@ -71,8 +85,10 @@
 
 ## I
 
+- I.e. (id est / in other words): Dengan kata lain
 - Import: Impor
 - Index: Indeks
+- Inheritance: Pewarisan
 - Instance: *Instance*
 - Interpolation: Interpolasi
 
@@ -101,6 +117,7 @@
 
 - Modifier: Pengubah
 - Mount: Pasang
+- Mutate: Memutasi
 
 [⬆️](#navigasi-berdasarkan-abjad)
 
@@ -120,6 +137,8 @@
 ## P
 
 - Parent: Induk
+- Passing: Mengoper
+- Path: Jalur
 - Project: Proyek
 - Property: Properti
 - Props: Props
@@ -133,6 +152,7 @@
 
 ## R
 
+- Refactor: *Refactor*
 - Render: *Render*
 - Return: Mengembalikan
 - Router: *Router*
@@ -160,7 +180,7 @@
 
 ## U
 
-- Update:	Pembaruan
+- Update:	Pembaruan - Updated: Diperbarui
 
 [⬆️](#navigasi-berdasarkan-abjad)
 
@@ -168,7 +188,7 @@
 
 - Value: Nilai
 - Virtual DOM: DOM Virtual
-- 
+-
 
 [⬆️](#navigasi-berdasarkan-abjad)
 
