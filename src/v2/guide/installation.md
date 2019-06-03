@@ -124,9 +124,9 @@ new Vue({
 })
 ```
 
-When using `vue-loader` or `vueify`, templates inside `*.vue` files are pre-compiled into JavaScript at build time. You don't really need the compiler in the final bundle, and can therefore use the runtime-only build.
+Saat kamu menggunakan `vue-loader` atau `vueify`, templat di dalam `*.vue` file sudah dikompilasi ke bentuk JavaScript pada saat built time. Kamu tidak terlalu membutuhkan kompiler dalam bundel akhir, dan hanya menggunakan *runtime-only* bundel.
 
-Since the runtime-only builds are roughly 30% lighter-weight than their full-build counterparts, you should use it whenever you can. If you still wish to use the full build instead, you need to configure an alias in your bundler:
+Dikarenakan bundel *runtime-only* 30% lebih ringan daripada cara lain `full-build`, kamu harus menggunakannya disaat kamu bisa. Tapi jika kamu ingin menggunakan `full-build`, dapat dilakukan dengan menambahkan alias pada bundler.
 
 #### Webpack
 
@@ -135,7 +135,7 @@ module.exports = {
   // ...
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
+      'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' untuk webpack versi 1
     }
   }
 }
@@ -182,25 +182,26 @@ Add to your project's `package.json`:
 }
 ```
 
-### Development vs. Production Mode
+### Masa Pengembangan vs. Masa Produksi (*Development vs. Production Mode*)
 
-Development/production modes are hard-coded for the UMD builds: the un-minified files are for development, and the minified files are for production.
+Masa pengembangan/produksi merupakan hasil `hard-coded` bundel UMD: bundel yang tidak di minifikasi merupakan bundel masa pengembangan dan yang tidak di minifikasi merupakan bundel masa produksi.
 
-CommonJS and ES Module builds are intended for bundlers, therefore we don't provide minified versions for them. You will be responsible for minifying the final bundle yourself.
+Bundel CommonJS dan ES Module dimaksudkan kepada pembuat bundel (*bundlers*), karena itu kita tidak menyediakan versi minifikasi untuk bundel tersebut (CommonJs dan ES Module). Kamu bertanggunag jawab atas bundel akhir untuk strategi minifikasi tersebut.
 
 CommonJS and ES Module builds also preserve raw checks for `process.env.NODE_ENV` to determine the mode they should run in. You should use appropriate bundler configurations to replace these environment variables in order to control which mode Vue will run in. Replacing `process.env.NODE_ENV` with string literals also allows minifiers like UglifyJS to completely drop the development-only code blocks, reducing final file size.
 
+Bundel CommonJS dan ES Module juga mempertahankan untuk memeriksa mentah `process.env.NODE_ENV` untuk menentukan mode mana yang digunakan saat apliaksi berjalan. Kamu harus menggunakan konfigurasi pembuat bundel (*bundler*) yang benar untuk menggantikan variabel ekosistem tersebut dikarekan untuk mengontrol di mode manakah Vue harus berjalan (Masa pengembangan/produksi). Mengganti `process.env.NODE_ENV` menggunakan *string literal* juga memungkinkan alat minifikasi (*minifiers*) seperti UglifyJS untuk membuang blok code pada masa pengembangan.
+
 #### Webpack
 
-In Webpack 4+, you can use the `mode` option:
+Di dalam Webpack 4+, kamu dapat menggunakan opsi `mode`:
 
 ``` js
 module.exports = {
   mode: 'production'
 }
 ```
-
-But in Webpack 3 and earlier, you'll need to use [DefinePlugin](https://webpack.js.org/plugins/define-plugin/):
+Tapi di dalam Webpack 3 dan sebelumnya, kamu harus menggunakan [*DefinePlugin*](https://webpack.js.org/plugins/define-plugin/):
 
 ``` js
 var webpack = require('webpack')
@@ -220,7 +221,7 @@ module.exports = {
 
 #### Rollup
 
-Use [rollup-plugin-replace](https://github.com/rollup/rollup-plugin-replace):
+Gunakan [*rollup-plugin-replace*](https://github.com/rollup/rollup-plugin-replace):
 
 ``` js
 const replace = require('rollup-plugin-replace')
@@ -237,23 +238,25 @@ rollup({
 
 #### Browserify
 
-Apply a global [envify](https://github.com/hughsk/envify) transform to your bundle.
+Gunakan mode global [*envify*](https://github.com/hughsk/envify) untuk merubah bundel.
 
 ``` bash
 NODE_ENV=production browserify -g envify -e main.js | uglifyjs -c -m > build.js
 ```
 
-Also see [Production Deployment Tips](deployment.html).
+Lihat juga [tips masa produksi dan pengembangan](deployment.html).
 
-### CSP environments
+### Ekosistem CSP
 
-Some environments, such as Google Chrome Apps, enforce Content Security Policy (CSP), which prohibits the use of `new Function()` for evaluating expressions. The full build depends on this feature to compile templates, so is unusable in these environments.
+Beberapa lingkungan, seperti Google Chrome Apps, mengharuskan Content Security Policy (CSP), dimana melarang penggunakan `new Function()` untuk mengevaluasi ekspresi (dalam hal ini *function expression*). Bundel akhir tergantung pada fitur ini untuk menyusun templat, jadi *bundler* tidak berguna sama sekali dalam ekosistem ini.
 
-On the other hand, the runtime-only build is fully CSP-compliant. When using the runtime-only build with [Webpack + vue-loader](https://github.com/vuejs-templates/webpack-simple) or [Browserify + vueify](https://github.com/vuejs-templates/browserify-simple), your templates will be precompiled into `render` functions which work perfectly in CSP environments.
+Di sisi lain, *runtime-only* bundel merupakan bundel yang sesui untuk ekositem CSP. Saat menggunakan bundel *runtime-only* dengan [Webpack + Vueloader](https://github.com/vuejs-templates/webpack-simple) atau [Browserify + vueify](https://github.com/vuejs-templates/browserify-simple) tempatmu akan disusun kedalam fungsi `render` yang dimana hal ini cocok untuk ekosistem CSP
 
-## Dev Build
+## Bundel Pengembangan (Dev Build)
 
-**Important**: the built files in GitHub's `/dist` folder are only checked-in during releases. To use Vue from the latest source code on GitHub, you will have to build it yourself!
+**Penting**: the built files in GitHub's `/dist` folder are only checked-in during releases. To use Vue from the latest source code on GitHub, you will have to build it yourself!
+
+File bundel pada Github `/dist` folder hanya disusun (*compile*) saat rilis. Untuk menggunakan Vue dari kode sumber terakhir di Github, kamu harus menyusun-nya sendiri.
 
 ``` bash
 git clone https://github.com/vuejs/vue.git node_modules/vue
@@ -264,13 +267,13 @@ npm run build
 
 ## Bower
 
-Only UMD builds are available from Bower.
+Hanya bundel UMD saja yang disediakan dari Bower
 
 ``` bash
-# latest stable
+# versi stabil terakhir
 $ bower install vue
 ```
 
 ## AMD Module Loaders
 
-All UMD builds can be used directly as an AMD module.
+Semua bundel UMD bisa digunakan langsung sebagai modul AMD
