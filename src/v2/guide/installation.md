@@ -40,13 +40,13 @@ Kami merekomendasikan untuk versi spesifik yang dapat Anda mutakhirkan secara ma
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 ```
 
-For production, we recommend linking to a specific version number and build to avoid unexpected breakage from newer versions:
+Untuk masa produksi, kami menyarankan untuk menggunakan angka versi dan bundel untuk menghindari perubahan signifikan pada versi terbaru:
 
 ``` html
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0/dist/vue.js"></script>
 ```
 
-If you are using native ES Modules, there is also an ES Modules compatible build:
+Jika kamu menggunakan ES Module asli, disediakan juga bundel kompatibel dengan ES Modules:
 
 ``` html
 <script type="module">
@@ -96,27 +96,29 @@ Di dalam [direktori `dist/` dari paket NPM](https://cdn.jsdelivr.net/npm/vue/dis
 
 - **Runtime**: kode yang bertanggung jawab untuk membuat instan Vue, _rendering_, dan _patching_ DOM virtual, dll. Pada dasarnya semua kecuali _compiler_.
 
-- **[UMD](https://github.com/umdjs/umd)**: UMD builds can be used directly in the browser via a `<script>` tag. The default file from jsDelivr CDN at [https://cdn.jsdelivr.net/npm/vue](https://cdn.jsdelivr.net/npm/vue) is the Runtime + Compiler UMD build (`vue.js`).
+- **[UMD](https://github.com/umdjs/umd)**: Bundel UMD dapat digunakan langsung pada browser dengan *tag* `<script>`. file standart dari jsDelivr CDN  [https://cdn.jsdelivr.net/npm/vue](https://cdn.jsdelivr.net/npm/vue) merupakan *Runtime* + *Compiler* bundel UMD (`vue.js`).
 
-- **[CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1)**: CommonJS builds are intended for use with older bundlers like [browserify](http://browserify.org/) or [webpack 1](https://webpack.github.io). The default file for these bundlers (`pkg.main`) is the Runtime only CommonJS build (`vue.runtime.common.js`).
+- **[CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1)**: Bundel CommonJS ditargetkan untuk digunakan oleh *bundler* lama seperti [browserify](http://browserify.org/) atau [webpack 1](https://webpack.github.io). Standar pada *bundler* ini (`pkg.main`) merupakan  *Runtime only CommonJS* bundel (`vue.runtime.common.js`).
 
-- **[ES Module](http://exploringjs.com/es6/ch_modules.html)**: starting in 2.6 Vue provides two ES Modules (ESM) builds:
+- **[ES Module](http://exploringjs.com/es6/ch_modules.html)**: mulai pada 2.6 Vue menyediakan dua bundel ES Modules (ESM):
 
-  - ESM for bundlers: intended for use with modern bundlers like [webpack 2](https://webpack.js.org) or [Rollup](https://rollupjs.org/). ESM format is designed to be statically analyzable so the bundlers can take advantage of that to perform "tree-shaking" and eliminate unused code from your final bundle. The default file for these bundlers (`pkg.module`) is the Runtime only ES Module build (`vue.runtime.esm.js`).
+  - ESM untuk *bundlers*: dimaksudkan untuk digunakan dengan *bundler* modern seperti [webpack 2](https://webpack.js.org) atau [Rollup](https://rollupjs.org/). Format ESM didesain secara statis dan dapat di analisis, sehingga *bundler* dapat mengambil keuntungan dari hal tersebut untuk melakukan [*tree-shaking*](https://www.keycdn.com/blog/tree-shaking) dan meng-eliminasi kode yang tidak digunakan dari bundel finalmu. File standar untuk bundel ini (`pkg.module`) adalah *Runtime only ES Module* bundel (`vue.runtime.esm.js`).
 
-  - ESM for browsers (2.6+ only): intended for direct imports in modern browsers via `<script type="module">`.
+  - ESM untuk browser (2.6+ only): dimaksudkan untuk impor modul langsung di browser modern  `<script type="module">`.
 
 ### Runtime + Compiler vs. Runtime-only
 
 If you need to compile templates on the client (e.g. passing a string to the `template` option, or mounting to an element using its in-DOM HTML as the template), you will need the compiler and thus the full build:
 
+Jika kamu membutuhkan untuk menyusun (*compile*) templat pada sisi klien (contoh: menggunakan *string*  pada opsi `template`, atau  memasang pada element menggukana *in-DOM HTML* sebagai templat), kamu membutuhkan penyusun (*compiler*) dan dengan demikian juga bundel penuh (*full-build*).
+
 ``` js
-// this requires the compiler
+// Ini membutuhkan kompiler
 new Vue({
   template: '<div>{{ hi }}</div>'
 })
 
-// this does not
+// ini tidak
 new Vue({
   render (h) {
     return h('div', this.hi)
@@ -158,7 +160,7 @@ rollup({
 
 #### Browserify
 
-Add to your project's `package.json`:
+Tambahkan pada `package.json` anda:
 
 ``` js
 {
@@ -171,7 +173,7 @@ Add to your project's `package.json`:
 
 #### Parcel
 
-Add to your project's `package.json`:
+Tambahkan pada `package.json` anda:
 
 ``` js
 {
@@ -187,8 +189,6 @@ Add to your project's `package.json`:
 Masa pengembangan/produksi merupakan hasil `hard-coded` bundel UMD: bundel yang tidak di minifikasi merupakan bundel masa pengembangan dan yang tidak di minifikasi merupakan bundel masa produksi.
 
 Bundel CommonJS dan ES Module dimaksudkan kepada pembuat bundel (*bundlers*), karena itu kita tidak menyediakan versi minifikasi untuk bundel tersebut (CommonJs dan ES Module). Kamu bertanggunag jawab atas bundel akhir untuk strategi minifikasi tersebut.
-
-CommonJS and ES Module builds also preserve raw checks for `process.env.NODE_ENV` to determine the mode they should run in. You should use appropriate bundler configurations to replace these environment variables in order to control which mode Vue will run in. Replacing `process.env.NODE_ENV` with string literals also allows minifiers like UglifyJS to completely drop the development-only code blocks, reducing final file size.
 
 Bundel CommonJS dan ES Module juga mempertahankan untuk memeriksa mentah `process.env.NODE_ENV` untuk menentukan mode mana yang digunakan saat apliaksi berjalan. Kamu harus menggunakan konfigurasi pembuat bundel (*bundler*) yang benar untuk menggantikan variabel ekosistem tersebut dikarekan untuk mengontrol di mode manakah Vue harus berjalan (Masa pengembangan/produksi). Mengganti `process.env.NODE_ENV` menggunakan *string literal* juga memungkinkan alat minifikasi (*minifiers*) seperti UglifyJS untuk membuang blok code pada masa pengembangan.
 
