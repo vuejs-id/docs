@@ -201,7 +201,7 @@ module.exports = {
   mode: 'production'
 }
 ```
-Tapi di dalam Webpack 3 dan sebelumnya, kamu harus menggunakan [*DefinePlugin*](https://webpack.js.org/plugins/define-plugin/):
+Untuk Webpack 3 dan sebelumnya, kamu harus menggunakan [*DefinePlugin*](https://webpack.js.org/plugins/define-plugin/):
 
 ``` js
 var webpack = require('webpack')
@@ -252,7 +252,7 @@ Beberapa lingkungan, seperti Google Chrome Apps, mengharuskan Content Security P
 
 Di sisi lain, *runtime-only* bundel merupakan bundel yang sesui untuk ekositem CSP. Saat menggunakan bundel *runtime-only* dengan [Webpack + Vueloader](https://github.com/vuejs-templates/webpack-simple) atau [Browserify + vueify](https://github.com/vuejs-templates/browserify-simple) tempatmu akan disusun kedalam fungsi `render` yang dimana hal ini cocok untuk ekosistem CSP
 
-## Bundel Pengembangan (Dev Build)
+## Bundel Pengembangan (*Dev Build*)
 
 **Penting**: the built files in GitHub's `/dist` folder are only checked-in during releases. To use Vue from the latest source code on GitHub, you will have to build it yourself!
 
