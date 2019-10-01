@@ -709,25 +709,25 @@ type: api
 
 - **Lihat juga:** [Instance Methods / Data - vm.$watch](#vm-watch)
 
-## Options / DOM
+## Opsi / DOM
 
 ### el
 
 - **Tipe:** `string | Element`
 
-- **Batasan:** only respected in instance creation via `new`.
+- **Batasan:** hanya berlaku pada pembuatan _instance_ melalui `new`.
 
 - **Detail:**
 
-  Provide the Vue instance an existing DOM element to mount on. It can be a CSS selector string or an actual HTMLElement.
+  Berikan _instance_ Vue sebuah elemen DOM yang sudah ada untuk dipasangkan. Ini bisa berupa kata pemilih CSS atau sebuah HTMLElement sesungguhnya.
 
-  After the instance is mounted, the resolved element will be accessible as `vm.$el`.
+  Setelah _instance_ sudah dipasangkan, elemen akan dapat diakses sebagai `vm.$el`.
 
-  If this option is available at instantiation, the instance will immediately enter compilation; otherwise, the user will have to explicitly call `vm.$mount()` to manually start the compilation.
+  Jika opsi ini ada saat pembuatan _instance_, _instance_ akan langsung menjalankan kompilasi; jika tidak, pengguna harus memanggil `vm.$mount()` secara eksplisit untuk menjalankan kompilasi secara manual.
 
-  <p class="tip">The provided element merely serves as a mounting point. Unlike in Vue 1.x, the mounted element will be replaced with Vue-generated DOM in all cases. It is therefore not recommended to mount the root instance to `<html>` or `<body>`.</p>
+  <p class="tip">Elemen yang diberikan hanya menjadi titik pemasangan. Tidak seperti Vue 1.x, elemen yang dipasangkan akan digantikan dengan DOM yang dihasilkan oleh Vue dalam semua kasus. Karena itu tidak disarankan untuk memasangkan instance akar ke `<html>` atau `<body>`.</p>
 
-  <p class="tip">If neither `render` function nor `template` option is present, the in-DOM HTML of the mounting DOM element will be extracted as the template. In this case, Runtime + Compiler build of Vue should be used.</p>
+  <p class="tip">Jika  fungsi `render` maupun opsi `template` tidak diberikan, DOM HTML yang di dalam dari elemen DOM yang dipasangkan akan diekstrak sebagai template. Dalam kasus ini, Runtime + Compiler build Vue harus digunakan.</p>
 
 - **Lihat juga:**
   - [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
@@ -739,13 +739,13 @@ type: api
 
 - **Detail:**
 
-  A string template to be used as the markup for the Vue instance. The template will **replace** the mounted element. Any existing markup inside the mounted element will be ignored, unless content distribution slots are present in the template.
+  Templat string yang akan digunakan sebagai markup untuk _instance_ Vue. Template akan **menggantikan** elemen yang dipasang. Markup apa pun yang ada di dalam elemen yang dipasang akan diabaikan, kecuali jika slot distribusi konten ada dalam template.
 
-  If the string starts with `#` it will be used as a querySelector and use the selected element's innerHTML as the template string. This allows the use of the common `<script type="x-template">` trick to include templates.
+  Jika kata dimulai dengan `#` itu akan digunakan sebagai querySelector dan menggunakan innerHTML elemen yang dipilih sebagai string template. Ini memungkinkan penggunaan trik umum `<script type =" x-template ">` untuk menyertakan templat.
 
-  <p class="tip">From a security perspective, you should only use Vue templates that you can trust. Never use user-generated content as your template.</p>
+  <p class="tip">Dari perspektif keamanan, Anda hanya boleh menggunakan templat Vue yang dapat Anda percayai. Jangan pernah menggunakan konten yang dibuat pengguna sebagai templat Anda.</p>
 
-  <p class="tip">If render function is present in the Vue option, the template will be ignored.</p>
+  <p class="tip">Jika fungsi _render_ ada dalam opsi Vue, _template_ akan diabaikan.</p>
 
 - **Lihat juga:**
   - [Lifecycle Diagram](../guide/instance.html#Lifecycle-Diagram)
@@ -757,27 +757,27 @@ type: api
 
   - **Detail:**
 
-    An alternative to string templates allowing you to leverage the full programmatic power of JavaScript. The render function receives a `createElement` method as it's first argument used to create `VNode`s.
+    Alternatif untuk templat string yang memungkinkan Anda memanfaatkan kekuatan penuh program JavaScript. Fungsi render menerima sebuah metode `createElement` sebagai argumen pertama yang digunakan untuk membuat `VNode`.
 
-    If the component is a functional component, the render function also receives an extra argument `context`, which provides access to contextual data since functional components are instance-less.
+    Jika komponen merupakan sebuah komponen fungsional, fungsi render juga menerima ekstra argumen `context`, yang memberikan aksesk pada data kontekstual karena komponen fungsional tidak memiliki _instance_.
 
-    <p class="tip">The `render` function has priority over the render function compiled from `template` option or in-DOM HTML template of the mounting element which is specified by the `el` option.</p>
+    <p class="tip">Fungsi `render` memiliki prioritas di atas fungsi render yang dikompilasi dari opsi `template` atau templat HTML dalam DOM dari elemen pemasangan yang ditentukan oleh opsi` el`..</p>
 
   - **Lihat juga:** [Render Functions](../guide/render-function.html)
 
 ### renderError
 
-> New in 2.2.0+
+> Baru di 2.2.0+
 
   - **Tipe:** `(createElement: () => VNode, error: Error) => VNode`
 
   - **Detail:**
 
-    **Only works in development mode.**
+    **Hanya bekerja pada mode pengembangan.**
 
-    Provide an alternative render output when the default `render` function encounters an error. The error will be passed to `renderError` as the second argument. This is particularly useful when used together with hot-reload.
+    Memberikan sebuah keluaran _render_ alternatif ketika fungsi `render` standar menemukan kesalahan. Kesalahan akan diteruskan ke `renderError` sebagai argumen kedua. Ini sangat berguna saat digunakan bersama dengan _hot-reload_.
 
-  - **Example:**
+  - **Contoh:**
 
     ``` js
     new Vue({
@@ -963,7 +963,7 @@ type: api
 
   - Kait `errorCaptured` dapat mengembalikan `false` untuk mencegah kesalahan agar tidak menyebar lebih lanjut. Ini pada dasarnya mengatakan "kesalahan ini telah ditangani dan harus diabaikan." Ini akan mencegah kait `errorCaptured` tambahan atau `global config.errorHandler` global agar tidak dipanggil untuk kesalahan ini.
 
-## Options / Assets
+## Opsi / Assets
 
 ### directives
 
@@ -971,7 +971,7 @@ type: api
 
 - **Detail:**
 
-  A hash of directives to be made available to the Vue instance.
+  Sejumlah directive yang harus disediakan untuk _instance_ Vue.
 
 - **Lihat juga:** [Custom Directives](../guide/custom-directive.html)
 
@@ -981,7 +981,7 @@ type: api
 
 - **Detail:**
 
-  A hash of filters to be made available to the Vue instance.
+  Sejumlah filter yang harus disediakan untuk _instance_ Vue.
 
 - **Lihat juga:** [`Vue.filter`](#Vue-filter)
 
@@ -991,7 +991,7 @@ type: api
 
 - **Detail:**
 
-  A hash of components to be made available to the Vue instance.
+  Sejumlah komponen yang harus disediakan untuk _instance_ Vue.
 
 - **Lihat juga:** [Components](../guide/components.html)
 
@@ -1311,39 +1311,39 @@ type: api
 
 - **Detail:**
 
-  The data object that the Vue instance is observing. The Vue instance proxies access to the properties on its data object.
+  Objek data yang dipantau oleh *Vue instance*. *Vue instance* menjembatani akses ke properti-properti yang ada di objek data *instance* tersebut.
 
 - **Lihat juga:** [Options / Data - data](#data)
 
 ### vm.$props
 
-> New in 2.2.0+
+> Baru di versi 2.2.0+
 
 - **Tipe:** `Object`
 
 - **Detail:**
 
-  An object representing the current props a component has received. The Vue instance proxies access to the properties on its props object.
+  Sebuah objek yang merepresentasikan *props* terkini yang diterima sebuah komponen. *Vue instance* menjembatani akses ke properti-properti yang ada di objek *props* *instance* tersebut.
 
 ### vm.$el
 
 - **Tipe:** `Element`
 
-- **Read only**
+- **Hanya dapat dibaca**
 
 - **Detail:**
 
-  The root DOM element that the Vue instance is managing.
+  Elemen pangkal (root) DOM yang dikelola oleh *Vue instance*.
 
 ### vm.$options
 
 - **Tipe:** `Object`
 
-- **Read only**
+- **Hanya dapat dibaca**
 
 - **Detail:**
 
-  The instantiation options used for the current Vue instance. This is useful when you want to include custom properties in the options:
+  Opsi-opsi pembuatan (*instantiation*) yang digunakan untuk *Vue instance* tersebut. Properti ini berguna saat kamu ingin memasukkan properti khusus di dalam opsi:
 
   ``` js
   new Vue({
@@ -1358,59 +1358,59 @@ type: api
 
 - **Tipe:** `Vue instance`
 
-- **Read only**
+- **Hanya dapat dibaca**
 
 - **Detail:**
 
-  The parent instance, if the current instance has one.
+  *Instance* induk (*parent*), jika *instance* tersebut mempunyainya.
 
 ### vm.$root
 
 - **Tipe:** `Vue instance`
 
-- **Read only**
+- **Hanya dapat dibaca**
 
 - **Detail:**
 
-  The root Vue instance of the current component tree. If the current instance has no parents this value will be itself.
+  *Vue instance* pangkal (root) dari pohon komponen yang ada. Jika *instance* tersebut tidak mempunyai induk (*parent*), maka nilai dari properti ini adalah *instance* itu sendiri.
 
 ### vm.$children
 
 - **Tipe:** `Array<Vue instance>`
 
-- **Read only**
+- **Hanya dapat dibaca**
 
 - **Detail:**
 
-  The direct child components of the current instance. **Note there's no order guarantee for `$children`, and it is not reactive.** If you find yourself trying to use `$children` for data binding, consider using an Array and `v-for` to generate child components, and use the Array as the source of truth.
+  Komponen-komponen anakan (child) yang langsung berada dibawah *instance* tersebut. **Sebagai catatan, tidak ada jaminan akan urutan `$children`, dan mereka tidak bersifat reaktif.** Jika kamu ingin mencoba menggunakan `$children` untuk mengikat data (binding), pertimbangkan untuk menggunakan *Array* dan `v-for` untuk membuat (*generate*) komponen anakan (*child*), dan gunakan *Array* tersebut sebagai sumber validitas.
 
 ### vm.$slots
 
 - **Tipe:** `{ [name: string]: ?Array<VNode> }`
 
-- **Read only**
+- **Hanya dapat dibaca**
 
 - **Detail:**
 
-  Used to programmatically access content [distributed by slots](../guide/components.html#Content-Distribution-with-Slots). Each [named slot](../guide/components.html#Named-Slots) has its own corresponding property (e.g. the contents of `slot="foo"` will be found at `vm.$slots.foo`). The `default` property contains any nodes not included in a named slot.
+  Digunakan untuk secara terprogram mengakses konten [yang didistribusi dengan slots](../guide/components.html#Content-Distribution-with-Slots). Tiap [slot yang memiliki nama (*named slot*)](../guide/components-slots.html#Slot-yang-Memiliki-Nama-Named-Slot) mempunyai properti terkait sendiri (misal: konten `slot="foo"` akan ditemukan pada `vm.$slots.foo`). Properti `default` berisi titik-titik (*nodes*) yang tidak masuk di dalam slot yang memiliki nama (*named slot*).
 
-  Accessing `vm.$slots` is most useful when writing a component with a [render function](../guide/render-function.html).
+  Pengaksesan `vm.$slots` paling berguna saat menulis sebuah komponen dengan [fungsi *render*](.../guide/render-function.html).
 
-- **Example:**
+- **Contoh:**
 
   ```html
   <blog-post>
     <h1 slot="header">
-      About Me
+      Tentang Saya
     </h1>
 
-    <p>Here's some page content, which will be included in vm.$slots.default, because it's not inside a named slot.</p>
+    <p>Disini beberapa konten halaman, yang akan masuk di dalam vm.$slots.default, karena tidak masuk di slot yang memiliki nama (named slot).</p>
 
     <p slot="footer">
       Copyright 2016 Evan You
     </p>
 
-    <p>If I have some content down here, it will also be included in vm.$slots.default.</p>.
+    <p>Jika saya memiliki beberapa konten disini, itu juga akan masuk di dalam vm.$slots.default.</p>.
   </blog-post>
   ```
 
@@ -1430,181 +1430,181 @@ type: api
   ```
 
 - **Lihat juga:**
-  - [`<slot>` Component](#slot-1)
-  - [Content Distribution with Slots](../guide/components.html#Content-Distribution-with-Slots)
-  - [Render Functions - Slots](../guide/render-function.html#Slots)
+  - [Komponen `<slot>`](#slot-1)
+  - [Distribusi Konten dengan Slots](../guide/components.html#Content-Distribution-with-Slots)
+  - [Fungsi Render - Slots](../guide/render-function.html#Slots)
 
 ### vm.$scopedSlots
 
-> New in 2.1.0+
+> Baru di versi 2.1.0+
 
 - **Tipe:** `{ [name: string]: props => Array<VNode> | undefined }`
 
-- **Read only**
+- **Hanya dapat dibaca**
 
 - **Detail:**
 
-  Used to programmatically access [scoped slots](../guide/components.html#Scoped-Slots). For each slot, including the `default` one, the object contains a corresponding function that returns VNodes.
+  Digunakan untuk secara terprogram mengakses [scoped slots](../guide/components.html#Scoped-Slots). Tiap slot, termasuk `default`, objeknya memiliki fungsi terkait yang mengembalikan *VNodes*.
 
-  Accessing `vm.$scopedSlots` is most useful when writing a component with a [render function](../guide/render-function.html).
+  Pengaksesan `vm.$scopedSlots` sangat berguna saat menulis komponen dengan [fungsi render](../guide/render-function.html).
 
-  **Note:** since 2.6.0+, there are two notable changes to this property:
+  **Catatan:** sejak versi 2.6.0+, ada dua perubahan di properti ini yg perlu diperhatikan:
 
-  1. Scoped slot functions are now guaranteed to return an array of VNodes, unless the return value is invalid, in which case the function will return `undefined`.
+  1. Fungsi *scoped slot* saat ini menjamin akan mengembalikan *array* dari *VNodes*, kecuali jika nilai yang dikembalikan tidak valid, yang berarti fungsi tersebut akan mengembalikan `undefined`.
 
-  2. All `$slots` are now also exposed on `$scopedSlots` as functions. If you work with render functions, it is now recommended to always access slots via `$scopedSlots`, whether they currently use a scope or not. This will not only make future refactors to add a scope simpler, but also ease your eventual migration to Vue 3, where all slots will be functions.
+  2. Semua `$slots` saat ini juga akan terekspos di `$scopedSlots` sebagai fungsi. Jika kamu berurusan dengan fungsi render, saat ini direkomendasikan untuk selalu mengakses *slots* via `$scopedSlots`, entah saat ini mereka menggunakan *scope* atau tidak. Hal ini tidak hanya akan membuat *refactors* mendatang semakin mudah dalam menambahkan sebuah *scope*, tapi juga akan memudahkan migrasi nantinya ke Vue 3, yang dimana semua *slots* adalah fungsi-fungsi.
 
 - **Lihat juga:**
-  - [`<slot>` Component](#slot-1)
+  - [Komponen `<slot>`](#slot-1)
   - [Scoped Slots](../guide/components.html#Scoped-Slots)
-  - [Render Functions - Slots](../guide/render-function.html#Slots)
+  - [Fungsi Render - Slots](../guide/render-function.html#Slots)
 
 ### vm.$refs
 
 - **Tipe:** `Object`
 
-- **Read only**
+- **Hanya dapat dibaca**
 
 - **Detail:**
 
-  An object of DOM elements and component instances, registered with [`ref` attributes](#ref).
+  Sebuah objek dari elemen-elemen DOM dan *instances* komponen, didaftarkan dengan [attribut `ref`](#ref).
 
 - **Lihat juga:**
-  - [Child Component Refs](../guide/components.html#Child-Component-Refs)
+  - [*Refs* pada Komponen Anakan (*Child*)](../guide/components.html#Child-Component-Refs)
   - [Special Attributes - ref](#ref)
 
 ### vm.$isServer
 
 - **Tipe:** `boolean`
 
-- **Read only**
+- **Hanya dapat dibaca**
 
 - **Detail:**
 
-  Whether the current Vue instance is running on the server.
+  Menyatakan apakah *Vue instance* tersebut berjalan di server.
 
 - **Lihat juga:** [Server-Side Rendering](../guide/ssr.html)
 
 ### vm.$attrs
 
-> New in 2.4.0+
+> Baru di versi 2.4.0+
 
 - **Tipe:** `{ [key: string]: string }`
 
-- **Read only**
+- **Hanya dapat dibaca**
 
 - **Detail:**
 
-  Contains parent-scope attribute bindings (except for `class` and `style`) that are not recognized (and extracted) as props. When a component doesn't have any declared props, this essentially contains all parent-scope bindings (except for `class` and `style`), and can be passed down to an inner component via `v-bind="$attrs"` - useful when creating higher-order components.
+  Berisi ikatan (bindings) attribut yang berada di cakupan induk (*parent*) (kecuali untuk `class` dan `style`) yang tidak dianggap (dan diekstrak) sebagai *props*. Saat sebuah komponen tidak memiliki deklarasi *props*, properti ini pada dasarnya berisi semua ikatan (bindings) yang berada di cakupan induk (*parent*) (kecuali untuk `class` dan `style`), dan dapat diteruskan kebawah ke komponen *inner* via `v-bind="$attrs"` - berguna saat membuat komponen *higher-order* (HOC).
 
 ### vm.$listeners
 
-> New in 2.4.0+
+> Baru di versi 2.4.0+
 
 - **Tipe:** `{ [key: string]: Function | Array<Function> }`
 
-- **Read only**
+- **Hanya dapat dibaca**
 
 - **Detail:**
 
-  Contains parent-scope `v-on` event listeners (without `.native` modifiers). This can be passed down to an inner component via `v-on="$listeners"` - useful when creating transparent wrapper components.
+  Berisi pemantau (*listeners*) *events* `v-on` yang berada di cakupan induk (parent) (tanpa pengubah (*modifiers*) `.native`). Properti ini dapat diteruskan kebawah ke komponen *inner* via `v-on="$listeners"` - berguna saat membuat komponen-komponen penyelubung (wrapper) yang bersifat transparan.
 
-## Instance Methods / Data
+## Metode Instance / Data 
 
 ### vm.$watch( expOrFn, callback, [options] )
 
-- **Arguments:**
+- **Argumen:**
   - `{string | Function} expOrFn`
   - `{Function | Object} callback`
   - `{Object} [options]`
     - `{boolean} deep`
     - `{boolean} immediate`
 
-- **Returns:** `{Function} unwatch`
+- **Mengembalikan:** `{Function} unwatch`
 
 - **Penggunaan:**
 
-  Watch an expression or a computed function on the Vue instance for changes. The callback gets called with the new value and the old value. The expression only accepts dot-delimited paths. For more complex expressions, use a function instead.
+Mengawasi suatu ekspresi atau fungsi penghitung (*computed function*) pada *instance* Vue untuk perubahan. *Callback* dipanggil dengan nilai baru dan nilai lama. Ekspresi hanya menerima jalur *dot-delimited*. Untuk ekspresi yang lebih kompleks, gunakan fungsi.
 
-<p class="tip">Note: when mutating (rather than replacing) an Object or an Array, the old value will be the same as new value because they reference the same Object/Array. Vue doesn't keep a copy of the pre-mutate value.</p>
+<p class="tip">Catatan: ketika memutasi (alih-alih mengganti) suatu Objek atau Array, nilai lama akan sama dengan nilai baru karena mereka mereferensikan Objek/Array yang sama. Vue tidak menyimpan salinan dari nilai pra-mutasi.</p>
 
-- **Example:**
+- **Contoh:**
 
   ``` js
   // keypath
   vm.$watch('a.b.c', function (newVal, oldVal) {
-    // do something
+    // lakukan sesuatu
   })
 
   // function
   vm.$watch(
     function () {
-      // everytime the expression `this.a + this.b` yields a different result,
-      // the handler will be called. It's as if we were watching a computed
-      // property without defining the computed property itself
+      // setiap kali ekspresi `this.a + this.b` menghasilkan hasil yang berbeda,     
+      // handler akan dipanggil. Seolah-olah kita sedang mengawasi properti 
+      // penghitung (computed property) tanpa mendefinisikan properti penghitung itu sendiri
       return this.a + this.b
     },
     function (newVal, oldVal) {
-      // do something
+      // lakukan sesuatu
     }
   )
   ```
 
-  `vm.$watch` returns an unwatch function that stops firing the callback:
+  `vm.$watch` mengembalikan fungsi yang tidak diamati yang berhenti menembakkan *callback*:
 
   ``` js
   var unwatch = vm.$watch('a', cb)
-  // later, teardown the watcher
+  // nanti, runtuhkan pengamat
   unwatch()
   ```
 
-- **Option: deep**
+- **Opsi: deep**
 
-  To also detect nested value changes inside Objects, you need to pass in `deep: true` in the options argument. Note that you don't need to do so to listen for Array mutations.
+  Untuk mendeteksi perubahan nilai bersarang (*nested value*) di dalam Objek, anda harus mengoper `deep: true` dalam argumen opsi. Perhatikan bahwa anda tidak perlu mendengarkan (*listen*) untuk mutasi Array.
 
   ``` js
   vm.$watch('someObject', callback, {
     deep: true
   })
   vm.someObject.nestedValue = 123
-  // callback is fired
+  // callback dieksekusi
   ```
 
-- **Option: immediate**
+- **Opsi: immediate**
 
-  Passing in `immediate: true` in the option will trigger the callback immediately with the current value of the expression:
+  Mengoper `immediate: true` dalam opsi akan segera memicu *callback* dengan nilai ekspresi saat ini:
 
   ``` js
   vm.$watch('a', callback, {
     immediate: true
   })
-  // `callback` is fired immediately with current value of `a`
+  // `callback` segera dieksekusi dengan nilai `a` saat ini
   ```
 
 ### vm.$set( target, key, value )
 
-- **Arguments:**
+- **Argumen:**
   - `{Object | Array} target`
   - `{string | number} key`
   - `{any} value`
 
-- **Returns:** the set value.
+- **Mengembalikan:** set nilai.
 
 - **Penggunaan:**
 
-  This is the **alias** of the global `Vue.set`.
+  Ini adalah **alias** dari global `Vue.set`.
 
 - **Lihat juga:** [Vue.set](#Vue-set)
 
 ### vm.$delete( target, key )
 
-- **Arguments:**
+- **Argumen:**
   - `{Object | Array} target`
   - `{string | number} key`
 
 - **Penggunaan:**
 
-  This is the **alias** of the global `Vue.delete`.
+  Ini adalah **alias** dari global `Vue.delete`.
 
 - **Lihat juga:** [Vue.delete](#Vue-delete)
 
