@@ -383,8 +383,7 @@ export default {
 ## Kapan Untuk Menghindari Pola Ini
 Ini mungkin menggoda untuk membuat solusi yang sangat kompleks berdasarkan contoh, tapi dalam beberapa poin kita dapat sampai pada situasi dimana abstraksi ini menjadi bagian yang mandiri dari kode yang berada dalam basis kode.
 
-## 
-## Wrapping Up
+## Kesimpulan
 Jadi itu saja. Dengan semua bit-bit itu dan bagian-bagian yang telah dibuat sekarang kita dapat menguna-ulang komponen `GoogleMapLoader` sebagai dasar untuk semua peta kita dengan mengoper tempat berbeda ke masing-masing templat tersebut. Bayangkan Anda perlu membuat peta lain dengan Marker yang berbeda atau hanya Marker tanpa _Polyline_. Dengan menggunakan pola di atas itu menjadi sangat mudah seperti kita hanya perlu mengoper konten yang berbeda ke komponen `GoogleMapLoader`.
 
 Pola ini tidak ketat terkoneksi ke _Google Maps_; ini dapat digunakan dengan pustaka apapun untuk menetapkan dasar komponen dan membuka pustaka API yang mungkin digunakan dalam komponen yang dipanggil komponen dasar.
