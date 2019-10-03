@@ -78,6 +78,7 @@
 
 ## G
 
+- Gotcha: Rintangan / Halangan
 
 [⬆️](#navigasi-berdasarkan-abjad)
 
