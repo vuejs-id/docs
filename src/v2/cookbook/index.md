@@ -38,18 +38,18 @@ Instruksi umumnya harus:
 
 Kami memohon anda untuk mengikuti templat dibawah ini. Kami mengerti, namun, bahwa ada saat ketika anda perlu menyimpang demi kejelasan maupun aliran. Bagaimanapun juga, semua instruksi pada suatu titik tertentu harus mendiskusikan nuansa pilihan yang dibuat menggunakan pola ini, lebih disukai dalam bentuk bagian pola alternatif.
 
-### Base Example
+### Basis Contoh
 
-_required_
+_diperlukan_
 
-1.  Articulate the problem in a sentence or two.
-2.  Explain the simplest possible solution in a sentence or two.
-3.  Show a small code sample.
-4.  Explain what this accomplishes in a sentence.
+1.  Mengartikulasikan masalah dalam satu atau dua kalimat.
+2.  Menjelaskan cara paling sederhana dalam satu atau dua kalimat.
+3.  Menampilkan contoh kecil kode.
+4.  Jelaskan apa yang dicapai dalam satu kalimat. 
 
 ### Details about the Value
 
-_required_
+_diperlukan_
 
 1.  Address common questions that one might have while looking at the example. (Blockquotes are great for this)
 2.  Show examples of common missteps and how they can be avoided.
