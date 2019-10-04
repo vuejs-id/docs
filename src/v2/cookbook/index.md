@@ -22,9 +22,8 @@ Bagaimana buku petunjuk berbeda dengan petunjuk? Mengapa hal ini penting?
 
 Buku petunjuk memberikan contoh kepada pengembang untuk mengatasi kasus penggunaan umum atau menarik, dan juga menjelaskan detail yang lebih kompleks. Tujuan kami adalah untuk melampaui contoh pengantar sederhana, dan menunjukkan konsep yang lebih luas yang bisa diterapkan, dan beberapa peringatan untuk pendekatan.
 
-Jika anda tertarik untuk berkontribusi, silakan mulai kolaborasi dengan cara mengisi sebuah isu dibawah tanda **ide buku petunjuk** dengan konsep anda sehingga kami bisa memandu anda untuk melakukan _pull request_ dengan sukses. Setelah ide anda disetujui, silakan ikuti templat dibawah ini sebanyak mungkin. Beberapa bagian diperlukan, dan lainnya adalah opsional. Mengikuti urutan penomoran sangat disarankan, tetapi tidak diperlukan. 
+Jika anda tertarik untuk berkontribusi, silakan mulai kolaborasi dengan cara mengisi sebuah isu dibawah tanda **ide buku petunjuk** dengan konsep anda sehingga kami bisa memandu anda untuk melakukan _pull request_ dengan sukses. Setelah ide anda disetujui, silakan ikuti templat dibawah ini sebanyak mungkin. Beberapa bagian diperlukan, dan lainnya adalah opsional. Mengikuti urutan penomoran sangat disarankan, tetapi tidak diwajibkan. 
 
-Recipes should generally:
 Instruksi umumnya harus:
 
 > * Menyelesaikan masalah umum, secara spesifik
@@ -34,13 +33,13 @@ Instruksi umumnya harus:
 > * Mendeskripsikan masalah, daripada mengasumsikan keakraban
 > * Menjelaskan prosesnya, daripada hanya memberikan hasil akhir
 > * Menjelaskan kelebihan dan kekurangan dari strategi anda, termasuk ketika tepat atau tidak tepat
-> * Menyebutkan solusi alternativ, jika relevan, tetapi berikan penjelajahan mendalam untuk instruksi terpisah
+> * Menyebutkan solusi alternatif, jika relevan, tetapi berikan penjelajahan mendalam untuk instruksi terpisah
 
 Kami memohon anda untuk mengikuti templat dibawah ini. Kami mengerti, namun, bahwa ada saat ketika anda perlu menyimpang demi kejelasan maupun aliran. Bagaimanapun juga, semua instruksi pada suatu titik tertentu harus mendiskusikan nuansa pilihan yang dibuat menggunakan pola ini, lebih disukai dalam bentuk bagian pola alternatif.
 
 ### Basis Contoh
 
-_diperlukan_
+_diwajibkan_
 
 1.  Mengartikulasikan masalah dalam satu atau dua kalimat.
 2.  Menjelaskan cara paling sederhana dalam satu atau dua kalimat.
@@ -49,16 +48,16 @@ _diperlukan_
 
 ### Detail tentang Nilai
 
-_diperlukan_
+_diwajibkan_
 
 1.  Jawab pertanyaan umum yang mungkin dimiliki seseorang saat melihat contoh. (Blockquote bagus untuk hal ini)
 2.  Tunjukkan contoh kesalahan langkah umum dan bagaimana mereka dapat dihindari.
 3.  Perlihatkan contoh kode yang sangat sederhana dari pola yang baik dan buruk.
-4.  Diskusikan mengapa ini bisa menjadi pola yang meyakinkan. Tautan untuk referensi tidak diperlukan tetapi dianjurkan.
+4.  Diskusikan mengapa ini bisa menjadi pola yang meyakinkan. Tautan untuk referensi tidak diwajibkan tetapi dianjurkan.
 
-### Real-World Example
+### Contoh Nyata
 
-_diperlukan_
+_diwajibkan_
 
 Tunjukkan kode yang akan mendukung kasus penggunaan umum atau menarik, baik dengan:
 
@@ -77,7 +76,7 @@ Sangat membantu untuk menuliskan sedikit tentang pola ini, di mana ini akan berl
 
 _opsional_
 
-Bagian ini tidak diperlukan, tetapi sangat direkomendasikan. Tidak masuk akal untuk menuliskan sesuatu yang sangat sederhana seperti mengubah kelas berdasarkan perubahan _state_, tetapi untuk pola tingkat lanjut seperti mixins, ini sangat penting. Jawaban untuk sebagian besar pertanyaan tentang pengembanngan adalah ["Tergantung!"](https://codepen.io/rachsmith/pen/YweZbG), bagian ini mencakup itu. Disini, kami akan menilai secara jujur apakan pola ini berguna dan kapan harus dihindari, atau ketika hal lain lebih masuk akal.
+Bagian ini tidak diwajibkan, tetapi sangat direkomendasikan. Tidak masuk akal untuk menuliskan sesuatu yang sangat sederhana seperti mengubah kelas berdasarkan perubahan _state_, tetapi untuk pola tingkat lanjut seperti mixins, ini sangat penting. Jawaban untuk sebagian besar pertanyaan tentang pengembangan adalah ["Tergantung!"](https://codepen.io/rachsmith/pen/YweZbG), bagian ini mencakup itu. Disini, kami akan menilai secara jujur apakah pola ini berguna dan kapan harus dihindari, atau ketika hal lain lebih masuk akal.
 
 ### Pola Alternatif
 
