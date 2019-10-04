@@ -47,14 +47,14 @@ _diperlukan_
 3.  Menampilkan contoh kecil kode.
 4.  Jelaskan apa yang dicapai dalam satu kalimat. 
 
-### Details about the Value
+### Detail tentang Nilai
 
 _diperlukan_
 
-1.  Address common questions that one might have while looking at the example. (Blockquotes are great for this)
-2.  Show examples of common missteps and how they can be avoided.
-3.  Show very simple code samples of good and bad patterns.
-4.  Discuss why this may be a compelling pattern. Links for reference are not required but encouraged.
+1.  Jawab pertanyaan umum yang mungkin dimiliki seseorang saat melihat contoh. (Blockquote bagus untuk hal ini)
+2.  Tunjukkan contoh kesalahan langkah umum dan bagaimana mereka dapat dihindari.
+3.  Perlihatkan contoh kode yang sangat sederhana dari pola yang baik dan buruk.
+4.  Diskusikan mengapa ini bisa menjadi pola yang meyakinkan. Tautan untuk referensi tidak diperlukan tetapi dianjurkan.
 
 ### Real-World Example
 
