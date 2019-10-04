@@ -4,17 +4,17 @@ type: cookbook
 order: 0
 ---
 
-## The Cookbook vs the Guide
+## Buku Petunjuk vs Petunjuk
 
-How is the cookbook different from the guide? Why is this necessary?
+Bagaimana buku petunjuk berbeda dengan petunjuk? Mengapa hal ini penting?
 
-* **Greater Focus**: In the guide, we're essentially telling a story. Each section builds on and assumes knowledge from each previous section. In the cookbook, each recipe can and should stand on its own. This means recipes can focus on one specific aspect of Vue, rather than having to give a general overview.
+* **Fokus Yang Lebih Baik**: Di dalam petunjuk, kami pada dasarnya bercerita. Setiap bagian dibangun dan diasumsikan dari tiap bagian sebelumnya. Di dalam buku petunjuk, setiap instruksi bisa dan harus berdiri sendiri. Ini berarti instruksi dapat fokus pada satu aspek spesifik Vue, daripada harus memberikan gambaran umum. 
 
-* **Greater Depth**: To avoid making the guide too long, we try to include only the simplest possible examples to help you understand each feature. Then we move on. In the cookbook, we can include more complex examples, combining features in interesting ways. Each recipe can also be as long and detailed as it needs to be, in order to fully explore its niche.
+* **Lebih Mendalam**: Untuk menghindari membuat panduan lebih panjang, kami mencoba untuk hanya menyertakan contoh paling sederhana untuk membantu anda memahami setiap fitur. Lalu kami melanjutkan. Di dalam buku petunjuk, kami bisa menyertakan lebih banyak contoh kompleks, menggabungkan fitur dengan cara yang menarik. Setiap instuksi juga bisa menjadi panjang dan rinci sesuai yang dibutuhkan, demi mendalami topik secara menyeluruh.
 
-* **Teaching JavaScript**: In the guide, we assume at least intermediate familiarity with ES5 JavaScript. For example, we won't explain how `Array.prototype.filter` works in a computed property that filters a list. In the cookbook however, essential JavaScript features (including ES6/2015+) can be explored and explained in the context of how they help us build better Vue applications.
+* **Mengajarkan JavaScript**: Di dalam petunjuk, kami berasumsi bahwa setidaknya sudah terbiasa dengan ES5 JavaScript. Sebagai contoh, kami tidak akan menjelaskan bagaimana `Array.prototype.filter` bekerja pada properti _computed_ yang menyaring sebuah daftar.
 
-* **Exploring the Ecosystem**: For advanced features, we assume some ecosystem knowledge. For example, if you want to use single-file components in Webpack, we don't explain how to configure the non-Vue parts of the Webpack config. In the cookbook, we have the space to explore these ecosystem libraries in more depth - at least to the extent that is universally useful for Vue developers.
+* **Menjelajahi Ekosistem**: Untuk fitur tingkat lanjut, kami mengasumsikan beberapa pengetahuan ekosistem. Sebagai contoh, jika anda ingin menggunakan komponen berkas tunggal (single-file components) di Webpack, kami tidak menjelaskan bagaimana cara untuk mengkonfigurasi selain bagian dari Vue pada konfigurasi Webpack. Di dalam buku petunjuk, kami memiliki ruang untuk menjelajahi pustaka ekosistem lebih dalam - setidaknya selama berguna secara universal bagi pengembang Vue.
 
 ## Cookbook Contributions
 
