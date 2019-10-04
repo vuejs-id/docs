@@ -58,33 +58,33 @@ _diperlukan_
 
 ### Real-World Example
 
-_required_
+_diperlukan_
 
-Demonstrate the code that would power a common or interesting use case, either by:
+Tunjukkan kode yang akan mendukung kasus penggunaan umum atau menarik, baik dengan:
 
-1.  Walking through a few terse examples of setup, or
-2.  Embedding a codepen/jsfiddle example
+1.  Melalui beberapa contoh pengaturan yang singkat, atau
+2.  Memberikan contoh codepen/jsfiddle
 
-If you choose to do the latter, you should still talk through what it is and does.
+Jika anda memilih untuk melakukan yang terakhir, anda masih harus membicarakan apa itu dan apa yang harus dilakukan.
 
-### Additional Context
+### Konteks Tambahan
 
-_optional_
+_opsional_
 
-It's extremely helpful to write a bit about this pattern, where else it would apply, why it works well, and run through a bit of code as you do so or give people further reading materials here.
+Sangat membantu untuk menuliskan sedikit tentang pola ini, di mana ini akan berlaku, mengapa ini bekerja dengan baik, dan menjalankan sedikit kode saat anda melakukannya atau memberikan orang bahan bacaan lebih lanjut di sini.
 
-### When To Avoid This Pattern
+### Kapan harus menghindari pola ini
 
-_optional_
+_opsional_
 
-This section is not required, but heavily recommended. It won't make sense to write it for something very simple such as toggling classes based on state change, but for more advanced patterns like mixins it's vital. The answer to most questions about development is ["It depends!"](https://codepen.io/rachsmith/pen/YweZbG), this section embraces that. Here, we'll take an honest look at when the pattern is useful and when it should be avoided, or when something else makes more sense.
+Bagian ini tidak diperlukan, tetapi sangat direkomendasikan. Tidak masuk akal untuk menuliskan sesuatu yang sangat sederhana seperti mengubah kelas berdasarkan perubahan _state_, tetapi untuk pola tingkat lanjut seperti mixins, ini sangat penting. Jawaban untuk sebagian besar pertanyaan tentang pengembanngan adalah ["Tergantung!"](https://codepen.io/rachsmith/pen/YweZbG), bagian ini mencakup itu. Disini, kami akan menilai secara jujur apakan pola ini berguna dan kapan harus dihindari, atau ketika hal lain lebih masuk akal.
 
-### Alternative Patterns
+### Pola Alternatif
 
-_required_
+_wajib_
 
-This section is required when you've provided the section above about avoidance. It's important to explore other methods so that people told that something is an antipattern in certain situations are not left wondering. In doing so, consider that the web is a big tent and that many people have different codebase structures and are solving different goals. Is the app large or small? Are they integrating Vue into an existing project, or are they building from scratch? Are their users only trying to achieve one goal or many? Is there a lot of asynchronous data? All of these concerns will impact alternative implementations. A good cookbook recipe gives developers this context.
+Bagian ini diwajibkan ketika anda telah memberikan bagian diatas tentang penghindaran. Penting untuk mengeksplorasi metode lain sehingga orang-orang mengatakan bahwa sesuatu adalah anti-pola dalam situasi tertentu tidak dibiarkan bertanya-tanya. Dengan demikian, pertimbangkan bahwa web adalah tenda besar dan banyak orang memiliki struktur basis kode yang berbeda dan menyelesaikan tujuan yang berbeda. Apakah aplikasinya besar atau kecil? Apakah mereka mengintegrasikan Vue ke proyek yang ada, atau mereka membangun dari awal? Apakah pengguna mereka hanya berusaha mencapai satu tujuan atau banyak? Apakah ada banyak data yang tidak sinkron? Semua masalah ini akan berdampak pada implementasi alternatif. Buku petunjuk yang bagus memberi konteks ini pada pengembang.
 
-## Thank you
+## Terima kasih
 
-It takes time to contribute to documentation, and if you spend the time to submit a PR to this section of our docs, you do so with our gratitude.
+Memakan waktu untuk berkontribusi pada dokumentasi, dan jika anda meluangkan waktu untuk mengirimkan PR ke bagian dokumen ini, anda melakukannya dengan rasa terima kasih kami.
