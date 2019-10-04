@@ -16,26 +16,27 @@ Bagaimana buku petunjuk berbeda dengan petunjuk? Mengapa hal ini penting?
 
 * **Menjelajahi Ekosistem**: Untuk fitur tingkat lanjut, kami mengasumsikan beberapa pengetahuan ekosistem. Sebagai contoh, jika anda ingin menggunakan komponen berkas tunggal (single-file components) di Webpack, kami tidak menjelaskan bagaimana cara untuk mengkonfigurasi selain bagian dari Vue pada konfigurasi Webpack. Di dalam buku petunjuk, kami memiliki ruang untuk menjelajahi pustaka ekosistem lebih dalam - setidaknya selama berguna secara universal bagi pengembang Vue.
 
-## Cookbook Contributions
+## Kontribusi Buku Petunjuk
 
-### What we're looking for
+### Apa yang kami cari
 
-The Cookbook gives developers examples to work off of that both cover common or interesting use cases, and also progressively explain more complex detail. Our goal is to move beyond a simple introductory example, and demonstrate concepts that are more widely applicable, as well as some caveats to the approach.
+Buku petunjuk memberikan contoh kepada pengembang untuk mengatasi kasus penggunaan umum atau menarik, dan juga menjelaskan detail yang lebih kompleks. Tujuan kami adalah untuk melampaui contoh pengantar sederhana, dan menunjukkan konsep yang lebih luas yang bisa diterapkan, dan beberapa peringatan untuk pendekatan.
 
-If you're interested in contributing, please initiate collaboration by filing an issue under the tag **cookbook idea** with your concept so that we can help guide you to a successful pull request. After your idea has been approved, please follow the template below as much as possible. Some sections are required, and some are optional. Following the numerical order is strongly suggested, but not required.
+Jika anda tertarik untuk berkontribusi, silakan mulai kolaborasi dengan cara mengisi sebuah isu dibawah tanda **ide buku petunjuk** dengan konsep anda sehingga kami bisa memandu anda untuk melakukan _pull request_ dengan sukses. Setelah ide anda disetujui, silakan ikuti templat dibawah ini sebanyak mungkin. Beberapa bagian diperlukan, dan lainnya adalah opsional. Mengikuti urutan penomoran sangat disarankan, tetapi tidak diperlukan. 
 
 Recipes should generally:
+Instruksi umumnya harus:
 
-> * Solve a specific, common problem
-> * Start with the simplest possible example
-> * Introduce complexities one at a time
-> * Link to other docs, rather than re-explaining concepts
-> * Describe the problem, rather than assuming familiarity
-> * Explain the process, rather than just the end result
-> * Explain the pros and cons of your strategy, including when it is and isn't appropriate
-> * Mention alternative solutions, if relevant, but leave in-depth explorations to a separate recipe
+> * Menyelesaikan masalah umum, secara spesifik
+> * Mulai dengan contoh yang paling sederhana
+> * Mengenalkan kompleksitas satu per satu
+> * Menautkan ke dokumentasi lain, daripada menjelaskan kembali konsep 
+> * Mendeskripsikan masalah, daripada mengasumsikan keakraban
+> * Menjelaskan prosesnya, daripada hanya memberikan hasil akhir
+> * Menjelaskan kelebihan dan kekurangan dari strategi anda, termasuk ketika tepat atau tidak tepat
+> * Menyebutkan solusi alternativ, jika relevan, tetapi berikan penjelajahan mendalam untuk instruksi terpisah
 
-We request that you follow the template below. We understand, however, that there are times when you may necessarily need to deviate for clarity or flow. Either way, all recipes should at some point discuss the nuance of the choice made using this pattern, preferably in the form of the alternative patterns section.
+Kami memohon anda untuk mengikuti templat dibawah ini. Kami mengerti, namun, bahwa ada saat ketika anda perlu menyimpang demi kejelasan maupun aliran. Bagaimanapun juga, semua instruksi pada suatu titik tertentu harus mendiskusikan nuansa pilihan yang dibuat menggunakan pola ini, lebih disukai dalam bentuk bagian pola alternatif.
 
 ### Base Example
 
