@@ -1,5 +1,5 @@
 ---
-title: Debugging in VS Code
+title: Debug menggunakan VS Code
 type: cookbook
 order: 8
 ---
