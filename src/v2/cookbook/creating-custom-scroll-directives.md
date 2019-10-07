@@ -102,7 +102,6 @@ Vue kaya akan pilihan untuk *directives*, sebagian besar mencakup kasus pengguna
 
 Menambahkan dan menghapus *scroll event* ke elemen adalah kasus penggunaan yang sangat baik untuk teknik ini, karena sama seperti *directive* yang kita pakai, mereka harus dipasangkan ke elemen dan sebaliknya, kita harus menemukan refrensi untuk di DOM. Pola ini menghindari *DOM traversal*, dan membuat logika *event* dipasangkan dengan *node* yamg mengacu padanya.
 
-
 ## Contoh Dunia Nyata: Menggunakan Custom Scroll Directive Untuk Animasi Cascading
 
 Dalam rangka membuat situs yang kohesif, kamu mungkin menemukan bahwa kamu menggunakan kembali tipe animasi dan logika yang sama dibeberapa tempat. Itu terlihat simpel, kita akan membuat *custom directive* yang sangat spesifi, benar? Biasanya, jika kau menggunakan kembali, kamu harus mengubahnya *sedikit* untuk setiap penggunaan.
