@@ -1,5 +1,5 @@
 ---
-title: Mengumumkan Vue.js 2.0
+title: Announcing Vue.js 2.0
 date: 2016-04-27 13:33:00
 ---
 
