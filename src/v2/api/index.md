@@ -1057,7 +1057,7 @@ type: api
 
 ### provide / inject
 
-> Baru di 2.2.0+
+> Baru di versi 2.2.0+
 
 - **Tipe:**
   - **provide:** `Object | () => Object`
@@ -1190,13 +1190,13 @@ type: api
 
 - **Tipe:** `string`
 
-- **Batasan:** only respected when used as a component option.
+- **Batasan:** Gunakan hanya sebagai opsi komponen.
 
 - **Detail:**
 
-  Allow the component to recursively invoke itself in its template. Note that when a component is registered globally with `Vue.component()`, the global ID is automatically set as its name.
+  Mengizinkan sebuah komponen untuk memanggil dirinya sendiri di dalam templatnya sendiri secara rekursif. Catat bahwa ketika sebuah komponen terdaftar secara global dengan `Vue.component()`, ID global secara otomatis ditetapkan sebagai namanya.
 
-  Another benefit of specifying a `name` option is debugging. Named components result in more helpful warning messages. Also, when inspecting an app in the [vue-devtools](https://github.com/vuejs/vue-devtools), unnamed components will show up as `<AnonymousComponent>`, which isn't very informative. By providing the `name` option, you will get a much more informative component tree.
+  Keuntungan lain dengan menspesifikasikan sebuah opsi `name` adalah _debugging_. Komponen dengan nama lebih membantu dalam pesan peringatan. Dan juga, ketika memeriksa sebuah aplikasi di dalam [vue-devtools](https://github.com/vuejs/vue-devtools), komponen tanpa nama akan muncul sebagai `<AnonymousComponent>`, dimana tidak informatif sama sekali. Dengan menambahkan opsi `name`, anda akan mendapatkan struktur komponen yang lebih informatif.
 
 ### delimiters
 
@@ -1204,11 +1204,11 @@ type: api
 
 - **Nilai Anggapan:** `{% raw %}["{{", "}}"]{% endraw %}`
 
-- **Batasan:** This option is only available in the full build, with in-browser compilation.
+- **Batasan:** Opsi ini hanya tersedia di _full build_, dalam kompilasi peramban.
 
 - **Detail:**
 
-  Change the plain text interpolation delimiters.
+  Mengubah pembatas interpolasi teks normal.
 
 - **Example:**
 
@@ -1217,7 +1217,7 @@ type: api
     delimiters: ['${', '}']
   })
 
-  // Delimiters changed to ES6 template string style
+  // Delimiter diubah menjadi menggunakan ES6 template string
   ```
 
 ### functional
@@ -1226,32 +1226,32 @@ type: api
 
 - **Detail:**
 
-  Causes a component to be stateless (no `data`) and instanceless (no `this` context). They are only a `render` function that returns virtual nodes making them much cheaper to render.
+  Menyebabkan sebuah komponen menjadi tanpa kondisi (tanpa `data`) dan tanpa _instance_ (tanpa konteks `this`). Komponen tersebut hanya berisi fungsi `render` yang mengembalikan node virtual agar membuat komponen tersebut lebih efektif untuk _dirender_.
 
 - **Lihat juga:** [Functional Components](../guide/render-function.html#Functional-Components)
 
 ### model
 
-> New in 2.2.0
+> Baru di versi 2.2.0
 
 - **Tipe:** `{ prop?: string, event?: string }`
 
 - **Detail:**
 
-  Allows a custom component to customize the prop and event used when it's used with `v-model`. By default, `v-model` on a component uses `value` as the prop and `input` as the event, but some input types such as checkboxes and radio buttons may want to use the `value` prop for a different purpose. Using the `model` option can avoid the conflict in such cases.
+  Mengizinkan sebuah komponen khusus untuk menyesuaikan _prop_ dan _event_ ketika digunakan bersama `v-model`. Secara standar, `v-model` dalam sebuah komponen menggunakan `value` sebagai _prop_ dan `input` sebagai _event_, namun beberapa tipe _input_ seperti tombol centang dan tombol radio ingin menggunakan _prop_ `value` untuk tujuan yang lain. Menggunakan opsi `model` dapat menghindari konflik dalam kasus seperti ini.
 
-- **Example:**
+- **Contoh:**
 
   ``` js
-  Vue.component('my-checkbox', {
+  Vue.component('checkbox-saya', {
     model: {
       prop: 'checked',
       event: 'change'
     },
     props: {
-      // this allows using the `value` prop for a different purpose
+      // mengizinkan menggunakan prop `value` untuk tujuan lain
       value: String,
-      // use `checked` as the prop which take the place of `value`
+      // menggunakan `checked` sebagai prop yang akan menimpa nilai dari `value`
       checked: {
         type: Number,
         default: 0
@@ -1262,22 +1262,22 @@ type: api
   ```
 
   ``` html
-  <my-checkbox v-model="foo" value="some value"></my-checkbox>
+  <checkbox-saya v-model="foo" value="sebuah nilai"></checkbox-saya>
   ```
 
-  The above will be equivalent to:
+  Kode di atas sama dengan:
 
   ``` html
-  <my-checkbox
+  <checkbox-saya
     :checked="foo"
-    @change="val => { foo = val }"
-    value="some value">
-  </my-checkbox>
+    @change="nilai => { foo = nilai }"
+    value="sebuah nilai">
+  </checkbox-saya>
   ```
 
 ### inheritAttrs
 
-> New in 2.4.0+
+> Baru di versi 2.4.0+
 
 - **Tipe:** `boolean`
 
@@ -1285,23 +1285,23 @@ type: api
 
 - **Detail:**
 
-  By default, parent scope attribute bindings that are not recognized as props will "fallthrough" and be applied to the root element of the child component as normal HTML attributes. When authoring a component that wraps a target element or another component, this may not always be the desired behavior. By setting `inheritAttrs` to `false`, this default behavior can be disabled. The attributes are available via the `$attrs` instance property (also new in 2.4) and can be explicitly bound to a non-root element using `v-bind`.
+  Secara standar, Ikatan atribut dalam cakupan induk yang tidak dikenali sebagai _prop_ akan "gagal" dan akan diaplikasikan ke elemen akar dari komponen anak sebagai atribut HTML normal. Ketika membuat sebuah komponen yang membungkus sebuah elemen target atau komponen lain, opsi ini tidak selalu menghasilkan hasil yang diinginkan. Dengan mengubah nilai `inheritAttrs` menjadi `false`, kejadian standar ini dapat dinonaktifkan. Atribut yang tersedia melalui properti _instance_ `$attrs` (baru di 2.4) dan bisa diikat secara eksplisit ke elemen yang bukan akar menggunakan `v-bind`.
 
-  Note: this option does **not** affect `class` and `style` bindings.
+  Catatan: opsi ini **tidak** mempengaruhi ikatan `class` dan `style`.
 
 ### comments
 
-> New in 2.4.0+
+> Baru di versi 2.4.0+
 
 - **Tipe:** `boolean`
 
 - **Nilai Anggapan:** `false`
 
-- **Batasan:** This option is only available in the full build, with in-browser compilation.
+- **Batasan:** Opsi ini hanya tersedia di _full build_, dalam kompilasi peramban.
 
 - **Detail:**
 
-  When set to `true`, will preserve and render HTML comments found in templates. The default behavior is discarding them.
+  Ketika nilai diubah ke `true`, akan menyimpan dan _merender_ komen HTML yang ditemukan di templat. Tindakan normal secara umum adalah dengan membuangnya.
 
 ## Instance Properties
 
