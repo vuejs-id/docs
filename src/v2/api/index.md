@@ -1013,11 +1013,11 @@ type: api
 
 - **Detail:**
 
-  The `mixins` option accepts an array of mixin objects. These mixin objects can contain instance options like normal instance objects, and they will be merged against the eventual options using the same option merging logic in `Vue.extend()`. e.g. If your mixin contains a created hook and the component itself also has one, both functions will be called.
+  `mixins` menerima sebuah array berisi objek _mixin_. Kumpulan objek _mixin_ ini dapat berisi opsi _instance_ seperti _instance_ objek pada umumnya, dan mereka akan digabungkan dengan opsi akan ditambah menggunakan logika penggabungan opsi yang sama di dalam `Vue.extend()`. Contoh: Jika `mixin` anda mengandung _hook_ dan komponen itu sendiri juga memiliki _hook_ yang sama, maka kedua fungsi akan dipanggil.
 
-  Mixin hooks are called in the order they are provided, and called before the component's own hooks.
+  _hook_ mixin dipanggil sesuai dengan urutan dimana mereka disediakan, dan dipanggil sebelum _hook_ komponen itu sendiri.
 
-- **Example:**
+- **Contoh:**
 
   ``` js
   var mixin = {
