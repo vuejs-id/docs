@@ -1039,16 +1039,16 @@ type: api
 
 - **Detail:**
 
-  Allows declaratively extending another component (could be either a plain options object or a constructor) without having to use `Vue.extend`. This is primarily intended to make it easier to extend between single file components.
+  Secara deklaratif mengekstensi komponen lain (bisa antara objek opsi polos, atau sebuah konstruktor) tanpa menggunakan `Vue.extend`. Tujuan utama dari _extends_ adalah mempermudah ekstensi antara Komponen Berkas Tunggal.
 
-  This is similar to `mixins`.
+  Fungsi ini mirip dengan `mixins`.
 
-- **Example:**
+- **Contoh:**
 
   ``` js
   var CompA = { ... }
 
-  // extend CompA without having to call `Vue.extend` on either
+  // extend CompA tanpa perlu memanggil `Vue.extend` di keduanya
   var CompB = {
     extends: CompA,
     ...
@@ -1057,7 +1057,7 @@ type: api
 
 ### provide / inject
 
-> New in 2.2.0+
+> Baru di 2.2.0+
 
 - **Tipe:**
   - **provide:** `Object | () => Object`
@@ -1065,26 +1065,26 @@ type: api
 
 - **Detail:**
 
-  <p class="tip">`provide` and `inject` are primarily provided for advanced plugin / component library use cases. It is NOT recommended to use them in generic application code.</p>
+  <p class="tip">`provide` dan `inject` khususnya disediakan untuk _plugin_ lanjutan / kasus pemakaian pustaka komponen. Fungsi ini TIDAK direkomendasikan untuk digunakan dalam kode aplikasi secara umum.</p>
 
-  This pair of options are used together to allow an ancestor component to serve as a dependency injector for all its descendants, regardless of how deep the component hierarchy is, as long as they are in the same parent chain. If you are familiar with React, this is very similar to React's context feature.
+  Kedua opsi ini digunakan untuk mengizinkan komponen terdahulu sebagai penyuntik _dependencies_ ke semua keturunannya, mengesampingkan seberapa dalam komponen hirarkinya, selama mereka ada di dalam rantai komponen induk yang sama. Jika anda _familiar_ dengan React, ini sangat mirip dengan fitur konteks React.
 
-  The `provide` option should be an object or a function that returns an object. This object contains the properties that are available for injection into its descendants. You can use ES2015 Symbols as keys in this object, but only in environments that natively support `Symbol` and `Reflect.ownKeys`.
+  Tipe opsi `provide` harus sebuah objek atau sebuah fungsi yang mengembalikan sebuah object. Objek ini mengandung properti-properti yang tersedia untuk diinjeksikan ke keturunannya. Anda dapat menggunakan ES2015 Symbols sebagai _keys_ di objek ini, tapi hanya di lingkungan yang secara _native_ mendukung `Symbol` dan `Reflect.ownKeys`.
 
-  The `inject` option should be either:
-  - an array of strings, or
-  - an object where the keys are the local binding name and the value is either:
-    - the key (string or Symbol) to search for in available injections, or
-    - an object where:
-      - the `from` property is the key (string or Symbol) to search for in available injections, and
-      - the `default` property is used as fallback value
+  Opsi `inject` harus di antara berikut:
+  - sebuah array berisi untai
+  - sebuah objek dimana _keys_ adalah nama _binding_ lokal dan nilainya di antara:
+    - _key_ (untai atau Symbol) untuk mencari injeksi yang tersedia, atau
+    - sebuah objek dimana:
+      - properti `from` adalah _key_ (untai atau Symbol) untuk mencari injeksi yang tersedia, dan
+      - properti `default` yang digunakan sebagai nilai pada saat terjadi kegagalan
 
-  > Note: the `provide` and `inject` bindings are NOT reactive. This is intentional. However, if you pass down an observed object, properties on that object do remain reactive.
+  > Catatan: ikatan `provide` dan `inject` tidak bersifat reaktif. Hal ini disengaja. Namun, apabila anda menurunkan objek yang diobservasi, properti-properti dalam objek tersebut tetap reaktif.
 
-- **Example:**
+- **Contoh:**
 
   ``` js
-  // parent component providing 'foo'
+  // komponen induk menyediakan 'foo'
   var Provider = {
     provide: {
       foo: 'bar'
@@ -1092,8 +1092,8 @@ type: api
     // ...
   }
 
-  // child component injecting 'foo'
-  var Child = {
+  // komponen anak menginjeksi 'foo'
+  var Anak = {
     inject: ['foo'],
     created () {
       console.log(this.foo) // => "bar"
@@ -1102,7 +1102,7 @@ type: api
   }
   ```
 
-  With ES2015 Symbols, function `provide` and object `inject`:
+  Dengan ES2015 Symbols, fungsi `provide` dan objek `inject`:
   ``` js
   const s = Symbol()
 
@@ -1114,17 +1114,17 @@ type: api
     }
   }
 
-  const Child = {
+  const Anak = {
     inject: { s },
     // ...
   }
   ```
 
-  > The next 2 examples work with Vue 2.2.1+. Below that version, injected values were resolved after the `props` and the `data` initialization.
+  > Dua contoh dibawah hanya bisa berjalan dengan Vue 2.2.1+. Nilai-nilai yang diinjeksi diselesaikan setelah inisialisasi `props` dan `data`.
 
-  Using an injected value as the default for a prop:
+  Menggunakan nilai yang terinjeksi sebagai nilai anggapan untuk sebuah `prop`:
   ```js
-  const Child = {
+  const Anak = {
     inject: ['foo'],
     props: {
       bar: {
@@ -1136,9 +1136,9 @@ type: api
   }
   ```
 
-  Using an injected value as data entry:
+  Menggunakan nilai yang terinjeksi sebagai data:
   ```js
-  const Child = {
+  const Anak = {
     inject: ['foo'],
     data () {
       return {
@@ -1148,20 +1148,20 @@ type: api
   }
   ```
 
-  > In 2.5.0+ injections can be optional with default value:
+  > Di versi 2.5.0+ injeksi bersifat opsional dengan nilai anggapan:
 
   ``` js
-  const Child = {
+  const Anak = {
     inject: {
       foo: { default: 'foo' }
     }
   }
   ```
 
-  If it needs to be injected from a property with a different name, use `from` to denote the source property:
+  Jika komponen tersebut memerlukan injeksi dari properti dengan nama yang lain, gunakan `from` untuk menandakan sumber properti:
 
   ``` js
-  const Child = {
+  const Anak = {
     inject: {
       foo: {
         from: 'bar',
@@ -1171,10 +1171,10 @@ type: api
   }
   ```
 
-  Similar to prop defaults, you need to use a factory function for non primitive values:
+  Mirip dengan nilai anggapan _prop_, anda harus menggunakan fungsi pabrik untuk nilai non-primitif:
 
   ``` js
-  const Child = {
+  const Anak = {
     inject: {
       foo: {
         from: 'bar',
