@@ -1003,7 +1003,7 @@ type: api
 
 - **Detail:**
 
-  Tentukan _instance_ induk untuk instance yang akan dibuat. Bangun hubungan induk-anak di antara keduanya. Induk dapat diakses sebagai`this.$parent` di dalam _instance_ anak, dan _instance_ anak akan dimasukkan ke dalem _array_ `$children` induknya.
+  Tentukan _instance_ induk untuk _instance_ yang akan dibuat. Bangun hubungan induk-anak di antara keduanya. Induk dapat diakses sebagai`this.$parent` di dalam _instance_ anak, dan _instance_ anak akan dimasukkan ke dalem _array_ `$children` induknya.
 
   <p class="tip">Gunakan `$parent` dan `$children` secukupnya - dikarenakan mereka kebanyakan digunakan sebagai pintu darurat. Utamakan penggunaan _props_ dan _events_ untuk komunikasi induk-anak.</p>
 
@@ -1013,7 +1013,7 @@ type: api
 
 - **Detail:**
 
-  `mixins` menerima sebuah array berisi objek _mixin_. Kumpulan objek _mixin_ ini dapat berisi opsi _instance_ seperti _instance_ objek pada umumnya, dan mereka akan digabungkan dengan opsi akan ditambah menggunakan logika penggabungan opsi yang sama di dalam `Vue.extend()`. Contoh: Jika `mixin` anda mengandung _hook_ dan komponen itu sendiri juga memiliki _hook_ yang sama, maka kedua fungsi akan dipanggil.
+  `mixins` menerima sebuah array berisi objek _mixin_. Kumpulan objek _mixin_ ini dapat berisi opsi _instance_ seperti _instance_ objek pada umumnya, dan mereka akan digabungkan dengan opsi yang ditambah menggunakan logika penggabungan opsi yang sama seperti `Vue.extend()`. Contoh: Jika `mixin` anda mengandung _hook_ dan komponen itu sendiri juga memiliki _hook_ yang sama, maka kedua fungsi akan dipanggil.
 
   _hook_ mixin dipanggil sesuai dengan urutan dimana mereka disediakan, dan dipanggil sebelum _hook_ komponen itu sendiri.
 
