@@ -85,9 +85,9 @@ Vue.component('anchored-heading', {
 
 Lebih sederhana! kodenya lebih pendek, tapi kita juga harus terbiasa dengan properti yang ada di dalam *Vue instance*.  Dalam kasus ini, anda harus tahu bahwa isi dari komponen yang tidak di tandai direktif `v-slot`, seperti `Hello World!` di dalam `anchored-heading`, isi tersebut disimpan di `$slots.default`. Jika anda masih belum paham, **direkomendasikan untuk membaca [instance properties API](../api/#Instance-Properties) sebelum mempelajari lebih dalam tentang fungsi render.**
 
-## Nodes, Trees, and the Virtual DOM
+## *Nodes*, *Trees*, dan *Virtual DOM*
 
-Before we dive into render functions, it’s important to know a little about how browsers work. Take this HTML for example:
+Sebelum kita lanjut lebih dalam tentang fungsi *render*, penting untuk sedikit mengetahui tentang bagaimana _browsers_ bekeerja. Lihat contoh HTM di bawah:
 
 ```html
 <div>
@@ -97,21 +97,21 @@ Before we dive into render functions, it’s important to know a little about ho
 </div>
 ```
 
-When a browser reads this code, it builds a [tree of "DOM nodes"](https://javascript.info/dom-nodes) to help it keep track of everything, just as you might build a family tree to keep track of your extended family.
+Ketika *browser* membaca kode di atas, *browser* akan membuat [pohon yang terdiri atas *DOM nodes*](https://javascript.info/dom-nodes) untuk membantu mencatat isi HTML tersebut, sama seperti jika anda membuat silsilah pohon keluarga untuk mencata isi dari keluarga anda.
 
-The tree of DOM nodes for the HTML above looks like this:
+Bentuk pohon dari *DOM nodes* untuk HTML di atas terlihat seperti:
 
-![DOM Tree Visualization](/images/dom-tree.png)
+![Visualisasi pohon *DOM*](/images/dom-tree.png)
 
-Every element is a node. Every piece of text is a node. Even comments are nodes! A node is just a piece of the page. And as in a family tree, each node can have children (i.e. each piece can contain other pieces).
+Setiap elemen adalah *node*. Setiap teks adalah node. BAhkan komentar juga *node*!. Dan sama seperti silsilah keluarga, setiap *node* bisa memiliki anak (misalnya setiap node mengandung *node* lainnya).
 
-Updating all these nodes efficiently can be difficult, but thankfully, you never have to do it manually. Instead, you tell Vue what HTML you want on the page, in a template:
+Memperbarui *node* yang banyak ini secara eisien tidaklah mudah, tapi untungnya, anda tidak harus melakukannya secara manual. Sebaliknya, gunakan Vue untuk membuat HTML yang kalian inginkan melalui templat:
 
 ```html
 <h1>{{ blogTitle }}</h1>
 ```
 
-Or a render function:
+Atau fungsi *render*:
 
 ``` js
 render: function (createElement) {
@@ -119,7 +119,7 @@ render: function (createElement) {
 }
 ```
 
-And in both cases, Vue automatically keeps the page updated, even when `blogTitle` changes.
+Dalam kedua kasus, Vue secara otomatis akan memastikan bahwa tampilannya diperbarui dengan benar, seperti ketika `blogTitle` berubah.
 
 ### The Virtual DOM
 
