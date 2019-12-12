@@ -184,7 +184,7 @@ Sekarang ketika anda menjalankan `vm.fullName = 'John Doe'`, Sebuah *setter* aka
 
 ## Pengawas (Watcher)
 
-Ketika properti pengihitung sangat teratur dalam beberapa kasus, ada kalanya sebuah *watcher* kustom dibutuhkan. Itulah kenapa Vue memberikan cara yang lebih umum untuk bereaksi pada saat data berubah melalui pilihan `watch`. Ini sangat berguna ketika anda ingin melakukan operasi *asynchronous* atau operasi *expensive* sebagai balasan perubahan data.
+Ketika properti penghitung sangat teratur dalam beberapa kasus, ada kalanya sebuah *watcher* kustom dibutuhkan. Itulah kenapa Vue memberikan cara yang lebih umum untuk bereaksi pada saat data berubah melalui pilihan `watch`. Ini sangat berguna ketika anda ingin melakukan operasi *asynchronous* atau operasi *expensive* sebagai balasan perubahan data.
 
 
 Sebagai Contoh:
